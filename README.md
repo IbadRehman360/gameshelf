@@ -5,10 +5,10 @@ This is a prototype project of a platform that allows sellers to offer their gam
 ## The Design (Mobile/Desktop)
 Theme colors: 
 
-Navy Blue - #242633
-White - #FFFFFF
-Light Gray - #F4F8FF
-Light Purple - #A8B4DD
+Navy Blue - #242633\
+White - #FFFFFF\
+Light Gray - #F4F8FF\
+Light Purple - #A8B4DD\
 
 ![design](https://i.imgur.com/qrcbXTu.png)
 ## Features
