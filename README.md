@@ -2,9 +2,9 @@
 
 This is a prototype project of a platform that allows sellers to offer their game accounts to buyers.
 
-## The Design
+## The Design (Mobile/Desktop)
 
-![design](https://i.imgur.com/hrUWCHd.png)
+![design](https://imgur.com/a/dm39XEg.png)
 ## Features
 
 - Authentication System
