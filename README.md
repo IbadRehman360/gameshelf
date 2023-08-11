@@ -18,7 +18,7 @@ This is a prototype project of a platform that allows sellers to offer their gam
 
 ## Tech Stack
 
-**Client:** React, Tailwind, React Query, React Router
+**Client:** React, Tailwind, Tanstack Query, React Router
 
 **Backend:** Supabase
 
