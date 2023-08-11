@@ -4,7 +4,7 @@ This is a prototype project of a platform that allows sellers to offer their gam
 
 ## The Design (Mobile/Desktop)
 
-![design](https://i.imgur.com/GHGpNP5.png)
+![design](https://i.imgur.com/qrcbXTu.png)
 ## Features
 
 - Authentication System
