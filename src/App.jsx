@@ -1,5 +1,21 @@
-function App() {
-  return <div>Getting Started</div>;
-}
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import HomePage from './pages/HomePage';
+import AppLayout from './layouts/AppLayout';
 
-export default App;
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />
+      }
+    ]
+  }
+])
+export default function App() {
+  
+  return (
+    <RouterProvider router={router} />
+  )
+}
