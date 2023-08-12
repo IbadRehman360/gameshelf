@@ -3,7 +3,8 @@
 This is a prototype project of a platform that allows sellers to offer their game accounts to buyers.
 
 ## The Design (Mobile/Desktop)
-Theme colors: 
+
+Theme colors:
 
 Navy Blue - #242633\
 White - #FFFFFF\
@@ -11,6 +12,7 @@ Light Gray - #F4F8FF\
 Light Purple - #A8B4DD
 
 ![design](https://i.imgur.com/qrcbXTu.png)
+
 ## Features
 
 - Authentication System
@@ -28,8 +30,9 @@ Light Purple - #A8B4DD
 
 **Backend:** Supabase
 
-
 ## Run Locally
+
+Fork this repository by clicking on the fork button on the top of this page. This will create a copy of this repository in your account.
 
 Clone the project
 
@@ -55,7 +58,6 @@ Start the local development server
   npm run dev
 ```
 
-
 ## Deployment
 
 To deploy this project run
@@ -63,7 +65,6 @@ To deploy this project run
 ```bash
   npm run build
 ```
-
 
 ## Environment Variables
 
@@ -73,9 +74,6 @@ To run this project, you will need to add the following environment variables to
 
 `VITE_SUPABASE_KEY`
 
-
 ## Contributing
 
 Contributions are always welcome feel free to create a pull request with something you would like to improve!
-
-
