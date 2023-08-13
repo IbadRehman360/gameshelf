@@ -16,5 +16,10 @@ export default {
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: ["light"]
+  },
+  plugins: [
+    require('daisyui'),
+  ],
 };
