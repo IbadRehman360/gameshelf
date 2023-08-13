@@ -1,11 +1,11 @@
-import HomePageNavigationBar from "../components/HomePageNavigationBar";
+import CategoryList from "../components/CategoryList";
 import Stats from "../components/Stats";
 
 export default function HomePage() {
   return (
-    <div className="">
+    <div>
       <Stats />
-      <HomePageNavigationBar />
+      <CategoryList />
     </div>
   );
 }
