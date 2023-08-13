@@ -66,10 +66,16 @@ function NotLoggedInCta({ onToggle }) {
       className='border-t py-4 fixed z-10 bottom-0 left-0 w-full  shadow-lg flex justify-center items-center gap-4 text-sm font-light lg:w-fit lg:border-none lg:static lg:py-0 lg:z-0 lg:shadow-none'
       onClick={onToggle}
     >
-      <Link className='border border-black py-1 w-[40%] text-center rounded text-black lg:w-fit lg:px-8 lg:rounded-full lg:py-2  lg:bg-[#323445] lg:border-none lg:text-white lg:font-medium'>
+      <Link
+        to='/'
+        className='border border-black py-1 w-[40%] text-center rounded text-black lg:w-fit lg:px-8 lg:rounded-full lg:py-2  lg:bg-[#323445] lg:border-none lg:text-white lg:font-medium'
+      >
         Sell
       </Link>
-      <Link className='border border-black py-1 w-[40%] text-center rounded bg-navy-blue lg:w-fit lg:px-8 lg:rounded-full lg:py-2  lg:bg-[#323445] lg:border-none lg:text-white lg:font-medium'>
+      <Link
+        to='/register'
+        className='border border-black py-1 w-[40%] text-center rounded bg-navy-blue lg:w-fit lg:px-8 lg:rounded-full lg:py-2  lg:bg-[#323445] lg:border-none lg:text-white lg:font-medium'
+      >
         Log In/Sign Up
       </Link>
     </div>
