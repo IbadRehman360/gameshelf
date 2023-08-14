@@ -1,10 +1,9 @@
 import { useState } from "react";
+import giftCardData from "../assets/giftcardsData/giftcardData.json";
 const TrendingGiftCard = () => {
   const [currentItem, setCurrentItem] = useState(4);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const carouselItemClass = "carousel-item w-[48%] sm:w-[24%] flex flex-col";
-  const carouselSpanClass =
-    "text-black text-sm mt-2  w-full text-center sm:hidden";
+
   const handlePrevPage = () => {
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
@@ -34,50 +33,40 @@ const TrendingGiftCard = () => {
           className="carousel rounded-lg gap-x-4 transition-transform duration-500 ease-in-out flex whitespace-nowrap"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
-          <div id="slide1" className={carouselItemClass}>
-            <img src="/public/giftcards/giftcard1.svg" alt="giftcardIcon" />
-            <span className={carouselSpanClass}>Stem Wallet</span>
-          </div>
-
-          <div id="slide2" className={carouselItemClass}>
-            <img src="/public/giftcards/giftcard2.svg" alt="giftcardIcon" />
-            <span className={carouselSpanClass}>Apple Itunes</span>
-          </div>
-          <div id="slide3" className={carouselItemClass}>
-            <img src="/public/giftcards/giftcard3.svg" alt="giftcardIcon" />
-            <span className={carouselSpanClass}>Razor Gold</span>
-          </div>
-          <div id="slide4" className={carouselItemClass}>
-            <img src="/public/giftcards/giftcard4.svg" alt="giftcardIcon" />
-            <span className={carouselSpanClass}>Game Pass</span>
-          </div>
-          <div id="slide5" className={carouselItemClass}>
-            <img src="/public/giftcards/giftcard1.svg" alt="giftcardIcon" />
-            <span className={carouselSpanClass}>Stem Wallet</span>
-          </div>
-          <div id="slide6" className={carouselItemClass}>
-            <img src="/public/giftcards/giftcard2.svg" alt="giftcardIcon" />
-            <span className={carouselSpanClass}>Apple Itunes</span>
-          </div>
-          <div id="slide7" className={carouselItemClass}>
-            <img src="/public/giftcards/giftcard3.svg" alt="giftcardIcon" />
-            <span className={carouselSpanClass}>Razor Gold</span>
-          </div>
-          <div id="slide8" className={carouselItemClass}>
-            <img src="/public/giftcards/giftcard4.svg" alt="giftcardIcon" />
-            <span className={carouselSpanClass}>Game Pass</span>
-          </div>
+          {giftCardData.map((item) => (
+            <div
+              key={item.id}
+              id={`slide${item.id}`}
+              className="carousel-item w-[48%] sm:w-[23%] lg:w-[24%] flex flex-col relative"
+            >
+              <img src={item.src} alt="giftcardIcon" />
+              <div className="absolute h-[20%] w-full rounded-xl opacity-30 shadow-2xl bg-gradient-to-b from-white  to-black "></div>
+              <p className="absolute text-[14px] sm:max-lg:hidden top-[4%] left-[50%] text-white -translate-x-[50%]">
+                {item.title}
+              </p>
+              <span className="absolute sm:bottom-[6%] sm:right-[8%] bottom-9 right-3 text-white text-[12px]">
+                {item.offers} offers
+              </span>
+              <span className="text-black text-sm mt-2  w-full text-center sm:hidden">
+                {item.title}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="text-center">
+      <div className="text-center ">
         <button
           onClick={handlePrevPage}
-          className="trending-page1 w-[25px] h-[3px] rounded-2xl mr-1"
+          className={`trending-page1 w-[25px] h-[3px] rounded-2xl mr-1 ${
+            currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
+          } `}
           id="prevPage"
         />
         <button
           onClick={handleNextPage}
-          className="trending-page2 w-[25px] h-[3px] rounded-2xl "
+          className={`trending-page2 w-[25px] h-[3px] rounded-2xl ${
+            currentSlide === 0 ? "bg-[#888888]" : "bg-[#f03827]"
+          } `}
           id="nextPage"
         />
       </div>
