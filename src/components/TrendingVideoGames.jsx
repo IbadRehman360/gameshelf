@@ -16,8 +16,9 @@ const TrendingVideoGames = () => {
   const handleNextItem = () => {
     setCurrentItem(currentItem + 1);
   };
+
   return (
-    <div className="px-[10%]">
+    <div className="max-w-7xl mx-auto px-5">
       <div className="flex items-center justify-between my-8">
         <h2 className="text-2xl font-bold">Trending Gift Cards</h2>
         <a
