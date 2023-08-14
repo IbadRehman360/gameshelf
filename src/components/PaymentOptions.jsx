@@ -42,11 +42,11 @@ export default function PaymentOptions() {
           className='h-20 w-40 mx-auto object-contain'
         />
       </div>
-      <div className='border-[0.5px] border-gray-200 px-4'>
+      <div className='flex justify-center items-center border-[0.5px] border-gray-200 px-4'>
         <img
           src={bitcoinCash}
           alt={bitcoinCash}
-          className='h-20 w-40 mx-auto object-contain'
+          className='h-[54px] w-26 mx-auto object-contain'
         />
       </div>
       <div className='flex justify-center items-center border-[0.5px] border-gray-200 px-4'>
