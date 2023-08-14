@@ -14,7 +14,7 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto pt-10 px-5 ">
+    <div className="max-w-7xl mx-auto px-5 ">
       <h2 className="text-2xl font-bold">Featured Products</h2>
       <div className="flex gap-3 my-3">
         <div className="flex flex-col gap-1">
@@ -56,7 +56,7 @@ export default function FeaturedProducts() {
         <FeaturedProduct />
       </div>
 
-      <div className="flex md:hidden justify-center mt-14">
+      <div className="flex md:hidden justify-center mt-9">
         <a
           href="#featuredProductsSlide1"
           onClick={handlePrevPage}
