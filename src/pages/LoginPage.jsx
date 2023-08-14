@@ -133,7 +133,7 @@ export default function LoginPage() {
           </div>
 
           <p className="mt-10 flex gap-2 justify-center items-center text-center text-sm text-gray-500">
-            Not a member? 
+            Not a member?
             <a
               href="#"
               className="font-semibold leading-6 text-navy-blue hover:text-[#4b4e6b]"
