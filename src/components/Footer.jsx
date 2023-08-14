@@ -1,36 +1,56 @@
-import { FaFacebookF, FaTwitter, FaSnapchatGhost } from "react-icons/fa";
-import { BsFillCircleFill } from "react-icons/bs";
+// import { FaFacebookF, FaTwitter, FaSnapchatGhost } from "react-icons/fa";
+// import { BsFillCircleFill } from "react-icons/bs";
 
 export default function Footer() {
   return (
-    <footer className='bg-navy-blue text-white p-8'>
-      <section className='flex flex-col gap-1 text-xs justify-center sm:gap-4 sm:w-[75%] sm:mx-auto'>
-        <div className='flex flex-col gap-2 sm:w-[100%] sm:flex-row sm:justify-between'>
-          <p>
-            Registered name and tradenarks are the copyright and property of
-            their respective owner.
-          </p>
-          <div className='flex gap-4 mb-1 sm:mb-0'>
-            <a href='#'>
-              <FaFacebookF className='rounded-full border bg-gray-200 text-gray-800 text-3xl p-[4px]  hover:bg-transparent hover:border hover:text-white' />
-            </a>
-            <a href='#'>
-              <FaTwitter className='rounded-full border bg-gray-200 text-gray-800 text-3xl p-[4px]  hover:bg-transparent hover:border hover:text-white' />
-            </a>
-            <a href='#'>
-              <FaSnapchatGhost className='rounded-full border bg-gray-200 text-gray-800 text-3xl p-[4px]  hover:bg-transparent hover:border hover:text-white' />
-            </a>
+    <div>
+      <footer className="footer p-8  text-gray-100 bg-navy-blue sm:flex sm:justify-between ">
+        <div>
+          <span className="footer-title">Services</span>
+          <a className="link link-hover">Branding</a>
+          <a className="link link-hover">Design</a>
+          <a className="link link-hover">Marketing</a>
+          <a className="link link-hover">Advertisement</a>
+        </div>
+        <div className="hidden md:flex md:flex-col lg:flex">
+          <span className="footer-title">Legal</span>
+          <a className="link link-hover">Terms of use</a>
+          <a className="link link-hover">Privacy policy</a>
+          <a className="link link-hover">Cookie policy</a>
+        </div>
+        <div className=" sm:flex flex-col sm:flex-end">
+          <span className="footer-title">Company</span>
+          <a className="link link-hover">About us</a>
+          <a className="link link-hover">Contact</a>
+          <a className="link link-hover">Jobs</a>
+          <a className="link link-hover">Press kit</a>
+        </div>
+        <div className="md:flex md:flex-col lg:flex">
+          <span className="footer-title">Newsletter</span>
+          <div className="form-control sm:w-80 w-64">
+            <label className="label ">
+              <span className="label-text  text-gray-100">
+                Enter your email address
+              </span>
+            </label>
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="username@site.com"
+                className="input input-bordered text-sm w-full pr-16"
+              />
+              <button className="btn btn-primary sm:text-md text-xs absolute top-0 right-0 rounded-l-none">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
-        <div className='flex gap-2 items-center sm:flex-col sm:items-start'>
-          <a href='#'>Terms of Service</a>
-          <BsFillCircleFill className='text-[5px] sm:hidden' />
-          <a href='#'>Privacy Policy</a>
-          <BsFillCircleFill className='text-[5px] sm:hidden' />
-          <a href='#'>Legal</a>
+      </footer>
+      <footer className="footer footer-center p-4  text-gray-400 bg-navy-blue border-t     border-gray-600 ">
+        <div>
+          <p>Copyright © 2023 - All right reserved by GameStacks Ltd</p>
         </div>
-        <p>&copy;2023 Gameshelf</p>
-      </section>
-    </footer>
+      </footer>
+    </div>
   );
 }
