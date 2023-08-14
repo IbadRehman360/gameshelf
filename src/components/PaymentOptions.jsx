@@ -28,7 +28,7 @@ const LOGOS = [
 
 export default function PaymentOptions() {
   return (
-    <section className='grid grid-cols-2 w-full gap-0 border-b-2 mb-4 border-gray-200 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'>
+    <section className='grid grid-cols-2 w-full gap-0 border-b-2 mb-4 border-gray-200 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'>
       {LOGOS.map((company, idx) => (
         <div key={idx} className='border-[0.5px] border-gray-200'>
           <img
