@@ -1,7 +1,10 @@
 export default function Hero() {
   return (
     <div>
-      <img className="h-84 w-full" src="home/heroImage/hero.webp" />
+      <img
+        className="w-full xl:h-[80vh] sm:h-[80vh]"
+        src="home/heroImage/hero.webp"
+      />
     </div>
   );
 }
