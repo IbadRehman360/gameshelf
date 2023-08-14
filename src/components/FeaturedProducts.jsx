@@ -12,8 +12,9 @@ export default function FeaturedProducts() {
   const handleNextPage = () => {
     if (currentSlide < 2) setCurrentSlide(currentSlide + 1);
   };
+
   return (
-    <div className="max-w-7xl mx-auto pt-10 p-5 ">
+    <div className="max-w-7xl mx-auto pt-10 px-5 ">
       <h2 className="text-2xl font-bold">Featured Products</h2>
       <div className="flex gap-3 my-3">
         <div className="flex flex-col gap-1">
@@ -41,13 +42,6 @@ export default function FeaturedProducts() {
         <div
           id="featuredProductsSlide2"
           className="carousel-item w-full gap-3 md:gap-5"
-        >
-          <FeaturedProduct />
-          <FeaturedProduct />
-        </div>
-        <div
-          id="featuredProductsSlide2"
-          className="hidden lg:carousel-item w-full gap-3 md:gap-5"
         >
           <FeaturedProduct />
           <FeaturedProduct />
