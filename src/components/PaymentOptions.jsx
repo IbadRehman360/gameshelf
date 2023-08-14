@@ -50,10 +50,10 @@ export default function PaymentOptions() {
         />
       </div>
       <div className='flex justify-center items-center border-[0.5px] border-gray-200 px-4'>
-        <img src={visa} alt={visa} className='h-10 w-20 object-contain' />
+        <img src={visa} alt={visa} className='h-8 w-16 object-contain' />
       </div>
       <div className='flex justify-center items-center border-[0.5px] border-gray-200 px-4'>
-        <img src={skrill} alt={skrill} className='h-10 w-20 object-contain' />
+        <img src={skrill} alt={skrill} className='h-8 w-16 object-contain' />
       </div>
       <div className='border-[0.5px] border-gray-200 px-4'>
         <img
