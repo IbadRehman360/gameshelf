@@ -11,33 +11,85 @@ import litecoin from "../assets/payments/litecoin.png";
 import bitcoinCash from "../assets/payments/bitcoin-cash.png";
 import cards from "../assets/payments/debit-credit.png";
 
-const LOGOS = [
-  bitcoin,
-  amex,
-  banktransfer,
-  ethereum,
-  mastercard,
-  paypal,
-  skrill,
-  westernUnion,
-  litecoin,
-  bitcoinCash,
-  visa,
-  cards,
-];
-
 export default function PaymentOptions() {
   return (
-    <section className='grid grid-cols-4 w-full gap-0 border-b-2 mb-4 border-gray-200 sm:grid-cols-6'>
-      {LOGOS.map((company, idx) => (
-        <div key={idx} className='border-[0.5px] border-gray-200'>
-          <img
-            src={company}
-            alt={company}
-            className='h-20 w-40 mx-auto object-contain'
-          />
-        </div>
-      ))}
+    <section className='grid grid-cols-4 w-full gap-0 border-b-2 mb-4 border-gray-300 sm:grid-cols-6'>
+      <div className='border-[0.5px] border-gray-200 px-4'>
+        <img
+          src={bitcoin}
+          alt={bitcoin}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4'>
+        <img
+          src={amex}
+          alt={amex}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4'>
+        <img
+          src={banktransfer}
+          alt={banktransfer}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4'>
+        <img
+          src={ethereum}
+          alt={ethereum}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4'>
+        <img
+          src={bitcoinCash}
+          alt={bitcoinCash}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='flex justify-center items-center border-[0.5px] border-gray-200 px-4'>
+        <img src={visa} alt={visa} className='h-10 w-20 object-contain' />
+      </div>
+      <div className='flex justify-center items-center border-[0.5px] border-gray-200 px-4'>
+        <img src={skrill} alt={skrill} className='h-10 w-20 object-contain' />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4'>
+        <img
+          src={litecoin}
+          alt={litecoin}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4 hidden sm:block'>
+        <img
+          src={mastercard}
+          alt={mastercard}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4 hidden sm:block'>
+        <img
+          src={paypal}
+          alt={paypal}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4 hidden sm:block'>
+        <img
+          src={westernUnion}
+          alt={westernUnion}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
+      <div className='border-[0.5px] border-gray-200 px-4 hidden sm:block'>
+        <img
+          src={cards}
+          alt={cards}
+          className='h-20 w-40 mx-auto object-contain'
+        />
+      </div>
     </section>
   );
 }
