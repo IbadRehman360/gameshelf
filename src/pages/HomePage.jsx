@@ -6,15 +6,19 @@ import TrendingVideoGames from "../components/TrendingVideoGames";
 import PaymentOptions from "../components/PaymentOptions";
 import FeaturesList from "../components/Features/FeaturesList";
 import Footer from "../components/Footer";
+import FeaturedProducts from "../components/FeaturedProducts";
 
 export default function HomePage() {
   return (
-    <div className=''>
+    <div className="">
       <Hero />
       <Stats />
       <CategoryList />
-      <TrendingGiftCard />
-      <TrendingVideoGames />
+      <div className="bg-light-gray">
+        <FeaturedProducts />
+        <TrendingGiftCard />
+        <TrendingVideoGames />
+      </div>
       <PaymentOptions />
       <FeaturesList />
       <Footer />
