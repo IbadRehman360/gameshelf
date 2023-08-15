@@ -61,6 +61,7 @@ const TrendingGiftCards = () => {
           )}
         </div>
       </div>
+      
       <div className="hidden sm:carousel carousel-center w-full rounded-lg gap-x-4">
         <div
           id="trendingGiftCardsSlide1"
