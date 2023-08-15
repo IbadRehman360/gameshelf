@@ -9,13 +9,13 @@ export default function FeaturedProduct() {
         className="object-cover rounded-lg h-20 mt-0"
       />
       <div className="flex flex-col gap-1 ">
-        <h4 className="sm:text-[0.6rem] text-[0.5rem] mt-2 uppercase text-gray-500">
+        <h4 className="sm:text-[0.7rem] text-[0.6rem] mt-2 uppercase text-gray-500">
           Honkai: star rail
         </h4>
-        <h3 className="sm:text-xs text-[0.6rem]  font-semibold leading-4">
+        <h3 className="sm:text-xs text-[0.8rem]  font-semibold leading-4">
           [Asia] TL52 - Jing Yuan, Gepard, Himeko (E1)
         </h3>
-        <h1 className="text-yellow-500 sm:text-sm text-[0.8rem] font-semibold ">
+        <h1 className="text-yellow-500 sm:text-sm text-[0.9rem] font-semibold ">
           $20.99
         </h1>
       </div>

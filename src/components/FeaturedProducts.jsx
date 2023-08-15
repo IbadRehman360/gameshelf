@@ -14,25 +14,24 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-5 ">
-      <h2 className=" lg:text-[1.8rem] text-[1.3rem] font-semibold">
+    <div className="max-w-7xl mx-auto px-4 ">
+      <h2 className=" lg:text-[1.8rem] text-[1.4rem]  ml-2   font-semibold">
         Featured Products
       </h2>
       <div className="flex gap-3 my-3">
         <div className="flex flex-col gap-1">
-          <h3 className="sm:text-sm text-xs md:text-lg  font-semibold  text-yellow-500 text-center">
+          <h3 className="sm:text-sm text-[0.8rem] md:text-lg  font-semibold  text-yellow-500 text-center">
             New Items
           </h3>
           <hr className="border-yellow-500  border-[1px] w-24" />
         </div>
         <div className="flex flex-col gap-1">
-          <h3 className="sm:text-sm text-xs md:text-lg font-semibold text-purple-700 text-center">
+          <h3 className="sm:text-sm text-[0.8rem] md:text-lg  font-semibold text-purple-700 text-center">
             Most Views
           </h3>
           <hr className="border-purple-700 border-[1px] w-24" />
         </div>
       </div>
-
       <div className="carousel w-full  md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5  justify-items-stretch md:gap-5 mt-1">
         <div
           id="featuredProductsSlide1"

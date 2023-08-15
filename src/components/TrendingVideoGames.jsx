@@ -16,7 +16,7 @@ const TrendingVideoGames = () => {
   return (
     <div className="max-w-7xl mx-auto px-5 mt-12 mb-10">
       <div className="flex items-center justify-between my-8">
-        <h2 className="lg:text-[1.8rem] text-[1.3rem] font-semibold">
+        <h2 className=" lg:text-[1.8rem] text-[1.4rem]    font-semibold">
           Trending Gift Cards
         </h2>
       </div>
@@ -33,7 +33,7 @@ const TrendingVideoGames = () => {
             >
               <div className="relative">
                 <img src={item.src} alt="giftcardIcon" />
-                <p className="absolute top-4 right-3  rounded-md bg-gray-50/25 p-[5px] shadow-2xl bg-gradient-to-b text-xs text-white text-center">
+                <p className="absolute lg:text-sm  md:right-4 sm:top-3 top-2 right-3  md:text-[13px] md:p-[4px] rounded-md bg-gray-50/25 sm:p-[3px] sm:text-[11px] p-[4px] text-[10px] shadow-2xl bg-gradient-to-b sm:text-xs text-white text-center">
                   {item.offers} offers
                 </p>
               </div>

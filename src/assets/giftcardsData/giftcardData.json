@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Steam Wallet",
-    "src": "/public/giftcards/giftcard1.svg" ,
+    "src": "/public/giftcards/giftcard1.svg",
     "offers": 321
   },
   {
@@ -19,14 +19,14 @@
   },
   {
     "id": 4,
-    "title": "Xbox Game Pass Membership",
+    "title": "Xbox Membership",
     "src": "/public/giftcards/giftcard4.svg",
     "offers": 11
   },
   {
     "id": 5,
     "title": "Steam Wallet",
-    "src": "/public/giftcards/giftcard2.svg" ,
+    "src": "/public/giftcards/giftcard2.svg",
     "offers": 321
   },
   {
@@ -43,7 +43,7 @@
   },
   {
     "id": 8,
-    "title": "Xbox Game Pass Membership",
+    "title": "Xbox Membership",
     "src": "/public/giftcards/giftcard1.svg",
     "offers": 11
   }
