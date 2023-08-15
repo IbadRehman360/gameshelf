@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
 import CategoryList from "../components/CategoryList";
 import Stats from "../components/Stats";
-import TrendingGiftCard from "../components/TrendingGiftCard";
+import TrendingGiftCards from "../components/TrendingGiftCards";
 import TrendingVideoGames from "../components/TrendingVideoGames";
 import PaymentOptions from "../components/PaymentOptions";
 import FeaturesList from "../components/Features/FeaturesList";
@@ -16,7 +16,7 @@ export default function HomePage() {
       <CategoryList />
       <div className="bg-white py-10">
         <FeaturedProducts />
-        <TrendingGiftCard />
+        <TrendingGiftCards />
         <TrendingVideoGames />
       </div>
       <PaymentOptions />
