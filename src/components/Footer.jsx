@@ -4,35 +4,44 @@
 export default function Footer() {
   return (
     <div>
-      <footer className="footer p-8  text-gray-100 bg-navy-blue sm:flex sm:justify-between ">
+      <footer className="footer py-6 px-10 sm:gap-8   gap-4 text-gray-100 bg-navy-blue  sm:justify-between ">
         <div>
-          <span className="footer-title">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <span className="footer-title ">Services</span>
+          <div className="md:lg-sm text-xs gap-2 grid">
+            <a className="link link-hover ">Branding</a>
+            <a className="link link-hover">Design</a>
+            <a className="link link-hover">Marketing</a>
+            <a className="link link-hover">Advertisement</a>
+          </div>
         </div>
         <div className="hidden md:flex md:flex-col lg:flex">
-          <span className="footer-title">Legal</span>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <div className=" lg:text-sm text-xs gap-2 grid">
+            <span className="footer-title">Legal</span>
+            <a className="link link-hover">Terms of use</a>
+            <a className="link link-hover">Privacy policy</a>
+            <a className="link link-hover">Cookie policy</a>
+          </div>
         </div>
         <div className=" sm:flex flex-col sm:flex-end">
           <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <div className=" lg:text-sm text-xs gap-2 grid">
+            <a className="link link-hover">About us</a>
+            <a className="link link-hover">Contact</a>
+            <a className="link link-hover">Jobs</a>
+            <a className="link link-hover">Press kit</a>
+          </div>
         </div>
-        <div className="md:flex md:flex-col lg:flex">
-          <span className="footer-title">Newsletter</span>
-          <div className="form-control sm:w-80 w-64">
-            <label className="label ">
-              <span className="label-text  text-gray-100">
-                Enter your email address
-              </span>
-            </label>
+        <div className="md:flex md:flex-col w-full lg:flex">
+          <div className=" sm:flex flex-col sm:flex-end">
+            <span className="footer-title">Newsletter</span>
+            <div className="form-control sm:w-80 w-64">
+              <label className="label ">
+                <span className="label-text  lg:text-sm text-xs text-gray-100">
+                  Enter your email address
+                </span>
+              </label>
+            </div>
+
             <div className="relative">
               <input
                 type="text"
