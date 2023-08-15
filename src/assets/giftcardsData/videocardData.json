@@ -2,49 +2,49 @@
   {
     "id": 1,
     "title": "Valorant Points",
-    "src": "/public/videogames/videogames1.svg",
+    "src": "/videogames/videogames1.svg",
     "offers": 180
   },
   {
     "id": 2,
     "title": "WOW Game Card",
-    "src": "/public/videogames/videogames2.svg",
+    "src": "/videogames/videogames2.svg",
     "offers": 32
   },
   {
     "id": 3,
     "title": "WOW WotLK Classic",
-    "src": "/public/videogames/videogames3.svg",
+    "src": "/videogames/videogames3.svg",
     "offers": 11
   },
   {
     "id": 4,
     "title": "WOW Dragonflight",
-    "src": "/public/videogames/videogames4.svg",
+    "src": "/videogames/videogames4.svg",
     "offers": 12
   },
   {
     "id": 5,
     "title": "WOW WotLK Classic",
-    "src": "/public/videogames/videogames2.svg",
+    "src": "/videogames/videogames2.svg",
     "offers": 180
   },
   {
     "id": 6,
     "title": "WOW Dragonflight",
-    "src": "/public/videogames/videogames3.svg",
+    "src": "/videogames/videogames3.svg",
     "offers": 11
   },
   {
     "id": 7,
     "title": "WOW  Game Card",
-    "src": "/public/videogames/videogames4.svg",
+    "src": "/videogames/videogames4.svg",
     "offers": 166
   },
   {
     "id": 8,
     "title": "Valorant Points",
-    "src": "/public/videogames/videogames1.svg",
+    "src": "/videogames/videogames1.svg",
     "offers": 12
   }
 ]
