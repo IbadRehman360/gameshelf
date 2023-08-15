@@ -15,13 +15,17 @@ export default {
         "light-gray": "#F4F8FF",
         "light-purple": "#A8B4DD",
       },
+
+      screens: {
+        "3xl": "2000px",
+      },
     },
   },
   daisyui: {
-    themes: ["light"]
+    themes: ["light"],
   },
   plugins: [
     // require('@tailwindcss/forms'),
-    require('daisyui'),
+    require("daisyui"),
   ],
 };
