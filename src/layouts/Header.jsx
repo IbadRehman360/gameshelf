@@ -18,12 +18,12 @@ function Header() {
   };
 
   return (
-    <header className='bg-navy-blue'>
-      <div className='flex items-center  px-4 py-6 text-white gap-10 sm:gap-0 sm:justify-between xl:px-0 xl:w-[80%] lg:mx-auto'>
-        <button className='sm:hidden' onClick={dropdownNavToggleHandler}>
-          <GiHamburgerMenu className='font-black text-4xl' />
+    <header className="bg-navy-blue">
+      <div className="flex items-center  px-4 sm:py-6 py-3 text-white gap-10 sm:gap-0 sm:justify-between xl:px-0 xl:w-[80%] lg:mx-auto">
+        <button className="sm:hidden" onClick={dropdownNavToggleHandler}>
+          <GiHamburgerMenu className="font-black text-2xl sm:text-4xl" />
         </button>
-        <Link to='/' className='font-black text-2xl min-w-fit'>
+        <Link to="/" className="font-black text-1xl sm:text-2xl min-w-fit">
           G A M E S H E L F
         </Link>
 
