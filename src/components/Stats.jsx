@@ -14,7 +14,7 @@ const Card = () => {
       <div className="border-t py-3 p-4 ">
         <div className="flex items-center justify-center text-center gap-2 sm:gap-10">
           <p className="text-gray-500 font-normal sm:text-sm text-[0.65rem] ">
-            Elevate your gaming experience with the GameShelf's exclusive and
+            Elevate your gaming experience with the GameShelf&apos;s exclusive and
             immersive offerings,
           </p>
           <a

@@ -23,6 +23,19 @@ const TrendingGiftCards = () => {
           Trending Gift Cards
         </h2>
 
+        <div className="hidden sm:flex items-center gap-2">
+          <span>Discover</span>
+          <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
+            <a
+              onClick={handleNextPage}
+              href="#"
+              className=""
+            >
+              <MdKeyboardArrowRight />
+            </a>
+          </div>
+        </div>
+
         <div className="sm:hidden">
           {currentSlide < 1 && (
             <div className="bg-white rounded-full shadow-sm border-[1px] border-black">
