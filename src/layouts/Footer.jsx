@@ -34,8 +34,8 @@ export default function Footer() {
         <div className="col-span-2 md:flex md:flex-col w-full lg:flex">
           <div className="w-full sm:flex flex-col sm:flex-end">
             <span className="footer-title">Newsletter</span>
-            <div className="form-control sm:w-80 w-64">
-              <label className="label ">
+            <div className="form-control ">
+              <label className="label mb-1 mt-1">
                 <span className="label-text  lg:text-sm text-xs text-gray-100">
                   Enter your email address
                 </span>
