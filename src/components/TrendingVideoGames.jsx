@@ -16,19 +16,15 @@ const TrendingVideoGames = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-5 mt-12 mb-10">
-      <div className="flex items-center justify-between my-8">
-        <h2 className=" lg:text-[1.8rem] text-[1.4rem]    font-semibold">
+    <div className="max-w-7xl mx-auto px-5 mt-8 mb-10">
+      <div className="flex items-center justify-between  my-8">
+        <h2 className=" lg:text-[1.8rem] 3xl:text-[1.9rem]  md:text-[1.7rem] text-[1.4rem]  ml-2   font-semibold">
           Trending Gift Cards
         </h2>
         <div className="hidden sm:flex items-center gap-2">
-          <span>Discover</span>
+          <span>Discover All</span>
           <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
-            <a
-              onClick={handleNextPage}
-              href="#"
-              className=""
-            >
+            <a onClick={handleNextPage} href="#" className="">
               <MdKeyboardArrowRight />
             </a>
           </div>
@@ -63,7 +59,7 @@ const TrendingVideoGames = () => {
       <div className="hidden sm:carousel carousel-center w-full rounded-lg gap-x-4">
         <div
           id="trendingVideoGamesSlide1"
-          className="carousel-item w-full gap-4 sm:gap-5 md:gap-10"
+          className="carousel-item w-full gap-4 xl:gap-4 "
         >
           {videoCardData.slice(0, 4).map((game) => (
             <TrendingVideoGame key={game.id} game={game} />
@@ -71,7 +67,7 @@ const TrendingVideoGames = () => {
         </div>
         <div
           id="trendingVideoGamesSlide2"
-          className="carousel-item w-full gap-4 sm:gap-5 md:gap-10"
+          className="carousel-item w-full gap-4 sm:gap-5 lg:gap-8"
         >
           {videoCardData.slice(0, 4).map((game) => (
             <TrendingVideoGame key={game.id} game={game} />
@@ -97,12 +93,16 @@ const TrendingVideoGames = () => {
           ))}
         </div>
       </div>
-
-      <div className="flex justify-center text-xs mt-1">
-        <p className="sm:hidden">{currentSlide < 1 ? "1/2" : "2/2"}</p>
-        <div className="hidden sm:flex justify-center">
+      <div className="flex justify-center text-xs mt-2 md:mt-6 sm:mt-4">
+        <p
+          className="md:hidden  text-[0.97rem] sm:text-[1rem] "
+          style={{ letterSpacing: "0.1em" }}
+        >
+          {currentSlide < 1 ? "1/2" : "2/2"}
+        </p>
+        <div className="hidden md:flex justify-center">
           <a
-            href="#trendingVideoGamesSlide1"
+            href="#trendingGiftCardsSlide1"
             onClick={handlePrevPage}
             className={`block w-[28px] h-[4px] rounded-2xl mr-1 ${
               currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
@@ -110,9 +110,9 @@ const TrendingVideoGames = () => {
             id="prevPage"
           />
           <a
-            href="#trendingVideoGamesSlide2"
+            href="#trendingGiftCardsSlide2"
             onClick={handleNextPage}
-            className={`block w-[28px] h-[4px] rounded-2xl mr-1 ${
+            className={`block w-[28px] h-[4px]  rounded-2xl mr-1 ${
               currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
             } `}
           />
