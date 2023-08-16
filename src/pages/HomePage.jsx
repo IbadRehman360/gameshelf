@@ -14,7 +14,7 @@ export default function HomePage() {
       <Hero />
       <Stats />
       <CategoryList />
-      <div className="bg-white py-12">
+      <div className="bg-white py-12 max-w-[1400px]  mx-auto">
         <FeaturedProducts />
         <TrendingGiftCards />
         <TrendingVideoGames />
