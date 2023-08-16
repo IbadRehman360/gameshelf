@@ -4,7 +4,7 @@
 export default function Footer() {
   return (
     <div>
-      <footer className="footer py-6 px-10 sm:gap-8   gap-4 text-gray-100 bg-navy-blue  sm:justify-between ">
+      <footer className="footer grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 py-6 px-10 sm:gap-8  gap-4 text-gray-100 bg-navy-blue sm:justify-between ">
         <div>
           <span className="footer-title ">Services</span>
           <div className="md:lg-sm text-xs gap-2 grid">
@@ -31,8 +31,8 @@ export default function Footer() {
             <a className="link link-hover">Press kit</a>
           </div>
         </div>
-        <div className="md:flex md:flex-col w-full lg:flex">
-          <div className=" sm:flex flex-col sm:flex-end">
+        <div className="col-span-2 md:flex md:flex-col w-full lg:flex">
+          <div className="w-full sm:flex flex-col sm:flex-end">
             <span className="footer-title">Newsletter</span>
             <div className="form-control sm:w-80 w-64">
               <label className="label ">

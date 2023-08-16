@@ -5,7 +5,6 @@ import TrendingGiftCards from "../components/TrendingGiftCards";
 import TrendingVideoGames from "../components/TrendingVideoGames";
 import PaymentOptions from "../components/PaymentOptions";
 import FeaturesList from "../components/Features/FeaturesList";
-import Footer from "../components/Footer";
 import FeaturedProducts from "../components/FeaturedProducts";
 
 export default function HomePage() {
@@ -21,7 +20,6 @@ export default function HomePage() {
       </div>
       <PaymentOptions />
       <FeaturesList />
-      <Footer />
     </div>
   );
 }
