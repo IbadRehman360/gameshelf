@@ -7,7 +7,7 @@ import cards from "../assets/payments/debit-credit.png";
 
 export default function PaymentOptions() {
   return (
-    <section className="grid grid-cols-4 grid-rows-[repeat(1,_3rem)] w-full gap-0 border-b-2 border-gray-300 sm:grid-cols-6 ">
+    <section className="grid grid-cols-4 grid-rows-[repeat(1,_3rem)] w-full gap-0 border-b-2 mt-24 border-gray-300 sm:grid-cols-6 ">
       <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
         <img
           src={bitcoin}
@@ -15,14 +15,14 @@ export default function PaymentOptions() {
           className="h-16 w-40 mx-auto object-contain xl:h-18 xl:w-50"
         />
       </div>
-      <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-1 2xl:border-t-0 ">
+      <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
         <img
           src={amex}
           alt={amex}
           className="h-16 w-40 mx-auto object-contain"
         />
       </div>
-      <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-1 2xl:border-t-0">
+      <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
         <img src={visa} alt={visa} className="h-4 w-12 sm:h-5 sm:w-14" />
       </div>
       <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-2 ">
@@ -32,7 +32,7 @@ export default function PaymentOptions() {
           className="h-[19px] w-12 sm:h-6 sm:w-14 "
         />
       </div>
-      <div className="border-[0.5px] border-gray-200 px-4 hidden sm:flex sm:items-center sm:justify-center 2xl:border-t-0 ">
+      <div className="flex hidden  sm:flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
         <img
           src={paypal}
           alt={paypal}
@@ -40,7 +40,7 @@ export default function PaymentOptions() {
         />
       </div>
 
-      <div className="border-[0.5px] hidden border-gray-200 px-2 sm:flex sm:items-center sm:justify-center   ">
+      <div className="flex hidden  sm:flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
         <img
           src={cards}
           alt={cards}
