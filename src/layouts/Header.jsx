@@ -35,19 +35,19 @@ export default function Example() {
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-200"
+                    className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-200  hover:text-white"
                   >
                     Dashboard
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
                   >
                     Team
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
                   >
                     Projects
                   </a>
@@ -97,7 +97,7 @@ export default function Example() {
                 <button
                   href="#"
                   type="button"
-                  className="items-center border-b-2 border-transparent bg-white border-1 border-blue-700 hover:text-slate-500 w-20 h-10 rounded-full  text-center grid  mr-5 text-sm font-medium  hover:border-gray-300  text-gray-700"
+                  className="items-center  border-transparent    text-gray-200 border-2 border-blue-700 hover:text-white w-20 h-10 rounded-full  text-center grid  mr-5 text-sm font-medium  hover:border-gray-300  "
                 >
                   Login
                 </button>
@@ -246,7 +246,7 @@ export default function Example() {
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium text-slate-300 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-base font-medium  text-slate-300 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Login
                 </Disclosure.Button>

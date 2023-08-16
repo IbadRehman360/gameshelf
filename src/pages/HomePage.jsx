@@ -1,6 +1,5 @@
-import Hero from "../components/Hero";
+import HeroCarousel from "../components/HeroCarousel";
 import CategoryList from "../components/CategoryList";
-import Stats from "../components/Stats";
 import TrendingGiftCards from "../components/TrendingGiftCards";
 import TrendingVideoGames from "../components/TrendingVideoGames";
 import PaymentOptions from "../components/PaymentOptions";
@@ -10,10 +9,9 @@ import FeaturedProducts from "../components/FeaturedProducts";
 export default function HomePage() {
   return (
     <div className="">
-      <Hero />
-      <Stats />
+      <HeroCarousel />
       <CategoryList />
-      <div className="bg-white py-12 max-w-[1400px]  mx-auto">
+      <div className="bg-white mt-14 max-w-[1400px]  mx-auto">
         <FeaturedProducts />
         <TrendingGiftCards />
         <TrendingVideoGames />

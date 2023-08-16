@@ -4,10 +4,10 @@ import { BiLeftArrow, BiSolidLeftArrow } from "react-icons/bi";
 export default function FeaturedProduct() {
   return (
     <>
-      <div className="flex flex-col p-2 sm:p-5   bg-gray-50/75 bg-gray-50 rounded-3xl">
+      <div className="flex flex-col p-2 sm:p-5   bg-gray-50/75 rounded-3xl">
         <div className="flex flex-col gap-1 ">
           <h4 className="sm:text-[0.7rem] mb-2 text-[0.6rem]  uppercase gap-3  inline-flex text-gray-500">
-            <img className="w-8 h-8 rounded-full" src="12.jpg"></img>{" "}
+            <img className="w-8 h-8 rounded-full" src="userImage/3.jpg"></img>{" "}
             <span className="mt-2 lg:text-xs"> Honkai: star rail</span>
           </h4>
           <h3 className="sm:text-xs lg:text-sm text-[0.8rem] mt-1 mb-1 font-semibold leading-4">
