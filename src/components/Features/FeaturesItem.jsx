@@ -1,7 +1,7 @@
 export default function FeaturesItem({ Details }) {
   const { icon, heading, description } = Details;
   return (
-    <article className="relative mx-auto  p-4 pb-8 flex flex-col items-center gap-2 sm:leading-loose tracking-wider text-center md:border-r-[2px] sm:mb-0">
+    <article className="relative mx-auto  p-4 pb-8 flex flex-col items-center gap-2 sm:leading-loose tracking-wider text-center sm:last-of-type:border-none md:border-r-[2px] sm:mb-0">
       {icon}
       <h5 className="font-semibold text-xs lg:text-sm  2xl:text-lg">
         {heading}

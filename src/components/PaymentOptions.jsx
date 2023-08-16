@@ -7,8 +7,8 @@ import cards from "../assets/payments/debit-credit.png";
 
 export default function PaymentOptions() {
   return (
-    <section className="grid grid-cols-4 grid-rows-[repeat(1,_3rem)] w-full gap-0 border-b-2 mt-24 border-gray-300 sm:grid-cols-6 ">
-      <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
+    <section className="grid grid-cols-4 grid-rows-[repeat(1,_3rem)] w-full gap-0 border-b-2 mt-24 border-gray-300 md:grid-cols-6 ">
+      <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-2 py-2">
         <img
           src={bitcoin}
           alt={bitcoin}
@@ -32,7 +32,7 @@ export default function PaymentOptions() {
           className="h-[19px] w-12 sm:h-6 sm:w-14 "
         />
       </div>
-      <div className="flex hidden  sm:flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
+      <div className="hidden  md:flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
         <img
           src={paypal}
           alt={paypal}
@@ -40,7 +40,7 @@ export default function PaymentOptions() {
         />
       </div>
 
-      <div className="flex hidden  sm:flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
+      <div className=" hidden  md:flex justify-center items-center border-[0.5px] border-gray-200 px-1 ">
         <img
           src={cards}
           alt={cards}
