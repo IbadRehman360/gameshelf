@@ -8,6 +8,7 @@ const navigation = [
   { name: "Company", href: "#" },
 ];
 
+const darkSlides = [0,1,2,3,8,6]
 export default function HeroImages({ index, imageUrl }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -20,20 +21,22 @@ export default function HeroImages({ index, imageUrl }) {
           alt={`bg ${index}`}
         />
       </div>
-      <header className="absolute inset-x-0 top-0 z-50">
-        <nav
-          className="flex items-center justify-between p-2 md:p-6 lg:px-8"
-          aria-label="Global"
-        >
-          <div className=" lg:flex lg:flex-1   lg:justify-end">
-            <a
-              href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        </nav>
+      <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full opacity-25 lg:opacity-40 z-10 bg-black">
+      </div>
+      <nav
+        className="z-50 absolute top-0 right-0 flex items-center justify-between p-2 md:p-6 lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex flex-1 justify-end">
+          <a
+            href="#"
+            className={`text-sm font-semibold leading-6 ${darkSlides.includes(index) ? "text-white" : "text-gray-900"} sm:text-gray-900"`}
+          >
+            Log in <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </nav>
+      <header className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 w-full">
         <Dialog
           as="div"
           className="lg:hidden"
@@ -80,35 +83,36 @@ export default function HeroImages({ index, imageUrl }) {
             </div>
           </Dialog.Panel>
         </Dialog>
-        <div className="  justify-center items-center text-center  place-self-center">
+
+        <div className="text-center">
           <div className="sm:mb-0 lg:mb-10"></div>
           <h2 className="text-lg sm:text-2xl md:text-[1.7rem] 2xl:text-[2.1rem] 2xl:mb-3  md:mb-1 lg:text-3xl  xl:mt-6 font-bold text-white md:mt-4  mt-4">
             Discover the World of{" "}
             <span className="text-orange-600">GameShelf</span>
           </h2>
           <h3 className="text-[0.7rem] sm:text-[0.9rem] 2xl:mb-6  mx-4  2xl:text-[1.1rem] lg:text-[1rem]   leading-loose md:text-md text-white ">
-            Elevate your gaming with GameShelf's exclusive offerings.
-            <br></br>
-            Explore a vast library of games, gear up with accessories, Join us
-            for an immersive gaming journey like no other.
-            <br></br>
+            <p>Elevate your gaming with GameShelf&apos;s exclusive offerings.</p>
+            <p className="hidden sm:block">
+              Explore a vast library of games, gear up with accessories, Join us
+              for an immersive gaming journey like no other.
+            </p>
           </h3>
-          <div className="mt-10 flex gap-x-6 lg:gap-x-8 justify-center align-middle items-center text-center  place-self-center">
+          <div className="my-4 sm:my-0 sm:mt-10 flex gap-x-6 lg:gap-x-8 justify-center align-middle items-center text-center  place-self-center">
             <a
               href="#"
-              className=" bg-red-600 text-[0.7rem] sm:text-sm md:w-28 md:h-10 lg:w-32  h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition w-24  flex justify-center items-center rounded-md  lg:py-4 text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className=" bg-red-600 text-[0.57rem]  sm:text-xs md:w-28 md:h-10 lg:w-32  h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition w-24  flex justify-center items-center rounded-md  lg:py-4 text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Start Selling
             </a>
 
             <a
               href="#"
-              className="  font-semibold border-2 md:p-3    text-[0.7rem] sm:text-sm md:w-28 md:h-10 lg:w-32  h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition w-24  flex justify-center items-center rounded-md  lg:py-4 text-sm text-white bg-gray-400 opacity-70 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
+              className="  font-semibold border-2 p-3 text-[0.57rem] sm:text-xs w-fit h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition flex justify-center items-center rounded-md  lg:py-4 text-sm text-white bg-gray-400 opacity-70 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
             >
               Find great deals <span aria-hidden="true">→</span>
             </a>
           </div>
-        </div>{" "}
+        </div>
       </header>
     </div>
   );
