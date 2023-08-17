@@ -11,6 +11,7 @@ export default function HeroCarousel() {
       "
     >
       <Swiper
+      className="flex flex-col"
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
