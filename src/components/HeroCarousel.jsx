@@ -3,7 +3,7 @@ import "swiper/css";
 import HeroImage from "./HeroImage";
 
 export default function HeroCarousel() {
-  const images = Array.from({ length: 9 }, (_, index) => `${index + 1}.jpg`);
+  const images = Array.from({ length: 9 }, (_, index) => `${index + 1}.webp`);
 
   return (
     <div
@@ -11,7 +11,7 @@ export default function HeroCarousel() {
       "
     >
       <Swiper
-      className="flex flex-col"
+        className="flex flex-col"
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
