@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import HeroImages from "./HeroImages";
+import HeroImage from "./HeroImage";
 
 export default function HeroCarousel() {
   const images = Array.from({ length: 9 }, (_, index) => `${index + 1}.jpg`);
@@ -19,7 +19,7 @@ export default function HeroCarousel() {
       >
         {images.map((imageUrl, index) => (
           <SwiperSlide key={imageUrl}>
-            <HeroImages index={index} imageUrl={imageUrl} />
+            <HeroImage index={index} imageUrl={imageUrl} />
           </SwiperSlide>
         ))}
       </Swiper>
