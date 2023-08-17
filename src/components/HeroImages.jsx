@@ -1,7 +1,7 @@
 export default function HeroImages({ index, imageUrl }) {
   return (
     <div className="relative">
-      <img className="" src={`${imageUrl}`} alt={`bg ${index}`} />
+      <img className="h-[30vh] w-full sm:h-[30vh] md:h-[50vh] lg:h-[90vh]" src={`${imageUrl}`} alt={`bg ${index}`} />
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-opacity-50 bg-black   ">
         <div className="text-center sm:pb-0 pb-8">
           <h2 className="text-lg sm:text-2xl md:text-[1.7rem] 2xl:text-[2.1rem] 2xl:mb-3  md:mb-1 lg:text-3xl  xl:mt-6 font-bold text-white md:mt-4  mt-4">
@@ -16,7 +16,7 @@ export default function HeroImages({ index, imageUrl }) {
         <div className="border-t border-slate-500  ">
           <div className="flex items-center justify-center gap-4 sm:gap-10  mx-4 ">
             <p className="text-white font-normal 2xl:text-[0.9rem] pl-4 md:text-md   sm:text-[0.8rem] text-[0.65rem]">
-              Elevate your gaming experience with the GameShelf's exclusive
+              Elevate your gaming experience with the GameShelf&apos;s exclusive
               offerings.
             </p>
             <a
