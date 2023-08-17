@@ -20,7 +20,7 @@ export default function Example() {
                 <div className="flex flex-shrink-0  gap-4 items-center mr-8">
                   <img
                     className="h-8 w-auto border-2 rounded-full border-white mt-1 "
-                    src="favicon.ico"
+                    src="/favicon.ico"
                     alt="Your Company"
                   />
 

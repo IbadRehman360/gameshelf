@@ -31,7 +31,7 @@ export default function Footer() {
             <a className="link link-hover">Press kit</a>
           </div>
         </div>
-        <div className="col-span-2 md:flex md:flex-col w-full lg:flex">
+        <div className="col-span-2 mt-4 sm:mt-0 md:flex md:flex-col w-full lg:flex">
           <div className="w-full sm:flex flex-col sm:flex-end">
             <span className="footer-title">Newsletter</span>
             <div className="form-control ">
