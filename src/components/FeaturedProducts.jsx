@@ -14,7 +14,7 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <div className="  mb-16  xl:mt-4  ">
+    <div className="  mb-16 px-3 xl:mt-4  ">
       <h2 className=" lg:text-[1.8rem] 3xl:text-[1.9rem]  md:text-[1.7rem] text-[1.5rem]    font-semibold">
         Featured Products
       </h2>

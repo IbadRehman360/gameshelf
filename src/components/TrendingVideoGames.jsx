@@ -17,7 +17,7 @@ const TrendingVideoGames = () => {
 
   return (
     <div className=" mt-8 mb-10">
-      <div className="flex items-center justify-between  my-8">
+      <div className="flex items-center justify-between mr-2  my-8">
         <h2 className=" lg:text-[1.8rem] 3xl:text-[1.9rem]  md:text-[1.7rem] text-[1.4rem]  ml-2   font-semibold">
           Trending Gift Cards
         </h2>
