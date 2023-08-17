@@ -14,12 +14,12 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <div className=" px-6 mb-16  xl:mt-4 ">
-      <h2 className=" lg:text-[1.8rem] 3xl:text-[1.9rem]  md:text-[1.7rem] text-[1.4rem]  ml-2   font-semibold">
+    <div className="  mb-16  xl:mt-4  ">
+      <h2 className=" lg:text-[1.8rem] 3xl:text-[1.9rem]  md:text-[1.7rem] text-[1.5rem]    font-semibold">
         Featured Products
       </h2>
-      <div className="flex gap-3 my-3">
-        <div className="flex flex-col gap-1">
+      <div className="flex gap-3 my-3  ">
+        <div className="flex flex-col gap-1 ">
           <h3 className="sm:text-sm text-[0.8rem] md:text-[1rem]  font-semibold  text-yellow-500 text-center">
             New Items
           </h3>
