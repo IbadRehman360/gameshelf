@@ -13,8 +13,8 @@ const categories = [
 
 export default function CategoryList() {
   return (
-    <div className="mx-auto bg-gradient-to-b from-navy-blue to-[#242633e3]">
-      <div className=" max-w-7xl grid mx-auto gap-10 grid-cols-4 md:grid-cols-8 md:gap-5 lg:gap-2 xl:gap-0 justify-items-center p-5 pb-10 xl:pb-7">
+    <div className="mx-auto bg-gradient-to-b from-[#30333f] to-[#2b2d3bf3]">
+      <div className=" max-w-[1400px] grid mx-auto gap-10 grid-cols-4 md:grid-cols-8 md:gap-5 lg:gap-2 xl:gap-0 justify-items-center p-4 xl:p-3 pb-10 xl:pb-6">
         {categories.map((categoryItem, i) => (
           <CategoryItem key={i} index={i} category={categoryItem} />
         ))}
