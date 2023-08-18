@@ -14,19 +14,19 @@ export default function Example() {
     <Disclosure as="nav" className=" bg-navy-blue shadow">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-[1900px] px-2 sm:px-4 lg:px-8 xl:px-12 ">
+          <div className="mx-auto max-w-[1900px] px-2 sm:px-4 lg:px-3 xl:px-5 ">
             <div className="flex h-16 xl:h-20 justify-between ">
               <div className="flex px-2 lg:px-0">
                 <div className="flex flex-shrink-0  gap-4 items-center mr-8">
                   <img
-                    className="h-8 w-auto border-2 rounded-full border-white mt-1 "
-                    src="/favicon.ico"
+                    className="lg:h-10 h-8    object-contain  w-auto  rounded-xl border-white mt-1 "
+                    src="/logo3.png"
                     alt="Your Company"
                   />
 
                   <Link
                     to="/"
-                    className="font-black  text-white text-1xl   sm:text-[1.3rem] min-w-fit"
+                    className="font-black  text-white text-[1.05rem]    sm:text-[1.3rem] xl:text-[1.5rem] lg:ml-2 mt-1  min-w-fit"
                   >
                     G A M E S H E L F
                   </Link>
@@ -34,22 +34,22 @@ export default function Example() {
                 <div className="hidden lg:ml-6 xl:flex lg:space-x-8 ">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <a
-                    href="#"
-                    className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-200  hover:text-white"
+                    href="/dashboard"
+                    className="inline-flex items-center border-b-2 border-indigo-100 px-1 lg:text-[1.1rem] pt-1 text-sm font-medium text-gray-200  hover:text-white"
                   >
                     Dashboard
                   </a>
                   <a
-                    href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
+                    href="/"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[1rem] text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
                   >
-                    Team
+                    Home
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[1rem] text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
                   >
-                    Projects
+                    About
                   </a>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export default function Example() {
                 {/* Mobile menu button */}
                 <Disclosure.Button
                   style={{ border: "1px solid" }}
-                  className="relative inline-flex items-center justify-center rounded-md p-1 text-gray-200   hover:bg-navy-blue border-white  hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  className="relative inline-flex items-center sm:w-9  sm:h-9 w-8 h-8 justify-center rounded-md p-1 text-gray-200   hover:bg-navy-blue border-white  hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                 >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -94,13 +94,6 @@ export default function Example() {
               </div>
 
               <div className="hidden lg:ml-4 lg:flex lg:items-center">
-                <button
-                  href="#"
-                  type="button"
-                  className="items-center  border-transparent    text-gray-200 border-2 border-blue-700 hover:text-white w-20 h-10 rounded-full  text-center grid  mr-5 text-sm font-medium  hover:border-gray-300  "
-                >
-                  Login
-                </button>
                 <button
                   type="button"
                   className="relative flex-shrink-0 rounded-full w-9 bg-white p-1 text-gray-700 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -119,8 +112,8 @@ export default function Example() {
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        className="h-9 w-9  object-cover border-[1px] border-gray-400 rounded-full"
+                        src="/userImage/3.jpg"
                         alt=""
                       />
                     </Menu.Button>

@@ -14,11 +14,14 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <div className="  mb-16 px-3 xl:mt-4  ">
-      <h2 className=" lg:text-[1.8rem] 3xl:text-[1.9rem]  md:text-[1.7rem] text-[1.5rem]    font-semibold">
+    <div
+      className="  mb-16 px-3 xl:mt-4  "
+      style={{ backgroundColor: "#FCFCFC " }}
+    >
+      <h2 className=" lg:text-[1.8rem]  text-gray-700 3xl:text-[2rem]  md:text-[1.7rem] text-[1.4rem]   font-semibold">
         Featured Products
       </h2>
-      <div className="flex gap-3 my-3  ">
+      <div className="flex gap-3 my-3 mt-6 ">
         <div className="flex flex-col gap-1 ">
           <h3 className="sm:text-sm text-[0.8rem] md:text-[1rem]  font-semibold  text-yellow-500 text-center">
             New Items

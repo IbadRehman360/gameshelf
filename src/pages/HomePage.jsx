@@ -8,10 +8,13 @@ import FeaturedProducts from "../components/FeaturedProducts";
 
 export default function HomePage() {
   return (
-    <div className="">
+    <div style={{ backgroundColor: "#FCFCFC " }}>
       <HeroCarousel />
       <CategoryList />
-      <div className="bg-white mt-14 max-w-[1400px]  mx-auto">
+      <div
+        className="bg-white mt-14 max-w-[1400px] mx-auto"
+        style={{ backgroundColor: "#FCFCFC " }}
+      >
         <FeaturedProducts />
         <TrendingGiftCards />
         <TrendingVideoGames />

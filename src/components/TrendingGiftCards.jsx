@@ -17,12 +17,11 @@ const TrendingGiftCards = () => {
   };
 
   return (
-    <div className=" mt-8 mb-10">
+    <div className=" mt-8 mb-10 " style={{ backgroundColor: "#FCFCFC " }}>
       <div className="flex items-center justify-between mr-2  my-8">
-        <h2 className=" lg:text-[1.8rem] 3xl:text-[1.9rem]  md:text-[1.7rem] text-[1.4rem]  ml-2 font-semibold">
+        <h2 className=" lg:text-[1.8rem]  text-gray-700 3xl:text-[2rem]  md:text-[1.7rem] text-[1.4rem]  ml-2 font-semibold">
           Trending Gift Cards
         </h2>
-
         <div className="hidden sm:flex items-center gap-2">
           <span>Discover All</span>
           <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
@@ -31,7 +30,6 @@ const TrendingGiftCards = () => {
             </a>
           </div>
         </div>
-
         <div className="sm:hidden">
           {currentSlide < 1 && (
             <div className="bg-white rounded-full shadow-sm border-[1px] border-black">
@@ -61,7 +59,7 @@ const TrendingGiftCards = () => {
       <div className="hidden sm:carousel carousel-center w-full rounded-lg gap-x-4">
         <div
           id="trendingGiftCardsSlide1"
-          className="carousel-item w-full gap-4 xl:gap-4 "
+          className="carousel-item w-full gap-2 xl:gap-4 "
         >
           {giftCardData.slice(0, 4).map((giftCard) => (
             <TrendingGiftCard key={giftCard.id} giftCard={giftCard} />
@@ -80,7 +78,7 @@ const TrendingGiftCards = () => {
       <div className="relative sm:hidden carousel w-full rounded-lg gap-x-4">
         <div
           id="mbTrendingGiftCardsSlide1"
-          className="carousel-item w-full gap-4 sm:gap-5 md:gap-10"
+          className="carousel-item w-full gap-2 sm:gap-5 md:gap-10"
         >
           {giftCardData.slice(0, 2).map((giftCard) => (
             <TrendingGiftCard key={giftCard.id} giftCard={giftCard} />
