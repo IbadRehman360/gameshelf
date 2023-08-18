@@ -49,7 +49,7 @@ export default function Example() {
                     href="#"
                     className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[1rem] text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
                   >
-                    Projects
+                    About
                   </a>
                 </div>
               </div>
