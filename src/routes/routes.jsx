@@ -24,14 +24,13 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <DashboardPage />
+        element: <DashboardPage />,
       },
       {
         path: "product/:id",
-        element: <ProductPage />
-      }
+        element: <ProductPage />,
+      },
     ],
   },
 ]);
-
 export default router;
