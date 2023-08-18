@@ -16,10 +16,10 @@ const TrendingVideoGames = () => {
   };
 
   return (
-    <div className=" mt-8 mb-10">
+    <div className=" mt-8 mb-12 " style={{ backgroundColor: "#FCFCFC " }}>
       <div className="flex items-center justify-between mr-2  my-8">
-        <h2 className=" lg:text-[1.8rem] 3xl:text-[1.9rem]  md:text-[1.7rem] text-[1.4rem]  ml-2   font-semibold">
-          Trending Gift Cards
+        <h2 className=" lg:text-[1.8rem]  text-gray-700 3xl:text-[2rem]  md:text-[1.7rem] text-[1.4rem]  ml-2 font-semibold">
+          Trending Video Games
         </h2>
         <div className="hidden sm:flex items-center gap-2">
           <span>Discover All</span>
@@ -59,7 +59,7 @@ const TrendingVideoGames = () => {
       <div className="hidden sm:carousel carousel-center w-full rounded-lg gap-x-4">
         <div
           id="trendingVideoGamesSlide1"
-          className="carousel-item w-full gap-4 xl:gap-4 "
+          className="carousel-item w-full gap-2 xl:gap-4 "
         >
           {videoCardData.slice(0, 4).map((game) => (
             <TrendingVideoGame key={game.id} game={game} />
@@ -78,7 +78,7 @@ const TrendingVideoGames = () => {
       <div className="relative sm:hidden carousel w-full rounded-lg gap-x-4">
         <div
           id="mbTrendingVideoGamesSlide1"
-          className="carousel-item w-full gap-4 sm:gap-5 md:gap-10"
+          className="carousel-item w-full gap-2 sm:gap-5 md:gap-10"
         >
           {videoCardData.slice(0, 2).map((game) => (
             <TrendingVideoGame key={game.id} game={game} />

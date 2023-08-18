@@ -7,7 +7,7 @@ import cards from "../assets/payments/debit-credit.png";
 
 export default function PaymentOptions() {
   return (
-    <section className="grid grid-cols-4 grid-rows-[repeat(1,_3rem)] w-full gap-0 border-b-2 mt-24 border-gray-300 md:grid-cols-6 ">
+    <section className="grid grid-cols-4 grid-rows-[repeat(1,_3rem)] w-full gap-0 border-b-2 mt-32 border-gray-300 md:grid-cols-6 ">
       <div className="flex justify-center items-center border-[0.5px] border-gray-200 px-2 py-2">
         <img
           src={bitcoin}

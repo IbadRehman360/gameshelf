@@ -3,9 +3,15 @@ import { FcGoogle } from "react-icons/fc";
 export default function LoginPage() {
   return (
     <>
-      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-[90px]  sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h3 className="text-3xl text-center font-bold">GS Logo</h3>
+          {/* <h3 className="text-3xl text-center font-bold flex ite">
+            <img
+              className="lg:h-10 h-8    object-contain  w-auto  rounded-xl border-white mt-1 "
+              src="/logo3.png"
+              alt="Your Company"
+            />
+          </h3> */}
           <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
