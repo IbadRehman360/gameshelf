@@ -1,6 +1,5 @@
 import { CiHeart } from "react-icons/ci";
 import { BiLeftArrow, BiSolidLeftArrow } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
 
 export default function FeaturedProduct() {
   return (
@@ -9,7 +8,6 @@ export default function FeaturedProduct() {
         className="flex flex-col p-3 sm:p-4   border-2 rounded-2xl  divide-y "
         style={{ backgroundColor: "#FCFCFC " }}
       >
-      <NavLink to="/product/1" className="flex flex-col p-3 sm:p-5  border-2 rounded-2xl  divide-y">
         <div className="flex flex-col gap-1 ">
           <h5 className="sm:text-[0.7rem] mb-1 text-[0.6rem]  uppercase gap-2 lg:gap-3 sm-3  inline-flex text-gray-500">
             <img
@@ -51,6 +49,7 @@ export default function FeaturedProduct() {
             </span>
           </div>
         </div>
-      </NavLink>
+      </div>
+    </>
   );
 }

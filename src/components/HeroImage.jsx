@@ -105,14 +105,14 @@ export default function HeroImages({ index, imageUrl }) {
           <div className="my-4 sm:my-0 sm:mt-6 flex lg:mt-8 mt-6  gap-x-6 lg:gap-x-8 justify-center align-middle items-center text-center  place-self-center">
             <a
               href="#"
-              className="  text-[0.59rem]   bg-rose-600 hover:bg-rose-500 sm:text-xs md:w-28 md:h-10 lg:w-32  h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition w-20  flex justify-center items-center rounded-md  lg:py-4 text-sm font-semibold text-gray-200 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="  text-[0.55rem]   bg-rose-600 hover:bg-rose-500 sm:text-xs md:w-28 md:h-10 lg:w-32  h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition w-20  flex justify-center items-center rounded-md  lg:py-4 text-sm font-semibold text-gray-200 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Start Selling
             </a>
 
             <a
               href="#"
-              className="text-[0.59rem]   font-semibold border-[1px] p-3  sm:text-xs w-fit h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition flex justify-center items-center rounded-md  lg:py-4 text-sm text-white bg-gray-800  hover:bg-gray-600 opacity-80 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
+              className="text-[0.55rem]   font-semibold border-[1px] p-3  sm:text-xs w-fit h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition flex justify-center items-center rounded-md  lg:py-4 text-sm text-white bg-gray-800  hover:bg-gray-600 opacity-80 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
             >
               Find great deals <span aria-hidden="true">→</span>
             </a>

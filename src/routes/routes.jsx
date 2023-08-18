@@ -27,8 +27,10 @@ const router = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
+        path: "product/:id",
+        element: <ProductPage />,
+      },
     ],
   },
 ]);
-
 export default router;
