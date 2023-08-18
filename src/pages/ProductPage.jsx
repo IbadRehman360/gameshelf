@@ -1,9 +1,18 @@
 import { useParams } from "react-router-dom";
 import BreadCrumbs from "../components/BreadCrumbs";
+import { useState } from "react";
 
 export default function ProductPage() {
   const { id } = useParams();
+  const [quantity, setQuantity] = useState(1);
 
+  function subQuantity(){
+    if(quantity > 1) setQuantity(prevQuantity => prevQuantity - 1)
+  }
+
+  function addQuantity(){
+    setQuantity(prevQuantity => prevQuantity + 1)
+  }
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-8">
       <BreadCrumbs id={id} />
@@ -45,9 +54,9 @@ export default function ProductPage() {
           <div className="flex flex-col gap-4 text-center">
             <span className="text-xs">1,000 in stock</span>
             <div className="flex gap-2 items-center bg-white rounded-full p-1">
-              <button className="bg-gray-300 px-3 py-1 rounded-full">-</button>
-              <span className="px-4">2</span>
-              <button className="bg-navy-blue text-white px-3 py-1 rounded-full">
+              <button className="btn bg-gray-300 btn-sm rounded-full" onClick={() => subQuantity()}>-</button>
+              <span className="px-4">{quantity}</span>
+              <button className="btn btn-sm bg-navy-blue hover:bg-[#323447] text-white rounded-full" onClick={() => addQuantity()}>
                 +
               </button>
             </div>
