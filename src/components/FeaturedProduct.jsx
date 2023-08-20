@@ -12,7 +12,7 @@ export default function FeaturedProduct() {
           <h5 className="sm:text-[0.7rem] mb-1 text-[0.6rem]  uppercase gap-2 lg:gap-3 sm-3  inline-flex text-gray-500">
             <img
               className="w-6 h-6 sm:w-8  sm:h-8 rounded-full"
-              src="userImage/3.jpg"
+              src="/userImage/3.jpg"
             ></img>{" "}
             <span className="mt-1 sm:mt-1.5 lg:text-xs xl:text-[0.85rem] truncate">
               {" "}
