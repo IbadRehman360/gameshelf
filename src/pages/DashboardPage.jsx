@@ -1,4 +1,4 @@
-import DashboardItems from "../components/DashboardItems";
+import DashboardItems from "../components/DashboardItem";
 export default function DashboardPage() {
   return (
     <div className="max-w-7xl mx-auto my-10 p-5">
