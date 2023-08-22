@@ -1,0 +1,43 @@
+import DashboardFilterOption from "./DashboardFilterOption";
+
+const filterOptions = [
+  { id: "Recommended", title: "Recommended" },
+  { id: "Most Recent", title: "Recent" },
+  { id: "Lowest Price", title: "Lowest Price" },
+  { id: "Highest Price", title: "Highest Price" },
+];
+
+function DashboardListingFilter() {
+  return (
+    <div>
+      <div className="flex mb-6 px-2 gap-4">
+        <p className="text-gray-600 sm:text-[0.9em] text-[0.8rem] md:text-[1rem] mt-1.5 ">
+          About 93,741 results
+        </p>
+        <div className="sm:hidden flex flex-1 justify-end">
+          <select
+            id="location"
+            name="location"
+            className="  rounded-md border-0 w-[70%] py-[0.4rem] pl-3 pr-10 text-[0.9rem] text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            defaultValue="Canada"
+          >
+            <option>Recommended</option>
+            <option>Most Recent</option>
+            <option>Lowest Price</option>
+            <option>Highest Price</option>
+          </select>
+        </div>
+        <div className=" hidden sm:flex flex-1 grid-cols-2 justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0">
+          {filterOptions.map((filterOption) => (
+            <DashboardFilterOption
+              key={filterOption.id}
+              filterOption={filterOption}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default DashboardListingFilter;
