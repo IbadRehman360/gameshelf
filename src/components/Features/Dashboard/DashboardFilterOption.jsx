@@ -2,7 +2,6 @@ function DashboardFilterOption({ filterOption }) {
   return (
     <div key={filterOption.id} className=" sm:flex items-center">
       <input
-        id={filterOption.id}
         name="notification-method"
         type="radio"
         defaultChecked={filterOption.id === "Recommended"}
@@ -10,7 +9,7 @@ function DashboardFilterOption({ filterOption }) {
       />
       <label
         htmlFor={filterOption.id}
-        className="ml-3 block text-sm font-medium leading-6 text-gray-900"
+        className="ml-2 mr-3 block text-sm font-medium leading-6 text-gray-900"
       >
         {filterOption.title}
       </label>

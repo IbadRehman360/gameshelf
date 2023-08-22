@@ -1,10 +1,10 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import { HomeIcon } from "@heroicons/react/20/solid";
 export default function BreedTitle() {
   return (
     <div>
       <div>
-        <nav className="sm:hidden" aria-label="Back">
+        {/* <nav className="sm:hidden" aria-label="Back">
           <a
             href="#"
             className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
@@ -15,16 +15,19 @@ export default function BreedTitle() {
             />
             Back
           </a>
-        </nav>
-        <nav className="hidden sm:flex" aria-label="Breadcrumb">
-          <ol role="list" className="flex items-center space-x-4">
+        </nav> */}
+        <nav className="flex" aria-label="Breadcrumb">
+          <ol role="list" className="flex items-center space-x-0 sm:space-x-2">
             <li>
               <div className="flex">
                 <a
                   href="#"
-                  className="text-sm font-medium text-gray-500 hover:text-gray-700"
+                  className="sm:text-sm  text-xs font-medium text-gray-500 hover:text-gray-700"
                 >
-                  Jobs
+                  <HomeIcon
+                    className="mr-1 h-[18px] w-[18px] flex-shrink-0"
+                    aria-hidden="true"
+                  />
                 </a>
               </div>
             </li>
@@ -36,9 +39,9 @@ export default function BreedTitle() {
                 />
                 <a
                   href="#"
-                  className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+                  className="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
-                  Engineering
+                  Account
                 </a>
               </div>
             </li>
@@ -51,16 +54,16 @@ export default function BreedTitle() {
                 <a
                   href="#"
                   aria-current="page"
-                  className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+                  className="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
-                  Valorant Accounts
+                  Valorant
                 </a>
               </div>
             </li>
           </ol>
         </nav>
       </div>
-      <div className="mt-6 md:flex md:items-center  mb-4 md:justify-between">
+      <div className="mt-5 md:flex md:items-center  mb-4 md:justify-between">
         <div className="min-w-0 flex-1">
           <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
             Valorant Accounts
