@@ -5,7 +5,7 @@ import FeaturesItem from "./FeaturesItem";
 const FEATURES = [
   {
     icon: <FaFeather className="text-3xl sm:text-[2.6rem]  sm:mb-0" />,
-    heading: "East to Use",
+    heading: "Easy to Use",
     description:
       "Streamlined, helpful interface aiding efficient task Complete",
   },

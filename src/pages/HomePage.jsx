@@ -1,10 +1,10 @@
-import HeroCarousel from "../components/HeroCarousel";
-import CategoryList from "../components/CategoryList";
-import TrendingGiftCards from "../components/TrendingGiftCards";
-import TrendingVideoGames from "../components/TrendingVideoGames";
-import PaymentOptions from "../components/PaymentOptions";
-import FeaturesList from "../components/Features/FeaturesList";
-import FeaturedProducts from "../components/FeaturedProducts";
+import HeroCarousel from "../components/Features/HomePage/HeroCarousel";
+import CategoryList from "../components/Features/HomePage/CategoryList";
+import TrendingGiftCards from "../components/Features/HomePage/TrendingGiftCards";
+import TrendingVideoGames from "../components/Features/HomePage/TrendingVideoGames";
+import PaymentOptions from "../components/Features/HomePage/PaymentOptions";
+import FeaturesList from "../components/Features/HomePage/FeaturesList";
+import FeaturedProducts from "../components/Features/HomePage/Products";
 
 export default function HomePage() {
   return (

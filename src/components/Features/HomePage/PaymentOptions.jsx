@@ -1,9 +1,9 @@
-import bitcoin from "../assets/payments/bitcoin.png";
-import amex from "../assets/payments/amex.png";
-import paypal from "../assets/payments/paypal.png";
-import skrill from "../assets/payments/skrill.png";
-import visa from "../assets/payments/visa.png";
-import cards from "../assets/payments/debit-credit.png";
+import bitcoin from "../../../assets/payments/bitcoin.png";
+import amex from "../../../assets/payments/amex.png";
+import paypal from "../../../assets/payments/paypal.png";
+import skrill from "../../../assets/payments/skrill.png";
+import visa from "../../../assets/payments/visa.png";
+import cards from "../../../assets/payments/debit-credit.png";
 
 export default function PaymentOptions() {
   return (
