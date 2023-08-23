@@ -6,7 +6,7 @@ import RegisterPage from "../pages/RegisterPage";
 import DashboardPage from "../pages/DashboardPage";
 import ProductPage from "../pages/ProductPage";
 import ProfilePage from "../pages/ProfilePage";
-
+import AboutPage from "../pages/AboutPage";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
         element: <RegisterPage />,
       },
       {
+        path: "About",
+        element: <AboutPage />,
+      },
+      {
         path: "dashboard",
         element: <DashboardPage />,
       },
@@ -32,9 +36,9 @@ const router = createBrowserRouter([
         element: <ProductPage />,
       },
       {
-        path:"profile/:user",
-        element: <ProfilePage />
-      }
+        path: "profile/:user",
+        element: <ProfilePage />,
+      },
     ],
   },
 ]);
