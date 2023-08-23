@@ -12,7 +12,7 @@ export default function HomePage() {
       <HeroCarousel />
       <CategoryList />
       <div
-        className="bg-white mt-14 max-w-[1400px] mx-auto"
+        className="bg-white mt-16 max-w-[1400px] px-0 xl:px-14 mx-auto"
         style={{ backgroundColor: "#FCFCFC " }}
       >
         <FeaturedProducts />
