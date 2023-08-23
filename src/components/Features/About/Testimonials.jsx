@@ -1,7 +1,7 @@
 export default function Testimonials() {
   return (
     <div className="text-gray-600 dark:text-gray-300" id="testimonials">
-      <div className="mb-20 space-y-4 px-6 md:px-0">
+      <div className="mb-20 space-y-4 px-1 md:px-1">
         <h2 className="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl">
           We have some fans.
         </h2>

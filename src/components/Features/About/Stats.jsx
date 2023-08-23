@@ -1,6 +1,6 @@
 export default function Stats() {
   return (
-    <div id="solution">
+    <div id="solution mb-10 ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -19,7 +19,7 @@ export default function Stats() {
         />
       </svg>
 
-      <div className="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
+      <div className="space-y-6 justify-between mb-10 text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
         <div className="md:5/12 lg:w-1/2">
           <img
             src="./images/pie.svg"

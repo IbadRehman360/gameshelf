@@ -3,22 +3,22 @@ import { FcGoogle } from "react-icons/fc";
 export default function LoginPage() {
   return (
     <>
-      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-[90px]  sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          {/* <h3 className="text-3xl text-center font-bold flex ite">
+      <div className="bg-white flex min-h-full flex-1 flex-col justify-center py-[90px]  sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md ">
+          <h3 className="text-3xl text-center justify-center mb-6 bg font-bold flex ite">
             <img
-              className="lg:h-10 h-8    object-contain  w-auto  rounded-xl border-white mt-1 "
+              className="lg:h-10 h-8  bg-white border-gray-300 border  object-contain  w-auto  rounded-xl  mt-1 "
               src="/logo3.png"
               alt="Your Company"
             />
-          </h3> */}
+          </h3>
           <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]  ">
+          <div className="bg-gray-50 px-6 py-12 shadow sm:rounded-lg sm:px-12 border border-gray-100">
             <form className="space-y-6" action="#" method="POST">
               <div>
                 <label
