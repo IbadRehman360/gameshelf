@@ -23,16 +23,22 @@ export default function FeaturedProducts() {
       </h2>
       <div className="flex gap-3 my-3 mt-6 ">
         <div className="flex flex-col gap-1 ">
-          <h3 className="sm:text-sm text-[0.8rem] md:text-[1rem]  font-semibold  text-yellow-500 text-center">
+          <h3 className="sm:text-sm text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] font-semibold  text-red-500 text-center">
             New Items
           </h3>
-          <hr className="border-yellow-500  border-[1px] md:w-28 w-24" />
+          <hr className="border-red-400 border-[1px] lg:w-32 md:w-28 w-24" />
         </div>
         <div className="flex flex-col gap-1">
-          <h3 className="sm:text-sm text-[0.8rem] md:text-[1rem]  font-semibold text-purple-700 text-center">
+          <h3
+            className="sm:text-sm text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] font-semibold text-green-500 text-center"
+            style={{ color: " #22577a" }}
+          >
             Most Views
           </h3>
-          <hr className="border-purple-700 border-[1px]  md:w-28 w-24" />
+          <hr
+            className="border-green-500 border-[1px] lg:w-32   md:w-28 w-24"
+            style={{ borderColor: " #22577a" }}
+          />
         </div>
       </div>
       <div className="carousel w-full  md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5  justify-items-stretch md:gap-5 mt-1">

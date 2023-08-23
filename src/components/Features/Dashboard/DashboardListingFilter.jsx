@@ -10,7 +10,7 @@ const filterOptions = [
 function DashboardListingFilter() {
   return (
     <div>
-      <div className="flex mb-6 px-2 gap-4">
+      <div className="flex mb-6  gap-4">
         <p className="text-gray-600 sm:text-[0.9em] text-[0.85rem]  md:text-[1rem] mt-1.5 ">
           About 93,741 results
         </p>

@@ -8,7 +8,9 @@ export default function ProfileCard() {
           src="https://assets.g2g.com/user/avatar/1000630794_1691163110365.png"
         />
         <h1 className="text-xl font-bold">JohnDoe</h1>
-        <button className="btn bg-navy-blue text-white hover:text-black w-52">Chat</button>
+        <button className="btn bg-navy-blue text-white hover:text-black w-52">
+          Chat
+        </button>
       </div>
       <div className="flex flex-col gap-4 w-full">
         <div className="flex justify-between w-full">

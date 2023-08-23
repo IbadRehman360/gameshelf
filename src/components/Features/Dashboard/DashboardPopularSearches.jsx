@@ -8,8 +8,8 @@ function App() {
         <button
           key={index}
           type="button"
-          className="rounded-full px-3 py-[5px] text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          style={{ backgroundColor: "#819aa89" }}
+          className="rounded-full  px-3 py-[5px] text-sm font-semibold  text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          style={{ backgroundColor: "#819aa3" }}
         >
           {gameName}
         </button>
