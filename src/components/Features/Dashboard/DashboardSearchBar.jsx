@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { RiFilter3Line } from "react-icons/ri";
-// import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 
@@ -19,9 +19,10 @@ export default function DashboardSearchBar() {
           <div className="relative rounded-lg  flex items-center w-[90%] sm:w-[30%]">
             <input
               type="text"
-              className="rounded-lg py-1.5 md:py-2 px-3 text-[0.9rem] mr-2 w-[100%] border-none focus:outline-none"
+              className="rounded-lg rounded-e-none sm:rounded-lg py-1.5 md:py-2 px-8 text-[0.9rem] sm:mr-2 w-[100%] border-none focus:outline-none"
               placeholder="Find Offers"
             />
+            <AiOutlineSearch className="absolute mx-2" />
           </div>
           <div className="sm:flex flex-1 sm:ml-8 sm:gap-4 md:ml-14 space-x-4 hidden md:gap-8 lg:gap-14  w-[100%] ">
             <a
@@ -44,9 +45,9 @@ export default function DashboardSearchBar() {
             </a>
           </div>
 
-          <Menu as="div" className="relative inline-block text-left  ">
+          <Menu as="div" className="relative w-16 sm:w-fit sm:inline-block text-left  ">
             <div>
-              <Menu.Button className="inline-flex w-full justify-center sm:hidden gap-x-1.5 rounded-md  bg-slate-50 px-3  py-1.5 md:py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+              <Menu.Button className="inline-flex w-full justify-end sm:hidden gap-x-1.5 rounded-lg rounded-l-none sm:rounded-md  bg-white sm:bg-slate-50 px-3  py-[0.44rem] md:py-2 text-sm font-semibold text-gray-900 sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50">
                 <RiFilter3Line className="h-5 w-5 inline-block" />
               </Menu.Button>
             </div>
