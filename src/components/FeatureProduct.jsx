@@ -28,7 +28,7 @@ export default function FeaturedProduct() {
         <div className="sm:text-[0.7rem] mb-1 text-[0.4rem] mt-1 sm-3    flex">
           <img
             className="w-8 h-8 sm:w-8 mt-1.5 sm:h-8 lg:h-9 lg:w-9 rounded-full"
-            src="userImage/3.jpg"
+            src="/userImage/3.jpg"
           />
           <div className="inline-flex justify-between items-center ml-2 flex-1">
             <div className="md:mt-2 mt-1 lg:mt-0.5">
