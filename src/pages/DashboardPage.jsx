@@ -8,7 +8,7 @@ import DashBoardInfo from "../components/Features/Dashboard/DashBoardInfo";
 export default function DashboardPage() {
   return (
     <>
-      <div className="max-w-[1500px] mx-auto pt-8 px-4 sm:pb-6       ">
+      <div className="max-w-[1700px] mx-auto pt-8 px-4 sm:pb-6       ">
         <DashboardBreadTitle />
         <DashboardSearchBar />
         <DashboardPopularSearches />
@@ -17,7 +17,7 @@ export default function DashboardPage() {
         className="sm:2 pt-4 px-2  pb-20 "
         style={{ backgroundColor: "#FCFCFC " }}
       >
-        <div className="max-w-[1500px] mx-auto  pt-8 px-2  ">
+        <div className="max-w-[1700px] mx-auto  pt-8 px-2  ">
           <DashboardListingFilter />
           <DashboardItems />
           <FeaturePagination />
