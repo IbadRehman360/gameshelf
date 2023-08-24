@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { RiFilter3Line } from "react-icons/ri";
-// import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 
@@ -15,45 +15,46 @@ export default function DashboardSearchBar() {
   return (
     <div>
       <div className="  ">
-        <div className="flex items-center justify-between  rounded-3xl mb-8 mt-7 lg:gap-4 bg-gradient-to-r from-gray-800   to-gray-800    to-slate-700 shadow-md p-4">
-          <div className="relative rounded-lg  flex items-center w-[90%] sm:w-[30%]">
+        <div className="flex items-center justify-between  rounded-3xl mb-8 mt-7 lg:gap-4 shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4">
+          <div className="relative rounded-lg flex items-center w-[90%] sm:w-[30%]">
             <input
               type="text"
-              className="rounded-lg py-1.5 md:py-2 px-3 text-[0.9rem] mr-2 w-[100%] border-none focus:outline-none"
+              className="rounded-full rounded-e-none sm:rounded-lg py-1.5 md:py-2 px-8 text-[0.9rem] sm:mr-2 w-[100%] border-none focus:outline-none"
               placeholder="Find Offers"
             />
+            <AiOutlineSearch className="absolute mx-3 sm:mx-1" />
           </div>
           <div className="sm:flex flex-1 sm:ml-8 sm:gap-4 md:ml-14 space-x-4 hidden md:gap-8 lg:gap-14  w-[100%] ">
             <a
               href="/"
-              className="text-white hover:text-gray-100   font-semibold transition duration-300"
+              className="text-gray-500 hover:text-gray-100   font-semibold transition duration-300"
             >
               Server
             </a>
             <a
               href="/"
-              className="text-white hover:text-gray-100 font-semibold transition duration-300"
+              className="text-gray-500 hover:text-gray-100 font-semibold transition duration-300"
             >
               Rank
             </a>
             <a
               href="/"
-              className="text-white hover:text-gray-100 font-semibold transition duration-300"
+              className="text-gray-500 hover:text-gray-100 font-semibold transition duration-300"
             >
               Budget
             </a>
           </div>
 
-          <Menu as="div" className="relative inline-block text-left  ">
+          <Menu as="div" className="relative p-2 w-16 border-l-[1px] border[rgba(0,0,0,0.12)] sm:py-0 sm:border-0 sm:w-fit sm:inline-block text-left  ">
             <div>
-              <Menu.Button className="inline-flex w-full justify-center sm:hidden gap-x-1.5 rounded-md  bg-slate-50 px-3  py-1.5 md:py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+              <Menu.Button className="inline-flex w-full justify-center sm:justify-center sm:hidden gap-x-1.5 rounded-lg rounded-l-none sm:rounded-md  bg-white sm:bg-slate-50 px-3  py-[0.44rem] md:py-2 text-sm font-semibold text-gray-900 sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50">
                 <RiFilter3Line className="h-5 w-5 inline-block" />
               </Menu.Button>
             </div>
 
             <div>
-              <label className="sm:flex items-center gap-3 font-semibold text-sm hidden text-slate-50 ">
-                Online Seller
+              <label className="sm:flex items-center gap-3 font-semibold text-sm hidden text-black ">
+                <span className="text-gray-500">Online Seller</span>
                 <Switch
                   checked={enabled}
                   onChange={setEnabled}
