@@ -10,11 +10,11 @@ const filterOptions = [
 function DashboardListingFilter() {
   return (
     <div>
-      <div className="flex flex-col lg:flex-row mb-6 gap-4">
+      <div className="flex  mb-6 gap-4">
         <p className="text-gray-600 sm:text-[0.9em] text-[0.85rem] font-medium md:text-[1rem] mt-1.5 ">
           About 93,741 results
         </p>
-        <div className="sm:hidden flex flex-1 justify-end ">
+        <div className="md:hidden flex flex-1 justify-end ">
           <select
             id="location"
             name="location"
@@ -28,7 +28,7 @@ function DashboardListingFilter() {
           </select>
         </div>
 
-        <div className="hidden sm:flex flex-1 flex-wrap lg:flex-row lg:justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0">
+        <div className="hidden md:flex md:flex-1 flex-wrap lg:flex-row justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0">
           {filterOptions.map((filterOption) => (
             <DashboardFilterOption
               key={filterOption.id}
