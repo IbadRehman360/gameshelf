@@ -102,7 +102,7 @@ const TrendingVideoGames = () => {
         </p>
         <div className="hidden md:flex justify-center">
           <a
-            href="#trendingGiftCardsSlide1"
+            href="#trendingVideoGamesSlide1"
             onClick={handlePrevPage}
             className={`block w-[28px] h-[4px] rounded-2xl mr-1 ${
               currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
@@ -110,9 +110,9 @@ const TrendingVideoGames = () => {
             id="prevPage"
           />
           <a
-            href="#trendingGiftCardsSlide2"
+            href="#trendingVideoGamesSlide2"
             onClick={handleNextPage}
-            className={`block w-[28px] h-[4px] lg:h-[6px] rounded-2xl mr-1 ${
+            className={`block w-[28px] h-[4px] rounded-2xl mr-1 ${
               currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
             } `}
           />
