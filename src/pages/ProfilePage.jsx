@@ -1,11 +1,11 @@
-import ProfileCard from "../components/ProfileCard";
-import ProfileItems from "../components/ProfileItems";
+// import ProfileCard from "../components/ProfileCard";
+// import ProfileItems from "../components/ProfileItems";
+import ProfileLayout from "../components/Features/Profile/ProfileLayout";
 
 export default function ProfilePage() {
   return (
-    <div className="max-w-7xl sm:flex gap-4 mx-auto py-12">
-      <ProfileCard />
-      <ProfileItems />
-    </div>
+    <main className="">
+      <ProfileLayout className="" />
+    </main>
   );
 }
