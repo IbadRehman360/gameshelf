@@ -112,12 +112,17 @@ export default function ProfilePage() {
               <div className="grid grid-cols-1 gap-8 md:gap-[3%] sm:grid-cols-[40%,55%] md:grid-cols-[35%,63%] lg:grid-cols-[25%,72%]">
                 <div className="flex flex-col gap-8 ">
                   <div className="md:bg-gray-50 md:p-4 rounded-lg">
-                    <div className="flex flex-col gap-5 ">
-                      <div className="flex justify-between  border-t border-b   my-4">
+                    <div className="flex flex-col gap-4 ">
+                      <div className="flex justify-between   border-b   my-4">
                         <span className="text-gray-500  ">Member Since</span>
                         <span>August, 2023</span>
                       </div>
-
+                      <div className="flex justify-between border-t   my-4">
+                        <span className="text-gray-500  ">
+                          Successful delivery
+                        </span>
+                        <span className=""> 🥈 97.47%</span>
+                      </div>
                       <div className="flex justify-between border-t">
                         <span className="text-gray-500">Last days rating</span>
                         <div className="flex gap-3 border-t">
