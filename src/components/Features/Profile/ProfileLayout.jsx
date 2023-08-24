@@ -103,7 +103,32 @@ export default function ProfilePage() {
                 <p className="text-[0.8rem] mt-0.5 uppercase">Level 73</p>
               </div>
               <div className="grid grid-cols-[30%,70%] ]">
-                <div className="bg-gray-100 h-[100rem] mr-20 "></div>
+                <div className="bg-gray-50 h-[100rem] mr-16 ml-10">
+                  <div className="mr-4 p-3 mt-4 flex justify-around">
+                    <p className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                      3
+                    </p>
+                    <p className="text-sm mt-1 text-blueGray-400">Following </p>
+                  </div>{" "}
+                  <div className="mr-4 p-3 mt-4 flex justify-around">
+                    <p className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                      3
+                    </p>
+                    <p className="text-sm mt-1 text-blueGray-400">Following </p>
+                  </div>{" "}
+                  <div className="mr-4 p-3 mt-4 flex justify-around">
+                    <p className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                      3
+                    </p>
+                    <p className="text-sm mt-1 text-blueGray-400">Following </p>
+                  </div>{" "}
+                  <div className="mr-4 p-3 mt-4 flex justify-around">
+                    <p className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                      3
+                    </p>
+                    <p className="text-sm mt-1 text-blueGray-400">Following </p>
+                  </div>{" "}
+                </div>
                 <div>
                   <h5 className="text-[1.4rem] font-medium text-blueGray-700">
                     Feature Items
