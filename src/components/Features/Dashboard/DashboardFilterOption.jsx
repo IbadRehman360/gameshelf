@@ -1,11 +1,11 @@
 function DashboardFilterOption({ filterOption }) {
   return (
-    <div key={filterOption.id} className=" sm:flex items-center">
+    <div key={filterOption.id} className="sm:flex items-center">
       <input
         name="notification-method"
         type="radio"
         defaultChecked={filterOption.id === "Recommended"}
-        className=" text-red-600 focus:ring-red-600 h-4 w-4 border-gray-300  "
+        className=" text-red-600 focus:ring-red-600 h-4 w-4 border-gray-300"
       />
       <label
         htmlFor={filterOption.id}
