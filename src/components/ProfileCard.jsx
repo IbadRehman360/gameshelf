@@ -3,10 +3,14 @@ export default function ProfileCard() {
   return (
     <div className="flex flex-col gap-8 p-4">
       <div className="flex flex-col items-center gap-4">
-        <img
-          className="rounded-full"
-          src="https://assets.g2g.com/user/avatar/1000630794_1691163110365.png"
-        />
+        <span className="relative inline-block">
+          <img
+            className="h-16 w-16 rounded-full"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <span className="absolute bottom-0 right-0 block h-4 w-4 rounded-full bg-green-400 ring-2 ring-white" />
+        </span>
         <h1 className="text-xl font-bold">JohnDoe</h1>
         <button className="btn bg-navy-blue text-white hover:text-black w-52">
           Chat
