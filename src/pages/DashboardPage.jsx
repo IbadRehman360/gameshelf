@@ -17,7 +17,7 @@ export default function DashboardPage() {
         <div className="max-w-[1400px] xl:px-14 mx-auto  pt-8 px-2  ">
           <DashboardListingFilter />
           <DashboardItems />
-          <FeaturePagination />
+          <FeaturePagination onchange={"sm:flex"} onchange2={"sm:hidden"} />
           <DashBoardInfo />
         </div>
       </div>
