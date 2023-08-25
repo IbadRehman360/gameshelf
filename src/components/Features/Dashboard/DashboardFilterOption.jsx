@@ -1,6 +1,6 @@
 function DashboardFilterOption({ filterOption }) {
   return (
-    <div key={filterOption.id} className="sm:flex items-center">
+    <div key={filterOption.id} className="sm:flex">
       <input
         name="notification-method"
         type="radio"
