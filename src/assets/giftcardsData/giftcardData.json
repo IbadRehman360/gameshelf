@@ -2,49 +2,49 @@
   {
     "id": 1,
     "title": "Steam Wallet",
-    "src": "/public/giftcards/giftcard1.svg",
+    "src": "/giftcards/giftcard1.svg",
     "offers": 321
   },
   {
     "id": 2,
     "title": "Apple iTunes",
-    "src": "/public/giftcards/giftcard2.svg",
+    "src": "/giftcards/giftcard2.svg",
     "offers": 163
   },
   {
     "id": 3,
     "title": "Razer Gold",
-    "src": "/public/giftcards/giftcard3.svg",
+    "src": "/giftcards/giftcard3.svg",
     "offers": 166
   },
   {
     "id": 4,
     "title": "Xbox Membership",
-    "src": "/public/giftcards/giftcard4.svg",
+    "src": "/giftcards/giftcard4.svg",
     "offers": 11
   },
   {
     "id": 5,
     "title": "Steam Wallet",
-    "src": "/public/giftcards/giftcard2.svg",
+    "src": "/giftcards/giftcard2.svg",
     "offers": 321
   },
   {
     "id": 6,
     "title": "Apple iTunes",
-    "src": "/public/giftcards/giftcard3.svg",
+    "src": "/giftcards/giftcard3.svg",
     "offers": 163
   },
   {
     "id": 7,
     "title": "Razer Gold",
-    "src": "/public/giftcards/giftcard4.svg",
+    "src": "/giftcards/giftcard4.svg",
     "offers": 166
   },
   {
     "id": 8,
     "title": "Xbox Membership",
-    "src": "/public/giftcards/giftcard1.svg",
+    "src": "/giftcards/giftcard1.svg",
     "offers": 11
   }
 ]
