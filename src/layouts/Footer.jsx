@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      <footer className="footer footer-center p-4  text-gray-400 bg-gray-900 border-t     border-gray-600 ">
+      <footer className="footer footer-center p-7  text-gray-400 bg-gray-900 border-t     border-gray-600 ">
         <div>
           <p>Copyright © 2023 - All right reserved by GameStacks Ltd</p>
         </div>

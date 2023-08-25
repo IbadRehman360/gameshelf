@@ -6,19 +6,25 @@ import { HiXCircle } from "react-icons/hi";
 export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [checkPassword, setCheckPassword] = useState(false); 
-  function checkPasswordErrors(){
+  const [checkPassword, setCheckPassword] = useState(false);
+  function checkPasswordErrors() {
     setCheckPassword(true);
-    if(confirmPassword.length < 8) return true;
-    if(password != confirmPassword) return true;
+    if (confirmPassword.length < 8) return true;
+    if (password != confirmPassword) return true;
     setCheckPassword(false);
   }
   return (
     <>
       <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h3 className="text-3xl text-center font-bold">GS Logo</h3>
-          <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h3 className="text-3xl text-center justify-center  font-bold flex ">
+            <img
+              className="lg:h-14 h-8  bg-gray-50 w-auto  rounded-xl  mt-1 "
+              src="/logo3.png"
+              alt="Your Company"
+            />
+          </h3>
+          <h2 className="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Register for an account
           </h2>
         </div>
@@ -40,7 +46,7 @@ export default function RegisterPage() {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -76,9 +82,9 @@ export default function RegisterPage() {
                     id="confirmPassword"
                     name="confirmPassword"
                     type="password"
-                    onChange={(e) => { 
-                        setConfirmPassword(e.target.value);
-                        checkPasswordErrors();
+                    onChange={(e) => {
+                      setConfirmPassword(e.target.value);
+                      checkPasswordErrors();
                     }}
                     onBlur={checkPasswordErrors}
                     required
@@ -106,8 +112,12 @@ export default function RegisterPage() {
 
                       <div className="mt-2 text-sm text-red-700">
                         <ul role="list" className="list-disc space-y-1 pl-5">
-                          {confirmPassword.length < 8 && <li>Your password must be at least 8 characters</li>}
-                          {confirmPassword != password && <li>Your password does not match</li>}
+                          {confirmPassword.length < 8 && (
+                            <li>Your password must be at least 8 characters</li>
+                          )}
+                          {confirmPassword != password && (
+                            <li>Your password does not match</li>
+                          )}
                         </ul>
                       </div>
                     </div>

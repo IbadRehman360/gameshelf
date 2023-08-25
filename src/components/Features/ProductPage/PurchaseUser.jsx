@@ -9,17 +9,17 @@ function PurchaseUser() {
       <div>
         <h3 className="text-[0.9rem] md:text-[1rem] font-medium text-blueGray-700">
           Ibad ur Rehman
-          <p className="text-[0.7rem] mt-0.5 uppercase">Level 73</p>
+          <p className="text-[0.7rem]  uppercase">Level 73</p>
         </h3>
         <div className="flex space-x-2 mt-2">
           <button
-            className="bg-red-500 hover:bg-red-400 active:bg-red-400 text-white font-bold hover:shadow-md shadow text-[0.7rem]  px-2  py-2 md:mr-2 rounded outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
+            className="bg-red-500 hover:bg-red-400 active:bg-red-400 text-white  font-semibold hover:shadow-md shadow text-[0.7rem]  px-2  py-1.5  rounded outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
             type="button"
           >
             Connect
           </button>
           <button
-            className="bg-gray-600 hover:bg-gray-500 active:bg-red-400  text-white font-bold hover:shadow-md shadow text-[0.7rem] px-2 py-2 rounded outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
+            className="bg-gray-600 hover:bg-gray-500 active:bg-red-400  text-white font-semibold hover:shadow-md shadow text-[0.7rem] px-2 py-2 rounded outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
             type="button"
           >
             Message
