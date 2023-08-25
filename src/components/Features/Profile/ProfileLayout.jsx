@@ -4,8 +4,12 @@ import TrendingGiftCard from "../../FeatureTrendingGiftCards";
 import DashboardListingFilter from "../Dashboard/DashboardListingFilter";
 import { useState } from "react";
 import FuturePagination from "../../FeaturePagination";
+import ProfileEdit from "./ProfileEdit";
 export default function ProfilePage() {
+  const [isEdit, setIsEdit] = useState(false);
   const [showMore, setShowMore] = useState(false);
+
+  let content = "We offer various items,services in our store for your enjoyment and convenience. ^-^ Over the past 8 years, we have successfully fulfilled more than 2,000,000 orders across various websites. Contact Me if you got any problem or some other questions";
 
   const toggleShowMore = () => {
     setShowMore((prevState) => !prevState);
@@ -165,11 +169,12 @@ export default function ProfilePage() {
                         <div className="flex flex-col gap-4 ">
                           <h3 className="text-xl inline-flex justify-between font-semibold">
                             Description{" "}
-                            <span className="text-sm   text-gray-500 mt-1 font-normal ">
-                              edit
-                            </span>
+                            <button onClick={() => setIsEdit(!isEdit)} className="text-sm text-gray-500 mt-1 font-normal underline">
+                              Edit
+                            </button>
                           </h3>
-                          <div className="flex flex-wrap ">
+                          <div className="flex flex-wrap">
+                            {isEdit ? <ProfileEdit content={content}/> :<>
                             <div className="mb-4 text-sm  md:text-md font-normal gap-4 text-gray-500 grid leading-relaxed text-blueGray-700">
                               <p>
                                 We offer various items,services in our store for
@@ -182,7 +187,16 @@ export default function ProfilePage() {
                               </p>
                               <p>
                                 Contact Me if you got any problem or some other
-                                questions
+                                questions{" "}
+                                {!showMore && (
+                                  <a
+                                    href="#pablo"
+                                    className="font-normal ml-2 md:text-md text-sm text-red-500"
+                                    onClick={toggleShowMore}
+                                  >
+                                    Show more
+                                  </a>
+                                )}
                               </p>
                             </div>
                             {showMore && (
@@ -195,19 +209,22 @@ export default function ProfilePage() {
                                 <p>✔️ Changeable Gmail</p>
                               </div>
                             )}
+                            </>}
                           </div>
-                          <a
-                            href="#pablo"
-                            className="font-normal ml-2 md:text-md text-sm text-red-500"
-                            onClick={toggleShowMore}
-                          >
-                            {showMore ? "Show less" : "Show more"}
-                          </a>
+                          {showMore && (
+                            <a
+                              href="#pablo"
+                              className="font-normal ml-2 md:text-md text-sm text-red-500"
+                              onClick={toggleShowMore}
+                            >
+                              Show less
+                            </a>
+                          )}
                         </div>
                       </div>
                       <div className="md:bg-gray-50 md:p-4 pb-4 rounded-lg border-b-2 ">
                         <h3 className="text-lg font-semibold">Languages</h3>
-                        <div className="grid grid-cols-2  py-6">
+                        <div className="flex flex-wrap gap-4 py-6">
                           <div className="bg-white w-fit p-5 rounded-lg border-[1px] border-gray-400">
                             English
                           </div>
