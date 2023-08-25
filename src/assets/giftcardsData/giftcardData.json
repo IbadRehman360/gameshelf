@@ -14,7 +14,7 @@
   {
     "id": 3,
     "title": "Razer Gold",
-    "src": "public/giftcards/giftcard3.svg",
+    "src": "/public/giftcards/giftcard3.svg",
     "offers": 166
   },
   {
@@ -38,7 +38,7 @@
   {
     "id": 7,
     "title": "Razer Gold",
-    "src": "public/giftcards/giftcard4.svg",
+    "src": "/public/giftcards/giftcard4.svg",
     "offers": 166
   },
   {
