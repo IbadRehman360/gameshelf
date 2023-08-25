@@ -14,7 +14,7 @@ function DashboardListingFilter() {
         <p className="text-gray-600 sm:text-[0.9em] text-[0.85rem] font-medium md:text-[0.95rem] mt-1.5 ">
           About 93,741 results
         </p>
-        <div className="md:hidden flex flex-1 justify-end ">
+        <div className="lg:hidden flex flex-1 justify-end ">
           <select
             id="location"
             name="location"
@@ -28,7 +28,7 @@ function DashboardListingFilter() {
           </select>
         </div>
 
-        <div className="hidden md:flex md:flex-1 flex-wrap lg:flex-row justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0">
+        <div className="hidden lg:flex lg:flex-1 flex-wrap lg:flex-row justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0">
           {filterOptions.map((filterOption) => (
             <DashboardFilterOption
               key={filterOption.id}
