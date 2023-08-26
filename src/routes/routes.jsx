@@ -3,10 +3,11 @@ import HomePage from "../pages/HomePage";
 import AppLayout from "../layouts/AppLayout";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-import DashboardPage from "../pages/DashboardPage";
+import AllSellerProductPage from "../pages/AllSellerProductPage";
 import ProductPage from "../pages/ProductPage";
 import ProfilePage from "../pages/ProfilePage";
 import AboutPage from "../pages/AboutPage";
+import DashboardPage from "../pages/DashboardPage";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <DashboardPage />,
+      },
+      {
+        path: "dashboard/products",
+        element: <AllSellerProductPage />,
       },
       {
         path: "product/:id",
