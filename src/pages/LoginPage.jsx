@@ -3,11 +3,11 @@ import { FcGoogle } from "react-icons/fc";
 export default function LoginPage() {
   return (
     <>
-      <div className="bg-white flex min-h-full flex-1 flex-col justify-center py-[90px]  sm:px-6 lg:px-8">
+      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-[90px]  sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md ">
           <h3 className="text-3xl text-center justify-center mb-6 bg font-bold flex ite">
             <img
-              className="lg:h-10 h-8  bg-white border-gray-300 border  object-contain  w-auto  rounded-xl  mt-1 "
+              className="lg:h-14 h-8  bg-gray-50 w-auto  rounded-xl  mt-1 "
               src="/logo3.png"
               alt="Your Company"
             />
@@ -18,7 +18,7 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]  ">
-          <div className="bg-gray-50 px-6 py-12 shadow sm:rounded-lg sm:px-12 border border-gray-100">
+          <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12 border border-gray-100">
             <form className="space-y-6" action="#" method="POST">
               <div>
                 <label
