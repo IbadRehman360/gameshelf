@@ -18,8 +18,8 @@ export default function ProductPage() {
     setQuantity((prevQuantity) => prevQuantity + 1);
   }
   return (
-    <div className="">
-      <div className="max-w-7xl mx-auto p-4  mt-10 sm:p-8">
+    <div className="pb-20">
+      <div className="max-w-7xl mx-auto p-4  mt-10 sm:p-8  ">
         <BreadCrumbs id={id} />
         <div className="flex  my-6 mb-10 ml-1 justify-between  ">
           <h1 className="text-lg  sm:text-xl md:text-2xl font-bold ">
@@ -121,7 +121,7 @@ export default function ProductPage() {
                 <h3 className="text-lg font-medium">Total</h3>
                 <h3 className="text-lg font-medium">$20.99</h3>
               </div>
-              <button className="btn w-full">Buy Now</button>
+              <button className="btn w-full mt-4 bg-white">Buy Now</button>
             </div>
           </div>
         </div>

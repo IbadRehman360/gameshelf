@@ -5,7 +5,7 @@ import Stats from "../components/Features/About/Stats";
 import Testimonials from "../components/Features/About/Testimonials";
 export default function DashboardPage() {
   return (
-    <div className="bg-gray-900">
+    <div className="">
       <div className="max-w-7xl mx-auto px-6 pb-20 border-b  border-slate-500  md:px-12 xl:px-6">
         <HeroSection />
         <Features />

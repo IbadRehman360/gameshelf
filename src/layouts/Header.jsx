@@ -11,10 +11,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure
-      as="nav"
-      className=" shadow bg-gray-900 border-b-2 border-black"
-    >
+    <Disclosure as="nav" className=" shadow  bg-[#222222]  border-black">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-[1900px] px-2 sm:px-4 lg:px-3 xl:px-5 ">
@@ -191,7 +188,7 @@ export default function Example() {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#111827]">
+          <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#222222]">
             <div className="space-y-1 pb-3 pt-2">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               <Disclosure.Button
@@ -212,10 +209,10 @@ export default function Example() {
                   />
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium text-slate-100">
+                  <div className="text-base font-medium text-slate-50">
                     Tom Cook
                   </div>
-                  <div className="text-sm font-medium text-slate-400">
+                  <div className="text-sm font-medium text-slate-200">
                     tom@example.com
                   </div>
                 </div>
@@ -231,32 +228,32 @@ export default function Example() {
                   />
                 </button>
               </div>
-              <div className="mt-3 space-y-1">
+              <div className="mt-3   space-y-1">
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium text-slate-300 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-base  font-medium text-slate-200 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Settings
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium  text-slate-300 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-base font-medium  text-slate-200 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Login
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium  text-slate-300 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-base font-medium text-slate-200 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Sign Up
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium  text-slate-300 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-base font-medium  text-slate-200 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Logout
                 </Disclosure.Button>
