@@ -100,7 +100,7 @@ export default function ProductPage() {
               <span className="text-xs">1,000 in stock</span>
               <div className="flex gap-2 items-center bg-white rounded-full p-1">
                 <button
-                  className="btn bg-gray-300 btn-sm rounded-full"
+                  className="btn bg-gray-200 btn-sm rounded-full"
                   onClick={() => subQuantity()}
                 >
                   -
