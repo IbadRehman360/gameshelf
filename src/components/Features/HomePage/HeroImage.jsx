@@ -14,7 +14,7 @@ export default function HeroImages({ index, imageUrl }) {
 
   return (
     <div className="relative">
-      <div className="h-[40vh] w-full sm:h-[40vh] md:h-[46vh] border-4 border-black  lg:h-[52vh]">
+      <div className="h-[40vh] w-full sm:h-[40vh] md:h-[46vh] border-2 border-black  lg:h-[52vh]">
         <img
           className=" object-cover w-full h-full"
           src={`${imageUrl}`}
@@ -29,7 +29,7 @@ export default function HeroImages({ index, imageUrl }) {
         <div className="flex flex-1 justify-end">
           <a
             href="/login"
-            className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1.1rem] ${
+            className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1rem] ${
               darkSlides.includes(index) ? "text-white " : "text-gray-900"
             } sm:text-gray-900"`}
           >

@@ -1,4 +1,4 @@
-import DashboardFilterOption from "./DashboardFilterOption";
+import DashboardFilterOption from "./AllSellerListingFilterOption";
 
 const filterOptions = [
   { id: "Recommended", title: "Recommended" },

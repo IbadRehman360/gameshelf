@@ -5,16 +5,16 @@ export default function HeroSection() {
         className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
         aria-hidden="true"
       >
-        <div className="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
-        <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+        <div className="blur-[106px] mt-48 ml-20 h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+        <div className="blur-[140px] h-32 mt-20 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
       </div>
       <div className="relative pt-36 ml-auto">
         <div className="lg:w-2/3 text-center mx-auto">
-          <h1 className="text-gray-900 dark:text-white font-bold text-[2.5rem] md:text-6xl xl:text-7xl">
+          <h1 className="text-gray-800 font-bold text-[2.5rem] md:text-6xl xl:text-7xl">
             Shaping a world with{" "}
-            <span className="text-primary dark:text-white">reimagination.</span>
+            <span className="text-primary ">reimagination.</span>
           </h1>
-          <p className="mt-8 text-gray-700 dark:text-gray-300">
+          <p className="mt-8 text-gray-500 ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
             incidunt nam itaque sed eius modi error totam sit illum. Voluptas
             doloribus asperiores quaerat aperiam. Quidem harum omnis beatae
