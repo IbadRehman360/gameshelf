@@ -79,14 +79,15 @@ export default function Example() {
                   Sell
                 </button>
 
-                <button
+                <a
+                  href="/chat"
                   type="button"
                   className="relative flex-shrink-0 rounded-full w-8 bg-gray-100 p-1 text-gray-700 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="absolute " />
                   <span className="sr-only">View notifications</span>
                   <AiFillMessage className="h-6 w-6" aria-hidden="true" />
-                </button>
+                </a>
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative  flex-shrink-0">
                   <div>

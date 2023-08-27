@@ -2,7 +2,7 @@ import MessageSearchBar from "./MessageSearchBar";
 import MessageComponentEachUser from "./MessageComponentEachUser";
 const messages = [
   {
-    name: "Ibad",
+    name: "Abdullah",
     message: "Hey, how are you doing?",
   },
   {
@@ -10,40 +10,45 @@ const messages = [
     message: "I'm good, thanks for asking!",
   },
   {
-    name: "Bob",
+    name: "Alice",
+    message: "I'm good, thanks for asking!",
+  },
+  {
+    name: "Jordan",
     message: "Did you catch the game last night?",
   },
   {
-    name: "Emma",
+    name: "Jennifer",
     message: "Sure did! It was an intense match.",
   },
   {
-    name: "David",
+    name: "Emma",
     message: "What's the plan for the weekend?",
   },
-  {
-    name: "Sophia",
-    message: "I heard there's a new restaurant in town.",
-  },
+
+  // {
+  //   name: "Olivia",
+  //   message: "We're aiming to finish it by next week.",
+  // },
+  // {
+  //   name: "Ibad",
+  //   message: "I heard there's a new restaurant in town.",
+  // },
   // {
   //   name: "Michael",
   //   message: "Any updates on the project deadline?",
   // },
-  {
-    name: "Olivia",
-    message: "We're aiming to finish it by next week.",
-  },
 ];
 export default function MessagePage() {
   return (
     <div className="flex flex-row h-screen antialiased text-gray-800">
-      <div className="flex flex-row w-96 flex-shrink-0 bg-white border-r-2 p-2">
-        <div className="flex flex-col w-full h-full pl-4 pr-4 py-4 -mr-4">
-          <div className="flex flex-row items-center">
-            <div className="flex flex-row items-center">
-              <div className="text-xl font-semibold">
+      <div className="flex flex-row w-64 lg:w-96 flex-shrink-0 bg-white border-r-2 ">
+        <div className="flex flex-col w-full h-full   ">
+          <div className="flex flex-row items-center pl-4 pr-4 pt-6">
+            <div className="flex flex-row items-center ">
+              <a href="/" className="text-xl font-semibold">
                 <img src="/logo4.png " className=" w-11 h-8" alt="" />
-              </div>
+              </a>
               <div className="flex items-center justify-center ml-2 text-md   text-gray-700  rounded-full font-bold">
                 GAMERSHELF
               </div>
@@ -56,8 +61,10 @@ export default function MessagePage() {
               />
             </div>
           </div>
-          <MessageSearchBar />
-          <div>
+          <div className=" pl-4 pr-4 pt-2">
+            <MessageSearchBar />
+          </div>
+          <div className="pl-4">
             <select
               id="location"
               name="location"
@@ -67,26 +74,27 @@ export default function MessagePage() {
               <option>All Contacts</option>
             </select>
           </div>
-          <div className="mt-4">
-            <div className="flex flex-col -mx-4">
+          <div className="mt-4 px-2">
+            <div className=" overflow-y-auto ">
               {messages.map((message, index) => (
-                <MessageComponentEachUser
-                  key={index}
-                  message={message}
-                  index={index}
-                />
+                <button key={index} className=" p-4 hover:bg-red-100 w-full">
+                  <MessageComponentEachUser message={message} index={index} />
+                </button>
               ))}
             </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col h-full w-full bg-white px-4 py-6">
+      <div className="flex flex-col h-full w-full bg-white px-4 ">
         <div className="flex flex-row items-center py-4 px-6 rounded-2xl shadow">
-          <div className="flex items-center justify-center h-10 w-10 rounded-full bg-pink-500 text-pink-100">
-            T
+          <div className="flex items-center justify-center h-12 w-12 rounded-full bg-pink-500 text-pink-300 font-bold flex-shrink-0">
+            <img
+              src={`/images/avatars/avatar-0.webp`}
+              className=" rounded-full"
+            ></img>
           </div>
           <div className="flex flex-col ml-3">
-            <div className="font-semibold text-sm">UI Art Design</div>
+            <div className="font-semibold text-sm">Abdullah</div>
             <div className="text-xs text-gray-500">Active</div>
           </div>
           <div className="ml-auto">
@@ -294,7 +302,7 @@ export default function MessagePage() {
             </div>
           </div>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center  mb-4">
           <div className="flex flex-row items-center w-full border rounded-3xl h-12 px-2">
             <button className="flex items-center justify-center h-10 w-10 text-gray-400 ml-1">
               <svg
@@ -307,7 +315,7 @@ export default function MessagePage() {
                 <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
               </svg>
             </button>
-            <div className="w-full">
+            <div className="w-full ">
               <input
                 type="text"
                 className="border border-transparent w-full focus:outline-none text-sm h-10 flex items-center"
