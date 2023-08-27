@@ -12,13 +12,13 @@ function PurchaseUser() {
         </h3>
         <div className="flex space-x-2 ">
           <button
-            className="bg-green-600 hover:bg-gray-500 active:bg-red-400  text-white font-semibold hover:shadow-md shadow text-[0.6rem] px-4 py-2 rounded-md  outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
+            className="bg-red-500 hover:bg-red-400 active:bg-red-400   text-white font-semibold hover:shadow-md shadow text-[0.6rem] px-4 py-2 rounded-md  outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
             type="button"
           >
             Message
           </button>
           <button
-            className="bg-red-500 hover:bg-red-400 active:bg-red-400 text-white   font-semibold hover:shadow-md shadow text-[0.7rem]  px-4  py-1.5  rounded-md outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
+            className="bg-gray-600 hover:bg-gray-500 active:bg-red-400 text-white   font-semibold hover:shadow-md shadow text-[0.7rem]  px-4  py-1.5  rounded-md outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
             type="button"
           >
             Follow

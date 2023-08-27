@@ -29,7 +29,7 @@ export default function HeroImages({ index, imageUrl }) {
         <div className="flex flex-1 justify-end">
           <a
             href="/login"
-            className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1.1rem] ${
+            className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1rem] ${
               darkSlides.includes(index) ? "text-white " : "text-gray-900"
             } sm:text-gray-900"`}
           >

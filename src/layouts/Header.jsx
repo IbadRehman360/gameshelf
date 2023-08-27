@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { AiFillMessage } from "react-icons/ai";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -26,57 +26,35 @@ export default function Example() {
 
                   <Link
                     to="/"
-                    className="font-black  text-white text-[1.05rem]    sm:text-[1.3rem] xl:text-[1.5rem] lg:ml-2 mt-1  min-w-fit"
+                    className=" font-bold  text-white text-[1.05rem]    sm:text-[1.3rem] xl:text-[1.45rem] lg:ml-2 mt-1  min-w-fit"
                   >
                     G A M E S H E L F
                   </Link>
                 </div>
-                <div className="hidden lg:ml-6 xl:flex lg:space-x-8 ">
+                <div className="hidden md:ml-14 md:flex md:space-x-12   ">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <a
                     href="/dashboard"
-                    className="inline-flex items-center border-b-2 border-indigo-100 px-1 lg:text-[1.1rem] pt-1 text-sm font-medium text-gray-200  hover:text-white"
+                    className="inline-flex items-center border-b-2 border-indigo-100 px-1 lg:text-[0.95rem] pt-1 text-sm font-medium text-gray-100  hover:text-white"
                   >
                     Dashboard
                   </a>
                   <a
                     href="/"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[1rem] text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[0.95rem] text-sm font-medium text-gray-100  hover:border-gray-300 hover:text-white "
                   >
                     Home
                   </a>
                   <a
                     href="/about"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[1rem] text-sm font-medium text-gray-300 hover:border-gray-300 hover:text-white "
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[0.95rem] text-sm font-medium text-gray-100  hover:border-gray-300 hover:text-white "
                   >
                     About
                   </a>
                 </div>
               </div>
               <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end"></div>
-              <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
-                <div className="w-full max-w-lg lg:max-w-xs">
-                  <label htmlFor="search" className="sr-only">
-                    Search
-                  </label>
-
-                  <div className="relative hidden  sm:flex md:ml-12 sm:ml-20">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <MagnifyingGlassIcon
-                        className="h-5 w-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <input
-                      id="search"
-                      name="search"
-                      className="block md:w-72 w-full rounded-md border-0  sm:w-60 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      placeholder="Search"
-                      type="search"
-                    />
-                  </div>
-                </div>
-              </div>
+              <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end"></div>
               <div className="flex items-center lg:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button
@@ -93,27 +71,31 @@ export default function Example() {
                 </Disclosure.Button>
               </div>
 
-              <div className="hidden lg:ml-4 lg:flex lg:items-center">
+              <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
+                <button
+                  className=" bg-rose-500 hover:bg-red-400 active:bg-red-400   text-gray-100 font-semibold hover:shadow-md shadow text-[0.9rem] px-9 py-2  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  type="button"
+                >
+                  Sell
+                </button>
+
                 <button
                   type="button"
-                  className="relative flex-shrink-0 rounded-full w-9 bg-white p-1 text-gray-700 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative flex-shrink-0 rounded-full w-8 bg-gray-100 p-1 text-gray-700 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  <span className="absolute -inset-1.5" />
+                  <span className="absolute " />
                   <span className="sr-only">View notifications</span>
-                  <AiOutlineShoppingCart
-                    className="h-6 w-6"
-                    aria-hidden="true"
-                  />
+                  <AiFillMessage className="h-6 w-6" aria-hidden="true" />
                 </button>
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-4 flex-shrink-0">
+                <Menu as="div" className="relative  flex-shrink-0">
                   <div>
-                    <Menu.Button className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                      <span className="absolute -inset-1.5" />
+                    <Menu.Button className="relative flex rounded-full   text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      <span className="absolute " />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-9 w-9  object-cover border-[1px] border-gray-400 rounded-full"
-                        src="/userImage/3.jpg"
+                        className="h-9 w-9  object-cover  rounded-full"
+                        src="/ProfileImg2.jpg"
                         alt=""
                       />
                     </Menu.Button>

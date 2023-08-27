@@ -40,7 +40,7 @@ export default function DashboardFeatureProductHero() {
                   >
                     {game.title}
                   </a>
-                  <p className=" text-white bg-zinc-400 hidden sm:flex text-xs mb-1 py-1 px-2  opocity-30 rounded-md justify-end self-end">
+                  <p className=" text-white whitespace-nowrap bg-zinc-400 hidden sm:flex text-xs mb-1 py-1 px-2  opocity-30 rounded-md justify-end self-end">
                     {game.stock} offers
                   </p>
                 </div>
