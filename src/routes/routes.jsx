@@ -8,6 +8,7 @@ import ProductPage from "../pages/ProductPage";
 import ProfilePage from "../pages/ProfilePage";
 import AboutPage from "../pages/AboutPage";
 import DashboardPage from "../pages/DashboardPage";
+import MessagePage from "../pages/MessagePage";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -40,11 +41,16 @@ const router = createBrowserRouter([
         path: "product/:id",
         element: <ProductPage />,
       },
+
       {
         path: "profile/:user",
         element: <ProfilePage />,
       },
     ],
+  },
+  {
+    path: "chat",
+    element: <MessagePage />,
   },
 ]);
 export default router;
