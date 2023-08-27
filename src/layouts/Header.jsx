@@ -19,8 +19,8 @@ export default function Example() {
               <div className="flex px-2 lg:px-0">
                 <div className="flex flex-shrink-0  gap-4 items-center mr-8">
                   <img
-                    className="lg:h-10 h-8    object-contain  w-auto  rounded-xl border-white mt-1 "
-                    src="/logo3.png"
+                    className="lg:h-9 h-8  bg-gray-50   object-contain  w-auto  rounded-xl border-white mt-1.5 "
+                    src="/logo4.png"
                     alt="Your Company"
                   />
 
@@ -39,12 +39,7 @@ export default function Example() {
                   >
                     Dashboard
                   </a>
-                  <a
-                    href="/"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[0.95rem] text-sm font-medium text-gray-100  hover:border-gray-300 hover:text-white "
-                  >
-                    Home
-                  </a>
+
                   <a
                     href="/about"
                     className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[0.95rem] text-sm font-medium text-gray-100  hover:border-gray-300 hover:text-white "
