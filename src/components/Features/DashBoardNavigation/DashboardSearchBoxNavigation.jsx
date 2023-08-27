@@ -15,7 +15,7 @@ export default function DashboardSearchBar() {
   return (
     <div>
       <div className="  ">
-        <div className="flex items-center justify-between  rounded-3xl mb-8 mt-7 lg:gap-4 shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4">
+        <div className="flex items-center justify-between  rounded-3xl mb-8 mt-7  lg:gap-4 shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4">
           <div className="relative rounded-lg flex items-center w-[90%] sm:w-[30%]">
             <input
               type="text"
@@ -24,14 +24,14 @@ export default function DashboardSearchBar() {
             />
             <AiOutlineSearch className="absolute mx-3 sm:mx-1" />
           </div>
-          <div className="sm:flex flex-1 sm:ml-8 sm:gap-4 md:ml-14 space-x-4 hidden md:gap-8 lg:gap-14  w-[100%] ">
+          <div className="sm:flex flex-1  sm:ml-8 sm:gap-4 md:ml-14   space-x-4 hidden md:gap-8 lg:gap-14  w-[100%] ">
             <a
               href="/"
-              className="text-gray-500 hover:text-gray-100   font-semibold transition duration-300"
+              className="text-gray-600 hover:text-gray-500 text-md   font-semibold   transition duration-300"
             >
-              Server
+              All of them{" "}
             </a>
-            <a
+            {/* <a
               href="/"
               className="text-gray-500 hover:text-gray-100 font-semibold transition duration-300"
             >
@@ -42,7 +42,7 @@ export default function DashboardSearchBar() {
               className="text-gray-500 hover:text-gray-100 font-semibold transition duration-300"
             >
               Budget
-            </a>
+            </a> */}
           </div>
 
           <Menu
@@ -87,66 +87,22 @@ export default function DashboardSearchBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        href="#"
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Account settings
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        href="#"
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Support
-                      </a>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        href="#"
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        License
-                      </a>
-                    )}
-                  </Menu.Item>
+              <Menu.Items className="absolute right-0 z-10 mt-2.5 mr-2 rounded-lg w-48  origin-top-right  bg-white shadow-lg ring-1 ring-black ring-opacity-5 border focus:outline-none">
+                <div className="py-1 ">
                   <form method="POST" action="#">
                     <Menu.Item>
                       {({ active }) => (
                         <button
                           type="submit"
+                          disabled
                           className={classNames(
                             active
                               ? "bg-gray-100 text-gray-900"
                               : "text-gray-700",
-                            "block w-full px-4 py-2 text-left text-sm"
+                            "block w-full px-4 py-2 text-left text-sm  "
                           )}
                         >
-                          Sign out
+                          All of them{" "}
                         </button>
                       )}
                     </Menu.Item>
