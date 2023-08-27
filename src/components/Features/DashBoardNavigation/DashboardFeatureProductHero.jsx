@@ -3,24 +3,36 @@ const gameList = [
   { title: "CS:GO", link: "#" },
   { title: "Fortnite Skins", link: "#" },
   { title: "Minecraft Account", link: "#" },
-  { title: "League of Legends Account", link: "#" },
 ];
 export default function DashboardFeatureProductHero() {
   return (
     <div className="bg-white">
-      <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4  sm:px-6 py-20 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+      <div className="mx-auto grid max-w-4xl   grid-cols-1  py-10 lg:max-w-7xl lg:grid-cols-2 ">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Technical Specifications
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-700 lg:text-4xl">
+            Welcome to the Game Store
           </h2>
           <p className="mt-4 text-gray-500">
-            The walnut wood card tray is precision milled to perfectly fit a
-            stack of Focus cards. The powder coated steel divider separates
-            active cards from new ones, or can be used to archive important task
-            lists.
+            <p>
+              Your Ultimate Destination for In-Game Purchases, Enhancements, and
+              Personalization
+            </p>
+            <p>
+              Stay connected with the latest trends and special offers. Follow
+              us on social media for updates{" "}
+              <a
+                href="https://github.com/IbadRehman360"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold"
+              >
+                GitHub
+              </a>
+              , where your journey to a more immersive gameplay begins.{" "}
+            </p>
           </p>
 
-          <div className="mt-16 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+          <div className="mt-10 grid grid-cols-1  sm:grid-cols-2 gap-y-8 lg:gap-x-8">
             {gameList.map((game, index) => (
               <div
                 key={index}
@@ -29,7 +41,7 @@ export default function DashboardFeatureProductHero() {
                 <div className="flex flex-col items-center mt-4">
                   <a
                     href={game.link}
-                    className="text-blue-500 font-semibold text-lg mb-2 hover:underline"
+                    className="text-gray-700  font-semibold text-lg mb-2 hover:underline"
                   >
                     {game.title}
                   </a>
@@ -39,18 +51,18 @@ export default function DashboardFeatureProductHero() {
                   <img
                     src="/gamelogo1.png"
                     alt="game logo"
-                    className="text-white rounded w-20"
+                    className="text-white rounded w-16"
                   />
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 grid-rows-2 lg:mt-0 mt-16 lg:ml-10 gap-4 sm:gap-6 lg:gap-8">
           {["/1.webp", "/7.webp", "/8.webp", "/4.webp"].map((src, index) => (
             <div
               key={index}
-              className="relative rounded-lg border-2 border-yellow-600 h-56 bg-gray-100 transition-transform duration-300 transform hover:scale-105 mt-4"
+              className=" rounded-lg border-2  border-orange-400  shadow-orange-300 shadow-md h-56 bg-gray-100 transition-transform duration-300 transform hover:scale-105"
             >
               <img
                 src={src}
