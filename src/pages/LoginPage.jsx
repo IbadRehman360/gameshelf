@@ -5,13 +5,6 @@ export default function LoginPage() {
     <>
       <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-[90px]  sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md ">
-          <h3 className="text-3xl text-center justify-center mb-6 bg font-bold flex ite">
-            <img
-              className="lg:h-14 h-8  bg-gray-50 w-auto  rounded-xl  mt-1 "
-              src="/logo3.png"
-              alt="Your Company"
-            />
-          </h3>
           <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>

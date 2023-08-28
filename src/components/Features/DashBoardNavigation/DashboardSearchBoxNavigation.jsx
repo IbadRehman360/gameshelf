@@ -15,11 +15,11 @@ export default function DashboardSearchBar() {
   return (
     <div>
       <div className="  ">
-        <div className="flex items-center justify-between  rounded-3xl mb-8 mt-7  lg:gap-4 shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4">
+        <div className="flex items-center justify-between bg-[#fdfdfd] rounded-3xl p-8 pt-7  lg:gap-4 shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4">
           <div className="relative rounded-lg flex items-center w-[90%] sm:w-[100%]">
             <input
               type="text"
-              className="rounded-full rounded-e-none sm:rounded-lg py-1.5 ml-1 text-[0.9rem]  md:py-2 px-9 sm:text-[1rem] sm:mr-2 w-[100%] border-none focus:outline-none"
+              className="rounded-full rounded-e-none sm:rounded-lg py-1.5 ml-1 bg-[#fdfdfd] text-[0.9rem]  md:py-2 px-9 sm:text-[1rem] sm:mr-2 w-[100%] border-none focus:outline-none"
               placeholder="Search for Games
               "
             />
@@ -51,7 +51,7 @@ export default function DashboardSearchBar() {
             className="relative p-2 w-16 border-l-[1px] border[rgba(0,0,0,0.12)] sm:py-0 sm:border-0 sm:w-fit sm:inline-block text-left  "
           >
             <div>
-              <Menu.Button className="inline-flex w-full justify-center sm:justify-center sm:hidden gap-x-1.5 rounded-lg rounded-l-none sm:rounded-md  bg-white sm:bg-slate-50 px-3  py-[0.44rem] md:py-2 text-sm font-semibold text-gray-900 sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50">
+              <Menu.Button className="inline-flex w-full justify-center sm:justify-center sm:hidden gap-x-1.5 rounded-lg rounded-l-none sm:rounded-md   px-3  py-[0.44rem] md:py-2 text-sm font-semibold text-gray-900 sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50">
                 <RiFilter3Line className="h-5 w-5 inline-block" />
               </Menu.Button>
             </div>
@@ -65,7 +65,7 @@ export default function DashboardSearchBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2.5 mr-2 rounded-lg w-48  origin-top-right  bg-white shadow-lg ring-1 ring-black ring-opacity-5 border focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 mt-2.5 mr-2 rounded-lg w-48  origin-top-right  shadow-lg ring-1 ring-black ring-opacity-5 border focus:outline-none">
                 <div className="py-1 ">
                   <form method="POST" action="#">
                     <Menu.Item>

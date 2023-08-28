@@ -11,41 +11,33 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className=" shadow  bg-[#222222]  border-black">
+    <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-[1900px] px-2 sm:px-4 lg:px-3 xl:px-5 ">
-            <div className="flex h-16 xl:h-20 justify-between ">
-              <div className="flex px-2 lg:px-0">
-                <div className="flex flex-shrink-0  gap-4 items-center mr-8">
+          <div className="mx-auto max-w-[1900px] border-b-4 shadow-sm px-2 sm:px-4 bg-[#ffffff]   lg:px-3 xl:px-5 ">
+            <div className="flex h-16 xl:h-[68px] justify-between  sm:mx-6 mx-4 ">
+              <div className="flex  lg:px-0">
+                <div className="flex flex-shrink-0  gap-2 items-center ">
                   <img
-                    className="lg:h-9 h-8  bg-gray-50   object-contain  w-auto  rounded-xl border-white mt-1.5 "
+                    className="lg:h-7 h-7   bg-gray-50   object-contain  rounded-xl mt-1.5 "
                     src="/logo4.png"
                     alt="Your Company"
                   />
 
                   <Link
                     to="/"
-                    className=" font-bold  text-white text-[1.05rem]    sm:text-[1.3rem] xl:text-[1.45rem] lg:ml-2 mt-1  min-w-fit"
+                    className="   tracking-[0.3rem] font-extrabold  text-gray-700 text-[1.1rem]    sm:text-[1.3rem] xl:text-[1.6rem] lg:ml-1 mt-1  min-w-fit"
                   >
-                    G A M E S H E L F
+                    GAMESHELF
                   </Link>
                 </div>
                 <div className="hidden md:ml-14 md:flex md:space-x-12   ">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <a
-                    href="/dashboard"
-                    className="inline-flex items-center border-b-2 border-indigo-100 px-1 lg:text-[0.95rem] pt-1 text-sm font-medium text-gray-100  hover:text-white"
-                  >
-                    Dashboard
-                  </a>
-
-                  <a
+                  {/* <a
                     href="/about"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 lg:text-[0.95rem] text-sm font-medium text-gray-100  hover:border-gray-300 hover:text-white "
+                    className="inline-flex items-center border-b-2 border-transparent px-1 mt-2 lg:text-[0.95rem] text-sm font-medium text-gray-700  hover:border-gray-500  hover:text-gray-700 "
                   >
-                    About
-                  </a>
+                    About Us
+                  </a> */}
                 </div>
               </div>
               <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end"></div>
@@ -54,7 +46,7 @@ export default function Example() {
                 {/* Mobile menu button */}
                 <Disclosure.Button
                   style={{ border: "1px solid" }}
-                  className="relative inline-flex items-center sm:w-9  sm:h-9 w-8 h-8 justify-center rounded-md p-1 text-gray-200   hover:bg-navy-blue border-white  hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  className="relative inline-flex items-center sm:w-9  sm:h-9 w-8 h-8 justify-center rounded-md p-1  bg-zinc-100   hover:text-black border-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                 >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -68,7 +60,7 @@ export default function Example() {
 
               <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
                 <button
-                  className=" bg-rose-500 hover:bg-red-400 active:bg-red-400   text-gray-100 font-semibold hover:shadow-md shadow text-[0.9rem] px-9 py-2  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className=" bg-gray-700 mt-1 hover:bg-gray-600 active:bg-gray-400 text-gray-100 font-medium hover:shadow-md shadow text-[0.8rem] px-9 py-2  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
                 >
                   Sell
@@ -77,20 +69,19 @@ export default function Example() {
                 <a
                   href="/chat"
                   type="button"
-                  className="relative flex-shrink-0 rounded-full w-8 bg-gray-100 p-1 text-gray-700 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative flex-shrink-0 rounded-full w-8 bg-gray-100 mt-0.5 text-gray-700 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="absolute " />
                   <span className="sr-only">View notifications</span>
-                  <AiFillMessage className="h-6 w-6" aria-hidden="true" />
+                  <AiFillMessage className="h-8 w-8" aria-hidden="true" />
                 </a>
-                {/* Profile dropdown */}
                 <Menu as="div" className="relative  flex-shrink-0">
                   <div>
                     <Menu.Button className="relative flex rounded-full   text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="absolute " />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-9 w-9  object-cover  rounded-full"
+                        className="h-9 w-9 mt-1  object-cover  rounded-full"
                         src="/ProfileImg2.jpg"
                         alt=""
                       />
@@ -166,18 +157,18 @@ export default function Example() {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#222222]">
-            <div className="space-y-1 pb-3 pt-2">
+          <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#ffffff] ">
+            <div className="space-y-1  ">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+                className="block border-l-4 border-indigo-500 bg-indigo-50 py-3 pl-3 pr-4 text-base font-medium text-indigo-700"
               >
                 View Profile
               </Disclosure.Button>
             </div>
-            <div className="border-t border-gray-200 pb-3 pt-4">
+            <div className="border-t border-gray-200 border-b-4 pb-3 pt-4">
               <div className="flex items-center px-4">
                 <div className="flex-shrink-0">
                   <img
@@ -187,16 +178,16 @@ export default function Example() {
                   />
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium text-slate-50">
+                  <div className="text-base font-medium text-gray-800">
                     Tom Cook
                   </div>
-                  <div className="text-sm font-medium text-slate-200">
+                  <div className="text-sm font-medium text-gray-500">
                     tom@example.com
                   </div>
                 </div>
                 <button
                   type="button"
-                  className="relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-800 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative ml-auto flex-shrink-0 rounded-full   bg-white p-1 text-gray-800 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
@@ -210,28 +201,28 @@ export default function Example() {
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base  font-medium text-slate-200 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2   font-medium text-[0.95rem] text-gray-600 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Settings
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium  text-slate-200 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-600 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Login
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium text-slate-200 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-[0.95rem] font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Sign Up
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-base font-medium  text-slate-200 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-600 hover:bg-gray-100 hover:text-gray-800"
                 >
                   Logout
                 </Disclosure.Button>

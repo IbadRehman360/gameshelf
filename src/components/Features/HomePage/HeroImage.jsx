@@ -14,7 +14,7 @@ export default function HeroImages({ index, imageUrl }) {
 
   return (
     <div className="relative">
-      <div className="h-[40vh] w-full sm:h-[40vh] md:h-[46vh] border-2 border-black  lg:h-[52vh]">
+      <div className="h-[40vh] w-full sm:h-[40vh] md:h-[46vh]  border-b-4 border-gray-400  lg:h-[52vh]">
         <img
           className=" object-cover w-full h-full"
           src={`${imageUrl}`}
@@ -45,7 +45,7 @@ export default function HeroImages({ index, imageUrl }) {
           onClose={() => setMobileMenuOpen(false)}
         >
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#fdfdfd] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>

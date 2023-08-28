@@ -2,7 +2,7 @@ export default function DashboardNavigationProducts({ index, game }) {
   return (
     <div
       key={index}
-      className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg border border-gray-100 transform transition hover:scale-105 flex flex-col justify-between"
+      className=" bg-[#fdfdfd] p-6 rounded-lg shadow-md hover:shadow-lg border border-gray-100 transform transition hover:scale-105 flex flex-col justify-between"
     >
       <div className="flex text-[0.8rem] justify-between items-center mt-4 mb-4">
         <a
