@@ -17,13 +17,7 @@ export default function RegisterPage() {
     <>
       <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h3 className="text-3xl text-center justify-center  font-bold flex ">
-            <img
-              className="lg:h-14 h-8  bg-gray-50 w-auto  rounded-xl  mt-1 "
-              src="/logo3.png"
-              alt="Your Company"
-            />
-          </h3>
+          <h3 className="text-3xl text-center justify-center  font-bold flex "></h3>
           <h2 className="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Register for an account
           </h2>

@@ -1,6 +1,6 @@
 export default function Stats() {
   return (
-    <div id="solution mb-10 ">
+    <div id="solution mb-10  ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -19,7 +19,7 @@ export default function Stats() {
         />
       </svg>
 
-      <div className="space-y-6 justify-between mb-10 text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
+      <div className="space-y-6 justify-between mt-20 sm:mt-14 text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
         <div className="md:5/12 lg:w-1/2">
           <img
             src="./images/pie.svg"
@@ -28,26 +28,31 @@ export default function Stats() {
             className="w-full"
           />
         </div>
-        <div className="md:7/12 lg:w-1/2">
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-            Nuxt development is carried out by passionate developers
+        <div className="md:7/12   lg:w-1/2">
+          <h2
+            className=" text-[1.4rem] md:text-[1.8rem] 3xl:text-4xl font-bold  mt-10 md:mt-0 text-gray-800 
+  "
+          >
+            Dedicated Experts Crafting the Ultimate Gaming Marketplace
           </h2>
-          <p className="my-8 text-gray-600 dark:text-gray-300">
-            Nobis minus voluptatibus pariatur dignissimos libero quaerat iure
-            expedita at? Asperiores nemo possimus nesciunt dicta veniam
-            aspernatur quam mollitia. <br /> <br /> Vitae error, quaerat officia
-            delectus voluptatibus explicabo quo pariatur impedit, at
-            reprehenderit aliquam a ipsum quas voluptatem. Quo pariatur
-            asperiores eum amet.
+          <p className="my-8 text-gray-600 ">
+            Our platform is meticulously crafted by enthusiastic developers who
+            share an unwavering passion for gaming. We bring you a comprehensive
+            gaming marketplace where you can explore an array of in-game items,
+            accounts, virtual coins, and more.
+            <br /> <br />
+            Immerse yourself in the world of gaming with our user-friendly
+            interface and discover a diverse range of options to enhance your
+            gaming experience.
           </p>
-          <div className="divide-y space-y-4 divide-gray-100 dark:divide-gray-800">
+          <div className="divide-y space-y-4 divide-gray-100">
             <div className="mt-8 flex gap-4 md:items-center">
-              <div className="w-12 h-12 flex gap-4 rounded-full bg-indigo-100 dark:bg-indigo-900/20">
+              <div className="w-12 h-12 flex gap-4 rounded-full bg-indigo-100 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-6 h-6 m-auto text-indigo-500 dark:text-indigo-400"
+                  className="w-6 h-6 m-auto text-indigo-500 "
                 >
                   <path
                     fillRule="evenodd"
@@ -57,21 +62,21 @@ export default function Stats() {
                 </svg>
               </div>
               <div className="w-5/6">
-                <h4 className="font-semibold text-lg text-gray-700 dark:text-indigo-300">
-                  Chat Anytime
+                <h4 className="font-semibold text-lg text-gray-700 ">
+                  Round-the-Clock Support
                 </h4>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Asperiores nemo possimus nesciunt quam mollitia.
+                <p className="text-gray-500 ">
+                  Instant help for seamless shopping.{" "}
                 </p>
               </div>
             </div>
             <div className="pt-4 flex gap-4 md:items-center">
-              <div className="w-12 h-12 flex gap-4 rounded-full bg-teal-100 dark:bg-teal-900/20">
+              <div className="w-12 h-12 flex gap-4 rounded-full bg-teal-100">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-6 h-6 m-auto text-teal-600 dark:text-teal-400"
+                  className="w-6 h-6 m-auto text-teal-600 "
                 >
                   <path
                     fillRule="evenodd"
@@ -81,11 +86,11 @@ export default function Stats() {
                 </svg>
               </div>
               <div className="w-5/6">
-                <h4 className="font-semibold text-lg text-gray-700 dark:text-teal-300">
-                  Real Time Location
+                <h4 className="font-semibold text-lg text-gray-700 ">
+                  Live Tracking for Ultimate Assurance{" "}
                 </h4>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Asperiores nemo possimus nesciunt quam mollitia.
+                <p className="text-gray-500">
+                  ensuring your gaming adventures begin right on schedule.{" "}
                 </p>
               </div>
             </div>

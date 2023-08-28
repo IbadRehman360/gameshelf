@@ -42,26 +42,28 @@ const messages = [
 export default function MessagePage() {
   return (
     <div className="flex flex-row h-screen antialiased text-gray-800">
-      <div className="flex flex-row w-64 lg:w-96 flex-shrink-0 bg-white border-r-2 ">
-        <div className="flex flex-col w-full h-full   ">
-          <div className="flex flex-row items-center pl-4 pr-4 pt-6">
-            <div className="flex flex-row items-center ">
+      <div className="sm:flex flex-row w-72 md:w-72 lg:w-80 flex-shrink-0 bg-white hidden   border-r-2 ">
+        <div className="sm:flex flex-col w-full h-full  ">
+          <div className="flex flex-row items-center pl-4 pr-4 pt-6 ">
+            <div className="flex flex-row items-center mt-1">
               <a href="/" className="text-xl font-semibold">
-                <img src="/logo4.png " className=" w-11 h-8" alt="" />
+                <img src="/logo4.png " className=" w-10 h-6" alt="" />
               </a>
-              <div className="flex items-center justify-center ml-2 text-md   text-gray-700  rounded-full font-bold">
-                GAMERSHELF
-              </div>
+              <a href="/">
+                <div className="flex items-center justify-center ml-2 text-lg   text-gray-700  rounded-full font-extrabold">
+                  GAMERSHELF
+                </div>
+              </a>
             </div>
             <div className="ml-auto">
               <img
-                className="h-10 w-10 rounded-full"
+                className="h-9 w-9 rounded-full"
                 src="/ProfileImg2.jpg"
                 alt=""
               />
             </div>
           </div>
-          <div className=" pl-4 pr-4 pt-2">
+          <div className=" pl-4 pr-4 pt-2 ">
             <MessageSearchBar />
           </div>
           <div className="pl-4">
@@ -74,7 +76,7 @@ export default function MessagePage() {
               <option>All Contacts</option>
             </select>
           </div>
-          <div className="mt-4 px-2">
+          <div className="">
             <div className=" overflow-y-auto ">
               {messages.map((message, index) => (
                 <button key={index} className=" p-4 hover:bg-red-100 w-full">
@@ -262,39 +264,6 @@ export default function MessagePage() {
                           <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                       </button>
-                      <div className="flex flex-row items-center space-x-px ml-4">
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-4 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-8 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-8 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-10 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-10 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-12 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-10 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-6 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-5 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-4 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-3 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-10 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-10 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-8 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-8 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-1 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-1 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-8 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-8 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-2 w-1 bg-gray-500 rounded-lg"></div>
-                        <div className="h-4 w-1 bg-gray-500 rounded-lg"></div>
-                      </div>
                     </div>
                   </div>
                 </div>

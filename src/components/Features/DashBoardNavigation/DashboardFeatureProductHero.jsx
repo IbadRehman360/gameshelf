@@ -6,7 +6,7 @@ const gameList = [
 ];
 export default function DashboardFeatureProductHero() {
   return (
-    <div className="bg-white mt-10">
+    <div className=" mt-10">
       <div className="mx-auto grid max-w-4xl   grid-cols-1    lg:max-w-7xl lg:grid-cols-2 ">
         <div className="xl:py-6">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-700 lg:text-4xl">
@@ -27,11 +27,11 @@ export default function DashboardFeatureProductHero() {
             , where your journey to a more immersive gameplay begins.{" "}
           </p>
 
-          <div className="mt-6 sm:mt-8 grid grid-cols-2  gap-x-2  sm:grid-cols-2 gap-y-8 lg:gap-x-8">
+          <div className="mt-6 sm:mt-8 grid grid-cols-2  gap-x-2   sm:grid-cols-2 gap-y-8 lg:gap-x-8">
             {gameList.map((game, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transform transition hover:scale-105 flex flex-col justify-between"
+                className=" bg-[#fdfdfd] p-6 rounded-lg shadow-md hover:shadow-lg transform transition hover:scale-105 flex flex-col justify-between"
               >
                 <div className="flex text-[0.8rem] justify-between items-center mt-4 mb-4">
                   <a
@@ -59,7 +59,7 @@ export default function DashboardFeatureProductHero() {
           {["/1.webp", "/7.webp", "/8.webp", "/4.webp"].map((src, index) => (
             <div
               key={index}
-              className=" rounded-lg border-2  border-orange-400  shadow-orange-300 shadow-md  sm:h-32 md:h-36 lg:h-44   xl:h-48 bg-gray-100 transition-transform duration-300 transform hover:scale-105"
+              className=" rounded-lg border-2  border-orange-400  shadow-orange-300 shadow-md  sm:h-32 md:h-36 lg:h-44   xl:h-48  transition-transform duration-300 transform hover:scale-105"
             >
               <img
                 src={src}

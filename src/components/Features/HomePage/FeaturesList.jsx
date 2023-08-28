@@ -28,12 +28,12 @@ const FEATURES = [
 ];
 export default function FeaturesList() {
   return (
-    <section className="relative  sm:py-2 xl-2 my-1  grid grid-cols-[repeat(2,_40%)] justify-around  lg:my-2 xl:my-4 sm:justify-center md:grid-cols-[repeat(4,_24%)] 2xl:max-w-[90%] 2xl:mx-auto  ">
+    <section className="relative  sm:py-2 xl-2 my-1 bg-[#fdfdfd] grid grid-cols-[repeat(2,_40%)] justify-around  lg:my-2 xl:my-4 sm:justify-center md:grid-cols-[repeat(4,_24%)] 2xl:max-w-[90%] 2xl:mx-auto  ">
       {FEATURES.map((feature, index) => {
         return index != 2 ? (
           <FeaturesItem key={index} Details={feature} />
         ) : (
-          <div className="absolute w-[1px] h-full bg-gray-300 left-[50%] md:hidden" />
+          <div className="absolute w-[1px] h-full bg-[#fdfdfd]left-[50%] md:hidden" />
         );
       })}
     </section>

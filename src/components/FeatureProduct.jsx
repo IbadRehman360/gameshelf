@@ -3,10 +3,7 @@ export default function FeaturedProduct() {
   const currentHour = now.getHours();
   return (
     <>
-      <div
-        className="flex flex-col p-3 lg:p-4 flex-co border-2 rounded-2xl  "
-        style={{ backgroundColor: "#FCFCFC " }}
-      >
+      <div className="flex flex-col p-3 lg:p-4 flex-co border-2 bg-[#fdfdfd] rounded-2xl  ">
         <div className="flex flex-col gap-1  ">
           <h3 className="sm:text-xs lg:text-sm xl:text-[0.95rem] text-[0.8rem] mt-1 mb-1   tracking-tighter   text-black   font-medium  line-clamp-2 ">
             [Asia] TL52 - Jing Yuan, Gepard, Himeko (E1) | Full Access | EP7

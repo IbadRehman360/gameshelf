@@ -16,7 +16,7 @@ const TrendingVideoGames = () => {
   };
 
   return (
-    <div className=" mt-8 mb-12 " style={{ backgroundColor: "#FCFCFC " }}>
+    <div className=" mt-8 mb-12 bg-[#fdfdfd] ">
       <div className="flex items-center justify-between mr-2  my-8">
         <h2 className=" lg:text-[1.8rem]  text-gray-700 3xl:text-[2rem]  md:text-[1.7rem] text-[1.4rem]  ml-2 font-semibold">
           Trending Video Games

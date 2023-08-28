@@ -5,61 +5,68 @@ export default function HeroSection() {
         className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
         aria-hidden="true"
       >
-        <div className="blur-[106px] mt-48 ml-20 h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
-        <div className="blur-[140px] h-32 mt-20 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+        {/* <div className="blur-[106px] mt-48 ml-20 h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+        <div className="blur-[140px] h-32 mt-20 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div> */}
       </div>
-      <div className="relative pt-36 ml-auto">
-        <div className="lg:w-2/3 text-center mx-auto">
-          <h1 className="text-gray-800 font-bold text-[2.5rem] md:text-6xl xl:text-7xl">
-            Shaping a world with{" "}
-            <span className="text-primary ">reimagination.</span>
+      <div className="relative pt-20 md:24 ml-auto">
+        <div className="lg:w-2/3 text-center mx-auto ">
+          <h1 className="text-gray-800 font-bold  text-[1.8rem] md:text-[2.5rem]  xl:text-[3rem]">
+            Discover a Universe of Gaming <br />
+            <span className="text-primary"> GamerShelf -</span>
           </h1>
-          <p className="mt-8 text-gray-500 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-            incidunt nam itaque sed eius modi error totam sit illum. Voluptas
-            doloribus asperiores quaerat aperiam. Quidem harum omnis beatae
-            ipsum soluta!
+          <p className="mt-8 text-gray-500  text-sm lg:text-[0.98rem] leading-7">
+            At GamerShelf, we welcome you to a world where gaming enthusiasts
+            unite, and the possibilities are endless. As the ultimate
+            destination for all things gaming, we proudly present an array of
+            exhilarating gaming products that cater to your passion, excitement,
+            and thirst for adventure.
           </p>
-          <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
+          <div className="mt-12 flex flex-wrap justify-center gap-y-2 gap-x-3">
             <a
-              href="#"
-              className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+              href="/"
+              className="relative flex h-10  items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
             >
-              <span className="relative text-base font-semibold text-white">
+              <span className="relative sm:text-base text-sm  font-semibold text-white">
                 Get started
               </span>
             </a>
             <a
               href="#"
-              className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+              className="relative flex h-10  items-center justify-center px-5  before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 border-gray-700  rounded-3xl bg-gray-800 sm:w-max"
             >
-              <span className="relative text-base font-semibold text-primary dark:text-white">
-                Learn more
+              <span className="relative sm:text-base text-sm font-semibold  text-white">
+                Explore Deals{" "}
               </span>
             </a>
           </div>
-          <div className="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between">
-            <div className="text-left">
-              <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
+          <div className="hidden py-8 gap-20 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex ">
+            <div className="t">
+              <h6 className="text-lg font-semibold text-gray-700 ">
                 The lowest price
               </h6>
-              <p className="mt-2 text-gray-500">Some text here</p>
+              <p className="mt-2 text-[0.9rem] text-gray-500">
+                Unbeatable prices without compromise.
+              </p>
             </div>
-            <div className="text-left">
-              <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
+            <div className="">
+              <h6 className="text-lg font-semibold text-gray-700">
                 The fastest on the market
               </h6>
-              <p className="mt-2 text-gray-500">Some text here</p>
+              <p className="mt-2 text-[0.9rem] text-gray-500">
+                Swift delivery for instant gaming gratification.
+              </p>
             </div>
-            <div className="text-left">
-              <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
+            <div className="">
+              <h6 className="text-lg font-semibold text-gray-700 ">
                 The most loved
               </h6>
-              <p className="mt-2 text-gray-500">Some text here</p>
+              <p className="mt-2 text-[0.9rem] text-gray-500">
+                Cherished by gamers, backed by community.
+              </p>
             </div>
           </div>
         </div>
-        <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
+        {/* <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
           <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
             <img
               src="./images/clients/microsoft.svg"
@@ -120,7 +127,7 @@ export default function HeroSection() {
               height=""
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

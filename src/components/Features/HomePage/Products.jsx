@@ -14,10 +14,7 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <div
-      className="  mb-16 px-3 xl:mt-4  "
-      style={{ backgroundColor: "#FCFCFC " }}
-    >
+    <div className="  mb-16 px-3 xl:mt-4 bg-[#fdfdfd]  ">
       <h2 className=" lg:text-[1.8rem]  text-gray-700 3xl:text-[2rem]  md:text-[1.7rem] text-[1.4rem]   font-semibold">
         Featured Products
       </h2>
