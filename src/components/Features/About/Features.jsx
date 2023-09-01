@@ -1,6 +1,6 @@
 export default function Features() {
   return (
-    <div id="features" className="sm:py-10">
+    <div id="features" className="sm:mt-10 border-t-2 ">
       <div className="md:w-2/3 lg:w-1/2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ export default function Features() {
       </div>
       <div className="mt-16 gap-4 grid divide-x divide-y divide-gray-100 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
         {/* Feature 1 */}
-        <div className="group relative rounded-md  bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+        <div className="group relative rounded-md  bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
           <div className="relative space-y-8 py-12 p-8">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341139.png"
@@ -57,7 +57,7 @@ export default function Features() {
           </div>
         </div>
         {/* Feature 2 */}
-        <div className="group relative rounded-md bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+        <div className="group relative rounded-md bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
           <div className="relative space-y-8 py-12 p-8">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341134.png"
@@ -67,7 +67,7 @@ export default function Features() {
               alt="burger illustration"
             />
             <div className="space-y-2">
-              <h5 className="text-xl font-semibold text-gray-700  transition group-hover:text-secondary">
+              <h5 className="text-xl font-semibold bg-gray-50  transition group-hover:text-secondary">
                 Vast Product Selection{" "}
               </h5>
               <p className="text-gray-600 ">
@@ -91,7 +91,7 @@ export default function Features() {
           </div>
         </div>
         {/* Feature 3 */}
-        <div className="group relative  rounded-md bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+        <div className="group relative  rounded-md bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
           <div className="relative space-y-8 py-12 p-8">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341160.png"
@@ -125,7 +125,7 @@ export default function Features() {
           </div>
         </div>
         {/* More Features */}
-        <div className="group relative rounded-md bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+        <div className="group relative rounded-md bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
           <div className="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white ">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341025.png"

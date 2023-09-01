@@ -14,19 +14,19 @@ export default function Example() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-[1900px] border-b-4 shadow-sm px-2 sm:px-4 bg-[#ffffff]   lg:px-3 xl:px-5 ">
-            <div className="flex h-16 xl:h-[68px] justify-between  sm:mx-6 mx-4 ">
+          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-4 bg-[#292e3f]   lg:px-3 xl:px-5 ">
+            <div className="flex h-16 xl:h-[84px] justify-between  sm:mx-6 mx-4 ">
               <div className="flex  lg:px-0">
                 <div className="flex flex-shrink-0  gap-2 items-center ">
                   <img
-                    className="lg:h-7 h-7   bg-gray-50   object-contain  rounded-xl mt-1.5 "
+                    className="lg:h-7 h-7   bg-gray-500  mr-4 object-contain  rounded-xl mt-1.5 "
                     src="/logo4.png"
                     alt="Your Company"
                   />
 
                   <Link
                     to="/"
-                    className="   tracking-[0.3rem] font-extrabold  text-gray-700 text-[1.1rem]    sm:text-[1.3rem] xl:text-[1.6rem] lg:ml-1 mt-1  min-w-fit"
+                    className="   tracking-[0.3rem] font-extrabold  text-gray-100 text-[1.1rem]    sm:text-[1.3rem] xl:text-[1.6rem] lg:ml-1 mt-1  min-w-fit"
                   >
                     GAMESHELF
                   </Link>
@@ -46,7 +46,7 @@ export default function Example() {
                 {/* Mobile menu button */}
                 <Disclosure.Button
                   style={{ border: "1px solid" }}
-                  className="relative inline-flex items-center sm:w-9  sm:h-9 w-8 h-8 justify-center rounded-md p-1  bg-zinc-100   hover:text-black border-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  className="relative inline-flex items-center sm:w-9  sm:h-9 w-8 h-8 text-gray-400 justify-center rounded-md p-1  bg-gray-800   hover:text-gray-300 border-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                 >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -69,11 +69,14 @@ export default function Example() {
                 <a
                   href="/chat"
                   type="button"
-                  className="relative flex-shrink-0 rounded-full w-8 bg-gray-100 mt-0.5 text-gray-700 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative flex-shrink-0 rounded-full   mt-0.5 text-gray-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="absolute " />
                   <span className="sr-only">View notifications</span>
-                  <AiFillMessage className="h-8 w-8" aria-hidden="true" />
+                  <AiFillMessage
+                    className="h-[34px] w-9 m-1"
+                    aria-hidden="true"
+                  />
                 </a>
                 <Menu as="div" className="relative  flex-shrink-0">
                   <div>
@@ -81,7 +84,7 @@ export default function Example() {
                       <span className="absolute " />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-9 w-9 mt-1  object-cover  rounded-full"
+                        className="h-[33px] w-[33px] mt-1  object-cover  rounded-full"
                         src="/ProfileImg2.jpg"
                         alt=""
                       />
@@ -157,7 +160,7 @@ export default function Example() {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#ffffff] ">
+          <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#292e3f]  ">
             <div className="space-y-1  ">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               <Disclosure.Button
@@ -178,16 +181,16 @@ export default function Example() {
                   />
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium text-gray-800">
+                  <div className="text-base font-medium text-gray-100">
                     Tom Cook
                   </div>
-                  <div className="text-sm font-medium text-gray-500">
+                  <div className="text-sm font-medium text-gray-300">
                     tom@example.com
                   </div>
                 </div>
                 <button
                   type="button"
-                  className="relative ml-auto flex-shrink-0 rounded-full   bg-white p-1 text-gray-800 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative ml-auto flex-shrink-0 rounded-full   bg-white p-1  text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
@@ -201,28 +204,28 @@ export default function Example() {
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2   font-medium text-[0.95rem] text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2   font-medium text-[0.95rem] text-gray-200 hover:bg-gray-100 hover:text-white"
                 >
                   Settings
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-200 hover:bg-gray-100 hover:text-white"
                 >
                   Login
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-[0.95rem] font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-[0.95rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
                 >
                   Sign Up
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="#"
-                  className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-200 hover:bg-gray-100 hover:text-white"
                 >
                   Logout
                 </Disclosure.Button>
