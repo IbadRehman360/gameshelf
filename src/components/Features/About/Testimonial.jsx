@@ -1,6 +1,6 @@
 export default function Testimonial({ name, comment, index }) {
   return (
-    <div className="aspect-auto p-8 border border-gray-100 rounded-3xl   bg-white shadow-2xl shadow-gray-600/10 dark:shadow-none">
+    <div className="aspect-auto p-8 border border-gray-100 rounded-3xl   bg-gray-100 shadow-2xl shadow-gray-600/10 dark:shadow-none">
       <div className="flex gap-4">
         <img
           className="w-12 h-12 rounded-full"
