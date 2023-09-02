@@ -4,7 +4,7 @@
 export default function Footer() {
   return (
     <div>
-      <footer className="footer grid-cols-2 grid-rows-2 border-t border-gray-600 md:grid-cols-4 md:grid-rows-1 py-6 px-10 sm:gap-8  gap-4 text-white bg-[#292929]  sm:justify-between ">
+      <footer className="footer grid-cols-2 grid-rows-2 border-t border-gray-600 md:grid-cols-4 md:grid-rows-1 py-6 px-10 sm:gap-8  gap-4 text-white bg-[#282b35]  sm:justify-between ">
         <div>
           <span className="footer-title ">Services</span>
           <div className="md:lg-sm text-xs gap-2 grid">
@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      <footer className="footer footer-center p-7  text-white bg-[#292929] border-t     border-gray-600 ">
+      <footer className="footer footer-center p-7  text-white bg-[#282b35] border-t     border-gray-600 ">
         <div>
           <p>Copyright © 2023 - All right reserved by GameStacks Ltd</p>
         </div>

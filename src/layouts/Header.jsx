@@ -14,19 +14,19 @@ export default function Example() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-4 bg-[#292e3f]   lg:px-3 xl:px-5 ">
-            <div className="flex h-16 xl:h-[84px] justify-between  sm:mx-6 mx-4 ">
+          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-4 bg-[#282b35]   lg:px-3 xl:px-5 ">
+            <div className="flex h-16 xl:h-[80px] justify-between  sm:mx-6 mx-4 ">
               <div className="flex  lg:px-0">
                 <div className="flex flex-shrink-0  gap-2 items-center ">
                   <img
-                    className="lg:h-7 h-7   bg-gray-500  mr-4 object-contain  rounded-xl mt-1.5 "
+                    className="lg:h-7 h-7 text-white     mr-4 object-contain  rounded-xl mt-1.5 "
                     src="/logo4.png"
                     alt="Your Company"
                   />
 
                   <Link
                     to="/"
-                    className="   tracking-[0.3rem] font-extrabold  text-gray-100 text-[1.1rem]    sm:text-[1.3rem] xl:text-[1.6rem] lg:ml-1 mt-1  min-w-fit"
+                    className="   tracking-[0.4rem] font-extrabold  text-gray-100 text-[1.1rem]    sm:text-[1.3rem] xl:text-[1.5rem] lg:ml-1 mt-1  min-w-fit"
                   >
                     GAMESHELF
                   </Link>
