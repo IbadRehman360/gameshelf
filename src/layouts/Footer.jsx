@@ -4,7 +4,7 @@
 export default function Footer() {
   return (
     <div>
-      <footer className="footer grid-cols-2 grid-rows-2 border-t border-gray-600 md:grid-cols-4 md:grid-rows-1 py-6 px-10 sm:gap-8  gap-4 text-white bg-[#282b35]  sm:justify-between ">
+      <footer className="footer grid-cols-2 grid-rows-2 border-t border-gray-600 md:grid-cols-4 md:grid-rows-1 py-10 px-10 sm:gap-8  gap-4 text-white bg-[#282b35]  sm:justify-between ">
         <div>
           <span className="footer-title ">Services</span>
           <div className="md:lg-sm text-xs gap-2 grid">

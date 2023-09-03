@@ -3,6 +3,7 @@ import OfferGamesService from "./OfferGamesService";
 import OfferInfo from "./OfferInfo";
 import Step from "./Step";
 import OfferInfoImage from "./OfferInfoImage";
+import RegistrationSuccess from "./OfferCompletion";
 const initialValues = {
   step: 1,
 };
@@ -10,7 +11,7 @@ const initialValues = {
 function reducer(state, action) {
   switch (action.type) {
     case "next":
-      return { ...state, step: Math.min(state.step + 1, 3) };
+      return { ...state, step: Math.min(state.step + 1, 4) };
     case "back":
       return { ...state, step: Math.max(state.step - 1, 1) };
     default:
@@ -31,6 +32,7 @@ function useMultiStepForm() {
     1: <OfferGamesService className="step">Step One</OfferGamesService>,
     2: <OfferInfo className="step">Step Two</OfferInfo>,
     3: <OfferInfoImage className="step">Step Three</OfferInfoImage>,
+    4: <RegistrationSuccess classNames="step">Step Four</RegistrationSuccess>,
   };
 
   return (
@@ -40,7 +42,9 @@ function useMultiStepForm() {
         {stepComponents[step]}
         <div className="flex justify-between">
           <button
-            className={`bg-gray-300 px-4 py-2 rounded `}
+            className={`bg-gray-300 px-4 py-2 rounded ${
+              step === 4 || step === 1 ? "hidden" : "flex"
+            }`}
             onClick={() => dispatch({ type: "back" })}
             disabled={step <= 1}
           >
@@ -48,7 +52,9 @@ function useMultiStepForm() {
           </button>
 
           <button
-            className={`bg-blue-500 text-white px-4 py-2 rounded`}
+            className={`bg-gray-700 text-white px-4 py-2 rounded  ml-auto ${
+              step === 4 ? "hidden" : "flex"
+            }`}
             disabled={step > 3}
           >
             {step === 3 ? "finished" : "next"}
