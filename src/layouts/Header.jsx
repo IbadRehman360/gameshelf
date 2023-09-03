@@ -19,14 +19,14 @@ export default function Example() {
               <div className="flex  lg:px-0">
                 <div className="flex flex-shrink-0  gap-2 items-center ">
                   <img
-                    className="lg:h-7 h-7  bg-gray-100  mr-4 object-contain  rounded-xl mt-1.5 "
+                    className="lg:h-7 h-7 w-9 bg-gray-100  mr-4 object-contain  rounded-xl mt-1.5 "
                     src="/logo4.png"
                     alt="Your Company"
                   />
 
                   <Link
                     to="/"
-                    className="   tracking-[0.4rem] font-extrabold  text-gray-100 text-[1.1rem]    sm:text-[1.3rem] xl:text-[1.5rem] lg:ml-1 mt-1  min-w-fit"
+                    className="   tracking-[0.4rem] font-extrabold  text-gray-100 text-[1.1rem]    sm:text-[1.3rem] xl:text-[1.6rem] lg:ml-1 mt-1  min-w-fit"
                   >
                     GAMESHELF
                   </Link>
@@ -87,7 +87,7 @@ export default function Example() {
                       <div className="mt-1 rounded-full">
                         <img
                           className="h-[36px] w-[40px]     object-cover  rounded-full"
-                          src="ProfileImg2.jpg"
+                          src="/ProfileImg2.jpg"
                           alt=""
                         />
                       </div>
