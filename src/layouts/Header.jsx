@@ -14,12 +14,12 @@ export default function Example() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-4 bg-[#323642]   lg:px-3 xl:px-5 ">
+          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-4 bg-[#3b404e]   lg:px-3 xl:px-5 ">
             <div className="flex h-16 xl:h-[80px] justify-between  sm:mx-6 mx-4 ">
               <div className="flex  lg:px-0">
                 <div className="flex flex-shrink-0  gap-2 items-center ">
                   <img
-                    className="lg:h-7 h-7   bg-gray-600  mr-4 object-contain  rounded-xl mt-1.5 "
+                    className="lg:h-7 h-7  bg-gray-100  mr-4 object-contain  rounded-xl mt-1.5 "
                     src="/logo4.png"
                     alt="Your Company"
                   />
@@ -60,7 +60,7 @@ export default function Example() {
 
               <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
                 <NavLink
-                  className=" bg-gray-700 mt-1 hover:bg-gray-600 active:bg-gray-400 text-gray-100 font-medium hover:shadow-md shadow text-[0.8rem] px-9 py-2  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className=" bg-gray-50 mt-1 hover:bg-gray-100 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[0.9rem] px-8 py-1.5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
                   to={"/sell"}
                 >
@@ -70,12 +70,12 @@ export default function Example() {
                 <a
                   href="/chat"
                   type="button"
-                  className="relative flex-shrink-0 rounded-full   mt-0.5 text-gray-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative flex-shrink-0 rounded-full   mt-0.5 text-gray-600 hover:text-slate-500 "
                 >
                   <span className="absolute " />
                   <span className="sr-only">View notifications</span>
                   <AiFillMessage
-                    className="h-[34px] w-9 m-1"
+                    className="h-[34px] w-9 m-1 text-gray-50 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     aria-hidden="true"
                   />
                 </a>
@@ -84,11 +84,13 @@ export default function Example() {
                     <Menu.Button className="relative flex rounded-full   text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="absolute " />
                       <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-[33px] w-[33px] mt-1  object-cover  rounded-full"
-                        src="/ProfileImg2.jpg"
-                        alt=""
-                      />
+                      <div className="mt-1 rounded-full">
+                        <img
+                          className="h-[36px] w-[40px]     object-cover  rounded-full"
+                          src="ProfileImg2.jpg"
+                          alt=""
+                        />
+                      </div>
                     </Menu.Button>
                   </div>
                   <Transition

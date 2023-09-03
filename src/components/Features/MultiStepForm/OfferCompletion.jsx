@@ -17,12 +17,14 @@ function RegistrationSuccess() {
       </svg>
 
       <h2 className="text-2xl mb-4 text-gray-800 text-center font-bold">
-        Registration Success
+        Successfully Listed
       </h2>
 
-      <div className="text-gray-600 mb-8">
-        Thank you. We have sent you an email to demo@demo.test. Please click the
-        link in the message to activate your account.
+      <div className="text-gray-700 mb-8 sm:px-10 xl:px-28 2xl:px-40">
+        We're excited to inform you that your product has been successfully
+        listed, Thank you! You can now take a closer look at it by visiting your
+        profile. Feel free to explore and manage your listing at your
+        convenience.
       </div>
 
       <button

@@ -15,12 +15,9 @@ export default function RegisterPage() {
   }
   return (
     <>
-      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center  pt-[40px] pb-[80px]  py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h3 className="text-3xl text-center justify-center  font-bold flex "></h3>
-          <h2 className="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Register for an account
-          </h2>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
