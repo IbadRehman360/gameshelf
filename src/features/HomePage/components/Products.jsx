@@ -38,6 +38,7 @@ export default function FeaturedProducts() {
           />
         </div>
       </div>
+
       <div className="carousel w-full  md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5 justify-items-stretch md:gap-5 sm:mt-4  mt-2">
         <div
           id="featuredProductsSlide1"

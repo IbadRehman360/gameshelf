@@ -1,6 +1,8 @@
 import CategoryItem from "./CategoryItem";
 import useGetCategories from "../hooks/useGetCategories";
 import { useEffect, useState } from "react";
+import { Suspense } from "react";
+import LoadingAnimation from "../../../components/LoadingAnimation";
 
 export default function CategoryList() {
   const [data, error] = useGetCategories();
@@ -20,16 +22,13 @@ export default function CategoryList() {
         EXPLORE CATEGORIES
       </h3>
       <div className="max-w-[1400px] grid mx-auto md:mb-6 mb-4 gap-10 grid-cols-4 md:grid-cols-8 md:gap-5 lg:gap-2 xl:gap-0 justify-items-center p-4 xl:p-3 pb-10 xl:pb-6">
-        {isLoading
-          ? Array.from({ length: 8 }, () => (
-              <div className="animate-pulse flex flex-col items-center gap-2">
-                <div className="rounded-2xl bg-slate-400 h-12 w-11 lg:h-16 md:w-16 "></div>
-                <div className="h-2 bg-slate-400 rounded col-span-2 w-full"></div>
-              </div>
-            ))
-          : categories.map((categoryItem, i) => (
-              <CategoryItem key={i} index={i} category={categoryItem} />
-            ))}
+        <Suspense fallback={<LoadingAnimation />}>
+          {isLoading
+            ? Array.from({ length: 8 }, (_, i) => <LoadingAnimation key={i} />)
+            : categories.map((categoryItem, i) => (
+                <CategoryItem key={i} index={i} category={categoryItem} />
+              ))}
+        </Suspense>
       </div>
     </div>
   );
