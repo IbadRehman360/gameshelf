@@ -20,7 +20,7 @@ function RegistrationSuccess() {
         Registration Success
       </h2>
 
-      <div className="text-gray-600 mb-8">
+      <div className="text-gray-700 mb-8">
         Thank you. We have sent you an email to demo@demo.test. Please click the
         link in the message to activate your account.
       </div>
