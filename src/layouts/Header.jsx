@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { AiFillMessage } from "react-icons/ai";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 function classNames(...classes) {
@@ -14,12 +14,12 @@ export default function Example() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-4 bg-[#282b35]   lg:px-3 xl:px-5 ">
+          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-4 bg-[#323642]   lg:px-3 xl:px-5 ">
             <div className="flex h-16 xl:h-[80px] justify-between  sm:mx-6 mx-4 ">
               <div className="flex  lg:px-0">
                 <div className="flex flex-shrink-0  gap-2 items-center ">
                   <img
-                    className="lg:h-7 h-7 text-white     mr-4 object-contain  rounded-xl mt-1.5 "
+                    className="lg:h-7 h-7   bg-gray-600  mr-4 object-contain  rounded-xl mt-1.5 "
                     src="/logo4.png"
                     alt="Your Company"
                   />
@@ -59,12 +59,13 @@ export default function Example() {
               </div>
 
               <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
-                <button
+                <NavLink
                   className=" bg-gray-700 mt-1 hover:bg-gray-600 active:bg-gray-400 text-gray-100 font-medium hover:shadow-md shadow text-[0.8rem] px-9 py-2  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
+                  to={"/sell"}
                 >
                   Sell
-                </button>
+                </NavLink>
 
                 <a
                   href="/chat"
