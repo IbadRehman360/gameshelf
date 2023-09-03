@@ -53,7 +53,7 @@ function GameSelectionComponent() {
     <div className="step">
       <div className="mb-4">
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-700  text-md font-bold mb-2"
           htmlFor="gameType"
         >
           Select Service
@@ -62,7 +62,7 @@ function GameSelectionComponent() {
           required
           id="gameType"
           name="gameType"
-          className="border rounded w-full py-2 px-3"
+          className="border border-gray-400 rounded w-full py-2 px-3"
         >
           <option value="">Select an option</option>
           <option value="gameServer">Game Server</option>
@@ -92,22 +92,24 @@ function GameSelectionComponent() {
           ))}
         </select>
       </div> */}
-      <h5 className="text-md mt-8 font-semibold  text-gray-900 mb-3">
-        Notifications
-      </h5>
-      <div className="mt-2 text-sm text-gray-600">
-        <label htmlFor="comments" className="inline-flex items-center">
-          <input
-            id="comments"
-            name="comments"
-            type="checkbox"
-            className="form-checkbox h-5 w-5 text-indigo-600 focus:ring-indigo-600"
-          />
-          <span className="ml-2">
-            I agree to receive notifications about important changes and
-            optional updates.
-          </span>
-        </label>
+      <div className="px-1 mb-3">
+        <p className="text-md mt-8 font-semibold  text-gray-900 mb-3">
+          Notifications
+        </p>
+        <div className="mt-2 text-sm text-gray-600">
+          <label htmlFor="comments" className="inline-flex items-center">
+            <input
+              id="comments"
+              name="comments"
+              type="checkbox"
+              className="form-checkbox h-5 w-5 text-indigo-600 focus:ring-indigo-600"
+            />
+            <span className="ml-2">
+              I agree to receive notifications about important changes and
+              optional updates.
+            </span>
+          </label>
+        </div>
       </div>
     </div>
   );
