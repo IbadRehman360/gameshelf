@@ -8,6 +8,7 @@ import ProductPage from "../pages/ProductPage";
 import ProfilePage from "../pages/ProfilePage";
 import AboutPage from "../pages/AboutPage";
 import DashboardPage from "../pages/DashboardPage";
+import MultiStepFormPage from "../pages/MultiStepFormPage";
 import MessagePage from "../pages/MessagePage";
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <DashboardPage />,
+      },
+      {
+        path: "sell",
+        element: <MultiStepFormPage />,
       },
       {
         path: "dashboard/products",
