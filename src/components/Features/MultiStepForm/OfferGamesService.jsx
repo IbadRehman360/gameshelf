@@ -93,18 +93,19 @@ function GameSelectionComponent() {
         </select>
       </div> */}
       <div className="px-1 mb-3">
-        <p className="text-md mt-8 font-semibold  text-gray-900 mb-3">
+        <p className="text-md mt-8 font-semibold text-gray-900 mb-3">
           Notifications
         </p>
-        <div className="mt-2 text-sm text-gray-600">
-          <label htmlFor="comments" className="inline-flex items-center">
+        <div className="mt-2 text-sm text-gray-600 flex items-start">
+          <label htmlFor="comments" className="inline-flex items-start">
             <input
               id="comments"
               name="comments"
+              required
               type="checkbox"
-              className={`form-checkbox h-5 w-5  accent-gray-600 `} // Change the color here
+              className={`form-checkbox h-5 w-5 accent-gray-600 mt-0.5`} // Change the color here
             />
-            <span className="ml-2 text-md font-medium text-gray-500 mb-0.5 ">
+            <span className="ml-2 text-[0.8rem] sm:text-[0.9rem] md:text-[0.92rem] font-medium text-gray-500">
               I agree to receive notifications about important changes and
               optional updates.
             </span>

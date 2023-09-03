@@ -60,7 +60,7 @@ export default function Example() {
 
               <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
                 <NavLink
-                  className=" bg-gray-50 mt-1 hover:bg-gray-600 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[0.9rem] px-8 py-1.5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className=" bg-gray-50 mt-1 hover:bg-gray-100 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[0.9rem] px-8 py-1.5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
                   to={"/sell"}
                 >

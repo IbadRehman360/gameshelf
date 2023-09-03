@@ -15,7 +15,7 @@ const steps = [
   },
   {
     id: "03",
-    name: "Details description images",
+    name: "Product Description",
     href: "#",
     status: 3,
   },
@@ -31,7 +31,10 @@ export default function Step({ step }) {
         {steps.map((LpStep) => (
           <li key={LpStep.name} className="relative md:flex md:flex-1">
             {LpStep.status === step ? (
-              <a href={LpStep.href} className="group flex w-full items-center">
+              <a
+                href={LpStep.href}
+                className="group flex border-b-4 border-gray-900  lg:w-72  md:w-56 items-center"
+              >
                 <span className="flex items-center px-6 py-4 text-sm font-medium">
                   <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#5e575a] to-[#4f4f58] text-white">
                     <CheckIcon

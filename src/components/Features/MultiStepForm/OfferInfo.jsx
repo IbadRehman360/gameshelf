@@ -22,7 +22,7 @@ function GameServiceComponent() {
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="price"
         >
-          Price
+          Product Price
         </label>
         <input
           type="number"
