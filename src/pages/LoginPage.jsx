@@ -3,12 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 export default function LoginPage() {
   return (
     <>
-      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center py-[90px]  sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md ">
-          <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign in to your account
-          </h2>
-        </div>
+      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center pt-[50px] pb-[100px] sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md "></div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]  ">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12 border border-gray-100">
@@ -119,7 +115,7 @@ export default function LoginPage() {
           <p className="mt-10 flex gap-2 justify-center items-center text-center text-sm text-gray-500">
             Not a member?
             <a
-              href="#"
+              href="/register"
               className="font-semibold leading-6 text-navy-blue hover:text-[#4b4e6b]"
             >
               Sign Up!

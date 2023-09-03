@@ -103,9 +103,9 @@ function GameSelectionComponent() {
               name="comments"
               required
               type="checkbox"
-              className={`form-checkbox h-5 w-5 accent-gray-600 mt-0.5`} // Change the color here
+              className={`form-checkbox h-5 w-5 accent-gray-600 md:mt-0 mt-0.5`} // Change the color here
             />
-            <span className="ml-2 text-[0.8rem] sm:text-[0.9rem] md:text-[0.92rem] font-medium text-gray-500">
+            <span className="ml-2 text-[0.8rem] sm:text-[0.9rem] md:text-[0.92rem] font-medium text-slate-500 ">
               I agree to receive notifications about important changes and
               optional updates.
             </span>

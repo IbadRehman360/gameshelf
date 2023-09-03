@@ -70,12 +70,12 @@ export default function Example() {
                 <a
                   href="/chat"
                   type="button"
-                  className="relative flex-shrink-0 rounded-full   mt-0.5 text-gray-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative flex-shrink-0 rounded-full   mt-0.5 text-gray-600 hover:text-slate-500 "
                 >
                   <span className="absolute " />
                   <span className="sr-only">View notifications</span>
                   <AiFillMessage
-                    className="h-[34px] w-9 m-1 text-gray-50"
+                    className="h-[34px] w-9 m-1 text-gray-50 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     aria-hidden="true"
                   />
                 </a>
