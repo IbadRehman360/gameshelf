@@ -1,6 +1,5 @@
 import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import ProfileProduct from "./ProfileProduct";
-import TrendingGiftCard from "../../FeatureTrendingGiftCards";
 import DashboardListingFilter from "../AllSellerProductPage/AllSellerListingListingFilter";
 import { useState } from "react";
 import FuturePagination from "../../FeaturePagination";
@@ -17,9 +16,9 @@ export default function ProfilePage() {
   };
   return (
     <>
-      <section className=" ">
+      <section>
         <div
-          className="w-full   object-cover  h-[240px] bg-center  bg-cover bg-no-repeat sm:bg-cover "
+          className="w-full object-cover h-[240px] bg-center bg-cover bg-no-repeat sm:bg-cover "
           style={{ backgroundImage: 'url("/ProfileBanner.png")' }}
         >
           <span
@@ -48,12 +47,12 @@ export default function ProfilePage() {
           </svg>
         </div>
       </section>
-      <section className=" bg-blueGray-200">
-        <div className=" mx-auto  md:px-4">
+      <section className="bg-blueGray-200">
+        <div className="mx-auto md:px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-xl rounded-lg -mt-16">
             <div className="px-6">
-              <div className=" justify-center md:justify-between lg:justify-around md:flex-nowrap lg:flex-wrap mb-4 md:mb-8">
-                <div className="order-2 sm:order-0 px-4 lg:order-3 lg:text-right">
+              <div className="flex flex-col sm:grid grid-cols-2 md:grid-cols-3 md:grid-rows-3">
+                <div className="order-0 sm:order-1 px-4 lg:order-3 lg:text-right col-span-1 md:col-span-2">
                   <div className="mt-16 order-0 md:order-1 lg:order-1 text-center md:mt-0 my-4">
                     <div className="w-full mb-4 px-4 lg:order-2 flex justify-center">
                       <div className="relative">
@@ -64,7 +63,7 @@ export default function ProfilePage() {
                         />
                       </div>
                     </div>
-                    <h3 className="text-[1.3rem] md:text-[1.6rem]   font-medium text-blueGray-700">
+                    <h3 className="text-[1.3rem] md:text-[1.6rem] font-medium text-blueGray-700">
                       Ibad ur Rehman
                     </h3>
                     <p className="text-[0.8rem] mt-0.5 uppercase">Level 73</p>
@@ -84,8 +83,19 @@ export default function ProfilePage() {
                     </button>
                   </div>
                 </div>
-                <div className=" mt-12">
-                  <div className="grid grid-cols-1 gap-8 md:gap-[3%] sm:grid-cols-[38%,55%] md:grid-cols-[35%,63%] lg:grid-cols-[25%,72%]">
+                <div className="order-2 sm:order-3 md:col-span-2 row-span-3 p-4">
+                  <h5 className="text-[1.4rem] mb-2 font-medium text-blueGray-700">
+                    Feature offers
+                  </h5>
+                  <DashboardListingFilter />
+                  <ProfileProduct />
+                  <FuturePagination
+                    onchange={"lg:flex"}
+                    onchange2={"lg:hidden"}
+                  />
+                </div>
+                <div className="mt-12 order-0 row-span-2 ">
+                  <div className="grid">
                     <div className="flex flex-col gap-8 ">
                       <div className="sm:bg-gray-50 sm:p-4 rounded-lg">
                         <div className="flex flex-col ">
@@ -242,20 +252,8 @@ export default function ProfilePage() {
                         </div>
                       </div>
                     </div>
-                    <div className="">
-                      <h5 className="text-[1.4rem] mb-2 font-medium text-blueGray-700">
-                        Feature offers
-                      </h5>
-                      <DashboardListingFilter />
-                      <ProfileProduct />
-                      <FuturePagination
-                        onchange={"lg:flex"}
-                        onchange2={"lg:hidden"}
-                      />
-                    </div>
                   </div>
                 </div>
-                <TrendingGiftCard />
 
                 {/* <div className="order-1 md:order-0 w-full md:w-fit px-4 md:px-0   lg:px-4 lg:order-1">
                   <div className=" justify-center gap-8 lg:justify-start pt-0 hidden md:flex md:pt-2 lg:pt-2 sm:mr-4 my-2 sm:my-0">
