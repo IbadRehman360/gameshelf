@@ -37,13 +37,13 @@ function useMultiStepForm() {
 
   return (
     <div className="border">
-      <Step />
+      <Step step={step} />
       <form onSubmit={onSubmit} className="py-10 px-8 grid gap-4">
         {stepComponents[step]}
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-1">
           <button
             className={`bg-gray-300 px-4 py-2 rounded ${
-              step === 4 || step === 1 ? "hidden" : "flex"
+              step === 4 ? "hidden" : "flex"
             }`}
             onClick={() => dispatch({ type: "back" })}
             disabled={step <= 1}
@@ -52,7 +52,7 @@ function useMultiStepForm() {
           </button>
 
           <button
-            className={`bg-gray-700 text-white px-4 py-2 rounded  ml-auto ${
+            className={`bg-gray-700 text-white px-4 py-2 rounded  flex-end  ${
               step === 4 ? "hidden" : "flex"
             }`}
             disabled={step > 3}
