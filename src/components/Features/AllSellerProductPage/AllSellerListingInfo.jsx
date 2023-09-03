@@ -1,6 +1,6 @@
 export default function DashBoardInfo() {
   return (
-    <div className="lg:pt-20 md:pt-16  pt-16">
+    <div className="lg:pt-20 md:pt-16 px-2 sm:px-4 lg:px-2 pt-16">
       <div className="">
         <h3 className="text-xl sm:text-2xl lg:text-[1.6rem] xl:text-3xl font-bold tracking-tight text-gray-800  mb-8">
           GamerShelf - Your Ultimate Gaming Account Marketplace

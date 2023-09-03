@@ -118,7 +118,9 @@ export default function ProductPage() {
                 <h3 className="text-lg font-medium">Total</h3>
                 <h3 className="text-lg font-medium">$20.99</h3>
               </div>
-              <button className="btn w-full mt-4 bg-white">Buy Now</button>
+              <div className="border  border-gray-200 rounded-lg mt-4">
+                <button className="btn w-full  bg-white">Buy Now</button>
+              </div>
             </div>
           </div>
         </div>

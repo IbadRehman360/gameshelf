@@ -14,10 +14,10 @@ export default function Example() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-4 bg-[#3b404e]   lg:px-3 xl:px-5 ">
+          <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-2 bg-[#3b404e]   lg:px-3 xl:px-5 ">
             <div className="flex h-16 xl:h-[80px] justify-between  sm:mx-6 mx-4 ">
               <div className="flex  lg:px-0">
-                <div className="flex flex-shrink-0  gap-2 items-center ">
+                <div className="flex flex-shrink-0  items-center ">
                   <img
                     className="lg:h-7 h-7 w-9 bg-gray-100  mr-4 object-contain  rounded-xl mt-1.5 "
                     src="/logo4.png"
@@ -46,7 +46,7 @@ export default function Example() {
                 {/* Mobile menu button */}
                 <Disclosure.Button
                   style={{ border: "1px solid" }}
-                  className="relative inline-flex items-center sm:w-9  sm:h-9 w-8 h-8 text-gray-400 justify-center rounded-md p-1  bg-gray-800   hover:text-gray-300 border-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+                  className="relative inline-flex items-center sm:w-9  sm:h-9 w-8 h-8 text-gray-400 justify-center rounded-md p-1 mt-1 bg-gray-700   hover:text-gray-300 border-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                 >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -163,7 +163,7 @@ export default function Example() {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#292e3f]  ">
+          <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#3b404e]   ">
             <div className="space-y-1  ">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               <Disclosure.Button

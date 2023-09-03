@@ -15,7 +15,7 @@ export default function DashboardSearchBar() {
   return (
     <div>
       <div className="  ">
-        <div className="flex items-center justify-between bg-[#fdfdfd] rounded-3xl p-8 pt-7  lg:gap-4 shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4">
+        <div className="flex items-center justify-between bg-[#fdfdfd] rounded-3xl   lg:gap-4 shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4">
           <div className="relative rounded-lg flex items-center w-[90%] sm:w-[100%]">
             <input
               type="text"

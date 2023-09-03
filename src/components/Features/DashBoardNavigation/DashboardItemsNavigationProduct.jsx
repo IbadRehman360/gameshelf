@@ -37,7 +37,7 @@ const additionalGames = [
 export default function DashboardItemsNavigationProduct() {
   return (
     <div className="">
-      <div className="mx-auto max-w-4xl pb-40 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-4xl pb-40 lg:max-w-7xl  lg:px-8">
         <h3 className="text-2xl mb-10 mt-12 text-center font-bold tracking-wide text-gray-700">
           Recent Trending
         </h3>

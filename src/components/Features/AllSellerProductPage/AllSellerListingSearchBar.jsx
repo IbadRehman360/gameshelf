@@ -27,25 +27,28 @@ export default function DashboardSearchBar() {
           <div className="sm:flex flex-1 sm:ml-8 sm:gap-4 md:ml-14 space-x-4 hidden md:gap-8 lg:gap-14  w-[100%] ">
             <a
               href="/"
-              className="text-gray-500 hover:text-gray-100   font-semibold transition duration-300"
+              className="text-gray-500 hover:text-gray-400   font-semibold transition duration-300"
             >
               Server
             </a>
             <a
               href="/"
-              className="text-gray-500 hover:text-gray-100 font-semibold transition duration-300"
+              className="text-gray-500 hover:text-gray-400 font-semibold transition duration-300"
             >
               Rank
             </a>
             <a
               href="/"
-              className="text-gray-500 hover:text-gray-100 font-semibold transition duration-300"
+              className="text-gray-500 hover:text-gray-400 font-semibold transition duration-300"
             >
               Budget
             </a>
           </div>
 
-          <Menu as="div" className="relative p-2 w-16 border-l-[1px] border[rgba(0,0,0,0.12)] sm:py-0 sm:border-0 sm:w-fit sm:inline-block text-left  ">
+          <Menu
+            as="div"
+            className="relative p-2 w-16 border-l-[1px] border[rgba(0,0,0,0.12)] sm:py-0 sm:border-0 sm:w-fit sm:inline-block text-left  "
+          >
             <div>
               <Menu.Button className="inline-flex w-full justify-center sm:justify-center sm:hidden gap-x-1.5 rounded-lg rounded-l-none sm:rounded-md  bg-white sm:bg-slate-50 px-3  py-[0.44rem] md:py-2 text-sm font-semibold text-gray-900 sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50">
                 <RiFilter3Line className="h-5 w-5 inline-block" />
