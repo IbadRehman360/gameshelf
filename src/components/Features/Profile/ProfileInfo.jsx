@@ -1,0 +1,37 @@
+import React from "react";
+
+export default function ProfileInfo() {
+  return (
+    <div className="order-0 sm:order-0  md:order-3 lg:text-right ">
+      <div className="mt-16 order-0 md:order-0 lg:order-1 text-center md:mt-0 ">
+        <div className="w-full mb-4 px-4 lg:order-2 flex justify-center">
+          <div className="relative">
+            <img
+              alt="..."
+              src="/ProfileImg2.jpg"
+              className="shadow-xl rounded-full h-auto align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem] "
+            />
+          </div>
+        </div>
+        <h3 className="text-[1.3rem] md:text-[1.6rem] font-medium text-blueGray-700">
+          Ibad ur Rehman
+        </h3>
+        <p className="text-[0.8rem] mt-0.5 uppercase">Level 73</p>
+      </div>
+      <div className="flex justify-center gap-2 md:gap-1  mt-5  lg:px-3 ">
+        <button
+          className="bg-red-500 hover:bg-red-400 active:bg-red-400 uppercase text-white font-bold hover:shadow-md shadow text-xs px-6 py-2.5 md:mr-2 rounded outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
+          type="button"
+        >
+          Connect
+        </button>
+        <button
+          className="bg-gray-600 hover:bg-gray-500 active:bg-red-400 uppercase text-white font-bold hover:shadow-md shadow text-xs px-6 py-2.5 rounded outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
+          type="button"
+        >
+          Message
+        </button>
+      </div>
+    </div>
+  );
+}
