@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { AiFillCamera } from "react-icons/ai";
 
 export default function ProfileInfo() {
+  const [showEditImage, setShowEditImage] = useState(false);
   return (
     <div className="order-0 sm:order-0  md:order-3 lg:text-right ">
       <div className="mt-16 order-0 md:order-0 lg:order-1 text-center md:mt-0 ">
         <div className="w-full mb-4 px-4 lg:order-2 flex justify-center">
           <div className="relative">
-            <img
-              alt="..."
-              src="/ProfileImg2.jpg"
-              className="shadow-xl rounded-full h-auto align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem] "
-            />
+            {showEditImage && (
+              <button
+                className="absolute top-1/4 left-1/2 translate-x-[-50%] translate-y-[-50%] z-50"
+                onMouseEnter={(e) => setShowEditImage(true)}
+                onMouseLeave={(e) => setShowEditImage(false)}
+              >
+                <AiFillCamera color="white" size="1.5rem" />
+                <span className="text-white text-xs">Edit</span>
+              </button>
+            )}
+            <div className={`rounded-full relative`}>
+              <img
+                alt="..."
+                src="/ProfileImg2.jpg"
+                className={`shadow-xl rounded-full h-auto align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem]`}
+                onMouseEnter={(e) => setShowEditImage(true)}
+                onMouseLeave={(e) => setShowEditImage(false)}
+              />
+              <div className={`${showEditImage ? "block bg-black z-30 opacity-30" : "hidden"} absolute rounded-full md:top-1/2 md:translate-y-[-7%] h-full w-full align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem]`}
+              onMouseEnter={(e) => setShowEditImage(true)}
+              onMouseLeave={(e) => setShowEditImage(false)}
+              ></div>
+            </div>
           </div>
         </div>
         <h3 className="text-[1.3rem] md:text-[1.6rem] font-medium text-blueGray-700">
