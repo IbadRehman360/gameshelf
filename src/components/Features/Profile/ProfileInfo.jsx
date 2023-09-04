@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AiFillCamera } from "react-icons/ai";
 
 export default function ProfileInfo() {
@@ -10,9 +10,9 @@ export default function ProfileInfo() {
           <div className="relative">
             {showEditImage && (
               <button
-                className="absolute top-1/4 left-1/2 translate-x-[-50%] translate-y-[-50%] z-50"
-                onMouseEnter={(e) => setShowEditImage(true)}
-                onMouseLeave={(e) => setShowEditImage(false)}
+                className="absolute md:top-1/4  bottom-1 left-1/2 translate-x-[-50%] translate-y-[-50%] z-50"
+                onMouseEnter={() => setShowEditImage(true)}
+                onMouseLeave={() => setShowEditImage(false)}
               >
                 <AiFillCamera color="white" size="1.5rem" />
                 <span className="text-white text-xs">Edit</span>
@@ -23,12 +23,15 @@ export default function ProfileInfo() {
                 alt="..."
                 src="/ProfileImg2.jpg"
                 className={`shadow-xl rounded-full h-auto align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem]`}
-                onMouseEnter={(e) => setShowEditImage(true)}
-                onMouseLeave={(e) => setShowEditImage(false)}
+                onMouseEnter={() => setShowEditImage(true)}
+                onMouseLeave={() => setShowEditImage(false)}
               />
-              <div className={`${showEditImage ? "block bg-black z-30 opacity-30" : "hidden"} absolute rounded-full md:top-1/2 md:translate-y-[-7%] h-full w-full align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem]`}
-              onMouseEnter={(e) => setShowEditImage(true)}
-              onMouseLeave={(e) => setShowEditImage(false)}
+              <div
+                className={`${
+                  showEditImage ? "block bg-black z-30 opacity-30" : "hidden"
+                } absolute rounded-full md:top-1/2 md:translate-y-[-7%] h-full w-full align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem]`}
+                onMouseEnter={() => setShowEditImage(true)}
+                onMouseLeave={() => setShowEditImage(false)}
               ></div>
             </div>
           </div>
