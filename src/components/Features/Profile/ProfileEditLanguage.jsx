@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ProfileEditLanguage() {
   return (
     <div className="py-2 px- flex flex-col gap-2">
