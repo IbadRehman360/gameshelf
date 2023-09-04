@@ -4,6 +4,7 @@ import DashboardListingFilter from "../AllSellerProductPage/AllSellerListingList
 import { useState } from "react";
 import FuturePagination from "../../FeaturePagination";
 import ProfileEdit from "./ProfileEdit";
+
 export default function ProfilePage() {
   const [isEdit, setIsEdit] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -49,11 +50,11 @@ export default function ProfilePage() {
       </section>
       <section className="bg-blueGray-200">
         <div className="mx-auto md:px-4">
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-xl rounded-lg -mt-16">
-            <div className="px-6">
-              <div className="flex flex-col sm:grid grid-cols-2 md:grid-cols-3 md:grid-rows-3">
-                <div className="order-0 sm:order-1 px-4 lg:order-3 lg:text-right col-span-1 md:col-span-2">
-                  <div className="mt-16 order-0 md:order-1 lg:order-1 text-center md:mt-0 my-4">
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-xl rounded-lg -mt-12">
+            <div className="xl:px-10 px-5   ">
+              <div className="sm:grid  grid-cols-1  md:grid-cols-[34%,59%,0%]  xl:grid-cols-[30%,62%,0%] lg:gap-9 gap-8 xl:gap-14  ">
+                <div className="order-0 sm:order-0  md:order-3 lg:text-right ">
+                  <div className="mt-16 order-0 md:order-0 lg:order-1 text-center md:mt-0 ">
                     <div className="w-full mb-4 px-4 lg:order-2 flex justify-center">
                       <div className="relative">
                         <img
@@ -68,7 +69,7 @@ export default function ProfilePage() {
                     </h3>
                     <p className="text-[0.8rem] mt-0.5 uppercase">Level 73</p>
                   </div>
-                  <div className="flex justify-center gap-2 md:gap-1 md:justify-end my-5 md:py-6 lg:px-3 md:mt-0">
+                  <div className="flex justify-center gap-2 md:gap-1  mt-5  lg:px-3 ">
                     <button
                       className="bg-red-500 hover:bg-red-400 active:bg-red-400 uppercase text-white font-bold hover:shadow-md shadow text-xs px-6 py-2.5 md:mr-2 rounded outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
                       type="button"
@@ -83,21 +84,21 @@ export default function ProfilePage() {
                     </button>
                   </div>
                 </div>
-                <div className="order-2 sm:order-3 md:col-span-2 row-span-3 p-4">
+                <div className="order-2 sm:order-3 md:col-span-2 row-span-2 ">
                   <h5 className="text-[1.4rem] mb-2 font-medium text-blueGray-700">
                     Feature offers
                   </h5>
                   <DashboardListingFilter />
                   <ProfileProduct />
                   <FuturePagination
-                    onchange={"lg:flex"}
-                    onchange2={"lg:hidden"}
+                    onchange={"xl:flex"}
+                    onchange2={"xl:hidden"}
                   />
                 </div>
                 <div className="mt-12 order-0 row-span-2 ">
                   <div className="grid">
                     <div className="flex flex-col gap-8 ">
-                      <div className="sm:bg-gray-50 sm:p-4 rounded-lg">
+                      <div className="md:bg-gray-50 md:p-4 rounded-lg">
                         <div className="flex flex-col ">
                           <div className="flex justify-between text-[0.92rem] sm:border-t-0 border-y  sm:py-2 sm:pb-4 py-6">
                             <span className="text-gray-500  ">
@@ -284,6 +285,7 @@ export default function ProfilePage() {
                   </div>
                 </div> */}
               </div>
+
               {/* <div className="grid grid-cols-1 gap-8 md:gap-[3%] sm:grid-cols-[40%,55%] md:grid-cols-[35%,63%] lg:grid-cols-[25%,72%]">
                 <div className="flex flex-col gap-8 ">
                   <div className="md:bg-gray-50 md:p-4 rounded-lg">
