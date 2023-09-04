@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import ProfileEdit from "./ProfileEdit";
+import ProfileEditLanguage from "./ProfileEditLanguage";
 
 export default function ProfileInfo() {
   const [isEdit, setIsEdit] = useState(false);
+  const [isEditLanguage, setIsEditLanguage] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const toggleShowMore = () => {
     setShowMore((prevState) => !prevState);
@@ -11,8 +13,7 @@ export default function ProfileInfo() {
 
   //Erase after attaching with live description content from database
   let content =
-  "We offer various items,services in our store for your enjoyment and convenience. ^-^ Over the past 8 years, we have successfully fulfilled more than 2,000,000 orders across various websites. Contact Me if you got any problem or some other questions";
-
+    "We offer various items,services in our store for your enjoyment and convenience. ^-^ Over the past 8 years, we have successfully fulfilled more than 2,000,000 orders across various websites. Contact Me if you got any problem or some other questions";
 
   return (
     <div className="mt-12 order-0 row-span-2 ">
@@ -153,7 +154,16 @@ export default function ProfileInfo() {
             </div>
           </div>
           <div className="md:bg-gray-50 md:p-4 pb-4 rounded-lg border-b-2 ">
-            <h3 className="text-lg font-semibold">Languages</h3>
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold">Languages</h3>
+              <button
+                onClick={() => setIsEditLanguage(!isEditLanguage)}
+                className="text-sm text-gray-500 mt-1 font-normal underline"
+              >
+                Edit
+              </button>
+            </div>
+            {isEditLanguage ?<ProfileEditLanguage/> :
             <div className="flex flex-wrap gap-4 py-6">
               <div className="bg-white w-fit p-5 rounded-lg border-[1px] border-gray-400">
                 English
@@ -161,7 +171,7 @@ export default function ProfileInfo() {
               <div className="bg-white w-fit p-5 rounded-lg border-[1px] border-gray-400">
                 English
               </div>
-            </div>
+            </div>}
           </div>
         </div>
       </div>
