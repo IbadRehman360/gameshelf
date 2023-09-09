@@ -9,7 +9,7 @@ function useGetGames() {
     async function fetchData() {
       const { data, error } = await supabase.from("games").select("*");
       if (error) {
-        console.error("Error fetching user:", error.message);
+        console.error("Error fetching Games:", error.message);
         setError(error);
       } else {
         setData(data);

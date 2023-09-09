@@ -9,7 +9,7 @@ function useGetCategories() {
     async function fetchData() {
       const { data, error } = await supabase.from("categories").select("*");
       if (error) {
-        console.error("Error fetching user:", error.message);
+        console.error("Error fetching categories:", error.message);
         setError(error);
       } else {
         setData(data);

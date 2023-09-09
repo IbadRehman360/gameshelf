@@ -4,7 +4,7 @@ async function useInsertItem(newItem) {
   const { data, error } = await supabase.from("items").insert([newItem]);
 
   if (error) {
-    console.error("Error Inserting new user:", error.message);
+    console.error("Error Inserting new item:", error.message);
   }
 
   return [data, error];
