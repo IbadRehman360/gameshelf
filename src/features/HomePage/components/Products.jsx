@@ -1,4 +1,4 @@
-import FeaturedProduct from "../../FeatureProduct";
+import FeaturedProduct from "../../../components/FeatureProduct";
 import { useState } from "react";
 export default function FeaturedProducts() {
   const [currentSlide, setCurrentSlide] = useState(0);

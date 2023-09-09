@@ -1,4 +1,4 @@
-import DashboardItems from "../../FeatureProduct";
+import DashboardItems from "../../components/FeatureProduct";
 
 export default function dashboardItems() {
   return (

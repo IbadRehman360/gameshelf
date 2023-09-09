@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import BreadCrumbs from "../../BreadCrumbs";
+import BreadCrumbs from "../../components/BreadCrumbs";
 import { useState } from "react";
 import PurchaseUser from "./PurchaseUser";
 import { Swiper, SwiperSlide } from "swiper/react";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import giftCardData from "../assets/giftcardsData/giftcardData.json";
-import TrendingGiftCard from "./Features/HomePage/TrendingGiftCard";
+import giftCardData from "../../../assets/giftcardsData/giftcardData.json";
+import TrendingGiftCard from "./TrendingGiftCard";
 
 const TrendingGiftCards = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

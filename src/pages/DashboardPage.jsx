@@ -1,6 +1,6 @@
-import DashboardFeatureProductHero from "../components/Features/DashBoardNavigation/DashboardFeatureProductHero";
-import DashboardItemsNavigation from "../components/Features/DashBoardNavigation/DashboardItemsNavigationProduct";
-import DashboardSearchBar from "../components/Features/DashBoardNavigation/DashboardSearchBoxNavigation";
+import DashboardFeatureProductHero from "../features/DashBoardNavigation/DashboardFeatureProductHero";
+import DashboardItemsNavigation from "../features/DashBoardNavigation/DashboardItemsNavigationProduct";
+import DashboardSearchBar from "../features/DashBoardNavigation/DashboardSearchBoxNavigation";
 export default function DashboardPage() {
   return (
     <div className="bg-[#fcfcfc]">
