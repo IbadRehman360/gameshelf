@@ -8,7 +8,7 @@ async function useUpdateItem() {
     .single();
 
   if (error) {
-    console.error("Error Updating user:", error.message);
+    console.error("Error Updating item:", error.message);
   }
 
   return [data, error];
