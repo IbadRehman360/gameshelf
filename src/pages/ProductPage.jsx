@@ -1,4 +1,4 @@
-import PurchaseComponent from "../components/Features/ProductPage/PurchaseComponent";
+import PurchaseComponent from "../features/ProductPage/PurchaseComponent";
 function ProductPage() {
   return (
     <div>

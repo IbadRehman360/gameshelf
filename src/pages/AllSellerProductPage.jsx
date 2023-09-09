@@ -1,10 +1,10 @@
 import SellerListingItems from "../components/FeatureProducts";
-import SellerListingBreadTitle from "../components/Features/AllSellerProductPage/AllSellerListingBreadTitle";
-import SellerListingListingFilter from "../components/Features/AllSellerProductPage/AllSellerListingListingFilter";
-import SellerListingSearchBar from "../components/Features/AllSellerProductPage/AllSellerListingSearchBar";
-import SellerListingPopularSearches from "../components/Features/AllSellerProductPage/AllSellerListingPopularSearches";
+import SellerListingBreadTitle from "../features/AllSellerProductPage/AllSellerListingBreadTitle";
+import SellerListingListingFilter from "../features/AllSellerProductPage/AllSellerListingListingFilter";
+import SellerListingSearchBar from "../features/AllSellerProductPage/AllSellerListingSearchBar";
+import SellerListingPopularSearches from "../features/AllSellerProductPage/AllSellerListingPopularSearches";
 import FeaturePagination from "../components/FeaturePagination";
-import SellerListingInfo from "../components/Features/AllSellerProductPage/AllSellerListingInfo";
+import SellerListingInfo from "../features/AllSellerProductPage/AllSellerListingInfo";
 export default function DashboardPage() {
   return (
     <>

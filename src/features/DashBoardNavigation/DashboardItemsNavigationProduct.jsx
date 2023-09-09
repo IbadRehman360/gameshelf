@@ -1,5 +1,5 @@
 import DashboardNavigationProducts from "./DashboardNavigationProducts";
-import FeaturePagination from "../../FeaturePagination";
+import FeaturePagination from "../../components/FeaturePagination";
 const trendingGames = [
   { title: "Valorant Account", link: "#", stock: 10 },
   { title: "CS:GO", link: "#", stock: 5 },

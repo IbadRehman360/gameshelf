@@ -1,4 +1,4 @@
-import MessageComponent from "../components/Features/MessagePage/MessageComponent";
+import MessageComponent from "../features/MessagePage/MessageComponent";
 
 export default function MessagePage() {
   return (

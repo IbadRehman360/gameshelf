@@ -1,8 +1,8 @@
 // import CallToAction from "../components/Features/About/CallToAction";
-import Features from "../components/Features/About/Features";
-import HeroSection from "../components/Features/About/HeroSection";
-import Stats from "../components/Features/About/Stats";
-import Testimonials from "../components/Features/About/Testimonials";
+import Features from "../features/About/Features";
+import HeroSection from "../features/About/HeroSection";
+import Stats from "../features/About/Stats";
+import Testimonials from "../features/About/Testimonials";
 export default function DashboardPage() {
   return (
     <div className="bg-[#f3f3f5]">

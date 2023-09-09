@@ -1,6 +1,6 @@
 import ProfileProduct from "./ProfileProduct";
 import DashboardListingFilter from "../AllSellerProductPage/AllSellerListingListingFilter";
-import FuturePagination from "../../FeaturePagination";
+import FuturePagination from "../../components/FeaturePagination";
 import ProfileInfo from "./ProfileInfo";
 import ProfileStats from "./ProfileStats";
 import ProfileHeaderBg from "./ProfileHeaderBg";
