@@ -23,8 +23,8 @@ export default function CategoryList() {
         {isLoading
           ? Array.from({ length: 8 }, () => (
               <div className="animate-pulse flex flex-col items-center gap-2">
-                <div className="rounded-2xl bg-slate-300 h-12 w-11 lg:h-16 md:w-16 "></div>
-                <div className="h-2 bg-slate-300 rounded col-span-2 w-full"></div>
+                <div className="rounded-2xl bg-slate-400 h-12 w-11 lg:h-16 md:w-16 "></div>
+                <div className="h-2 bg-slate-400 rounded col-span-2 w-full"></div>
               </div>
             ))
           : categories.map((categoryItem, i) => (
