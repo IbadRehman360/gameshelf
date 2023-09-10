@@ -20,15 +20,16 @@ export default function CategoryList() {
         EXPLORE CATEGORIES
       </h3>
       <div className="max-w-[1400px] grid mx-auto md:mb-6 mb-4 gap-10 grid-cols-4 md:grid-cols-8 md:gap-5 lg:gap-2 xl:gap-0 justify-items-center p-4 xl:p-3 pb-10 xl:pb-6">
-        {isLoading ? Array.from({ length: 8 }, () => (
-          <div class="animate-pulse flex flex-col items-center gap-2">
-            <div class="rounded-2xl bg-slate-700 h-12 w-11 lg:h-16 md:w-16 "></div>
-            <div class="h-2 bg-slate-700 rounded col-span-2 w-full"></div>
-          </div>
-        )) :
-        categories.map((categoryItem, i) => (
-          <CategoryItem key={i} index={i} category={categoryItem} />
-        ))}
+        {isLoading
+          ? Array.from({ length: 8 }, () => (
+              <div className="animate-pulse flex flex-col items-center gap-2">
+                <div className="rounded-2xl bg-slate-300 h-12 w-11 lg:h-16 md:w-16 "></div>
+                <div className="h-2 bg-slate-300 rounded col-span-2 w-full"></div>
+              </div>
+            ))
+          : categories.map((categoryItem, i) => (
+              <CategoryItem key={i} index={i} category={categoryItem} />
+            ))}
       </div>
     </div>
   );
