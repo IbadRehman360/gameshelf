@@ -4,11 +4,14 @@ import useGetItem from "../../../hooks/ItemTable/useGetItem";
 import { useState } from "react";
 import LoadingAnimation from "../../../components/LoadingAnimation2";
 export default function FeaturedProducts() {
+  const [orderBy, setOrderBy] = useState("created_at");
+  const [orderDirection, setOrderDirection] = useState("asc");
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [data, error] = useGetItem();
+  const [data, error] = useGetItem(orderBy, orderDirection);
   const [featureProduct, setFeatureProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sliceEnd, setSliceEnd] = useState();
+
   useEffect(() => {
     if (data) {
       setIsLoading(false);
@@ -29,7 +32,7 @@ export default function FeaturedProducts() {
   useEffect(() => {
     const updateSliceEnd = () => {
       const windowWidth = window.innerWidth;
-      if (windowWidth >= 800 && windowWidth <= 1500) {
+      if (windowWidth >= 800 && windowWidth <= 2200) {
         setSliceEnd(4);
       } else if (windowWidth >= 600 && windowWidth < 800) {
         setSliceEnd(3);
@@ -47,9 +50,19 @@ export default function FeaturedProducts() {
     return () => {
       window.removeEventListener("resize", updateSliceEnd);
     };
-  }, []);
+  }, [setOrderBy]);
   const slide1 = featureProduct.slice(0, sliceEnd);
-  const slide2 = featureProduct.slice(0, sliceEnd);
+  const slide2 = featureProduct.slice(6, sliceEnd);
+
+  const toggleSorting = (newOrderBy) => {
+    if (newOrderBy === orderBy) {
+      // If the same sorting option is clicked again, toggle the order direction
+      setOrderDirection(orderDirection === "desc" ? "asc" : "desc");
+    } else {
+      // If a different sorting option is clicked, update the orderBy and set to ascending order only for "created_at"
+      setOrderBy(newOrderBy);
+    }
+  };
 
   return (
     <div className="  mb-16 px-3 xl:mt-4 bg-[#fdfdfd]  ">
@@ -57,24 +70,28 @@ export default function FeaturedProducts() {
         Featured Products
       </h2>
       <div className="flex gap-3 my-3  mt-4 sm:mt-6 ">
-        <div className="flex flex-col gap-1 ">
-          <h3 className="sm:text-sm text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] font-semibold  text-red-500 text-center">
-            New Items
-          </h3>
-          <hr className="border-red-400 border-[1px] lg:w-32 md:w-28 w-24" />
-        </div>
-        <div className="flex flex-col gap-1">
-          <h3
-            className="sm:text-sm text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] font-semibold text-green-500 text-center"
-            style={{ color: " #22577a" }}
-          >
-            Most Views
-          </h3>
-          <hr
-            className="border-green-500 border-[1px] lg:w-32   md:w-28 w-24"
-            style={{ borderColor: " #22577a" }}
-          />
-        </div>
+        <button onClick={() => toggleSorting("created_at")}>
+          <div className="flex flex-col gap-1 ">
+            <h3 className="sm:text-sm text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] font-semibold  text-red-500 text-center">
+              New Items
+            </h3>
+            <hr className="border-red-400 border-[1px] lg:w-32 md:w-28 w-24" />
+          </div>
+        </button>
+        <button onClick={() => toggleSorting("title")}>
+          <div className="flex flex-col gap-1">
+            <h3
+              className="sm:text-sm text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] font-semibold text-green-500 text-center"
+              style={{ color: " #22577a" }}
+            >
+              Most Views
+            </h3>
+            <hr
+              className="border-green-500 border-[1px] lg:w-32   md:w-28 w-24"
+              style={{ borderColor: " #22577a" }}
+            />
+          </div>
+        </button>
       </div>
 
       <div className="carousel w-full  md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5 justify-items-stretch md:gap-5 sm:mt-4  mt-2">
