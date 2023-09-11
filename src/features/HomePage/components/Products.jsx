@@ -1,7 +1,19 @@
+import { useEffect } from "react";
 import FeaturedProduct from "../../../components/FeatureProduct";
+import useGetItem from "../../../hooks/ItemTable/useGetItem";
 import { useState } from "react";
 export default function FeaturedProducts() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [data, error] = useGetItem();
+  const [featureProduct, setFeatureProduct] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [sliceEnd, setSliceEnd] = useState(5);
+  useEffect(() => {
+    if (data) {
+      setIsLoading(false);
+      setFeatureProduct(data);
+    }
+  }, [data, error]);
 
   const handlePrevPage = () => {
     if (currentSlide > 0) {
@@ -12,6 +24,22 @@ export default function FeaturedProducts() {
   const handleNextPage = () => {
     if (currentSlide < 2) setCurrentSlide(currentSlide + 1);
   };
+
+  let sliceStart = 0;
+  if (window.innerWidth <= 200) {
+    setSliceEnd(2);
+  } else if (window.innerWidth <= 640) {
+    setSliceEnd(3);
+  } else if (window.innerWidth <= 768) {
+    setSliceEnd(4);
+  } else if (window.innerWidth <= 1500) {
+    setSliceEnd(5);
+  }
+
+  const slide1 = featureProduct.slice(sliceStart, sliceEnd);
+
+  // Adjust the slice parameters for slide2 accordingly
+  const slide2 = featureProduct.slice(sliceStart, sliceEnd);
 
   return (
     <div className="  mb-16 px-3 xl:mt-4 bg-[#fdfdfd]  ">
@@ -42,26 +70,19 @@ export default function FeaturedProducts() {
       <div className="carousel w-full  md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5 justify-items-stretch md:gap-5 sm:mt-4  mt-2">
         <div
           id="featuredProductsSlide1"
-          className="carousel-item sm:w-full w-full mx-auto mt-4  gap-2  mb-4    md:gap-3"
+          className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
         >
-          <FeaturedProduct />
-          <FeaturedProduct />
-          <div className="md:flex hidden">
-            <FeaturedProduct />
-          </div>
-          <div className="sm:flex hidden">
-            <FeaturedProduct />
-          </div>
-          <div className="lg:flex hidden ">
-            <FeaturedProduct />
-          </div>
+          {slide1.map((product) => (
+            <FeaturedProduct key={product.id} featureProduct={product} />
+          ))}
         </div>
         <div
           id="featuredProductsSlide2"
-          className="carousel-item sm:w-full w-full mx-auto mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mb-4 md:gap-4"
+          className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
         >
-          <FeaturedProduct />
-          <FeaturedProduct />
+          {slide2.map((product) => (
+            <FeaturedProduct key={product.id} featureProduct={product} />
+          ))}
         </div>
       </div>
       {/* <div className="hidden md:grid md-grid-col-4 lg:grid-cols-5 md:grid-cols-4 gap-5">
