@@ -1,6 +1,5 @@
 export default function FeaturedProduct({ featureProduct }) {
-  const now = new Date();
-  const currentHour = now.getHours();
+const formatTime = 
 
   return (
     <>
@@ -12,11 +11,11 @@ export default function FeaturedProduct({ featureProduct }) {
         </div>
         <div className="flex justify-between lg:mt-4 mt-2 sm:mb-4  mb-3">
           <div className="sm:text-[0.7rem] lg:text-[0.8rem] text-[0.6rem]  h-fit p-0.5 px-1.5 sm:px-2 bg-gray-200   rounded-lg">
-            🕞 {currentHour}H
+            🕞 {featureProduct.created_at}
           </div>
 
           <p className=" text-slate-800  lg:text-[0.85rem]  sm:hidden md:text-[0.9rem] xl:text-[0.9rem]  sm:text-[0.8rem] text-[0.8rem]  font-medium">
-            $20.99
+            🕞 {featureProduct.price}
             <span className="text-gray-800 md:text-[0.6rem] xl:text-[0.6rem] sm:text-[0.6rem] ml-[3px]  sm:text-sm text-[0.6rem] font-normal">
               USD
             </span>
@@ -39,7 +38,7 @@ export default function FeaturedProduct({ featureProduct }) {
             </div>
             <div className="mt-3">
               <p className=" text-slate-800 mb-2 lg:text-[0.85rem]  sm:flex hidden md:text-[0.8rem] xl:text-[0.9rem]  sm:text-[0.86rem] text-[0.96rem]   font-medium">
-                20.99
+                🕞 {featureProduct.price}
                 <span className="text-gray-800 md:text-[0.6rem] xl:text-[0.6rem] sm:text-[0.5rem] lg:ml-1   sm:mt-[2px] md:mt-[0.75px] ml-[1px] sm:ml-[3px]  sm:text-sm text-[0.5rem] font-meduim">
                   USD
                 </span>

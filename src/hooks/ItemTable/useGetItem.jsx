@@ -2,7 +2,7 @@ import supabase from "../../services/supabase";
 import { useState, useEffect } from "react";
 
 function useGetItem() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
