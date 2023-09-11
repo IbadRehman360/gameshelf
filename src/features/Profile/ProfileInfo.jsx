@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { AiFillCamera } from "react-icons/ai";
 
-export default function ProfileInfo() {
+export default function ProfileInfo({profileData}) {
   const [showEditImage, setShowEditImage] = useState(false);
+  const user = profileData;
+
   return (
     <div className="order-0 sm:order-0  md:order-3 lg:text-right ">
       <div className="mt-16 order-0 md:order-0 lg:order-1 text-center md:mt-0 ">
@@ -37,9 +39,10 @@ export default function ProfileInfo() {
           </div>
         </div>
         <h3 className="text-[1.3rem] md:text-[1.6rem] font-medium text-blueGray-700">
-          Ibad ur Rehman
+          {user.first_name}
+          {user.last_name} 
         </h3>
-        <p className="text-[0.8rem] mt-0.5 uppercase">Level 73</p>
+        <p className="text-[0.8rem] mt-0.5 uppercase">Level {user.level}</p>
       </div>
       <div className="flex justify-center gap-2 md:gap-1  mt-5  lg:px-3 ">
         <button
