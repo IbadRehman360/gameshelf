@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import ProfileEdit from "./ProfileEdit";
 import ProfileEditLanguage from "./ProfileEditLanguage";
+import moment from "moment";
 
-export default function ProfileInfo() {
+export default function ProfileInfo({ profileData }) {
   const [isEdit, setIsEdit] = useState(false);
   const [isEditLanguage, setIsEditLanguage] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -11,10 +12,9 @@ export default function ProfileInfo() {
     setShowMore((prevState) => !prevState);
   };
 
-  //Erase after attaching with live description content from database
-  let content =
-    "We offer various items,services in our store for your enjoyment and convenience. ^-^ Over the past 8 years, we have successfully fulfilled more than 2,000,000 orders across various websites. Contact Me if you got any problem or some other questions";
+  const user = profileData;
 
+  //Erase after attaching with live description content from database
   return (
     <div className="mt-12 order-0 row-span-2 ">
       <div className="grid">
@@ -23,7 +23,9 @@ export default function ProfileInfo() {
             <div className="flex flex-col ">
               <div className="flex justify-between text-[0.92rem] sm:border-t-0 border-y  sm:py-2 sm:pb-4 py-6">
                 <span className="text-gray-500  ">Member Since</span>
-                <span className="text-[0.9rem] font-medium">August, 2023</span>
+                <span className="text-[0.9rem] font-medium">
+                  {moment(user.created_at).format("MMM D, YYYY")}
+                </span>
               </div>
               <div className="flex justify-between border-b    py-6">
                 <span className="text-gray-500 text-[0.92rem]  ">
@@ -35,7 +37,7 @@ export default function ProfileInfo() {
                   <p className="   ">
                     🏅{" "}
                     <span className="text-sm font-medium text-gray-900">
-                      97.47%
+                      {user.successful_delivery}%
                     </span>{" "}
                   </p>
                   <p className="text-gray-500 text-[0.9rem] ">(123k orders)</p>
@@ -72,19 +74,19 @@ export default function ProfileInfo() {
               <div className="flex justify-around border-y-2  py-6">
                 <div className=" text-center  lg:block  ">
                   <span className="text-xl font-semibold block uppercase tracking-wide  text-gray-700">
-                    22.4k
+                    {user.followers}
                   </span>
                   <span className="text-sm text-gray-500 tracking-wide">
-                    Followers{" "}
+                    Followers
                   </span>
                 </div>
                 <div className="border-r "></div>
                 <div className=" text-center ">
                   <span className="text-xl font-semibold block uppercase tracking-wide text-gray-700">
-                    29
+                    {user.following}
                   </span>
                   <span className="text-sm text-gray-500 tracking-wide">
-                    Following{" "}
+                    Following
                   </span>
                 </div>
               </div>
@@ -103,10 +105,10 @@ export default function ProfileInfo() {
               </h3>
               <div className="flex flex-wrap">
                 {isEdit ? (
-                  <ProfileEdit content={content} />
+                  <ProfileEdit content={user.description} />
                 ) : (
                   <>
-                    <div className="mb-4 text-sm  md:text-md font-normal gap-4 text-gray-500 grid leading-relaxed text-blueGray-700">
+                    {/* <div className="mb-4 text-sm  md:text-md font-normal gap-4 text-gray-500 grid leading-relaxed text-blueGray-700">
                       <p>
                         We offer various items,services in our store for your
                         enjoyment and convenience. ^-^
@@ -138,7 +140,8 @@ export default function ProfileInfo() {
                         <p>✔️ Friendly Support</p>
                         <p>✔️ Changeable Gmail</p>
                       </div>
-                    )}
+                    )} */}
+                    {user.description}
                   </>
                 )}
               </div>
@@ -163,15 +166,18 @@ export default function ProfileInfo() {
                 Edit
               </button>
             </div>
-            {isEditLanguage ?<ProfileEditLanguage/> :
-            <div className="flex flex-wrap gap-4 py-6">
-              <div className="bg-white w-fit p-5 rounded-lg border-[1px] border-gray-400">
-                English
+            {isEditLanguage ? (
+              <ProfileEditLanguage />
+            ) : (
+              <div className="flex flex-wrap gap-4 py-6">
+                {user?.languages ?
+                  user.languages.map((language) => (
+                    <div className="bg-white w-fit p-5 rounded-lg border-[1px] border-gray-400">
+                      {language}
+                    </div>
+                  )): <></>}
               </div>
-              <div className="bg-white w-fit p-5 rounded-lg border-[1px] border-gray-400">
-                English
-              </div>
-            </div>}
+            )}
           </div>
         </div>
       </div>

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { AiFillCamera } from "react-icons/ai";
 
-export default function ProfileInfo({profileData}) {
+export default function ProfileInfo({ profileData }) {
   const [showEditImage, setShowEditImage] = useState(false);
-  const user = profileData;
-
+  const user = { profileData };
   return (
     <div className="order-0 sm:order-0  md:order-3 lg:text-right ">
       <div className="mt-16 order-0 md:order-0 lg:order-1 text-center md:mt-0 ">
@@ -20,29 +19,15 @@ export default function ProfileInfo({profileData}) {
                 <span className="text-white text-xs">Edit</span>
               </button>
             )}
-            <div className={`rounded-full relative`}>
-              <img
-                alt="..."
-                src="/ProfileImg2.jpg"
-                className={`shadow-xl rounded-full h-auto align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem]`}
-                onMouseEnter={() => setShowEditImage(true)}
-                onMouseLeave={() => setShowEditImage(false)}
-              />
+            <div className="rounded-full">
               <div
-                className={`${
-                  showEditImage ? "block bg-black z-30 opacity-30" : "hidden"
-                } absolute rounded-full md:top-1/2 md:translate-y-[-7%] h-full w-full align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 max-w-[7rem]`}
-                onMouseEnter={() => setShowEditImage(true)}
-                onMouseLeave={() => setShowEditImage(false)}
+                className={`bg-slate-500 animate-pulse rounded-full h-[7rem] align-middle border-none mr-0 -mt-28 md:-mt-12 ml-0 lg:-ml-0 w-[7rem]`}
               ></div>
             </div>
           </div>
         </div>
-        <h3 className="text-[1.3rem] md:text-[1.6rem] font-medium text-blueGray-700">
-          {user.first_name}
-          {user.last_name} 
-        </h3>
-        <p className="text-[0.8rem] mt-0.5 uppercase">Level {user.level}</p>
+        <div className="bg-slate-400 w-36 mx-auto h-6 animate-pulse my-2"></div>
+        <p className="bg-slate-400 animate-pulse w-24 mx-auto h-6"></p>
       </div>
       <div className="flex justify-center gap-2 md:gap-1  mt-5  lg:px-3 ">
         <button
