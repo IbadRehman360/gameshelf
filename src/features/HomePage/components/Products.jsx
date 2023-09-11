@@ -7,7 +7,7 @@ export default function FeaturedProducts() {
   const [data, error] = useGetItem();
   const [featureProduct, setFeatureProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [sliceEnd, setSliceEnd] = useState(5);
+  const [sliceEnd, setSliceEnd] = useState();
   useEffect(() => {
     if (data) {
       setIsLoading(false);
@@ -25,21 +25,30 @@ export default function FeaturedProducts() {
     if (currentSlide < 2) setCurrentSlide(currentSlide + 1);
   };
 
-  let sliceStart = 0;
-  if (window.innerWidth <= 200) {
-    setSliceEnd(2);
-  } else if (window.innerWidth <= 640) {
-    setSliceEnd(3);
-  } else if (window.innerWidth <= 768) {
-    setSliceEnd(4);
-  } else if (window.innerWidth <= 1500) {
-    setSliceEnd(5);
-  }
+  useEffect(() => {
+    const updateSliceEnd = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth >= 800 && windowWidth <= 1500) {
+        setSliceEnd(4);
+      } else if (windowWidth >= 600 && windowWidth < 800) {
+        setSliceEnd(3);
+      } else if (windowWidth >= 200 && windowWidth < 600) {
+        setSliceEnd(2);
+      } else {
+        setSliceEnd(5);
+      }
+    };
 
-  const slide1 = featureProduct.slice(sliceStart, sliceEnd);
+    window.addEventListener("resize", updateSliceEnd);
 
-  // Adjust the slice parameters for slide2 accordingly
-  const slide2 = featureProduct.slice(sliceStart, sliceEnd);
+    updateSliceEnd();
+
+    return () => {
+      window.removeEventListener("resize", updateSliceEnd);
+    };
+  }, []);
+  const slide1 = featureProduct.slice(0, sliceEnd);
+  const slide2 = featureProduct.slice(0, sliceEnd);
 
   return (
     <div className="  mb-16 px-3 xl:mt-4 bg-[#fdfdfd]  ">
