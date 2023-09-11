@@ -1,12 +1,13 @@
-export default function FeaturedProduct() {
+export default function FeaturedProduct({ featureProduct }) {
   const now = new Date();
   const currentHour = now.getHours();
+
   return (
     <>
       <div className="flex flex-col p-3 lg:p-4 flex-co border-2 bg-[#fdfdfd] rounded-2xl  ">
         <div className="flex flex-col gap-1  ">
           <h3 className="sm:text-xs lg:text-sm xl:text-[0.95rem] text-[0.8rem] mt-1 mb-1   tracking-tighter   text-black   font-medium  line-clamp-2 ">
-            [Asia] TL52 - Jing Yuan, Gepard, Himeko (E1) | Full Access | EP7
+            {featureProduct.title}
           </h3>
         </div>
         <div className="flex justify-between lg:mt-4 mt-2 sm:mb-4  mb-3">

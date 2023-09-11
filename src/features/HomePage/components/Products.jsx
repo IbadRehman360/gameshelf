@@ -1,7 +1,20 @@
+import { useEffect } from "react";
 import FeaturedProduct from "../../../components/FeatureProduct";
+import useGetItem from "../../../hooks/ItemTable/useGetItem";
 import { useState } from "react";
+import LoadingAnimation from "../../../components/LoadingAnimation2";
 export default function FeaturedProducts() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [data, error] = useGetItem();
+  const [featureProduct, setFeatureProduct] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [sliceEnd, setSliceEnd] = useState();
+  useEffect(() => {
+    if (data) {
+      setIsLoading(false);
+      setFeatureProduct(data);
+    }
+  }, [data, error]);
 
   const handlePrevPage = () => {
     if (currentSlide > 0) {
@@ -12,6 +25,31 @@ export default function FeaturedProducts() {
   const handleNextPage = () => {
     if (currentSlide < 2) setCurrentSlide(currentSlide + 1);
   };
+
+  useEffect(() => {
+    const updateSliceEnd = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth >= 800 && windowWidth <= 1500) {
+        setSliceEnd(4);
+      } else if (windowWidth >= 600 && windowWidth < 800) {
+        setSliceEnd(3);
+      } else if (windowWidth >= 200 && windowWidth < 600) {
+        setSliceEnd(2);
+      } else {
+        setSliceEnd(5);
+      }
+    };
+
+    window.addEventListener("resize", updateSliceEnd);
+
+    updateSliceEnd();
+
+    return () => {
+      window.removeEventListener("resize", updateSliceEnd);
+    };
+  }, []);
+  const slide1 = featureProduct.slice(0, sliceEnd);
+  const slide2 = featureProduct.slice(0, sliceEnd);
 
   return (
     <div className="  mb-16 px-3 xl:mt-4 bg-[#fdfdfd]  ">
@@ -38,30 +76,30 @@ export default function FeaturedProducts() {
           />
         </div>
       </div>
+
       <div className="carousel w-full  md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5 justify-items-stretch md:gap-5 sm:mt-4  mt-2">
-        <div
-          id="featuredProductsSlide1"
-          className="carousel-item sm:w-full w-full mx-auto mt-4  gap-2  mb-4    md:gap-3"
-        >
-          <FeaturedProduct />
-          <FeaturedProduct />
-          <div className="md:flex hidden">
-            <FeaturedProduct />
-          </div>
-          <div className="sm:flex hidden">
-            <FeaturedProduct />
-          </div>
-          <div className="lg:flex hidden ">
-            <FeaturedProduct />
-          </div>
-        </div>
-        <div
-          id="featuredProductsSlide2"
-          className="carousel-item sm:w-full w-full mx-auto mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mb-4 md:gap-4"
-        >
-          <FeaturedProduct />
-          <FeaturedProduct />
-        </div>
+        {isLoading ? (
+          Array.from({ length: 5 }, (_, i) => <LoadingAnimation key={i} />)
+        ) : (
+          <>
+            <div
+              id="featuredProductsSlide1"
+              className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
+            >
+              {slide1.map((product) => (
+                <FeaturedProduct key={product.id} featureProduct={product} />
+              ))}
+            </div>
+            <div
+              id="featuredProductsSlide2"
+              className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
+            >
+              {slide2.map((product) => (
+                <FeaturedProduct key={product.id} featureProduct={product} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
       {/* <div className="hidden md:grid md-grid-col-4 lg:grid-cols-5 md:grid-cols-4 gap-5">
         <FeaturedProduct />

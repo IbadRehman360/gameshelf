@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import giftCardData from "../../../assets/giftcardsData/giftcardData.json";
 import TrendingGiftCard from "./TrendingGiftCard";
+import { Link } from "react-router-dom";
 
 const TrendingGiftCards = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,17 +23,20 @@ const TrendingGiftCards = () => {
         <h2 className=" lg:text-[1.8rem]  text-gray-700 3xl:text-[2rem]  md:text-[1.7rem] text-[1.4rem]  ml-2 font-semibold">
           Trending Gift Cards
         </h2>
-        <div className="hidden sm:flex items-center gap-2">
-          <span>Discover All</span>
-          <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
-            <a onClick={handleNextPage} href="#" className="">
-              <MdKeyboardArrowRight />
-            </a>
+        <Link to={"/dashboard"}>
+          <div className="hidden sm:flex items-center gap-2">
+            <span>Discover All</span>
+            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
+              <a onClick={handleNextPage} href="#" className="">
+                <MdKeyboardArrowRight />
+              </a>
+            </div>
           </div>
-        </div>
+        </Link>
+
         <div className="sm:hidden">
           {currentSlide < 1 && (
-            <div className="bg-white rounded-full shadow-sm border-[1px] border-black">
+            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
               <a
                 onClick={handleNextPage}
                 href="#mbTrendingGiftCardsSlide2"
@@ -43,7 +47,7 @@ const TrendingGiftCards = () => {
             </div>
           )}
           {currentSlide > 0 && (
-            <div className="bg-white rounded-full shadow-sm border-[1px] border-black">
+            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
               <a
                 onClick={handlePrevPage}
                 href="#mbTrendingGiftCardsSlide1"

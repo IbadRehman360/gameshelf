@@ -2,6 +2,7 @@ import { useState } from "react";
 import videoCardData from "../../../assets/giftCardsData/videocardData.json";
 import TrendingVideoGame from "./TrendingVideoGame";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 const TrendingVideoGames = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -21,18 +22,19 @@ const TrendingVideoGames = () => {
         <h2 className=" lg:text-[1.8rem]  text-gray-700 3xl:text-[2rem]  md:text-[1.7rem] text-[1.4rem]  ml-2 font-semibold">
           Trending Video Games
         </h2>
-        <div className="hidden sm:flex items-center gap-2">
-          <span>Discover All</span>
-          <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
-            <a onClick={handleNextPage} href="#" className="">
-              <MdKeyboardArrowRight />
-            </a>
+        <Link to={"/dashboard"}>
+          <div className="hidden sm:flex items-center gap-2">
+            <span>Discover All</span>
+            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
+              <a onClick={handleNextPage} href="#" className="">
+                <MdKeyboardArrowRight />
+              </a>
+            </div>
           </div>
-        </div>
-
+        </Link>
         <div className="sm:hidden">
           {currentSlide < 1 && (
-            <div className="bg-white rounded-full shadow-sm border-[1px] border-black">
+            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
               <a
                 onClick={handleNextPage}
                 href="#mbTrendingVideoGamesSlide2"
@@ -43,7 +45,7 @@ const TrendingVideoGames = () => {
             </div>
           )}
           {currentSlide > 0 && (
-            <div className="bg-white rounded-full shadow-sm border-[1px] border-black">
+            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
               <a
                 onClick={handlePrevPage}
                 href="#mbTrendingVideoGamesSlide1"
