@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import FeaturedProduct from "../../../components/FeatureProduct";
 import useGetItem from "../../../hooks/ItemTable/useGetItem";
 import { useState } from "react";
+import LoadingAnimation from "../../../components/LoadingAnimation2";
 export default function FeaturedProducts() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [data, error] = useGetItem();
@@ -77,22 +78,28 @@ export default function FeaturedProducts() {
       </div>
 
       <div className="carousel w-full  md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5 justify-items-stretch md:gap-5 sm:mt-4  mt-2">
-        <div
-          id="featuredProductsSlide1"
-          className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
-        >
-          {slide1.map((product) => (
-            <FeaturedProduct key={product.id} featureProduct={product} />
-          ))}
-        </div>
-        <div
-          id="featuredProductsSlide2"
-          className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
-        >
-          {slide2.map((product) => (
-            <FeaturedProduct key={product.id} featureProduct={product} />
-          ))}
-        </div>
+        {isLoading ? (
+          Array.from({ length: 5 }, (_, i) => <LoadingAnimation key={i} />)
+        ) : (
+          <>
+            <div
+              id="featuredProductsSlide1"
+              className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
+            >
+              {slide1.map((product) => (
+                <FeaturedProduct key={product.id} featureProduct={product} />
+              ))}
+            </div>
+            <div
+              id="featuredProductsSlide2"
+              className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
+            >
+              {slide2.map((product) => (
+                <FeaturedProduct key={product.id} featureProduct={product} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
       {/* <div className="hidden md:grid md-grid-col-4 lg:grid-cols-5 md:grid-cols-4 gap-5">
         <FeaturedProduct />
