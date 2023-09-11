@@ -7,7 +7,11 @@ function useGetItem() {
 
   useEffect(() => {
     async function fetchData() {
-      const { data, error } = await supabase.from("items").select("*");
+      const { data, error } = await supabase.from("items").select(`*,
+      users (
+        *
+      )
+    `);
       if (error) {
         console.error("Error fetching item:", error.message);
         setError(error);
