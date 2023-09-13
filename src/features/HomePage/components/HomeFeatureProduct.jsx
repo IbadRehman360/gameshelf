@@ -32,16 +32,16 @@ export default function FeaturedProduct({ featureProduct }) {
         <div className="inline-flex justify-between items-center ml-2 flex-1">
           <div className="md:mt-2 mt-1 lg:mt-0.5">
             <h6 className="font-semibold inline-flex md:text-[10px] lg:text-[12px] text-[11px] text-gray-600 truncate">
-              {featureProduct.username}
+              {featureProduct.users.username}
             </h6>
             <p className="md:text-[10px] text-[10px] lg:text-[11px] tracking-wide text-gray-500">
-              Level {featureProduct.level}
+              Level {featureProduct.users.level}
             </p>
           </div>
           <div className="mt-3">
-            <p className=" text-slate-600 mb-2 lg:text-[0.96rem]  sm:flex hidden md:text-[0.9rem] xl:text-[0.98rem]  sm:text-[0.9rem] text-[1rem]   font-medium">
+            <p className=" text-slate-600 mb-2 lg:text-[0.96rem]  sm:flex hidden md:text-[0.9rem] xl:text-[0.94rem]  sm:text-[0.9rem] text-[1rem]   font-medium">
               {decimalConversion}
-              <span className="text-gray-800 md:text-[0.6rem] xl:text-[0.6rem] sm:text-[0.55rem] lg:ml-1 xl:mt-0.5 lg:mt-[2px]   sm:mt-[2px] md:mt-[1px] ml-[1px] sm:ml-[3px]  sm:text-sm text-[0.5rem] font-meduim">
+              <span className="text-gray-800 md:text-[0.6rem] xl:text-[0.6rem] sm:text-[0.55rem] lg:ml-1 xl:mt-[3.5px] lg:mt-[2px]   sm:mt-[2px] md:mt-[1px] ml-[1px] sm:ml-[3px]  sm:text-sm text-[0.5rem] font-meduim">
                 USD
               </span>
             </p>

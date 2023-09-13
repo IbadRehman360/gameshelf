@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import FeaturedProduct from "../../../components/FeatureProduct";
+import FeaturedProduct from "./HomeFeatureProduct";
 import useGetItem from "../../../hooks/ItemTable/useGetItem";
 import { useState } from "react";
 import LoadingAnimation from "../../../components/LoadingAnimation2";
