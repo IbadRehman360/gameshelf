@@ -7,7 +7,9 @@ import FeaturedProducts from "../features/HomePage/components/Products";
 import CategoriesLoading from "../features/HomePage/components/CategoriesLoading";
 import { lazy, Suspense } from "react";
 
-const Categories = lazy(() => import("../features/HomePage/components/CategoryList"));
+const Categories = lazy(() =>
+  import("../features/HomePage/components/CategoryList")
+);
 
 export default function HomePage() {
   return (

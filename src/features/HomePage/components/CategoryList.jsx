@@ -1,6 +1,6 @@
 import CategoryItem from "./CategoryItem";
 import useGetCategories from "../hooks/useGetCategories";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CategoryList() {
   const [data, error] = useGetCategories();
