@@ -42,7 +42,8 @@ export default function LoginPage() {
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event, session) => {
-      if (event == "SIGNED_IN") console.log("SIGNED_IN", session);
+      if (event == "SIGNED_IN") 
+      navigate("/")
     });
   }, []);
 
