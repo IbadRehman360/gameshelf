@@ -84,23 +84,20 @@ export default function Header() {
                 </Disclosure.Button>
               </div>
 
-              {session ? (
-
-
+              {!session ? (
                 <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
-
+                  <NavLink
+                    className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.1rem] px-9 py-[6px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                    type="button"
+                    to={"/sell"}
+                  >
+                    Sell
+                  </NavLink>
                   <div className="relative inline-block group">
-                    <NavLink
-                      className=" bg-gray-50 mt-1 hover:bg-gray-100 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[0.9rem] px-8 py-1.5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
-                      type="button"
-                      to={"/sell"}
-                    >
-                      Sell
-                    </NavLink>
                     <img
                       src="/dollar(1).png"
                       alt="Coin Image"
-                      className={`w-9 h-8 transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
+                      className={`w-10 h-[36px] transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
                         }`}
                       onClick={handleClick}
                       onMouseEnter={handleHover}
@@ -116,12 +113,12 @@ export default function Header() {
                   <a
                     href="/chat"
                     type="button"
-                    className="relative flex-shrink-0 rounded-full   mt-0.5 text-gray-600 hover:text-slate-500 "
+                    className="relative flex-shrink-0 rounded-full    text-gray-600 hover:text-slate-500 "
                   >
                     <span className="absolute " />
                     <span className="sr-only">View notifications</span>
                     <AiFillMessage
-                      className="h-[34px] w-9 m-1 text-gray-50 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="h-[37px] w-10 m-1 text-gray-100 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       aria-hidden="true"
                     />
                   </a>
@@ -130,9 +127,9 @@ export default function Header() {
                       <Menu.Button className="relative flex rounded-full   text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                         <span className="absolute " />
                         <span className="sr-only">Open user menu</span>
-                        <div className="mt-1 rounded-full">
+                        <div className="mt-0.5 rounded-full">
                           <img
-                            className="h-[36px] w-[40px]     object-cover  rounded-full"
+                            className="h-[46px] border-[1px] border-gray-800 w-[50px]     object-cover  rounded-full"
                             src="/ProfileImg2.jpg"
                             alt=""
                           />
@@ -209,14 +206,14 @@ export default function Header() {
                 </div>
               ) : <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
                 <NavLink
-                  className=" bg-gray-50 mt-1 hover:bg-gray-100 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.1rem] px-8 py-1.5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.1rem] px-9 py-[6px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
                   to={"/sell"}
                 >
                   Sell
                 </NavLink>
                 <NavLink
-                  className="  bg-rose-500 hover:bg-rose-500 mt-1 active:bg-gray-400  font-medium hover:shadow-md shadow text-[1rem]  text-gray-100 py-2 px-5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className="  bg-rose-500 hover:opacity-95 hover:bg-rose-500 mt-1 active:bg-gray-400  font-medium hover:shadow-md shadow text-[1rem]  text-gray-100 py-2 px-5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
                   to={"/sell"}
                 >
