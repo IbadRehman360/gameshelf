@@ -3,7 +3,6 @@ import TrendingGiftCards from "../features/HomePage/components/FeatureTrendingGi
 import TrendingVideoGames from "../features/HomePage/components/FeatureTrendingVideoGames";
 import PaymentOptions from "../features/HomePage/components/PaymentOptions";
 import FeaturesList from "../features/HomePage/components/FeaturesList";
-import FeaturedProducts from "../features/HomePage/components/Products";
 
 import CategoriesLoading from "../features/HomePage/components/loader/CategoriesLoading";
 import ProductLoader from "../features/HomePage/components/loader/HomeProductLoader";
@@ -12,6 +11,7 @@ import { lazy, Suspense } from "react";
 
 import useGetCategories from "../features/HomePage/hooks/useGetCategories";
 
+const FeaturedProducts = lazy(() => import("../features/HomePage/components/Products"));
 
 const Categories = lazy(() =>
   import("../features/HomePage/components/CategoryList")

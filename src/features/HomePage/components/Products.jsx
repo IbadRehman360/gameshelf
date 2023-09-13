@@ -6,9 +6,15 @@ export default function FeaturedProducts() {
   const [orderBy, setOrderBy] = useState("created_at");
   const [orderDirection, setOrderDirection] = useState("asc");
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [featureProduct, error] = useGetItem(orderBy, orderDirection);
+  const [data, error] = useGetItem(orderBy, orderDirection);
+  const [featureProduct, setFeatureProduct] = useState([]);
   const [sliceEnd, setSliceEnd] = useState();
 
+  useEffect(() => {
+    if (data) {
+      setFeatureProduct(data);
+    }
+  }, [data, error]);
 
   const handlePrevPage = () => {
     if (currentSlide > 0) {

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { BsCardImage } from "react-icons/bs";
+// import { useState } from "react";
+// import { BsCardImage } from "react-icons/bs";
 
 export default function ProfileHeaderBg() {
 
