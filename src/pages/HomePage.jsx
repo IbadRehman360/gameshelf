@@ -4,22 +4,32 @@ import TrendingVideoGames from "../features/HomePage/components/FeatureTrendingV
 import PaymentOptions from "../features/HomePage/components/PaymentOptions";
 import FeaturesList from "../features/HomePage/components/FeaturesList";
 import FeaturedProducts from "../features/HomePage/components/Products";
-import CategoriesLoading from "../features/HomePage/components/CategoriesLoading";
+
+import CategoriesLoading from "../features/HomePage/components/loader/CategoriesLoading";
+import ProductLoader from "../features/HomePage/components/loader/HomeProductLoader";
+
 import { lazy, Suspense } from "react";
+
+import useGetCategories from "../features/HomePage/hooks/useGetCategories";
+
 
 const Categories = lazy(() =>
   import("../features/HomePage/components/CategoryList")
 );
 
 export default function HomePage() {
+  const [categories, error] = useGetCategories();
+
   return (
     <div className="bg-[#fdfdfd]">
       <HeroCarousel />
       <Suspense fallback={<CategoriesLoading />}>
-        <Categories />
+        <Categories categories={categories} />
       </Suspense>
       <div className=" bg-[#fdfdfd] mt-16 max-w-[1400px] px-0 xl:px-14 mx-auto">
-        <FeaturedProducts />
+        <Suspense fallback={<ProductLoader />}>
+          <FeaturedProducts />
+        </Suspense>
         <TrendingGiftCards />
         <TrendingVideoGames />
       </div>

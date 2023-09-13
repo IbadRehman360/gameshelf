@@ -1,16 +1,7 @@
 import CategoryItem from "./CategoryItem";
-import useGetCategories from "../hooks/useGetCategories";
-import { useEffect, useState } from "react";
 
-export default function CategoryList() {
-  const [data, error] = useGetCategories();
-  const [categories, setCategories] = useState([]);
+export default function CategoryList({ categories }) {
 
-  useEffect(() => {
-    if (data) {
-      setCategories(data);
-    }
-  }, [data]);
 
   return (
     <div className="mx-auto bg-gradient-to-b bg-[#ffffff]  border-2">
