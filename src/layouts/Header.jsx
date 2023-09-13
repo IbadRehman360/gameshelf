@@ -4,12 +4,23 @@ import { AiFillMessage } from "react-icons/ai";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useAuth } from "../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function Header() {
+  const {signOutUser} = useAuth();
+  const navigate = useNavigate();
+  
+  function handleSignOut(){
+    if(signOutUser()){
+      navigate("/")
+    }
+  }
+
   return (
     <Disclosure as="nav">
       {({ open }) => (
@@ -133,7 +144,7 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/login"
+                            href={() => handleSignOut()}
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -146,11 +157,11 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
+                            onClick={()=>handleSignOut()}
                           >
                             Log Out
                           </a>
@@ -227,7 +238,7 @@ export default function Example() {
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
-                  href="#"
+                  onClick={()=>handleSignOut()}
                   className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-200 hover:bg-gray-100 hover:text-white"
                 >
                   Logout

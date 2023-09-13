@@ -10,21 +10,20 @@ import AboutPage from "../pages/AboutPage";
 import DashboardPage from "../pages/DashboardPage";
 import MultiStepFormPage from "../pages/MultiStepFormPage";
 import MessagePage from "../pages/MessagePage";
+import ProtectedRoute from "../components/ProtectedRoute";
+import { AuthProvider } from "../context/AuthProvider";
+
 const router = createBrowserRouter([
   {
-    element: <AppLayout />,
+    element: (
+      <AuthProvider>
+        <AppLayout />
+      </AuthProvider>
+    ),
     children: [
       {
         path: "/",
         element: <HomePage />,
-      },
-      {
-        path: "login",
-        element: <LoginPage />,
-      },
-      {
-        path: "register",
-        element: <RegisterPage />,
       },
       {
         path: "About",
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
-        path: "sell",
-        element: <MultiStepFormPage />,
-      },
-      {
         path: "dashboard/products",
         element: <AllSellerProductPage />,
       },
@@ -46,7 +41,6 @@ const router = createBrowserRouter([
         path: "dashboard/products/:id",
         element: <ProductPage />,
       },
-
       {
         path: "profile/:user",
         element: <ProfilePage />,
@@ -54,8 +48,32 @@ const router = createBrowserRouter([
     ],
   },
   {
+    element: (
+      <AuthProvider>
+        <ProtectedRoute>
+          <AppLayout />
+        </ProtectedRoute>
+      </AuthProvider>
+    ),
+    children: [
+      {
+        path: "sell",
+        element: <MultiStepFormPage />,
+      },
+    ],
+  },
+  {
+    path: "login",
+    element: <LoginPage />,
+  },
+  {
+    path: "register",
+    element: <RegisterPage />,
+  },
+  {
     path: "chat",
     element: <MessagePage />,
   },
 ]);
+
 export default router;

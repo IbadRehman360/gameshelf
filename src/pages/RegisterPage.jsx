@@ -1,20 +1,58 @@
-import PasswordStrengthBar from "react-password-strength-bar";
-import { useState } from "react";
+import supabase from "../services/supabase";
+import { useState , useEffect} from "react";
 import { FcGoogle } from "react-icons/fc";
 import { HiXCircle } from "react-icons/hi";
+import {useForm} from "react-hook-form";
+import PasswordStrengthBar from "react-password-strength-bar";
+import Header from "../layouts/Header";
+import Footer from "../layouts/Footer";
+
+//Quick hack to fix later
+async function CheckAuth() {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  return user;
+}
 
 export default function RegisterPage() {
+  const [isLogged, setIslogged] = useState(null);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState(false);
+  
+  const {handleSubmit, register} = useForm();
+
   function checkPasswordErrors() {
     setCheckPassword(true);
     if (confirmPassword.length < 8) return true;
     if (password != confirmPassword) return true;
     setCheckPassword(false);
   }
+
+  useEffect(() => {
+    CheckAuth().then((data) => {
+      if (data) {
+        setIslogged(true);
+      } else {
+        setIslogged(false);
+      }
+    });
+  }, []);
+
+
+  async function handleSignUp(){
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    })
+    redirect("/login");
+  }
+
   return (
     <>
+      <Header />
       <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center  pt-[40px] pb-[80px]  py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h3 className="text-3xl text-center justify-center  font-bold flex "></h3>
@@ -22,7 +60,7 @@ export default function RegisterPage() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleSubmit(handleSignUp)}>
               <div>
                 <label
                   htmlFor="email"
@@ -34,6 +72,8 @@ export default function RegisterPage() {
                   <input
                     id="email"
                     name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     autoComplete="email"
                     required
@@ -158,7 +198,7 @@ export default function RegisterPage() {
           <p className="mt-10 flex gap-2 justify-center items-center text-center text-sm text-gray-500">
             Already a member?
             <a
-              href="#"
+              href="/login"
               className="font-semibold leading-6 text-navy-blue hover:text-[#4b4e6b]"
             >
               Login
@@ -166,6 +206,7 @@ export default function RegisterPage() {
           </p>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

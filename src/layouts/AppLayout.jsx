@@ -6,10 +6,10 @@ import Footer from "./Footer";
 
 export default function AppLayout() {
   return (
-    <AuthProvider>
+    <main>
       <Header />
       <Outlet />
       <Footer />
-    </AuthProvider>
+    </main>
   );
 }
