@@ -1,11 +1,12 @@
 import supabase from "../services/supabase";
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { HiXCircle } from "react-icons/hi";
-import {useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import PasswordStrengthBar from "react-password-strength-bar";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
+import { redirect } from "react-router-dom";
 
 //Quick hack to fix later
 async function CheckAuth() {
@@ -21,8 +22,8 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState(false);
-  
-  const {handleSubmit, register} = useForm();
+
+  const { handleSubmit, register } = useForm();
 
   function checkPasswordErrors() {
     setCheckPassword(true);
@@ -42,7 +43,7 @@ export default function RegisterPage() {
   }, []);
 
 
-  async function handleSignUp(){
+  async function handleSignUp() {
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,

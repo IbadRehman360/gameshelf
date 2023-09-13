@@ -1,4 +1,5 @@
 export default function FeaturedProduct({ featureProduct }) {
+  console.log(featureProduct.created_at)
   const date = new Date(featureProduct.created_at);
   const getHour = date.getHours(date);
   const decimalConversion = featureProduct.price.toFixed(2); // Assuming featureProduct.price is a number
@@ -31,10 +32,10 @@ export default function FeaturedProduct({ featureProduct }) {
         <div className="inline-flex justify-between items-center ml-2 flex-1">
           <div className="md:mt-2 mt-1 lg:mt-0.5">
             <h6 className="font-semibold inline-flex md:text-[10px] lg:text-[12px] text-[11px] text-gray-600 truncate">
-              {featureProduct.users.username}
+              {featureProduct.username}
             </h6>
             <p className="md:text-[10px] text-[10px] lg:text-[11px] tracking-wide text-gray-500">
-              Level {featureProduct.users.level}
+              Level {featureProduct.level}
             </p>
           </div>
           <div className="mt-3">

@@ -112,7 +112,7 @@ export default function FeaturedProducts() {
               className="carousel-item sm:w-full w-full mx-auto mt-4 gap-2 mb-4 md:gap-3"
             >
               {slide2.map((product) => (
-                <FeaturedProduct key={product.id} featureProduct={product} />
+                <FeaturedProduct key={product.id} feat ureProduct={product} />
               ))}
             </div>
           </>
@@ -138,17 +138,15 @@ export default function FeaturedProducts() {
           <a
             href="#trendingGiftCardsSlide1"
             onClick={handlePrevPage}
-            className={`block w-[28px] h-[4px] rounded-2xl mr-1 ${
-              currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
-            } `}
+            className={`block w-[28px] h-[4px] rounded-2xl mr-1 ${currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
+              } `}
             id="prevPage"
           />
           <a
             href="#trendingGiftCardsSlide2"
             onClick={handleNextPage}
-            className={`block w-[28px] h-[4px]  rounded-2xl mr-1 ${
-              currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
-            } `}
+            className={`block w-[28px] h-[4px]  rounded-2xl mr-1 ${currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
+              } `}
           />
         </div>
       </div>
