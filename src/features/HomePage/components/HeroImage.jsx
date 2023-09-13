@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../../../context/AuthProvider";
 const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
@@ -9,9 +11,11 @@ const navigation = [
 ];
 
 const darkSlides = [0, 1, 2, 3, 8, 6];
+
 export default function HeroImages({ index, imageUrl }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const { session } = useAuth();
+console.log(session);
   return (
     <div className="relative">
       <div className="h-[40vh] w-full sm:h-[40vh] md:h-[46vh]  border-b-4 border-gray-400  lg:h-[52vh]">
@@ -27,14 +31,16 @@ export default function HeroImages({ index, imageUrl }) {
         aria-label="Global"
       >
         <div className="flex flex-1 justify-end">
-          <a
-            href="/login"
-            className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1rem] ${
-              darkSlides.includes(index) ? "text-white " : "text-gray-900"
-            } sm:text-gray-900"`}
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          {!session && (
+            <NavLink
+              to="login"
+              className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1rem] ${
+                darkSlides.includes(index) ? "text-white " : "text-gray-900"
+              } sm:text-gray-900"`}
+            >
+              Log in <span aria-hidden="true">&rarr;</span>
+            </NavLink>
+          )}
         </div>
       </nav>
       <header className="absolute top-1/2 left-1/2 -translate-y-1/2 mt-4 -translate-x-1/2 z-50 w-full">

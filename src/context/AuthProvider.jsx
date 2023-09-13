@@ -19,8 +19,6 @@ function AuthProvider({ children }) {
       } = await supabase.auth.getUser();
       setSession(session);
       setUserData(user);
-    } else {
-      setSession({});
     }
   }
 
