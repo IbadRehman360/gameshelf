@@ -2,6 +2,7 @@ import CategoryItem from "./CategoryItem";
 
 export default function CategoryList({ categories }) {
   const Categories = categories
+  const navigationOption = ["video-games", "gift-cards", "game-coins", "accounts", "items", "top-up"]
 
   return (
     <div className="mx-auto bg-gradient-to-b bg-[#ffffff]  border-2">
@@ -9,8 +10,9 @@ export default function CategoryList({ categories }) {
         EXPLORE CATEGORIES
       </h3>
       <div className="max-w-[1400px] grid mx-auto md:mb-6 mb-4 gap-10 grid-cols-4 md:grid-cols-8 md:gap-5 lg:gap-2 xl:gap-0 justify-items-center p-4 xl:p-3 pb-10 xl:pb-6">
+
         {Categories.map((categoryItem, i) => (
-          <CategoryItem key={i} index={i} category={categoryItem} />
+          <CategoryItem key={i} index={i} category={categoryItem} navigate={navigationOption[i]} />
         ))}
       </div>
     </div>

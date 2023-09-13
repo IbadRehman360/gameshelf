@@ -1,3 +1,5 @@
+import { lazy, Suspense } from "react";
+
 import HeroCarousel from "../features/HomePage/components/HeroCarousel";
 import TrendingGiftCards from "../features/HomePage/components/FeatureTrendingGiftCards";
 import TrendingVideoGames from "../features/HomePage/components/FeatureTrendingVideoGames";
@@ -6,16 +8,12 @@ import FeaturesList from "../features/HomePage/components/FeaturesList";
 
 import CategoriesLoading from "../features/HomePage/components/loader/CategoriesLoading";
 import ProductLoader from "../features/HomePage/components/loader/HomeProductLoader";
-
-import { lazy, Suspense } from "react";
-
 import useGetCategories from "../features/HomePage/hooks/useGetCategories";
 
-const FeaturedProducts = lazy(() => import("../features/HomePage/components/Products"));
 
-const Categories = lazy(() =>
-  import("../features/HomePage/components/CategoryList")
-);
+
+const Categories = lazy(() => import("../features/HomePage/components/CategoryList"));
+const FeaturedProducts = lazy(() => import("../features/HomePage/components/Products"));
 
 export default function HomePage() {
   const [categories, error] = useGetCategories();
