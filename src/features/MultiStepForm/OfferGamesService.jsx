@@ -47,11 +47,9 @@
 //   "Djibouti",
 //   "Dominica",
 //   "Dominican Republic",
-
-import { useState } from "react";
-
 // ];
-{/* <div className="mb-4">
+{
+  /* <div className="mb-4">
   <label
     className="block text-gray-700 text-sm font-bold mb-2"
     htmlFor="country"
@@ -71,7 +69,8 @@ import { useState } from "react";
       </option>
     ))}
   </select>
-</div> */}
+</div> */
+}
 
 const Games = [
   "Overwatch",
@@ -106,15 +105,12 @@ const Games = [
   "Fortnite Accounts",
   "Call of Duty",
   "Cyberpunk 2077",
-]
+];
 
-function GameSelectionComponent() {
-  const [service, setService] = useState("")
-  const [game, setGaem] = useState("")
-  console.log(service, game)
+function GameSelectionComponent({ formData, updateFormField }) {
   return (
     <div className="step">
-      <div className="mb-4">
+      <div className="my-4 3xl:my-8">
         <label
           className="block text-gray-700 tracking-wide  text-md font-bold mb-2"
           htmlFor="gameType"
@@ -125,7 +121,8 @@ function GameSelectionComponent() {
           required
           id="gameType"
           name="gameType"
-          onChange={(e) => setService(e.target.value)}
+          value={formData.service}
+          onChange={(e) => updateFormField("service", e.target.value)}
           className="border border-gray-400 rounded w-full py-2 px-3"
         >
           <option value="">Select an option</option>
@@ -142,20 +139,20 @@ function GameSelectionComponent() {
           Select Game
         </label>
         <div className=" overflow-hidden">
-
           <select
             required
             id="game"
             name="game"
-            onChange={(e) => setGaem(e.target.value)}
-            disabled={!service}
+            value={formData.game}
+            onChange={(e) => updateFormField("game", e.target.value)}
+            disabled={!formData.service}
             className="border    border-gray-400 rounded   overflow-hidden w-full py-2 px-3"
           >
-            <option  >Select an option</option>
+            <option>Select an option</option>
             {Games.map((game, index) => (
-              <option key={index}
-                value={game}>{game}</option>
-
+              <option key={index} value={game}>
+                {game}
+              </option>
             ))}
           </select>
         </div>
@@ -180,7 +177,7 @@ function GameSelectionComponent() {
           </label>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 

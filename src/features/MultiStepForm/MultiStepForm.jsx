@@ -5,6 +5,7 @@ import Step from "./Step";
 import OfferInfoImage from "./OfferInfoImage";
 import RegistrationSuccess from "./OfferCompletion";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { useState } from "react";
 
 const initialValues = {
   step: 1,
@@ -24,19 +25,53 @@ function reducer(state, action) {
 
 function useMultiStepForm() {
   const [{ step }, dispatch] = useReducer(reducer, initialValues);
+  const [formData, setFormData] = useState({
+    service: "",
+    game: "",
+    title: "",
+    price: 0,
+    quantity: 0,
+    productDescription: "",
+    image: "",
+    options: { Item: "Account", Game: "CSGO" },
+  });
 
+  const updateFormData = (field, value) => {
+    setFormData({ ...formData, [field]: value });
+    console.log(field, value);
+  };
   function onSubmit(e) {
     e.preventDefault();
     dispatch({ type: "next" });
   }
 
   const stepComponents = {
-    1: <OfferGamesService className="step">Step One</OfferGamesService>,
-    2: <OfferInfo className="step">Step Two</OfferInfo>,
-    3: <OfferInfoImage className="step">Step Three</OfferInfoImage>,
+    1: (
+      <OfferGamesService
+        formData={formData}
+        setFormData={setFormData}
+        updateFormField={updateFormData}
+        className="step"
+      >
+        Step One
+      </OfferGamesService>
+    ),
+    2: (
+      <OfferInfo formData={formData} setFormData={setFormData} className="step">
+        Step Two
+      </OfferInfo>
+    ),
+    3: (
+      <OfferInfoImage
+        formData={formData}
+        setFormData={setFormData}
+        className="step"
+      >
+        Step Three
+      </OfferInfoImage>
+    ),
     4: <RegistrationSuccess classNames="step">Step Four</RegistrationSuccess>,
   };
-
   return (
     <>
       <div
@@ -48,8 +83,9 @@ function useMultiStepForm() {
           {stepComponents[step]}
           <div className="flex justify-between mt-2">
             <button
-              className={`bg-gray-100 border border-gray-300 sm:px-5 px-4 py-2 rounded cursor-pointer ${step === 4 ? "hidden" : "flex"
-                }`}
+              className={`bg-gray-100 border border-gray-300 sm:px-5 px-4 py-2 rounded cursor-pointer ${
+                step === 4 ? "hidden" : "flex"
+              }`}
               onClick={() => dispatch({ type: "back" })}
               disabled={step <= 1}
             >
@@ -57,8 +93,9 @@ function useMultiStepForm() {
             </button>
 
             <button
-              className={`bg-gray-700 text-white  cursor-pointer sm:px-5 px-4 py-2 rounded  flex-end  ${step === 4 ? "hidden" : "flex"
-                }`}
+              className={`bg-gray-700 text-white  cursor-pointer sm:px-5 px-4 py-2 rounded  flex-end  ${
+                step === 4 ? "hidden" : "flex"
+              }`}
               disabled={step > 3}
             >
               {step === 3 ? "Finished" : "Next"}
@@ -67,7 +104,7 @@ function useMultiStepForm() {
         </form>
       </div>
       <div className="flex items-center justify-end  text-black py-3 rounded-lg shadow-md">
-        <p className="text-sm font-semibold mr-8">
+        <p className="sm:text-sm text-[0.85rem]  font-semibold mr-8">
           You can learn more
           <HiOutlineArrowNarrowRight className="inline-block align-middle m-2" />
           <a className="text-blue-500 hover:underline">about us</a>

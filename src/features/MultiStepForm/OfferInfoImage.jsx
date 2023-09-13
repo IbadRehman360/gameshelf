@@ -1,6 +1,6 @@
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
-function OfferInfoComponent() {
+function OfferInfoComponent({ formData, setFormData }) {
   return (
     <div className="step">
       <div className="mb-4">
