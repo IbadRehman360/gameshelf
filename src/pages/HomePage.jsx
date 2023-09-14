@@ -11,12 +11,11 @@ import ProductLoader from "../features/HomePage/components/loader/HomeProductLoa
 import useGetCategories from "../features/HomePage/hooks/useGetCategories";
 
 
-
 const Categories = lazy(() => import("../features/HomePage/components/CategoryList"));
 const FeaturedProducts = lazy(() => import("../features/HomePage/components/Products"));
 
 export default function HomePage() {
-  const [categories, error] = useGetCategories();
+  const [categories] = useGetCategories();
 
   return (
     <div className="bg-[#fdfdfd]">

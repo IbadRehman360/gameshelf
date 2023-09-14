@@ -3,7 +3,7 @@ import { useState } from "react";
 function GameServiceComponent() {
   const [quantity, setQuantity] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState({});
-  const [customOptions, setCustomOptions] = useState([]);
+  const [customOptions, setCustomOptions] = useState([]); //eslint-disable-line
   const [newOption, setNewOption] = useState("");
   const [selectedKey, setSelectedKey] = useState("");
 
