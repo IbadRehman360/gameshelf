@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function useGetCategories() {
   const [data, setData] = useState([]);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
