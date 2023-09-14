@@ -2,7 +2,7 @@ import CategoryItem from "./CategoryItem";
 
 export default function CategoryList({ categories }) {
   const Categories = categories
-  const navigationOption = ["video-games", "gift-cards", "game-coins", "accounts", "items", "top-up"]
+  const navigationOption = ["video-games", "gift-cards", "game-coins", "accounts", "items"]
   if (!Array.isArray(Categories)) {
     return;
   }
