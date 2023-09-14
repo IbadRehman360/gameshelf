@@ -1,6 +1,6 @@
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
-function OfferInfoComponent({ formData, setFormData }) {
+function OfferInfoComponent({ formData, updateFormField }) {
   return (
     <div className="step">
       <div className="mb-4">
@@ -13,6 +13,8 @@ function OfferInfoComponent({ formData, setFormData }) {
         <textarea
           required
           id="productDescription"
+          value={formData.description}
+          onChange={(e) => updateFormField("description", e.target.value)}
           name="productDescription"
           className="border rounded w-full py-2 px-3"
         ></textarea>
@@ -37,6 +39,8 @@ function OfferInfoComponent({ formData, setFormData }) {
               >
                 <span>Upload a file</span>
                 <input
+                  value={formData.images}
+                  onChange={(e) => updateFormField("images", e.target.value)}
                   id="file-upload"
                   name="file-upload"
                   type="file"

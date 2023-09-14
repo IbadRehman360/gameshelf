@@ -44,7 +44,6 @@ export default function Step({ step }) {
                   </span>
                   <span className="ml-4 text-sm font-medium text-black">
                     {" "}
-                    {/* Change text color here */}
                     {LpStep.name}
                   </span>
                 </span>
@@ -57,7 +56,6 @@ export default function Step({ step }) {
               >
                 <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-[#bababe]">
                   <span className="text-[#6e6e77] ">{LpStep.id}</span>{" "}
-                  {/* Display "id" */}
                 </span>
                 <span className="ml-4 text-sm font-medium text-[#76767e]">
                   {LpStep.name}

@@ -6,7 +6,7 @@ import OfferInfoImage from "./OfferInfoImage";
 import RegistrationSuccess from "./OfferCompletion";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { useState } from "react";
-
+import useUpdateHook from "./hooks/useUpdateHook";
 const initialValues = {
   step: 1,
 };
@@ -22,34 +22,42 @@ function reducer(state, action) {
       return state;
   }
 }
-
-function useMultiStepForm() {
+function useMultiStepForm({ user }) {
   const [{ step }, dispatch] = useReducer(reducer, initialValues);
   const [formData, setFormData] = useState({
-    service: "",
-    game: "",
     title: "",
     price: 0,
-    quantity: 0,
-    productDescription: "",
-    image: "",
+    stock: 0,
+    images: "",
+    game: "",
+    service: "",
+    description: "",
     options: { Item: "Account", Game: "CSGO" },
   });
-
   const updateFormData = (field, value) => {
+    console.log(value);
     setFormData({ ...formData, [field]: value });
-    console.log(field, value);
   };
-  function onSubmit(e) {
+  const onSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: "next" });
-  }
+    if (step === 3) {
+      const [updatedData] = useUpdateHook(formData, user);
+      dispatch({ type: "next" });
+    } else {
+      dispatch({ type: "next" });
+    }
+  };
+  const handleDeleteOption = (key) => {
+    console.log(key);
+    const updatedOptions = { ...formData.options };
+    delete updatedOptions[key];
+    updateFormData("options", updatedOptions);
+  };
 
   const stepComponents = {
     1: (
       <OfferGamesService
         formData={formData}
-        setFormData={setFormData}
         updateFormField={updateFormData}
         className="step"
       >
@@ -57,14 +65,20 @@ function useMultiStepForm() {
       </OfferGamesService>
     ),
     2: (
-      <OfferInfo formData={formData} setFormData={setFormData} className="step">
+      <OfferInfo
+        formData={formData}
+        handleDeleteOption={handleDeleteOption}
+        updateFormField={updateFormData}
+        setFormData={setFormData}
+        className="step"
+      >
         Step Two
       </OfferInfo>
     ),
     3: (
       <OfferInfoImage
         formData={formData}
-        setFormData={setFormData}
+        updateFormField={updateFormData}
         className="step"
       >
         Step Three

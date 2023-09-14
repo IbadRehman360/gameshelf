@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { FiTrash } from "react-icons/fi";
-// import { LuDelete } from "react-icons/lu";
 
-function GameServiceComponent({ formData, setFormData }) {
-  // const [quantity, setQuantity] = useState(1);
-  // const [selectedOptions, setSelectedOptions] = useState({
-  //   Item: "Account",
-  //   Game: "CSGO",
-  // });
-
-  const [newOption, setNewOption] = useState("");
+function GameServiceComponent({
+  formData,
+  updateFormField,
+  handleDeleteOption,
+  setFormData,
+}) {
   const [selectedKey, setSelectedKey] = useState("");
+  const [newOption, setNewOption] = useState("");
 
   const predefinedKeys = [
     "Rank",
@@ -20,27 +18,20 @@ function GameServiceComponent({ formData, setFormData }) {
     "Currency",
   ];
 
-  const handleQuantityChange = (e) => {
-    setQuantity(parseInt(e.target.value));
+  const handleAddOption = (e) => {
+    e.preventDefault();
+    if (selectedKey && newOption) {
+      const updatedOptions = { ...formData.options, [selectedKey]: newOption };
+      setFormData({ ...formData, options: updatedOptions });
+      setNewOption("");
+      setSelectedKey("");
+    }
   };
 
   const handleInputChange = (e) => {
     setNewOption(e.target.value);
   };
 
-  const handleAddOption = () => {
-    if (selectedKey && newOption.trim() !== "") {
-      setSelectedOptions({ ...selectedOptions, [selectedKey]: newOption });
-      setNewOption("");
-      setSelectedKey("");
-    }
-  };
-
-  const handleDeleteOption = (key) => {
-    const updatedSelectedOptions = { ...selectedOptions };
-    delete updatedSelectedOptions[key];
-    setSelectedOptions(updatedSelectedOptions);
-  };
   return (
     <div className="step">
       <div className="mb-4">
@@ -55,6 +46,7 @@ function GameServiceComponent({ formData, setFormData }) {
           id="title"
           name="title"
           required
+          onChange={(e) => updateFormField("title", e.target.value)}
           className="border rounded w-full py-2 px-3"
         />
       </div>
@@ -68,8 +60,9 @@ function GameServiceComponent({ formData, setFormData }) {
         <input
           type="number"
           id="price"
-          required
           name="price"
+          required
+          onChange={(e) => updateFormField("price", e.target.value)}
           className="border rounded w-full py-2 px-3"
         />
         <div className="my-5 sm:hidden"> </div>
@@ -83,9 +76,9 @@ function GameServiceComponent({ formData, setFormData }) {
 
         <select
           className="px-6 py-1.5 sm:py-2 border border-gray-400 rounded-lg bg-white hover:bg-gray-100 focus:ring  outline-none"
-          value={quantity}
+          value={formData.stock}
           id="quantity"
-          onChange={handleQuantityChange}
+          onChange={(e) => updateFormField("stock", e.target.value)}
         >
           {[...Array(10).keys()].map((num) => (
             <option
@@ -100,7 +93,7 @@ function GameServiceComponent({ formData, setFormData }) {
       </div>
       <div className="grid gap-4">
         <div className="flex flex-wrap gap-4 text-sm sm:text-base mb-2">
-          {Object.entries(selectedOptions).map(([key, value]) => (
+          {Object.entries(formData.options).map(([key, value]) => (
             <div
               key={key}
               className="flex items-center px-3 py-2 bg-gray-100 text-gray-700 rounded-lg shadow-md sm:mb-0 my-1 w-auto"
@@ -117,8 +110,11 @@ function GameServiceComponent({ formData, setFormData }) {
             </div>
           ))}
         </div>
-        <h4 className="text-[1.1rem]  text-gray-600 font-bold  ">
-          <span className="  border-gray-400">Insert an Optional </span>
+        <h4 className="text-[1.06rem]  text-gray-600 font-bold  ">
+          <span className="   tracking-wide border-gray-400">
+            {" "}
+            Optional Titles{" "}
+          </span>
         </h4>
         <div className="mt-2 mb-6 grid sm:gap-2 gap-6 sm:flex">
           <select
