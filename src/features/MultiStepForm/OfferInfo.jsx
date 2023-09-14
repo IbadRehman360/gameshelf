@@ -89,13 +89,16 @@ function GameServiceComponent() {
           ))}
         </select>
       </div>
-      <div className="grid gap-1">
-        <h4 className="block tracking-wide mt-2 text-gray-700 text-sm font-bold mb-2.5">
-          Optional title
+      <div className="grid gap-4">
+        <h4 className="text-lg text-gray-700 font-semibold mt-4 mb-2">
+          Optional Title
         </h4>
-        <div className="flex flex-wrap gap-2 w-fit text-[10px] sm:text-xs">
+        <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
           {Object.entries(selectedOptions).map(([key, value]) => (
-            <div key={key} className="flex items-center p-2 bg-gray-300 w-fit rounded-lg">
+            <div
+              key={key}
+              className="flex items-center px-3 py-2 bg-gray-200 text-gray-800 rounded-lg"
+            >
               <span className="mr-2">
                 {key}: {value}
               </span>
@@ -110,7 +113,7 @@ function GameServiceComponent() {
           {customOptions.map((option, index) => (
             <div
               key={index}
-              className="flex items-center p-2 bg-gray-300 w-fit rounded-lg cursor-pointer"
+              className="flex items-center px-3 py-2 bg-gray-200 text-gray-800 rounded-lg cursor-pointer"
               onClick={() => handleKeySelect(option)}
             >
               <span className="mr-2">
@@ -143,16 +146,17 @@ function GameServiceComponent() {
             placeholder="Enter Value"
             value={newOption}
             onChange={handleInputChange}
-            className="p-2 bg-gray-200 rounded-lg ml-2"
+            className="p-2 bg-gray-100 rounded-lg ml-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
           />
           <button
             onClick={handleAddOption}
-            className="p-2 ml-2 bg-blue-500 text-white rounded-lg"
+            className="p-2 ml-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
           >
             Add
           </button>
         </div>
       </div>
+
     </div>
   );
 }

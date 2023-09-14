@@ -47,6 +47,9 @@
 //   "Djibouti",
 //   "Dominica",
 //   "Dominican Republic",
+
+import { useState } from "react";
+
 // ];
 {/* <div className="mb-4">
   <label
@@ -106,6 +109,9 @@ const Games = [
 ]
 
 function GameSelectionComponent() {
+  const [service, setService] = useState("")
+  const [game, setGaem] = useState("")
+  console.log(service, game)
   return (
     <div className="step">
       <div className="mb-4">
@@ -119,6 +125,7 @@ function GameSelectionComponent() {
           required
           id="gameType"
           name="gameType"
+          onChange={(e) => setService(e.target.value)}
           className="border border-gray-400 rounded w-full py-2 px-3"
         >
           <option value="">Select an option</option>
@@ -140,12 +147,14 @@ function GameSelectionComponent() {
             required
             id="game"
             name="game"
-            className="border   border-gray-400 rounded   overflow-hidden w-full py-2 px-3"
+            onChange={(e) => setGaem(e.target.value)}
+            disabled={!service}
+            className="border    border-gray-400 rounded   overflow-hidden w-full py-2 px-3"
           >
-            <option >Select an option</option>
+            <option  >Select an option</option>
             {Games.map((game, index) => (
               <option key={index}
-                value={game}>{game} </option>
+                value={game}>{game}</option>
 
             ))}
           </select>
@@ -171,7 +180,7 @@ function GameSelectionComponent() {
           </label>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
