@@ -2,8 +2,8 @@ import supabase from "../../services/supabase";
 import { useState, useEffect } from "react";
 
 function useGetItem(orderBy, orderDirection) {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState([]);
 
   useEffect(() => {
     async function fetchData() {

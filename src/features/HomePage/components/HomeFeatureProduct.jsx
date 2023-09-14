@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function FeaturedProduct({ featureProduct }) {
   const date = new Date(featureProduct.created_at);
   const getHour = date.getHours(date);
-  const decimalConversion = featureProduct.price.toFixed(2); // Assuming featureProduct.price is a number
+  const decimalConversion = featureProduct.price.toFixed(2);
 
   return (
     <Link>
