@@ -182,14 +182,14 @@ export default function Header() {
                 </div>
               ) : <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
                 <NavLink
-                  className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1rem] px-9 py-[6px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.rem] px-10 py-[7px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
                   to={"/sell"}
                 >
                   Sell
                 </NavLink>
                 <NavLink
-                  className="  bg-rose-500 hover:opacity-95 hover:bg-rose-500 mt-1 active:bg-gray-400  font-medium hover:shadow-md shadow text-[0.9rem]  text-gray-50 py-2 px-5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className="  bg-rose-500 hover:opacity-95 hover:bg-rose-500 mt-1 active:bg-gray-400  font-medium hover:shadow-md shadow text-[0.9rem]  text-gray-50 py-2.5 px-6  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
                   to={"/login"}
                 >
