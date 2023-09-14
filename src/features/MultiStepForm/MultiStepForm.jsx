@@ -48,9 +48,8 @@ function useMultiStepForm() {
           {stepComponents[step]}
           <div className="flex justify-between mt-2">
             <button
-              className={`bg-gray-100 border border-gray-300 sm:px-5 px-4 py-2 rounded cursor-pointer ${
-                step === 4 ? "hidden" : "flex"
-              }`}
+              className={`bg-gray-100 border border-gray-300 sm:px-5 px-4 py-2 rounded cursor-pointer ${step === 4 ? "hidden" : "flex"
+                }`}
               onClick={() => dispatch({ type: "back" })}
               disabled={step <= 1}
             >
@@ -58,9 +57,8 @@ function useMultiStepForm() {
             </button>
 
             <button
-              className={`bg-gray-700 text-white  cursor-pointer sm:px-5 px-4 py-2 rounded  flex-end  ${
-                step === 4 ? "hidden" : "flex"
-              }`}
+              className={`bg-gray-700 text-white  cursor-pointer sm:px-5 px-4 py-2 rounded  flex-end  ${step === 4 ? "hidden" : "flex"
+                }`}
               disabled={step > 3}
             >
               {step === 3 ? "Finished" : "Next"}

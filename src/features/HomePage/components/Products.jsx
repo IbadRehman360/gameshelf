@@ -53,10 +53,8 @@ export default function FeaturedProducts() {
 
   const toggleSorting = (newOrderBy) => {
     if (newOrderBy === orderBy) {
-      // If the same sorting option is clicked again, toggle the order direction
       setOrderDirection(orderDirection === "desc" ? "asc" : "desc");
     } else {
-      // If a different sorting option is clicked, update the orderBy and set to ascending order only for "created_at"
       setOrderBy(newOrderBy);
     }
   };
