@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-export default function categoryItem({ category, index, navigate }) {
+export default function categoryItem({ category, index }) {
   function renderName(){
     return category.name.split("-").join(" ")
   }
  
   return (
-    <Link to={`/dashboard/${navigate}`}>
+    <Link to={`/dashboard/${category.name}`}>
 
       <div className="text-center h-12 w-11  lg:h-16    md:w-14 xl:h-[5.6rem] md:mt-2.5 md:mb-4 lg:mb-0   xl:w-[70px] flex flex-col items-center gap-2">
         <div
