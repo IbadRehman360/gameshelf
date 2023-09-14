@@ -1,6 +1,5 @@
 import { Menu } from "@headlessui/react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useState } from "react";
 
 export default function DashboardSearchBar() {
   return (

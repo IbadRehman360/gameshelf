@@ -24,7 +24,7 @@ export default function RegisterPage() {
   const [checkPassword, setCheckPassword] = useState(false);
   const navigate = useNavigate();
   
-  const {handleSubmit, register} = useForm();
+  const {handleSubmit} = useForm();
 
   function checkPasswordErrors() {
     setCheckPassword(true);
@@ -45,11 +45,13 @@ export default function RegisterPage() {
 
 
   async function handleSignUp(){
-    const { data, error } = await supabase.auth.signUp({
+    const { data } = await supabase.auth.signUp({
       email: email,
       password: password,
     })
-    navigate("/login");
+    if(data){
+      navigate("/login");
+    }
   }
 
   if (isLogged === null) return <></>;

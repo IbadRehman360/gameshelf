@@ -4,7 +4,6 @@ import OfferInfo from "./OfferInfo";
 import Step from "./Step";
 import OfferInfoImage from "./OfferInfoImage";
 import RegistrationSuccess from "./OfferCompletion";
-import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
 const initialValues = {

@@ -12,7 +12,6 @@ function AuthProvider({ children }) {
   async function getSession() {
     const {
       data: { session },
-      error,
     } = await supabase.auth.getSession();
     if (session) {
       const {

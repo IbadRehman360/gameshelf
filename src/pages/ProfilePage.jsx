@@ -20,13 +20,10 @@ const ProfileStats = lazy(() => import("../features/Profile/ProfileStats"));
 const ProfileProduct = lazy(() => import("../features/Profile/ProfileProduct"));
 
 
-
-
-
 export default function ProfilePage() {
   const params = useParams();
   const navigate = useNavigate();
-  const [profileData, error] = useGetProfile(params.user);
+  const [profileData] = useGetProfile(params.user);
 
   if (profileData.none) {
     navigate("/")
