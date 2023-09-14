@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
-
 export default function categoryItem({ category, index, navigate }) {
+  function renderName(){
+    return category.name.split("-").join(" ")
+  }
+ 
   return (
     <Link to={`/dashboard/${navigate}`}>
 
@@ -13,10 +16,10 @@ export default function categoryItem({ category, index, navigate }) {
             src={`/home/catergoriesBarImages/Navigation${index + 1}.webp`}
           />
         </div>
-        <p className="text-[11px] sm:text-[14px] md:text-[0.8rem] xl:text-[0.95rem] text-black whitespace-nowrap font-semibold">
-          {category.name}
-        </p>
-      </div>
+      <p className="capitalize text-[11px] sm:text-[14px] md:text-[0.8rem] xl:text-[0.95rem] text-black whitespace-nowrap font-semibold">
+        {renderName()}
+      </p>
+    </div>
     </Link>
   );
 }
