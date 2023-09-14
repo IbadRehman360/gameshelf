@@ -1,10 +1,11 @@
-
 import { createContext, useContext, useEffect, useState } from "react";
 import supabase from "../services/supabase";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
+  const [isAuth, setIsAuth] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [session, setSession] = useState(null);
   const [userData, setUserData] = useState(null);
 
@@ -18,7 +19,11 @@ function AuthProvider({ children }) {
         data: { user },
       } = await supabase.auth.getUser();
       setSession(session);
+      setIsAuth(true);
       setUserData(user);
+      setIsLoading(false);
+    } else {
+      setIsLoading(false);
     }
   }
 
@@ -32,13 +37,16 @@ function AuthProvider({ children }) {
 
   useEffect(() => {
     getSession();
-  }, [])
+  }, []);
 
-  return (
-    <AuthContext.Provider value={{ session, userData, signOutUser }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  if (!isLoading)
+    return (
+      <AuthContext.Provider
+        value={{ isLoading, isAuth, session, userData, signOutUser }}
+      >
+        {children}
+      </AuthContext.Provider>
+    );
 }
 
 function useAuth() {

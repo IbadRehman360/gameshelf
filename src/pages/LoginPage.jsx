@@ -52,7 +52,7 @@ export default function LoginPage() {
   return (
     <>
       <Header />
-      <div className="max-w-xl mx-auto h-[80vh] flex justify-center items-center">
+      <div className="max-w-xl p-6 mx-auto h-[80vh] flex justify-center items-center">
         <div className="w-full">
           <Auth
             supabaseClient={supabase}
