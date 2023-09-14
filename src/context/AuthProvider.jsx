@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import supabase from "../services/supabase";
 
 const AuthContext = createContext();
@@ -30,9 +30,9 @@ function AuthProvider({ children }) {
     return true;
   }
 
-  useEffect(()=>{
-      getSession();
-  },[])
+  useEffect(() => {
+    getSession();
+  }, [])
 
   return (
     <AuthContext.Provider value={{ session, userData, signOutUser }}>

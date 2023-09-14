@@ -15,10 +15,9 @@ const darkSlides = [0, 1, 2, 3, 8, 6];
 export default function HeroImages({ index, imageUrl }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { session } = useAuth();
-  console.log(session);
   return (
     <div className="relative">
-      <div className="h-[40vh] w-full sm:h-[40vh] md:h-[46vh]  border-b-4 border-gray-400  lg:h-[52vh]">
+      <div className="h-[46vh] w-full sm:h-[48vh] md:h-[50vh]  border-b-4 border-gray-400  lg:h-[44vh] xl:h-[50vh] ">
         <img
           className=" object-cover w-full h-full"
           src={`${imageUrl}`}

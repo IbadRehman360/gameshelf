@@ -3,6 +3,9 @@ import CategoryItem from "./CategoryItem";
 export default function CategoryList({ categories }) {
   const Categories = categories
   const navigationOption = ["video-games", "gift-cards", "game-coins", "accounts", "items", "top-up"]
+  if (!Array.isArray(Categories)) {
+    return;
+  }
 
   return (
     <div className="mx-auto bg-gradient-to-b bg-[#ffffff]  border-2">

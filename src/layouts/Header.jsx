@@ -41,14 +41,16 @@ export default function Header() {
       {({ open }) => (
         <>
           <div className="mx-auto  border-b-[1px] border-gray-500 shadow-sm px-2 sm:px-2 bg-[#3b404e]   lg:px-3 xl:px-5 ">
-            <div className="flex h-16 xl:h-[90px] justify-between  sm:mx-6 mx-4 ">
+            <div className="flex h-16 md:h-[70px] xl:h-[90px] justify-between  sm:mx-6 mx-4 ">
               <div className="flex  lg:px-0">
                 <div className="flex flex-shrink-0  items-center ">
-                  <img
-                    className="lg:h-8 h-8 w-9 bg-gray-100  mr-4 object-contain  rounded-xl mt-1.5 "
-                    src="/logo4.png"
-                    alt="Your Company"
-                  />
+                  <Link to="/">
+                    <img
+                      className="lg:h-8 h-8 w-9 bg-gray-100  mr-4 object-contain  rounded-xl mt-1.5 "
+                      src="/logo4.png"
+                      alt="Your Company"
+                    />
+                  </Link>
 
                   <Link
                     to="/"
@@ -68,7 +70,7 @@ export default function Header() {
               </div>
               <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end"></div>
               <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end"></div>
-              <div className="flex items-center lg:hidden">
+              <div className="flex items-center md:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button
                   style={{ border: "1px solid" }}
@@ -84,10 +86,10 @@ export default function Header() {
                 </Disclosure.Button>
               </div>
 
-              {!session ? (
-                <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
+              {session ? (
+                <div className="hidden lg:ml-4 gap-6 md:flex md:items-center">
                   <NavLink
-                    className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.1rem] px-9 py-[6px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                    className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.02rem] px-9 py-[6px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                     type="button"
                     to={"/sell"}
                   >
@@ -97,7 +99,7 @@ export default function Header() {
                     <img
                       src="/dollar(1).png"
                       alt="Coin Image"
-                      className={`w-10 h-[36px] transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
+                      className={`w-10 h-[33px] transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
                         }`}
                       onClick={handleClick}
                       onMouseEnter={handleHover}
@@ -118,7 +120,7 @@ export default function Header() {
                     <span className="absolute " />
                     <span className="sr-only">View notifications</span>
                     <AiFillMessage
-                      className="h-[37px] w-10 m-1 text-gray-100 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="h-[36px] w-10 m-1 text-gray-100 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       aria-hidden="true"
                     />
                   </a>
@@ -149,7 +151,7 @@ export default function Header() {
                         <Menu.Item>
                           {({ active }) => (
                             <a
-                              href="/profile/2"
+                              href="/profile/ibadkhan"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
@@ -160,62 +162,36 @@ export default function Header() {
                           )}
                         </Menu.Item>
 
+
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href="/register"
+                            <button
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Sign Up
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href={() => handleSignOut()}
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Log In
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                "block  text-start pl-4   w-full py-2 text-sm text-gray-700"
                               )}
                               onClick={() => handleSignOut()}
                             >
                               Log Out
-                            </a>
+                            </button>
                           )}
                         </Menu.Item>
-
                       </Menu.Items>
                     </Transition>
                   </Menu>
                 </div>
               ) : <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
                 <NavLink
-                  className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.1rem] px-9 py-[6px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1rem] px-9 py-[6px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
                   to={"/sell"}
                 >
                   Sell
                 </NavLink>
                 <NavLink
-                  className="  bg-rose-500 hover:opacity-95 hover:bg-rose-500 mt-1 active:bg-gray-400  font-medium hover:shadow-md shadow text-[1rem]  text-gray-100 py-2 px-5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  className="  bg-rose-500 hover:opacity-95 hover:bg-rose-500 mt-1 active:bg-gray-400  font-medium hover:shadow-md shadow text-[0.9rem]  text-gray-50 py-2 px-5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                   type="button"
-                  to={"/sell"}
+                  to={"/login"}
                 >
                   Login / Sign up
                 </NavLink>
@@ -230,15 +206,15 @@ export default function Header() {
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               <Disclosure.Button
                 as="a"
-                href="#"
+                href="/profile/ibadkhan"
                 className="block border-l-4 border-indigo-500 bg-indigo-50 py-3 pl-3 pr-4 text-base font-medium text-indigo-700"
               >
                 View Profile
               </Disclosure.Button>
             </div>
 
-            <div className="border-t border-gray-200 border-b-4 pb-3 pt-4">
-              <div className="flex items-center px-4">
+            <div className="border-t border-gray-800 border-b-2 pb-3 pt-4">
+              <div className="flex items-center px-4 mt-2">
                 <div className="flex-shrink-0">
                   <img
                     className="h-10 w-10 rounded-full"
@@ -256,13 +232,13 @@ export default function Header() {
                 </div>
                 <div
                   type="button"
-                  className="relative ml-auto flex-shrink-0 rounded-full -left-1   bg-white p-1  text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative ml-auto flex-shrink-0 rounded-full  -top-1 -left-1   bg-white p-1  text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  <div className="relative   group">
+                  <div className="relative  group">
                     <img
                       src="/dollar(1).png"
                       alt="Coin Image"
-                      className={`w-9 h-8 transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
+                      className={`w-9 h-8  transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
                         }`}
                       onClick={handleClick}
                       onMouseEnter={handleHover}
@@ -278,43 +254,39 @@ export default function Header() {
 
                 </div>
               </div>
-
-              <div className="mt-3   space-y-1"
-              >
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2   font-medium text-[0.95rem] text-gray-200 hover:bg-gray-100 hover:text-white"
-                >
-                  Settings
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-200 hover:bg-gray-100 hover:text-white"
-                >
-                  Login
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-[0.95rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
-                >
-                  Sign Up
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  onClick={() => handleSignOut()}
-                  className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-200 hover:bg-gray-100 hover:text-white"
-                >
-                  Logout
-                </Disclosure.Button>
-
+              <div className="mt-4 pt-4 space-y-1">
+                {!session ? (
+                  <>
+                    <Disclosure.Button
+                      as="a"
+                      href="/login"
+                      className="block border-t border-gray-600  px-4 py-2 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                    >
+                      Login
+                    </Disclosure.Button>
+                    <Disclosure.Button
+                      as="a"
+                      href="/register"
+                      className="block px-4 py-2 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                    >
+                      Sign Up
+                    </Disclosure.Button>
+                  </>
+                ) : (
+                  <Disclosure.Button
+                    as="a"
+                    onClick={() => handleSignOut()}
+                    className="border-t border-gray-600 block px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                  >
+                    Logout
+                  </Disclosure.Button>
+                )}
               </div>
             </div>
           </Disclosure.Panel>
         </>
-      )}
-    </Disclosure>
+      )
+      }
+    </Disclosure >
   );
 }
