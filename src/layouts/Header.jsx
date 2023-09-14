@@ -12,15 +12,16 @@ function classNames(...classes) {
 }
 
 export default function Header() {
-  const {signOutUser} = useAuth();
+  const { isLoading, session , signOutUser } = useAuth();
   const navigate = useNavigate();
-  
-  function handleSignOut(){
-    if(signOutUser()){
-      navigate("/")
+
+  function handleSignOut() {
+    if (signOutUser()) {
+      navigate("/");
     }
   }
 
+  if(isLoading) return null;
   return (
     <Disclosure as="nav">
       {({ open }) => (
@@ -69,108 +70,120 @@ export default function Header() {
                 </Disclosure.Button>
               </div>
 
-              <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
-                <NavLink
-                  className=" bg-gray-50 mt-1 hover:bg-gray-100 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[0.9rem] px-8 py-1.5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
-                  type="button"
-                  to={"/sell"}
-                >
-                  Sell
-                </NavLink>
+              {session ? (
+                <>
+                  <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
+                    <NavLink
+                      className=" bg-gray-50 mt-1 hover:bg-gray-100 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[0.9rem] px-8 py-1.5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                      type="button"
+                      to="/sell"
+                    >
+                      Sell
+                    </NavLink>
 
-                <a
-                  href="/chat"
-                  type="button"
-                  className="relative flex-shrink-0 rounded-full   mt-0.5 text-gray-600 hover:text-slate-500 "
-                >
-                  <span className="absolute " />
-                  <span className="sr-only">View notifications</span>
-                  <AiFillMessage
-                    className="h-[34px] w-9 m-1 text-gray-50 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    aria-hidden="true"
-                  />
-                </a>
-                <Menu as="div" className="relative  flex-shrink-0">
-                  <div>
-                    <Menu.Button className="relative flex rounded-full   text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    <NavLink
+                      to="/chat"
+                      type="button"
+                      className="relative flex-shrink-0 rounded-full   mt-0.5 text-gray-600 hover:text-slate-500 "
+                    >
                       <span className="absolute " />
-                      <span className="sr-only">Open user menu</span>
-                      <div className="mt-1 rounded-full">
-                        <img
-                          className="h-[36px] w-[40px]     object-cover  rounded-full"
-                          src="/ProfileImg2.jpg"
-                          alt=""
-                        />
+                      <span className="sr-only">View notifications</span>
+                      <AiFillMessage
+                        className="h-[34px] w-9 m-1 text-gray-50 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        aria-hidden="true"
+                      />
+                    </NavLink>
+                    <Menu as="div" className="relative  flex-shrink-0">
+                      <div>
+                        <Menu.Button className="relative flex rounded-full   text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                          <span className="absolute " />
+                          <span className="sr-only">Open user menu</span>
+                          <div className="mt-1 rounded-full">
+                            <img
+                              className="h-[36px] w-[40px]     object-cover  rounded-full"
+                              src="/ProfileImg2.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </Menu.Button>
                       </div>
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="/profile/2"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                      <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-100"
+                        enterFrom="transform opacity-0 scale-95"
+                        enterTo="transform opacity-100 scale-100"
+                        leave="transition ease-in duration-75"
+                        leaveFrom="transform opacity-100 scale-100"
+                        leaveTo="transform opacity-0 scale-95"
+                      >
+                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="/profile/2"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700"
+                                )}
+                              >
+                                Your Profile
+                              </a>
                             )}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
+                          </Menu.Item>
 
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="/register"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="/register"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700"
+                                )}
+                              >
+                                Sign Up
+                              </a>
                             )}
-                          >
-                            Sign Up
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href={() => handleSignOut()}
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href={() => handleSignOut()}
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700"
+                                )}
+                              >
+                                Log In
+                              </a>
                             )}
-                          >
-                            Log In
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700"
+                                )}
+                                onClick={() => handleSignOut()}
+                              >
+                                Log Out
+                              </a>
                             )}
-                            onClick={()=>handleSignOut()}
-                          >
-                            Log Out
-                          </a>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-              </div>
+                          </Menu.Item>
+                        </Menu.Items>
+                      </Transition>
+                    </Menu>
+                  </div>
+                </>
+              ) : (
+                <NavLink
+                  className="self-center h-fit bg-gray-50 mt-1 hover:bg-gray-100 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[0.9rem] px-8 py-1.5  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                  type="button"
+                  to="/login"
+                >
+                  Login
+                </NavLink>
+              )}
             </div>
           </div>
 
@@ -238,7 +251,7 @@ export default function Header() {
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
-                  onClick={()=>handleSignOut()}
+                  onClick={() => handleSignOut()}
                   className="block px-4 py-2 text-[0.95rem] font-medium  text-gray-200 hover:bg-gray-100 hover:text-white"
                 >
                   Logout

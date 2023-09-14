@@ -6,6 +6,7 @@ import {useForm} from "react-hook-form";
 import PasswordStrengthBar from "react-password-strength-bar";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
+import { Navigate } from "react-router-dom";
 
 //Quick hack to fix later
 async function CheckAuth() {
@@ -50,6 +51,8 @@ export default function RegisterPage() {
     redirect("/login");
   }
 
+  if (isLogged === null) return <></>;
+  if (isLogged) return <Navigate to="/" />;
   return (
     <>
       <Header />
