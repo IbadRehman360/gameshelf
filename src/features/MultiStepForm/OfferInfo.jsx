@@ -1,28 +1,45 @@
 import { useState } from "react";
-const initialOptions = {
-  game: '',
-  accountLevel: '',
-};
+
 function GameServiceComponent() {
   const [quantity, setQuantity] = useState(1);
+  const [selectedOptions, setSelectedOptions] = useState({});
+  const [customOptions, setCustomOptions] = useState([]);
+  const [newOption, setNewOption] = useState("");
+  const [selectedKey, setSelectedKey] = useState("");
+
+  const predefinedKeys = [
+    "Game Items",
+    "Account",
+    "Gift Card",
+    "Game",
+    "Other",
+    // Add more predefined keys here
+  ];
 
   const handleQuantityChange = (e) => {
     setQuantity(parseInt(e.target.value));
   };
-  const [selectedOptions, setSelectedOptions] = useState(initialOptions);
-  const [customOptions, setCustomOptions] = useState([]);
-  const [newOption, setNewOption] = useState('');
-
 
   const handleInputChange = (e) => {
     setNewOption(e.target.value);
   };
 
+  const handleKeySelect = (key) => {
+    setSelectedKey(key);
+  };
+
   const handleAddOption = () => {
-    if (newOption.trim() !== '') {
-      setCustomOptions([...customOptions, newOption]);
-      setNewOption('');
+    if (selectedKey && newOption.trim() !== "") {
+      setSelectedOptions({ ...selectedOptions, [selectedKey]: newOption });
+      setNewOption("");
+      setSelectedKey("");
     }
+  };
+
+  const handleDeleteOption = (key) => {
+    const updatedSelectedOptions = { ...selectedOptions };
+    delete updatedSelectedOptions[key];
+    setSelectedOptions(updatedSelectedOptions);
   };
   return (
     <div className="step">
@@ -32,7 +49,6 @@ function GameServiceComponent() {
           htmlFor="title"
         >
           Title of the Offer
-
         </label>
         <input
           type="text"
@@ -42,18 +58,24 @@ function GameServiceComponent() {
           className="border rounded w-full py-2 px-3"
         />
       </div>
-      <label className="text-gray-700 text-sm font-bold mb-2 mr-2 tracking-wide" htmlFor="price">Product Price</label>
+      <label className="text-gray-700 text-sm font-bold mb-2 mr-2 tracking-wide" htmlFor="price">
+        Product Price
+      </label>
       <div className="mb-4 flex items-center">
-        <input type="number" id="price" required name="price" className="border rounded w-full py-2 px-3" />
-
-        <label className="block ml-10 mr-6 text-gray-700 text-sm font-bold mb-2   tracking-wider" htmlFor="quantity">
+        <input
+          type="number"
+          id="price"
+          required
+          name="price"
+          className="border rounded w-full py-2 px-3"
+        />
+        <label className="block ml-10 mr-6 text-gray-700 text-sm font-bold mb-2 tracking-wider" htmlFor="quantity">
           Quantity:
         </label>
         <select
-          className="px-4   py-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 focus:ring focus:ring-blue-300 outline-none"
+          className="px-4 py-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 focus:ring focus:ring-blue-300 outline-none"
           value={quantity}
           id="quantity"
-
           onChange={handleQuantityChange}
         >
           {[...Array(10).keys()].map((num) => (
@@ -66,32 +88,62 @@ function GameServiceComponent() {
             </option>
           ))}
         </select>
-
-
       </div>
-      <div className="grid gap-1 ">
-        <h4
-          className="block tracking-wide mt-2  text-gray-700 text-sm font-bold mb-2.5"
-          htmlFor="title"
-        >
+      <div className="grid gap-1">
+        <h4 className="block tracking-wide mt-2 text-gray-700 text-sm font-bold mb-2.5">
           Optional title
-
         </h4>
-        <div className="flex flex-wrap gap-2  w-fit text-[10px] sm:text-xs">
+        <div className="flex flex-wrap gap-2 w-fit text-[10px] sm:text-xs">
           {Object.entries(selectedOptions).map(([key, value]) => (
-            <span key={key} className="p-2 bg-gray-300 w-fit rounded-lg">
-              {key}: {value}
-            </span>
+            <div key={key} className="flex items-center p-2 bg-gray-300 w-fit rounded-lg">
+              <span className="mr-2">
+                {key}: {value}
+              </span>
+              <button
+                onClick={() => handleDeleteOption(key)}
+                className="text-red-500 font-bold"
+              >
+                X
+              </button>
+            </div>
           ))}
-
+          {customOptions.map((option, index) => (
+            <div
+              key={index}
+              className="flex items-center p-2 bg-gray-300 w-fit rounded-lg cursor-pointer"
+              onClick={() => handleKeySelect(option)}
+            >
+              <span className="mr-2">
+                Custom {index + 1}: {option}
+              </span>
+              <button
+                onClick={() => handleDeleteOption(`custom${index + 1}`)}
+                className="text-red-500 font-bold"
+              >
+                X
+              </button>
+            </div>
+          ))}
         </div>
         <div className="mt-4">
+          <select
+            className="px-4 py-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 focus:ring focus:ring-blue-300 outline-none"
+            value={selectedKey}
+            onChange={(e) => setSelectedKey(e.target.value)}
+          >
+            <option value="">Select a key</option>
+            {predefinedKeys.map((key) => (
+              <option key={key} value={key}>
+                {key}
+              </option>
+            ))}
+          </select>
           <input
             type="text"
-            placeholder="Add Custom Option"
+            placeholder="Enter Value"
             value={newOption}
             onChange={handleInputChange}
-            className="p-2 bg-gray-200 rounded-lg"
+            className="p-2 bg-gray-200 rounded-lg ml-2"
           />
           <button
             onClick={handleAddOption}
@@ -101,7 +153,7 @@ function GameServiceComponent() {
           </button>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 
