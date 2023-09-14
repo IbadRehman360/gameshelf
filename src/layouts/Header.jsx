@@ -97,9 +97,9 @@ export default function Header() {
                   </NavLink>
                   <div className="relative inline-block group">
                     <img
-                      src="/dollar(1).png"
+                      src="/dollar(2).png"
                       alt="Coin Image"
-                      className={`w-10 h-[33px] transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
+                      className={`w-10 h-[35px] transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
                         }`}
                       onClick={handleClick}
                       onMouseEnter={handleHover}
