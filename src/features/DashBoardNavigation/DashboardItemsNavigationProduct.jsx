@@ -10,7 +10,7 @@ const trendingGames = [
   { title: "Call of Duty", link: "#", stock: 7 },
   { title: "Cyberpunk 2077", link: "#", stock: 3 },
 ];
-
+// F:\Study Folder\Privite\Team Projects\gameshelf\public\gamelogo1.png
 const additionalGames = [
   { title: "Overwatch", link: "#", stock: 9 },
   { title: "Apex Legends", link: "#", stock: 18 },

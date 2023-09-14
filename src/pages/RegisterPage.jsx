@@ -6,7 +6,7 @@ import {useForm} from "react-hook-form";
 import PasswordStrengthBar from "react-password-strength-bar";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 //Quick hack to fix later
 async function CheckAuth() {
@@ -22,6 +22,7 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState(false);
+  const navigate = useNavigate();
   
   const {handleSubmit, register} = useForm();
 
@@ -48,7 +49,7 @@ export default function RegisterPage() {
       email: email,
       password: password,
     })
-    redirect("/login");
+    navigate("/login");
   }
 
   if (isLogged === null) return <></>;

@@ -51,15 +51,15 @@ export default function ProfilePage() {
                   </h5>
                   <DashboardListingFilter />
                   <Suspense fallback={<ProfileProductLoading />}>
-                    <ProfileProduct />
+                    <ProfileProduct profileData={profileData} />
                   </Suspense>
                   <FuturePagination
                     onchange={"xl:flex"}
                     onchange2={"xl:hidden"}
                   />
                 </div>
-                <Suspense fallback={<ProfileStatsLoader/>}>
-                  <ProfileStats profileData={profileData}  />
+                <Suspense fallback={<ProfileStatsLoader />}>
+                  <ProfileStats profileData={profileData} />
                 </Suspense>
               </div>
             </div>
