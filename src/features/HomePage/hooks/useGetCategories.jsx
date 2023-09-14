@@ -2,7 +2,7 @@ import supabase from "../../../services/supabase";
 import { useState, useEffect } from "react";
 
 function useGetCategories() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
