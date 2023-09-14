@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import ProfileEdit from "./ProfileEdit";
 import ProfileEditLanguage from "./ProfileEditLanguage";
@@ -172,7 +172,7 @@ export default function ProfileInfo({ profileData }) {
               <div className="flex flex-wrap gap-4 py-6">
                 {user?.languages ?
                   user.languages.map((language) => (
-                    <div className="bg-white w-fit p-5 rounded-lg border-[1px] border-gray-400">
+                    <div key={language} className="bg-white w-fit p-5 rounded-lg border-[1px] border-gray-400">
                       {language}
                     </div>
                   )): <></>}
