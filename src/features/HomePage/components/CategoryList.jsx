@@ -3,7 +3,7 @@ import useGetCategories from "../hooks/useGetCategories";
 import {  useEffect, useState } from "react";
 
 export default function CategoryList() {
-  const [data, error] = useGetCategories();
+  const [data] = useGetCategories();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

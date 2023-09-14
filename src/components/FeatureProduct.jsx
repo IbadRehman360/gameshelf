@@ -1,4 +1,4 @@
-export default function FeaturedProduct({ featureProduct }) {
+export default function FeaturedProduct() {
   const now = new Date();
   const currentHour = now.getHours();
 
@@ -7,7 +7,7 @@ export default function FeaturedProduct({ featureProduct }) {
       <div className="flex flex-col p-3 lg:p-4 flex-co border-2 bg-[#fdfdfd] rounded-2xl  ">
         <div className="flex flex-col gap-1  ">
           <h3 className="sm:text-xs lg:text-sm xl:text-[0.95rem] text-[0.8rem] mt-1 mb-1   tracking-tighter   text-black   font-medium  line-clamp-2 ">
-            {featureProduct.title}
+            Product Title
           </h3>
         </div>
         <div className="flex justify-between lg:mt-4 mt-2 sm:mb-4  mb-3">

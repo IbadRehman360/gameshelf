@@ -2,15 +2,12 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { RiFilter3Line } from "react-icons/ri";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useState } from "react";
-import { Switch } from "@headlessui/react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function DashboardSearchBar() {
-  const [enabled, setEnabled] = useState(false);
 
   return (
     <div>

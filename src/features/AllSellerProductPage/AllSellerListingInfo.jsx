@@ -15,7 +15,7 @@ export default function DashBoardInfo() {
               This platform seamlessly connects gaming enthusiasts who are
               looking to part with their meticulously nurtured accounts With its
               intuitive design
-            </p>{" "}
+            </p>
             Those passionate gamers who are eager to acquire high-quality
             profiles for their favorite games.
             <p>
@@ -32,7 +32,7 @@ export default function DashBoardInfo() {
               multiple reasons.
             </p>
             <p>
-              You'll find a wide array of account choices with varying levels,
+              You&apos;ll find a wide array of account choices with varying levels,
               achievements, skins, and prices from trusted gaming merchants.
             </p>
             <p>
@@ -41,15 +41,14 @@ export default function DashBoardInfo() {
               your email.
             </p>
             <p>
-              {" "}
               Direct chat ensures smooth buyer-seller communication. Enjoy
               flexible payment methods and global accessibility. Explore more
-              Tom Clancy's Rainbow Six Siege services on GamerShelf.
+              Tom Clancy&apos;s Rainbow Six Siege services on GamerShelf.
             </p>
             <p></p>
           </div>
           <h4 className="mb-4  font-bold text-lg sm:text-1xl xl:text-[1.4rem]">
-            Gamer's Guide: R6 Account Purchase{" "}
+            Gamer&apos;s Guide: R6 Account Purchase
           </h4>
           <ol className="grid gap-3 mb-6">
             <li>

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import supabase from "../services/supabase";
 
 const AuthContext = createContext();
@@ -12,7 +12,6 @@ function AuthProvider({ children }) {
   async function getSession() {
     const {
       data: { session },
-      error,
     } = await supabase.auth.getSession();
     if (session) {
       const {
