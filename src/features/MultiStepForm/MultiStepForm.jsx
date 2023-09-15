@@ -23,11 +23,13 @@ function useMultiStepForm({ user }) {
   const onSubmit = () => {
     if (step === 3) {
       setStep(step + 1);
+      console.log(register);
     } else {
+      console.log(register);
       setStep(step + 1);
     }
   };
-
+  watch();
   const stepComponents = {
     1: <OfferGamesService register={register}>Step One</OfferGamesService>,
     2: (
