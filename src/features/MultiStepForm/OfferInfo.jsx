@@ -1,15 +1,6 @@
-import { useState } from "react";
 import { FiTrash } from "react-icons/fi";
 
-function GameServiceComponent({
-  formData,
-  updateFormField,
-  handleDeleteOption,
-  setFormData,
-}) {
-  const [selectedKey, setSelectedKey] = useState("");
-  const [newOption, setNewOption] = useState("");
-
+function GameServiceComponent({ register, setValue, getValues }) {
   const predefinedKeys = [
     "Rank",
     "Level",
@@ -17,21 +8,31 @@ function GameServiceComponent({
     "Battle-Passes",
     "Currency",
   ];
+  const handleAddClick = () => {
+    const key = getValues("key");
+    const value = getValues("value");
+    let currentOptions = getValues("options") || [];
 
-  const handleAddOption = (e) => {
-    e.preventDefault();
-    if (selectedKey && newOption) {
-      const updatedOptions = { ...formData.options, [selectedKey]: newOption };
-      setFormData({ ...formData, options: updatedOptions });
-      setNewOption("");
-      setSelectedKey("");
+    const existingIndex = currentOptions.findIndex(
+      (options) => options.key === key
+    );
+
+    if (existingIndex !== -1) {
+      currentOptions[existingIndex].value = value;
+    } else if (currentOptions.length < 4 && key && value) {
+      currentOptions.push({ key, value });
+    }
+
+    setValue("options", currentOptions);
+  };
+  const handleRemoveClick = (index) => {
+    let currentOptions = getValues("options") || [];
+
+    if (index >= 0 && index < currentOptions.length) {
+      currentOptions.splice(index, 1);
+      setValue("options", currentOptions);
     }
   };
-
-  const handleInputChange = (e) => {
-    setNewOption(e.target.value);
-  };
-
   return (
     <div className="step">
       <div className="mb-4">
@@ -45,8 +46,8 @@ function GameServiceComponent({
           type="text"
           id="title"
           name="title"
+          {...register("title")}
           required
-          onChange={(e) => updateFormField("title", e.target.value)}
           className="border rounded w-full py-2 px-3"
         />
       </div>
@@ -61,8 +62,8 @@ function GameServiceComponent({
           type="number"
           id="price"
           name="price"
+          {...register("price")}
           required
-          onChange={(e) => updateFormField("price", e.target.value)}
           className="border rounded w-full py-2 px-3"
         />
         <div className="my-5 sm:hidden"> </div>
@@ -76,9 +77,8 @@ function GameServiceComponent({
 
         <select
           className="px-6 py-1.5 sm:py-2 border border-gray-400 rounded-lg bg-white hover:bg-gray-100 focus:ring  outline-none"
-          value={formData.stock}
           id="quantity"
-          onChange={(e) => updateFormField("stock", e.target.value)}
+          {...register("stock")}
         >
           {[...Array(10).keys()].map((num) => (
             <option
@@ -93,34 +93,30 @@ function GameServiceComponent({
       </div>
       <div className="grid gap-4">
         <div className="flex flex-wrap gap-4 text-sm sm:text-base mb-2">
-          {Object.entries(formData.options).map(([key, value]) => (
+          {getValues("options").map((option, index) => (
             <div
-              key={key}
+              key={index}
               className="flex items-center px-3 py-2 bg-gray-100 text-gray-700 rounded-lg shadow-md sm:mb-0 my-1 w-auto"
             >
               <span className="mr-2">
-                {key}: {value}
+                {option.key}: {option.value}
               </span>
               <button
-                onClick={() => handleDeleteOption(key)}
-                className="text-red-600  font-bold hover:text-red-700 focus:outline-none"
+                onClick={() => handleRemoveClick(index)}
+                className="text-red-600 font-bold hover:text-red-700 focus:outline-none"
               >
                 <FiTrash />
               </button>
             </div>
           ))}
         </div>
-        <h4 className="text-[1.06rem]  text-gray-600 font-bold  ">
-          <span className="   tracking-wide border-gray-400">
-            {" "}
-            Optional Titles{" "}
-          </span>
+        <h4 className="text-[1.06rem] text-gray-600 font-bold">
+          <span className="tracking-wide border-gray-400">Optional Titles</span>
         </h4>
         <div className="mt-2 mb-6 grid sm:gap-2 gap-6 sm:flex">
           <select
+            {...register("key")}
             className="px-4 py-2 border border-purple-300 rounded-lg bg-white hover:bg-gray-200 focus:ring-2 focus:ring-purple-300 outline-none w-full sm:w-auto"
-            value={selectedKey}
-            onChange={(e) => setSelectedKey(e.target.value)}
           >
             <option value="">Select a key</option>
             {predefinedKeys.map((key) => (
@@ -130,15 +126,14 @@ function GameServiceComponent({
             ))}
           </select>
           <input
+            {...register("value")}
             type="text"
             placeholder="Enter Value"
-            value={newOption}
-            onChange={handleInputChange}
             className="p-2 bg-gray-50 rounded-lg sm:ml-2 border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-300 w-full sm:w-auto"
           />
           <button
-            onClick={handleAddOption}
-            className="p-2.5 sm:ml-2 bg-slate-600 px-6 text-white text-sm font-semibold  rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-300 w-full    sm:w-auto"
+            onClick={handleAddClick}
+            className="p-2.5 sm:ml-2 bg-slate-600 px-6 text-white text-sm font-semibold rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-300 w-full sm:w-auto"
           >
             Add
           </button>

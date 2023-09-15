@@ -33,23 +33,22 @@ const Games = [
   "Cyberpunk 2077",
 ];
 
-function GameSelectionComponent({ formData, updateFormField }) {
+function GameSelectionComponent({ register }) {
   return (
     <div className="step">
       <div className="my-4 3xl:my-8">
         <label
           className="block text-gray-700 tracking-wide  text-md font-bold mb-2"
-          htmlFor="gameType"
+          htmlFor="service"
         >
           Select Service
         </label>
         <select
-          required
-          id="gameType"
-          name="gameType"
-          value={formData.service}
-          onChange={(e) => updateFormField("service", e.target.value)}
-          className="border border-gray-400 rounded w-full py-2 px-3"
+          id="service"
+          name="service"
+          defaultValue="test"
+          {...register("service")}
+          className="border  border-gray-400 rounded w-full py-2 px-3"
         >
           <option value="">Select an option</option>
           <option value="video-games">Video Games</option>
@@ -69,9 +68,8 @@ function GameSelectionComponent({ formData, updateFormField }) {
             required
             id="game"
             name="game"
-            value={formData.game}
-            onChange={(e) => updateFormField("game", e.target.value)}
-            disabled={!formData.service}
+            defaultValue="test"
+            {...register("game")}
             className="border    border-gray-400 rounded   overflow-hidden w-full py-2 px-3"
           >
             <option>Select an option</option>
