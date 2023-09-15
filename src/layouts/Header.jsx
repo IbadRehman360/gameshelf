@@ -187,7 +187,7 @@ export default function Header() {
                   <NavLink
                     className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.rem] px-10 py-[7px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                     type="button"
-                    to={"/sell"}
+                    to={"/sell/ibadkhan"}
                   >
                     Sell
                   </NavLink>

@@ -33,8 +33,9 @@ export default function HeroImages({ index, imageUrl }) {
           {!session && (
             <NavLink
               to="login"
-              className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1rem] ${darkSlides.includes(index) ? "text-white " : "text-gray-900"
-                } sm:text-gray-900"`}
+              className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1rem] ${
+                darkSlides.includes(index) ? "text-white " : "text-gray-900"
+              } sm:text-gray-900"`}
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </NavLink>
@@ -108,7 +109,7 @@ export default function HeroImages({ index, imageUrl }) {
           </h3>
           <div className="my-4 sm:my-0 sm:mt-6 flex lg:mt-8 mt-6  gap-x-6 lg:gap-x-8 justify-center align-middle items-center text-center  place-self-center">
             <a
-              href="/sell"
+              href="/sell/ibadkhan"
               className="  text-[0.59rem]   bg-rose-600 hover:bg-rose-500 sm:text-xs md:w-28 md:h-10 lg:w-32  h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition w-20  flex justify-center items-center rounded-md  lg:py-4 font-semibold text-gray-200 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Start Selling
