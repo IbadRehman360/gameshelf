@@ -1,19 +1,20 @@
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
-function OfferInfoComponent() {
+function OfferInfoComponent({ register }) {
   return (
     <div className="step">
       <div className="mb-4">
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="productDescription"
+          htmlFor="description"
         >
           Product Description
         </label>
         <textarea
           required
-          id="productDescription"
-          name="productDescription"
+          id="description"
+          {...register("description")}
+          name="description"
           className="border rounded w-full py-2 px-3"
         ></textarea>
       </div>
@@ -32,13 +33,14 @@ function OfferInfoComponent() {
             />
             <div className="mt-4 flex text-sm leading-6 text-gray-600">
               <label
-                htmlFor="file-upload"
+                htmlFor="images"
                 className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
               >
                 <span>Upload a file</span>
                 <input
-                  id="file-upload"
-                  name="file-upload"
+                  {...register("images")}
+                  id="images"
+                  name="images"
                   type="file"
                   className="sr-only"
                 />

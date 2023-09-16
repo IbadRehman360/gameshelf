@@ -1,6 +1,8 @@
 // import { FaFacebookF, FaTwitter, FaSnapchatGhost } from "react-icons/fa";
 // import { BsFillCircleFill } from "react-icons/bs";
 
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <div>
@@ -25,7 +27,9 @@ export default function Footer() {
         <div className=" sm:flex flex-col sm:flex-end">
           <span className="footer-title">Company</span>
           <div className=" lg:text-sm text-xs gap-2 grid">
-            <a className="link link-hover">About us</a>
+            <Link to="/about" className="link link-hover">
+              About us
+            </Link>
             <a className="link link-hover">Contact</a>
             <a className="link link-hover">Jobs</a>
             <a className="link link-hover">Press kit</a>

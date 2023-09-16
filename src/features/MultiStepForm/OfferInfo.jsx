@@ -1,51 +1,43 @@
-import { useState } from "react";
+import { FiTrash } from "react-icons/fi";
 
-function GameServiceComponent() {
-  const [quantity, setQuantity] = useState(1);
-  const [selectedOptions, setSelectedOptions] = useState({});
-  const [customOptions, setCustomOptions] = useState([]); //eslint-disable-line
-  const [newOption, setNewOption] = useState("");
-  const [selectedKey, setSelectedKey] = useState("");
-
+function GameServiceComponent({ register, setValue, getValues }) {
   const predefinedKeys = [
-    "Game Items",
-    "Account",
-    "Gift Card",
-    "Game",
-    "Other",
-    // Add more predefined keys here
+    "Rank",
+    "Level",
+    "Items",
+    "Battle-Passes",
+    "Currency",
   ];
+  const handleAddClick = () => {
+    const key = getValues("key");
+    const value = getValues("value");
+    let currentOptions = getValues("options") || [];
 
-  const handleQuantityChange = (e) => {
-    setQuantity(parseInt(e.target.value));
-  };
+    const existingIndex = currentOptions.findIndex(
+      (options) => options.key === key
+    );
 
-  const handleInputChange = (e) => {
-    setNewOption(e.target.value);
-  };
-
-  const handleKeySelect = (key) => {
-    setSelectedKey(key);
-  };
-
-  const handleAddOption = () => {
-    if (selectedKey && newOption.trim() !== "") {
-      setSelectedOptions({ ...selectedOptions, [selectedKey]: newOption });
-      setNewOption("");
-      setSelectedKey("");
+    if (existingIndex !== -1) {
+      currentOptions[existingIndex].value = value;
+    } else if (currentOptions.length < 4 && key && value) {
+      currentOptions.push({ key, value });
     }
-  };
 
-  const handleDeleteOption = (key) => {
-    const updatedSelectedOptions = { ...selectedOptions };
-    delete updatedSelectedOptions[key];
-    setSelectedOptions(updatedSelectedOptions);
+    setValue("options", currentOptions);
+  };
+  const handleRemoveClick = (index) => {
+    let currentOptions = getValues("options") || [];
+
+    if (index >= 0 && index < currentOptions.length) {
+      currentOptions.splice(index, 1);
+      setValue("options", currentOptions);
+    }
   };
   return (
     <div className="step">
       <div className="mb-4">
         <label
-          className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
+          className="block tracking-wide text-gray-700 text-md mb-4 font-bold"
           htmlFor="title"
         >
           Title of the Offer
@@ -54,82 +46,77 @@ function GameServiceComponent() {
           type="text"
           id="title"
           name="title"
+          {...register("title")}
           required
           className="border rounded w-full py-2 px-3"
         />
       </div>
-      <label className="text-gray-700 text-sm font-bold mb-2 mr-2 tracking-wide" htmlFor="price">
+      <label
+        className="text-gray-700 text-md font-bold mr-2 tracking-wide"
+        htmlFor="price"
+      >
         Product Price
       </label>
-      <div className="mb-4 flex items-center">
+      <div className="mb-6 mt-4  sm:flex items-center">
         <input
           type="number"
           id="price"
-          required
           name="price"
+          {...register("price")}
+          required
           className="border rounded w-full py-2 px-3"
         />
-        <label className="block ml-10 mr-6 text-gray-700 text-sm font-bold mb-2 tracking-wider" htmlFor="quantity">
+        <div className="my-5 sm:hidden"> </div>
+        <label
+          className="sm:block sm:ml-10 mr-6  text-gray-700 text-md font-bold mb-2 tracking-wider"
+          htmlFor="quantity"
+        >
           Quantity:
         </label>
+        <div className="my-5 sm:hidden"> </div>
+
         <select
-          className="px-4 py-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 focus:ring focus:ring-blue-300 outline-none"
-          value={quantity}
+          className="px-6 py-1.5 sm:py-2 border border-gray-400 rounded-lg bg-white hover:bg-gray-100 focus:ring  outline-none"
           id="quantity"
-          onChange={handleQuantityChange}
+          {...register("stock")}
         >
           {[...Array(10).keys()].map((num) => (
             <option
               key={num}
               value={num + 1}
-              className="bg-blue-100 hover:bg-blue-200 text-blue-900 font-medium"
+              className="bg-gray-50 hover:bg-gray-200 text-blue-900 font-medium"
             >
               {num + 1}
             </option>
           ))}
         </select>
       </div>
-      <div className="grid gap-1">
-        <h4 className="block tracking-wide mt-2 text-gray-700 text-sm font-bold mb-2.5">
-          Optional title
-        </h4>
-        <div className="flex flex-wrap gap-2 w-fit text-[10px] sm:text-xs">
-          {Object.entries(selectedOptions).map(([key, value]) => (
-            <div key={key} className="flex items-center p-2 bg-gray-300 w-fit rounded-lg">
-              <span className="mr-2">
-                {key}: {value}
-              </span>
-              <button
-                onClick={() => handleDeleteOption(key)}
-                className="text-red-500 font-bold"
-              >
-                X
-              </button>
-            </div>
-          ))}
-          {customOptions.map((option, index) => (
+      <div className="grid gap-4">
+        <div className="flex flex-wrap gap-4 text-sm sm:text-base mb-2">
+          {getValues("options").map((option, index) => (
             <div
               key={index}
-              className="flex items-center p-2 bg-gray-300 w-fit rounded-lg cursor-pointer"
-              onClick={() => handleKeySelect(option)}
+              className="flex items-center px-3 py-2 bg-gray-100 text-gray-700 rounded-lg shadow-md sm:mb-0 my-1 w-auto"
             >
               <span className="mr-2">
-                Custom {index + 1}: {option}
+                {option.key}: {option.value}
               </span>
               <button
-                onClick={() => handleDeleteOption(`custom${index + 1}`)}
-                className="text-red-500 font-bold"
+                onClick={() => handleRemoveClick(index)}
+                className="text-red-600 font-bold hover:text-red-700 focus:outline-none"
               >
-                X
+                <FiTrash />
               </button>
             </div>
           ))}
         </div>
-        <div className="mt-4">
+        <h4 className="text-[1.06rem] text-gray-600 font-bold">
+          <span className="tracking-wide border-gray-400">Optional Titles</span>
+        </h4>
+        <div className="mt-2 mb-6 grid sm:gap-2 gap-6 sm:flex">
           <select
-            className="px-4 py-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 focus:ring focus:ring-blue-300 outline-none"
-            value={selectedKey}
-            onChange={(e) => setSelectedKey(e.target.value)}
+            {...register("key")}
+            className="px-4 py-2 border border-purple-300 rounded-lg bg-white hover:bg-gray-200 focus:ring-2 focus:ring-purple-300 outline-none w-full sm:w-auto"
           >
             <option value="">Select a key</option>
             {predefinedKeys.map((key) => (
@@ -139,15 +126,14 @@ function GameServiceComponent() {
             ))}
           </select>
           <input
+            {...register("value")}
             type="text"
             placeholder="Enter Value"
-            value={newOption}
-            onChange={handleInputChange}
-            className="p-2 bg-gray-200 rounded-lg ml-2"
+            className="p-2 bg-gray-50 rounded-lg sm:ml-2 border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-300 w-full sm:w-auto"
           />
           <button
-            onClick={handleAddOption}
-            className="p-2 ml-2 bg-blue-500 text-white rounded-lg"
+            onClick={handleAddClick}
+            className="p-2.5 sm:ml-2 bg-slate-600 px-6 text-white text-sm font-semibold rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-300 w-full sm:w-auto"
           >
             Add
           </button>

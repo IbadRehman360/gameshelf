@@ -17,7 +17,7 @@ export default function Header() {
 
   function handleSignOut() {
     if (signOutUser()) {
-      navigate("/")
+      navigate("/");
     }
   }
   const [isHovered, setIsHovered] = useState(false);
@@ -34,7 +34,6 @@ export default function Header() {
   const handleClick = () => {
     setIsClicked(!isClicked);
   };
-
 
   return (
     <Disclosure as="nav">
@@ -91,7 +90,7 @@ export default function Header() {
                   <NavLink
                     className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.02rem] px-9 py-[6px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
                     type="button"
-                    to={"/sell"}
+                    to={"/sell/ibadkhan"}
                   >
                     Sell
                   </NavLink>
@@ -99,17 +98,21 @@ export default function Header() {
                     <img
                       src="/dollar(2).png"
                       alt="Coin Image"
-                      className={`w-10 h-[35px] transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
-                        }`}
+                      className={`w-10 h-[35px] transform transition-transform hover:scale-110 active:scale-95 ${
+                        isClicked ? "scale-110" : ""
+                      }`}
                       onClick={handleClick}
                       onMouseEnter={handleHover}
                       onMouseLeave={handleMouseLeave}
                     />
                     <div
-                      className={`absolute ${isHovered || isClicked ? 'block' : 'hidden'
-                        } w-24 p-2 bg-white border  -bottom-14 border-gray-300 rounded-lg shadow-lg transform -translate-x-1/3 left-1/3 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-50`}
+                      className={`absolute ${
+                        isHovered || isClicked ? "block" : "hidden"
+                      } w-24 p-2 bg-white border  -bottom-14 border-gray-300 rounded-lg shadow-lg transform -translate-x-1/3 left-1/3 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-50`}
                     >
-                      <p className="text-gray-800 text-center font-semibold">200 Coins</p>
+                      <p className="text-gray-800 text-center font-semibold">
+                        200 Coins
+                      </p>
                     </div>
                   </div>
                   <a
@@ -162,7 +165,6 @@ export default function Header() {
                           )}
                         </Menu.Item>
 
-
                         <Menu.Item>
                           {({ active }) => (
                             <button
@@ -180,25 +182,25 @@ export default function Header() {
                     </Transition>
                   </Menu>
                 </div>
-              ) : <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
-                <NavLink
-                  className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.rem] px-10 py-[7px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
-                  type="button"
-                  to={"/sell"}
-                >
-                  Sell
-                </NavLink>
-                <NavLink
-                  className="  bg-rose-500 hover:opacity-95 hover:bg-rose-500 mt-1 active:bg-gray-400  font-medium hover:shadow-md shadow text-[0.9rem]  text-gray-50 py-2.5 px-6  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
-                  type="button"
-                  to={"/login"}
-                >
-                  Login / Sign up
-                </NavLink>
-              </div>
-              }
+              ) : (
+                <div className="hidden lg:ml-4 gap-6 lg:flex lg:items-center">
+                  <NavLink
+                    className=" bg-gray-50 mt-1 hover:bg-gray-100 opacity-95 active:bg-gray-400 text-black font-medium hover:shadow-md shadow text-[1.rem] px-10 py-[7px]  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                    type="button"
+                    to={"/sell/ibadkhan"}
+                  >
+                    Sell
+                  </NavLink>
+                  <NavLink
+                    className="  bg-rose-500 hover:opacity-95 hover:bg-rose-500 mt-1 active:bg-gray-400  font-medium hover:shadow-md shadow text-[0.9rem]  text-gray-50 py-2.5 px-6  rounded-full  outline-none focus:outline-none  ease-linear transition-all duration-150"
+                    type="button"
+                    to={"/login"}
+                  >
+                    Login / Sign up
+                  </NavLink>
+                </div>
+              )}
             </div>
-
           </div>
 
           <Disclosure.Panel className="lg:hidden w-full absolute z-20 bg-[#3b404e]   ">
@@ -238,20 +240,23 @@ export default function Header() {
                     <img
                       src="/dollar(1).png"
                       alt="Coin Image"
-                      className={`w-9 h-8  transform transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
-                        }`}
+                      className={`w-9 h-8  transform transition-transform hover:scale-110 active:scale-95 ${
+                        isClicked ? "scale-110" : ""
+                      }`}
                       onClick={handleClick}
                       onMouseEnter={handleHover}
                       onMouseLeave={handleMouseLeave}
                     />
                     <div
-                      className={`absolute ${isHovered || isClicked ? 'block' : 'hidden'
-                        } w-20 p-1 bg-white border  -bottom-9 border-gray-300 rounded-lg shadow-lg transform -translate-x-1/3  opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-50`}
+                      className={`absolute ${
+                        isHovered || isClicked ? "block" : "hidden"
+                      } w-20 p-1 bg-white border  -bottom-9 border-gray-300 rounded-lg shadow-lg transform -translate-x-1/3  opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-50`}
                     >
-                      <p className="text-gray-800 text-center text-xs font-semibold">200 Coins</p>
+                      <p className="text-gray-800 text-center text-xs font-semibold">
+                        200 Coins
+                      </p>
                     </div>
                   </div>
-
                 </div>
               </div>
               <div className="mt-4 pt-4 space-y-1">
@@ -285,8 +290,7 @@ export default function Header() {
             </div>
           </Disclosure.Panel>
         </>
-      )
-      }
-    </Disclosure >
+      )}
+    </Disclosure>
   );
 }
