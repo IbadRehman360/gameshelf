@@ -17,7 +17,7 @@ export default function HeroImages({ index, imageUrl }) {
   const { session } = useAuth();
   return (
     <div className="relative">
-      <div className="h-[50vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[40vh] xl:h-[46vh]">
+      <div className="h-[50vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
         <img
           className="h-full w-full object-cover"
           src={`${imageUrl}`}
@@ -109,7 +109,7 @@ export default function HeroImages({ index, imageUrl }) {
           <div className="my-4 mt-6 flex items-center justify-center gap-x-6 place-self-center text-center align-middle sm:my-0 sm:mt-6 lg:mt-8 lg:gap-x-8">
             <a
               href="/sell/ibadkhan"
-              className="flex h-8 w-20 items-center justify-center rounded-md bg-rose-600 text-[0.59rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-9 sm:text-xs md:h-9 md:w-28 lg:h-10 lg:w-32 lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
+              className="flex h-8 w-20 items-center justify-center  rounded-md bg-rose-600 text-[0.59rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-9 sm:text-xs md:h-9 md:w-28 lg:h-10 lg:w-32 lg:py-4  2xl:h-14 2xl:text-[1.03rem]"
             >
               Start Selling
             </a>
