@@ -5,7 +5,7 @@ function OfferInfoComponent() {
     <div className="step">
       <div className="mb-4">
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="mb-2 block text-sm font-bold text-gray-700"
           htmlFor="productDescription"
         >
           Product Description
@@ -14,7 +14,7 @@ function OfferInfoComponent() {
           required
           id="productDescription"
           name="productDescription"
-          className="border rounded w-full py-2 px-3"
+          className="w-full rounded border px-3 py-2"
         ></textarea>
       </div>
       <div className="col-span-full">

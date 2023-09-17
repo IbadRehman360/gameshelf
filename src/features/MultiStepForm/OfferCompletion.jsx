@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 function RegistrationSuccess() {
   const navigate = useNavigate();
   return (
-    <div className="grid text-center my-10">
+    <div className="my-10 grid text-center">
       <svg
-        className="mb-4 h-20 w-20 text-green-500 mx-auto"
+        className="mx-auto mb-4 h-20 w-20 text-green-500"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -16,11 +16,11 @@ function RegistrationSuccess() {
         />
       </svg>
 
-      <h2 className="text-2xl mb-4 text-gray-800 text-center font-bold">
+      <h2 className="mb-4 text-center text-2xl font-bold text-gray-800">
         Successfully Listed
       </h2>
 
-      <div className="text-gray-700 mb-8 sm:px-10 xl:px-28 2xl:px-40">
+      <div className="mb-8 text-gray-700 sm:px-10 xl:px-28 2xl:px-40">
         We&apos;re excited to inform you that your product has been successfully
         listed, Thank you! You can now take a closer look at it by visiting your
         profile. Feel free to explore and manage your listing at your
@@ -29,7 +29,7 @@ function RegistrationSuccess() {
 
       <button
         onClick={() => navigate("/")}
-        className="w-40 block mx-auto focus:outline-none py-2 px-5 rounded-lg shadow-sm text-center text-gray-600 bg-white hover:bg-gray-100 font-medium border"
+        className="mx-auto block w-40 rounded-lg border bg-white px-5 py-2 text-center font-medium text-gray-600 shadow-sm hover:bg-gray-100 focus:outline-none"
       >
         Back to home
       </button>

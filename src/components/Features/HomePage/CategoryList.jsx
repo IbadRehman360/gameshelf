@@ -13,11 +13,11 @@ const categories = [
 
 export default function CategoryList() {
   return (
-    <div className="mx-auto bg-gradient-to-b bg-[#ffffff]  border-2">
-      <h3 className="block justify-center md:mt-8 mt-6 text-center text-1xl  text-gray-700 md:mb-4 mb-2 lg:text-[1.7rem] 3xl:text-[1.8rem]  md:text-[1.7rem] text-[1.3rem]  ml-2  font-semibold ">
+    <div className="mx-auto border-2 bg-[#ffffff] bg-gradient-to-b">
+      <h3 className="mb-2 ml-2 mt-6 block justify-center text-center text-[1.3rem] font-semibold text-gray-700 md:mb-4 md:mt-8 md:text-[1.7rem] lg:text-[1.7rem] 3xl:text-[1.8rem]">
         EXPLORE CATEGORIES
       </h3>
-      <div className="  max-w-[1400px] grid mx-auto md:mb-6 mb-4 gap-10 grid-cols-4 md:grid-cols-8 md:gap-5 lg:gap-2 xl:gap-0 justify-items-center p-4 xl:p-3 pb-10 xl:pb-6">
+      <div className="mx-auto mb-4 grid max-w-[1400px] grid-cols-4 justify-items-center gap-10 p-4 pb-10 md:mb-6 md:grid-cols-8 md:gap-5 lg:gap-2 xl:gap-0 xl:p-3 xl:pb-6">
         {categories.map((categoryItem, i) => (
           <CategoryItem key={i} index={i} category={categoryItem} />
         ))}

@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 export default function TrendingVideoGame({ game }) {
   return (
     <Link>
-      <div className="flex flex-col  bg-[#fdfdfd] px-1 sm:px-1 relative lg:p-4 md:p-1 ">
+      <div className="relative flex flex-col bg-[#fdfdfd] px-1 sm:px-1 md:p-1 lg:p-4">
         <img src={game.src} alt="giftcardIcon" />
-        <p className="absolute lg:text-[0.8erm]  md:right-4 sm:top-3 top-2 right-3 lg:top-7 lg:right-7 md:text-[13px]  lg:p-[6px] md:p-[4px] rounded-md bg-gray-50/25 sm:p-[3px] sm:text-[11px] p-[4px] text-[10px] shadow-2xl bg-gradient-to-b sm:text-xs text-white text-center">
+        <p className="absolute right-3 top-2 rounded-md bg-gray-50/25 bg-gradient-to-b p-[4px] text-center text-[10px] text-white shadow-2xl sm:top-3 sm:p-[3px] sm:text-[11px] md:right-4 md:p-[4px] md:text-[13px] lg:right-7 lg:top-7 lg:p-[6px] lg:text-[0.8erm]">
           {game.offers} offers
         </p>
-        <span className="text-black  text-[13px] sm:text-sm mt-2  font-medium w-full text-center">
+        <span className="mt-2 w-full text-center text-[13px] font-medium text-black sm:text-sm">
           {game.title}
         </span>
       </div>

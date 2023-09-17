@@ -23,7 +23,7 @@ export default function HomePage() {
       <Suspense fallback={<CategoriesLoading />}>
         <Categories categories={categories} />
       </Suspense>
-      <div className=" bg-[#fdfdfd] mt-16 max-w-[1400px] px-0 xl:px-14 mx-auto">
+      <div className="mx-auto mt-16 max-w-[1400px] bg-[#fdfdfd] px-0 xl:px-14">
         <Suspense fallback={<ProductLoader />}>
           <FeaturedProducts />
         </Suspense>

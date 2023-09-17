@@ -14,32 +14,32 @@ export default function DashboardSearchBar() {
 
   return (
     <div>
-      <div className="  ">
-        <div className="flex items-center justify-between  rounded-3xl mb-8 mt-7 lg:gap-4 shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4">
-          <div className="relative rounded-lg flex items-center w-[90%] sm:w-[30%]">
+      <div className="">
+        <div className="mb-8 mt-7 flex items-center justify-between rounded-3xl shadow-[0px_0px_6px_rgba(0,0,0,0.3)] sm:p-4 lg:gap-4">
+          <div className="relative flex w-[90%] items-center rounded-lg sm:w-[30%]">
             <input
               type="text"
-              className="rounded-full rounded-e-none sm:rounded-lg py-1.5 md:py-2 px-8 text-[0.9rem] sm:mr-2 w-[100%] border-none focus:outline-none"
+              className="w-[100%] rounded-full rounded-e-none border-none px-8 py-1.5 text-[0.9rem] focus:outline-none sm:mr-2 sm:rounded-lg md:py-2"
               placeholder="Find Offers"
             />
             <AiOutlineSearch className="absolute mx-3 sm:mx-1" />
           </div>
-          <div className="sm:flex flex-1 sm:ml-8 sm:gap-4 md:ml-14 space-x-4 hidden md:gap-8 lg:gap-14  w-[100%] ">
+          <div className="hidden w-[100%] flex-1 space-x-4 sm:ml-8 sm:flex sm:gap-4 md:ml-14 md:gap-8 lg:gap-14">
             <a
               href="/"
-              className="text-gray-500 hover:text-gray-400   font-semibold transition duration-300"
+              className="font-semibold text-gray-500 transition duration-300 hover:text-gray-400"
             >
               Server
             </a>
             <a
               href="/"
-              className="text-gray-500 hover:text-gray-400 font-semibold transition duration-300"
+              className="font-semibold text-gray-500 transition duration-300 hover:text-gray-400"
             >
               Rank
             </a>
             <a
               href="/"
-              className="text-gray-500 hover:text-gray-400 font-semibold transition duration-300"
+              className="font-semibold text-gray-500 transition duration-300 hover:text-gray-400"
             >
               Budget
             </a>
@@ -47,16 +47,16 @@ export default function DashboardSearchBar() {
 
           <Menu
             as="div"
-            className="relative p-2 w-16 border-l-[1px] border[rgba(0,0,0,0.12)] sm:py-0 sm:border-0 sm:w-fit sm:inline-block text-left  "
+            className="relative w-16 border-l-[1px] p-2 text-left sm:inline-block sm:w-fit sm:border-0 sm:py-0"
           >
             <div>
-              <Menu.Button className="inline-flex w-full justify-center sm:justify-center sm:hidden gap-x-1.5 rounded-lg rounded-l-none sm:rounded-md  bg-white sm:bg-slate-50 px-3  py-[0.44rem] md:py-2 text-sm font-semibold text-gray-900 sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50">
-                <RiFilter3Line className="h-5 w-5 inline-block" />
+              <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-lg rounded-l-none bg-white px-3 py-[0.44rem] text-sm font-semibold text-gray-900 sm:hidden sm:justify-center sm:rounded-md sm:bg-slate-50 sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50 md:py-2">
+                <RiFilter3Line className="inline-block h-5 w-5" />
               </Menu.Button>
             </div>
 
             <div>
-              <label className="sm:flex items-center gap-3 font-semibold text-sm hidden text-black ">
+              <label className="hidden items-center gap-3 text-sm font-semibold text-black sm:flex">
                 <span className="text-gray-500">Online Seller</span>
                 <Switch
                   checked={enabled}
@@ -87,7 +87,7 @@ export default function DashboardSearchBar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black focus:outline-none">
                 <div className="py-1">
                   <Menu.Item>
                     {({ active }) => (

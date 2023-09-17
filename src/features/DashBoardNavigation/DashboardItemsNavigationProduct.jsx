@@ -37,12 +37,12 @@ const additionalGames = [
 export default function DashboardItemsNavigationProduct() {
   return (
     <div className="">
-      <div className="mx-auto max-w-4xl pb-40 lg:max-w-7xl  lg:px-8">
-        <h3 className="text-2xl mb-10 mt-12 text-center font-bold tracking-wide text-gray-700">
+      <div className="mx-auto max-w-4xl pb-40 lg:max-w-7xl lg:px-8">
+        <h3 className="mb-10 mt-12 text-center text-2xl font-bold tracking-wide text-gray-700">
           Recent Trending
         </h3>
         <h2 className="sr-only">Products</h2>
-        <div className="grid  gap-x-2 sm:gap-x-6 gap-y-6 sm:gap-y-10  grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        <div className="grid grid-cols-2 gap-x-2 gap-y-6 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {trendingGames.map((game, index) => (
             <DashboardNavigationProducts
               key={index}
@@ -51,10 +51,10 @@ export default function DashboardItemsNavigationProduct() {
             />
           ))}
         </div>
-        <h3 className="text-2xl mb-10 mt-16 tracking-wide text-center font-bold  text-gray-700">
+        <h3 className="mb-10 mt-16 text-center text-2xl font-bold tracking-wide text-gray-700">
           All brands for Accounts
         </h3>
-        <div className="grid   gap-x-2  sm:gap-x-6 gap-y-6 sm:gap-y-10  grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        <div className="grid grid-cols-2 gap-x-2 gap-y-6 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {additionalGames.map((game, index) => (
             <DashboardNavigationProducts
               key={index}

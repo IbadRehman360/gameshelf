@@ -3,7 +3,7 @@ export default function CallToAction() {
     <div className="relative py-16">
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
+        className="absolute inset-0 m-auto grid h-max w-full grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
       >
         {/* <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div> */}
         {/* <div className="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div> */}
@@ -51,7 +51,7 @@ export default function CallToAction() {
             className="h-8 w-8 rounded-full object-cover"
           />
         </div>
-        <div className="mt-6 m-auto space-y-6 md:w-8/12 lg:w-7/12">
+        <div className="m-auto mt-6 space-y-6 md:w-8/12 lg:w-7/12">
           <h1 className="text-center text-4xl font-bold text-gray-800 dark:text-white md:text-5xl">
             Begin Your Gaming Adventure{" "}
           </h1>
@@ -63,15 +63,15 @@ export default function CallToAction() {
           <div className="flex flex-wrap justify-center gap-6">
             <a
               href="#"
-              className="relative flex h-4 w-full items-center justify-center px-4 before:absolute before:inset-0 rounded-full  bg-gray-600    before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+              className="relative flex h-4 w-full items-center justify-center rounded-full bg-gray-600 px-4 before:absolute before:inset-0 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
             ></a>
             <a
               href="#"
-              className="relative flex h-4 w-full items-center justify-center px-4 before:absolute before:inset-0 rounded-full  bg-gray-600    before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+              className="relative flex h-4 w-full items-center justify-center rounded-full bg-gray-600 px-4 before:absolute before:inset-0 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
             ></a>
             <a
               href="#"
-              className="relative flex h-4 w-full items-center justify-center px-4 before:absolute before:inset-0 rounded-full  bg-gray-600    before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+              className="relative flex h-4 w-full items-center justify-center rounded-full bg-gray-600 px-4 before:absolute before:inset-0 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
             ></a>
           </div>
         </div>

@@ -110,7 +110,7 @@ function GameSelectionComponent() {
     <div className="step">
       <div className="mb-4">
         <label
-          className="block text-gray-700 tracking-wide  text-md font-bold mb-2"
+          className="mb-2 block font-bold tracking-wide text-gray-700"
           htmlFor="gameType"
         >
           Select Service
@@ -119,7 +119,7 @@ function GameSelectionComponent() {
           required
           id="gameType"
           name="gameType"
-          className="border border-gray-400 rounded w-full py-2 px-3"
+          className="w-full rounded border border-gray-400 px-3 py-2"
         >
           <option value="">Select an option</option>
           <option value="video-games">Video Games</option>
@@ -129,18 +129,18 @@ function GameSelectionComponent() {
           <option value="accounts">Accounts</option>
         </select>
         <label
-          className="block mt-4 text-gray-700 tracking-wide  text-md font-bold mb-2"
+          className="mb-2 mt-4 block font-bold tracking-wide text-gray-700"
           htmlFor="game"
         >
           Select Game
         </label>
-        <div className=" overflow-hidden">
+        <div className="overflow-hidden">
 
           <select
             required
             id="game"
             name="game"
-            className="border   border-gray-400 rounded   overflow-hidden w-full py-2 px-3"
+            className="w-full overflow-hidden rounded border border-gray-400 px-3 py-2"
           >
             <option >Select an option</option>
             {Games.map((game, index) => (
@@ -151,20 +151,20 @@ function GameSelectionComponent() {
           </select>
         </div>
       </div>
-      <div className="px-1 mb-3">
-        <p className="text-md mt-8 font-semibold text-gray-900 mb-3">
+      <div className="mb-3 px-1">
+        <p className="mb-3 mt-8 font-semibold text-gray-900">
           Notifications
         </p>
-        <div className="mt-2 text-sm text-gray-600 flex items-start">
+        <div className="mt-2 flex items-start text-sm text-gray-600">
           <label htmlFor="comments" className="inline-flex items-start">
             <input
               id="comments"
               name="comments"
               required
               type="checkbox"
-              className={`form-checkbox h-5 w-5 accent-gray-600 md:mt-0 mt-0.5`} // Change the color here
+              className={`mt-0.5 h-5 w-5 accent-gray-600 md:mt-0`} // Change the color here
             />
-            <span className="ml-2 text-[0.8rem] sm:text-[0.9rem] md:text-[0.92rem] font-medium text-slate-500 ">
+            <span className="ml-2 text-[0.8rem] font-medium text-slate-500 sm:text-[0.9rem] md:text-[0.92rem]">
               I agree to receive notifications about important changes and
               optional updates.
             </span>

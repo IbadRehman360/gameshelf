@@ -45,7 +45,7 @@ function GameServiceComponent() {
     <div className="step">
       <div className="mb-4">
         <label
-          className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
+          className="mb-2 block text-sm font-bold tracking-wide text-gray-700"
           htmlFor="title"
         >
           Title of the Offer
@@ -55,10 +55,10 @@ function GameServiceComponent() {
           id="title"
           name="title"
           required
-          className="border rounded w-full py-2 px-3"
+          className="w-full rounded border px-3 py-2"
         />
       </div>
-      <label className="text-gray-700 text-sm font-bold mb-2 mr-2 tracking-wide" htmlFor="price">
+      <label className="mb-2 mr-2 text-sm font-bold tracking-wide text-gray-700" htmlFor="price">
         Product Price
       </label>
       <div className="mb-4 flex items-center">
@@ -67,13 +67,13 @@ function GameServiceComponent() {
           id="price"
           required
           name="price"
-          className="border rounded w-full py-2 px-3"
+          className="w-full rounded border px-3 py-2"
         />
-        <label className="block ml-10 mr-6 text-gray-700 text-sm font-bold mb-2 tracking-wider" htmlFor="quantity">
+        <label className="mb-2 ml-10 mr-6 block text-sm font-bold tracking-wider text-gray-700" htmlFor="quantity">
           Quantity:
         </label>
         <select
-          className="px-4 py-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 focus:ring focus:ring-blue-300 outline-none"
+          className="rounded-lg border border-gray-300 bg-white px-4 py-2 outline-none hover:bg-gray-100 focus:ring focus:ring-blue-300"
           value={quantity}
           id="quantity"
           onChange={handleQuantityChange}
@@ -82,7 +82,7 @@ function GameServiceComponent() {
             <option
               key={num}
               value={num + 1}
-              className="bg-blue-100 hover:bg-blue-200 text-blue-900 font-medium"
+              className="bg-blue-100 font-medium text-blue-900 hover:bg-blue-200"
             >
               {num + 1}
             </option>
@@ -90,18 +90,18 @@ function GameServiceComponent() {
         </select>
       </div>
       <div className="grid gap-1">
-        <h4 className="block tracking-wide mt-2 text-gray-700 text-sm font-bold mb-2.5">
+        <h4 className="mb-2.5 mt-2 block text-sm font-bold tracking-wide text-gray-700">
           Optional title
         </h4>
-        <div className="flex flex-wrap gap-2 w-fit text-[10px] sm:text-xs">
+        <div className="flex w-fit flex-wrap gap-2 text-[10px] sm:text-xs">
           {Object.entries(selectedOptions).map(([key, value]) => (
-            <div key={key} className="flex items-center p-2 bg-gray-300 w-fit rounded-lg">
+            <div key={key} className="flex w-fit items-center rounded-lg bg-gray-300 p-2">
               <span className="mr-2">
                 {key}: {value}
               </span>
               <button
                 onClick={() => handleDeleteOption(key)}
-                className="text-red-500 font-bold"
+                className="font-bold text-red-500"
               >
                 X
               </button>
@@ -110,7 +110,7 @@ function GameServiceComponent() {
           {customOptions.map((option, index) => (
             <div
               key={index}
-              className="flex items-center p-2 bg-gray-300 w-fit rounded-lg cursor-pointer"
+              className="flex w-fit cursor-pointer items-center rounded-lg bg-gray-300 p-2"
               onClick={() => handleKeySelect(option)}
             >
               <span className="mr-2">
@@ -118,7 +118,7 @@ function GameServiceComponent() {
               </span>
               <button
                 onClick={() => handleDeleteOption(`custom${index + 1}`)}
-                className="text-red-500 font-bold"
+                className="font-bold text-red-500"
               >
                 X
               </button>
@@ -127,7 +127,7 @@ function GameServiceComponent() {
         </div>
         <div className="mt-4">
           <select
-            className="px-4 py-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 focus:ring focus:ring-blue-300 outline-none"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2 outline-none hover:bg-gray-100 focus:ring focus:ring-blue-300"
             value={selectedKey}
             onChange={(e) => setSelectedKey(e.target.value)}
           >
@@ -143,11 +143,11 @@ function GameServiceComponent() {
             placeholder="Enter Value"
             value={newOption}
             onChange={handleInputChange}
-            className="p-2 bg-gray-200 rounded-lg ml-2"
+            className="ml-2 rounded-lg bg-gray-200 p-2"
           />
           <button
             onClick={handleAddOption}
-            className="p-2 ml-2 bg-blue-500 text-white rounded-lg"
+            className="ml-2 rounded-lg bg-blue-500 p-2 text-white"
           >
             Add
           </button>

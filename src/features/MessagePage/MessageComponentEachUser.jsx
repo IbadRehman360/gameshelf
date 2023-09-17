@@ -1,21 +1,21 @@
 function MessageComponentEachUser({ message, index }) {
   return (
-    <div className="relative flex flex-row  ">
-      <div className="absolute text-xs text-gray-500 right-0 top-0  ">
+    <div className="relative flex flex-row">
+      <div className="absolute right-0 top-0 text-xs text-gray-500">
         5 min
       </div>
-      <div className="flex  h-12 w-12 rounded-full bg-pink-500 text-pink-300 font-bold flex-shrink-0">
+      <div className="flex h-12 w-12 shrink-0 rounded-full bg-pink-500 font-bold text-pink-300">
         <img
           src={`/images/avatars/avatar-${index}.webp`}
-          className=" rounded-full"
+          className="rounded-full"
         ></img>
       </div>
-      <div className="flex flex-col  text-start flex-grow ml-3">
+      <div className="ml-3 flex grow flex-col text-start">
         <div className="text-sm font-medium">{message.name} </div>
-        <div className="text-xs truncate w-40">{message.message}</div>
+        <div className="w-40 truncate text-xs">{message.message}</div>
       </div>
-      <div className="flex-shrink-0 ml-2 self-end mb-1">
-        <span className="flex items-center justify-center h-5 w-5 bg-red-500 text-white text-xs rounded-full">
+      <div className="mb-1 ml-2 shrink-0 self-end">
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
           5
         </span>
       </div>

@@ -17,15 +17,15 @@ const TrendingVideoGames = () => {
   };
 
   return (
-    <div className=" mt-8 mb-12 bg-[#fdfdfd] ">
-      <div className="flex items-center justify-between mr-2  my-8">
-        <h2 className=" lg:text-[1.8rem]  text-gray-700 3xl:text-[2rem]  md:text-[1.7rem] text-[1.4rem]  ml-2 font-semibold">
+    <div className="mb-12 mt-8 bg-[#fdfdfd]">
+      <div className="my-8 mr-2 flex items-center justify-between">
+        <h2 className="ml-2 text-[1.4rem] font-semibold text-gray-700 md:text-[1.7rem] lg:text-[1.8rem] 3xl:text-[2rem]">
           Trending Video Games
         </h2>
         <Link to={"/dashboard"}>
-          <div className="hidden sm:flex items-center gap-2">
+          <div className="hidden items-center gap-2 sm:flex">
             <span>Discover All</span>
-            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
+            <div className="rounded-full border-[1px] border-black bg-white p-1 shadow-sm">
               <a onClick={handleNextPage} href="#" className="">
                 <MdKeyboardArrowRight />
               </a>
@@ -34,7 +34,7 @@ const TrendingVideoGames = () => {
         </Link>
         <div className="sm:hidden">
           {currentSlide < 1 && (
-            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
+            <div className="rounded-full border-[1px] border-black bg-white p-1 shadow-sm">
               <a
                 onClick={handleNextPage}
                 href="#mbTrendingVideoGamesSlide2"
@@ -45,7 +45,7 @@ const TrendingVideoGames = () => {
             </div>
           )}
           {currentSlide > 0 && (
-            <div className="bg-white p-1 rounded-full shadow-sm border-[1px] border-black">
+            <div className="rounded-full border-[1px] border-black bg-white p-1 shadow-sm">
               <a
                 onClick={handlePrevPage}
                 href="#mbTrendingVideoGamesSlide1"
@@ -58,10 +58,10 @@ const TrendingVideoGames = () => {
         </div>
       </div>
 
-      <div className="hidden sm:carousel carousel-center w-full rounded-lg gap-x-4">
+      <div className="carousel-center hidden w-full gap-x-4 rounded-lg sm:carousel">
         <div
           id="trendingVideoGamesSlide1"
-          className="carousel-item w-full gap-2 xl:gap-4 "
+          className="carousel-item w-full gap-2 xl:gap-4"
         >
           {videoCardData.slice(0, 4).map((game) => (
             <TrendingVideoGame key={game.id} game={game} />
@@ -77,7 +77,7 @@ const TrendingVideoGames = () => {
         </div>
       </div>
 
-      <div className="relative sm:hidden carousel w-full rounded-lg gap-x-4">
+      <div className="carousel relative w-full gap-x-4 rounded-lg sm:hidden">
         <div
           id="mbTrendingVideoGamesSlide1"
           className="carousel-item w-full gap-2 sm:gap-5 md:gap-10"
@@ -95,18 +95,18 @@ const TrendingVideoGames = () => {
           ))}
         </div>
       </div>
-      <div className="flex justify-center text-xs mt-2 md:mt-6 sm:mt-4">
+      <div className="mt-2 flex justify-center text-xs sm:mt-4 md:mt-6">
         <p
-          className="md:hidden  text-[0.97rem] sm:text-[1rem] "
+          className="text-[0.97rem] sm:text-[1rem] md:hidden"
           style={{ letterSpacing: "0.1em" }}
         >
           {currentSlide < 1 ? "1/2" : "2/2"}
         </p>
-        <div className="hidden md:flex justify-center">
+        <div className="hidden justify-center md:flex">
           <a
             href="#trendingVideoGamesSlide1"
             onClick={handlePrevPage}
-            className={`block w-[28px] h-[4px] rounded-2xl mr-1 ${
+            className={`mr-1 block h-[4px] w-[28px] rounded-2xl ${
               currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
             } `}
             id="prevPage"
@@ -114,7 +114,7 @@ const TrendingVideoGames = () => {
           <a
             href="#trendingVideoGamesSlide2"
             onClick={handleNextPage}
-            className={`block w-[28px] h-[4px] rounded-2xl mr-1 ${
+            className={`mr-1 block h-[4px] w-[28px] rounded-2xl ${
               currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
             } `}
           />

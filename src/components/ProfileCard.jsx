@@ -12,21 +12,21 @@ export default function ProfileCard() {
           <span className="absolute bottom-0 right-0 block h-4 w-4 rounded-full bg-green-400 ring-2 ring-white" />
         </span>
         <h1 className="text-xl font-bold">JohnDoe</h1>
-        <button className="btn bg-navy-blue text-white hover:text-black w-52">
+        <button className="btn w-52 bg-navy-blue text-white hover:text-black">
           Chat
         </button>
       </div>
-      <div className="flex flex-col gap-4 w-full">
-        <div className="flex justify-between w-full">
+      <div className="flex w-full flex-col gap-4">
+        <div className="flex w-full justify-between">
           <p>Member Since</p>
           <p>August, 2023</p>
         </div>
-        <hr className="border-gray-300 w-full" />
+        <hr className="w-full border-gray-300" />
         <div className="flex w-full justify-between">
           <p>Items Sold</p>
           <p>10034</p>
         </div>
-        <hr className="border-gray-300 w-full" />
+        <hr className="w-full border-gray-300" />
         <div className="flex w-full justify-between">
           <p>Rating</p>
           <div className="flex items-center gap-1">

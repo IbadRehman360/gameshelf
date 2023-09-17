@@ -10,15 +10,15 @@ const filterOptions = [
 function DashboardListingFilter() {
   return (
     <div>
-      <div className="flex  mb-6 gap-4">
-        <p className="text-gray-600 sm:text-[0.9em] text-[0.85rem] font-medium md:text-[0.95rem] mt-1.5 ">
+      <div className="mb-6 flex gap-4">
+        <p className="mt-1.5 text-[0.85rem] font-medium text-gray-600 sm:text-[0.9em] md:text-[0.95rem]">
           About 93,741 results
         </p>
-        <div className="lg:hidden flex flex-1 justify-end ">
+        <div className="flex flex-1 justify-end lg:hidden">
           <select
             id="location"
             name="location"
-            className=" max-w-xs px-3 py-[0.4rem] sm:text-[1.2em] text-[0.8rem] font-semibold  text-gray-900 bg-transparent border   border-gray-400 rounded-md focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm"
+            className="max-w-xs rounded-md border border-gray-400 bg-transparent px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 sm:text-[1.2em]"
             defaultValue="Recommend"
           >
             <option>Recommend</option>
@@ -28,7 +28,7 @@ function DashboardListingFilter() {
           </select>
         </div>
 
-        <div className="hidden lg:flex lg:flex-1 flex-wrap lg:flex-row justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0">
+        <div className="hidden flex-wrap justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0 lg:flex lg:flex-1 lg:flex-row">
           {filterOptions.map((filterOption) => (
             <DashboardFilterOption
               key={filterOption.id}

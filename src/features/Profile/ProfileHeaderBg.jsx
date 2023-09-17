@@ -7,14 +7,14 @@ export default function ProfileHeaderBg() {
   return (
     <section className="relative">
       {showImageEditBtn && (
-        <div className="absolute z-50  md:top-24 top-20 left-1/2 translate-x-[-50%] translate-y-[-50%] ">
+        <div className="absolute left-1/2 top-20 z-50 translate-x-[-50%] translate-y-[-50%] md:top-24">
           <button
-            className="md:p-2 p-2 xl:p-3 bg-slate-400  rounded-xl flex flex-col gap-2"
+            className="flex flex-col gap-2 rounded-xl bg-slate-400 p-2 md:p-2 xl:p-3"
             onMouseEnter={() => setShowImageEditBtn(true)}
             onMouseLeave={() => setShowImageEditBtn(false)}
           >
             <BsCardImage className="w-full" color="white" size="1.3rem" />
-            <span className="text-white   font-medium text-[0.6rem] xl:text-[0.8rem] tracking-tight sm:text-[0.7rem] ">
+            <span className="text-[0.6rem] font-medium tracking-tight text-white sm:text-[0.7rem] xl:text-[0.8rem]">
               Edit Image
             </span>
           </button>
@@ -23,19 +23,19 @@ export default function ProfileHeaderBg() {
       <div
         className={`w-full ${
           showImageEditBtn && "opacity-70"
-        } hover:opacity-70 object-cover h-[240px] bg-center bg-cover bg-no-repeat sm:bg-cover`}
+        } h-[240px] bg-cover bg-center bg-no-repeat object-cover hover:opacity-70 sm:bg-cover`}
         style={{ backgroundImage: 'url("/ProfileBanner.png")' }}
         onMouseEnter={() => setShowImageEditBtn(true)}
         onMouseLeave={() => setShowImageEditBtn(false)}
       >
         <span
           id="blackOverlay"
-          className="w-full h-full absolute opacity-5 bg-black"
+          className="absolute h-full w-full bg-black opacity-5"
         ></span>
       </div>
 
       <div
-        className="top-auto bottom-0  left-0 right-0 w-full absolute pointer-events-none overflow-hidden "
+        className="pointer-events-none absolute inset-x-0 bottom-0 top-auto w-full overflow-hidden"
         style={{ transform: "translateZ(0px)" }}
       >
         <svg
@@ -48,7 +48,7 @@ export default function ProfileHeaderBg() {
           y="0"
         >
           <polygon
-            className="text-blueGray-200 fill-current"
+            className="fill-current"
             points="2560 0 2560 100 0 100"
           ></polygon>
         </svg>
