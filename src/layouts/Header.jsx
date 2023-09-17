@@ -27,13 +27,7 @@ export default function Header() {
     setIsHovered(true);
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
 
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
 
   return (
     <Disclosure as="nav">
@@ -100,9 +94,7 @@ export default function Header() {
                       alt="Coin Image"
                       className={`h-[35px] w-10 transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
                         }`}
-                      onClick={handleClick}
                       onMouseEnter={handleHover}
-                      onMouseLeave={handleMouseLeave}
                     />
                     <div
                       className={`absolute ${isHovered || isClicked ? 'block' : 'hidden'
@@ -237,9 +229,7 @@ export default function Header() {
                       alt="Coin Image"
                       className={`h-8 w-9 transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
                         }`}
-                      onClick={handleClick}
                       onMouseEnter={handleHover}
-                      onMouseLeave={handleMouseLeave}
                     />
                     <div
                       className={`absolute ${isHovered || isClicked ? 'block' : 'hidden'

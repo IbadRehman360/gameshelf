@@ -17,7 +17,7 @@ export default function HeroImages({ index, imageUrl }) {
   const { session } = useAuth();
   return (
     <div className="relative">
-      <div className="h-[46vh] w-full border-b-4 border-gray-400 sm:h-[48vh] md:h-[50vh] lg:h-[44vh] xl:h-[50vh]">
+      <div className="h-[50vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[40vh] xl:h-[46vh]">
         <img
           className="h-full w-full object-cover"
           src={`${imageUrl}`}
@@ -94,7 +94,7 @@ export default function HeroImages({ index, imageUrl }) {
             Discover the World of{" "}
             <span className="text-orange-600">GameShelf</span>
           </h2>
-          <h3 className="mx-4 mt-3 text-[0.7rem] leading-loose tracking-normal text-gray-100 sm:mt-3 sm:text-[0.82rem] md:mt-5 md:text-[0.9rem] lg:mt-4 lg:text-[0.9rem] 2xl:mb-4 2xl:mt-8 2xl:text-[1rem]">
+          <h3 className="mx-4 mt-3 text-[0.6rem] leading-loose tracking-normal text-gray-100 sm:mt-3 sm:text-[0.65rem] md:mt-5 md:text-[0.7rem] lg:mt-4 lg:text-[0.9rem] 2xl:mb-4 2xl:mt-8 2xl:text-[1rem]">
             <p>
               Elevate your gaming with GameShelf&apos;s exclusive offerings.
             </p>
@@ -109,7 +109,7 @@ export default function HeroImages({ index, imageUrl }) {
           <div className="my-4 mt-6 flex items-center justify-center gap-x-6 place-self-center text-center align-middle sm:my-0 sm:mt-6 lg:mt-8 lg:gap-x-8">
             <a
               href="/sell/ibadkhan"
-              className="flex h-8 w-20 items-center justify-center rounded-md bg-rose-600 text-[0.59rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-10 sm:text-xs md:h-10 md:w-28 lg:w-32 lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
+              className="flex h-8 w-20 items-center justify-center rounded-md bg-rose-600 text-[0.59rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-9 sm:text-xs md:h-9 md:w-28 lg:h-10 lg:w-32 lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
             >
               Start Selling
             </a>
