@@ -1,6 +1,6 @@
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
-function OfferInfoComponent({ register }) {
+function OfferInfoComponent({ register, setValue }) {
   return (
     <div className="step">
       <div className="mb-4">
@@ -43,7 +43,9 @@ function OfferInfoComponent({ register }) {
                   name="images"
                   type="file"
                   className="sr-only"
+                  onChange={(e) => setValue("images", e.target.files[0])}
                 />
+
               </label>
               <p className="pl-1">or drag and drop</p>
             </div>

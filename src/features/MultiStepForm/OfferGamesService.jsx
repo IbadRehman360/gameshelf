@@ -44,18 +44,18 @@ function GameSelectionComponent({ register }) {
           Select Service
         </label>
         <select
+          required
           id="service"
           name="service"
-          defaultValue="test"
-          {...register("service")}
+          {...register("serviceId")}
           className="w-full rounded border border-gray-400 px-3 py-2"
         >
           <option value="">Select an option</option>
-          <option value="video-games">Video Games</option>
-          <option value="gift-cards">Gift Cards</option>
-          <option value="game-coins">Game Coins</option>
-          <option value="items">Items</option>
-          <option value="accounts">Accounts</option>
+          <option value="1">Video Games</option>
+          <option value="2">Gift Cards</option>
+          <option value="3">Game Coins</option>
+          <option value="4">Items</option>
+          <option value="5">Accounts</option>
         </select>
         <label
           className="mb-2 mt-4 block font-bold tracking-wide text-gray-700"
@@ -68,13 +68,12 @@ function GameSelectionComponent({ register }) {
             required
             id="game"
             name="game"
-            defaultValue="test"
-            {...register("game")}
+            {...register("gameId")}
             className="w-full overflow-hidden rounded border border-gray-400 px-3 py-2"
           >
             <option>Select an option</option>
             {Games.map((game, index) => (
-              <option key={index} value={game}>
+              <option key={index} value={index + 1}>
                 {game}
               </option>
             ))}
