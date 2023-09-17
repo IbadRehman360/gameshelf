@@ -37,7 +37,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
     <div className="step">
       <div className="mb-4">
         <label
-          className="block tracking-wide text-gray-700 text-md mb-4 font-bold"
+          className="mb-4 block font-bold tracking-wide text-gray-700"
           htmlFor="title"
         >
           Title of the Offer
@@ -52,23 +52,23 @@ function GameServiceComponent({ register, setValue, getValues }) {
         />
       </div>
       <label
-        className="text-gray-700 text-md font-bold mr-2 tracking-wide"
+        className="mr-2 font-bold tracking-wide text-gray-700"
         htmlFor="price"
       >
         Product Price
       </label>
-      <div className="mb-6 mt-4  sm:flex items-center">
+      <div className="mb-6 mt-4 items-center sm:flex">
         <input
           type="number"
           id="price"
           name="price"
           {...register("price")}
           required
-          className="border rounded w-full py-2 px-3"
+          className="w-full rounded border px-3 py-2"
         />
         <div className="my-5 sm:hidden"> </div>
         <label
-          className="sm:block sm:ml-10 mr-6  text-gray-700 text-md font-bold mb-2 tracking-wider"
+          className="mb-2 mr-6 font-bold tracking-wider text-gray-700 sm:ml-10 sm:block"
           htmlFor="quantity"
         >
           Quantity:
@@ -76,7 +76,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
         <div className="my-5 sm:hidden"> </div>
 
         <select
-          className="px-6 py-1.5 sm:py-2 border border-gray-400 rounded-lg bg-white hover:bg-gray-100 focus:ring  outline-none"
+          className="rounded-lg border border-gray-400 bg-white px-6 py-1.5 outline-none hover:bg-gray-100 focus:ring sm:py-2"
           id="quantity"
           {...register("stock")}
         >
@@ -84,7 +84,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
             <option
               key={num}
               value={num + 1}
-              className="bg-gray-50 hover:bg-gray-200 text-blue-900 font-medium"
+              className="bg-gray-50 font-medium text-blue-900 hover:bg-gray-200"
             >
               {num + 1}
             </option>
@@ -92,31 +92,31 @@ function GameServiceComponent({ register, setValue, getValues }) {
         </select>
       </div>
       <div className="grid gap-4">
-        <div className="flex flex-wrap gap-4 text-sm sm:text-base mb-2">
+        <div className="mb-2 flex flex-wrap gap-4 text-sm sm:text-base">
           {getValues("options").map((option, index) => (
             <div
               key={index}
-              className="flex items-center px-3 py-2 bg-gray-100 text-gray-700 rounded-lg shadow-md sm:mb-0 my-1 w-auto"
+              className="my-1 flex w-auto items-center rounded-lg bg-gray-100 px-3 py-2 text-gray-700 shadow-md sm:mb-0"
             >
               <span className="mr-2">
                 {option.key}: {option.value}
               </span>
               <button
                 onClick={() => handleRemoveClick(index)}
-                className="text-red-600 font-bold hover:text-red-700 focus:outline-none"
+                className="font-bold text-red-600 hover:text-red-700 focus:outline-none"
               >
                 <FiTrash />
               </button>
             </div>
           ))}
         </div>
-        <h4 className="text-[1.06rem] text-gray-600 font-bold">
-          <span className="tracking-wide border-gray-400">Optional Titles</span>
+        <h4 className="text-[1.06rem] font-bold text-gray-600">
+          <span className="border-gray-400 tracking-wide">Optional Titles</span>
         </h4>
-        <div className="mt-2 mb-6 grid sm:gap-2 gap-6 sm:flex">
+        <div className="mb-6 mt-2 grid gap-6 sm:flex sm:gap-2">
           <select
             {...register("key")}
-            className="px-4 py-2 border border-purple-300 rounded-lg bg-white hover:bg-gray-200 focus:ring-2 focus:ring-purple-300 outline-none w-full sm:w-auto"
+            className="w-full rounded-lg border border-purple-300 bg-white px-4 py-2 outline-none hover:bg-gray-200 focus:ring-2 focus:ring-purple-300 sm:w-auto"
           >
             <option value="">Select a key</option>
             {predefinedKeys.map((key) => (
@@ -129,11 +129,11 @@ function GameServiceComponent({ register, setValue, getValues }) {
             {...register("value")}
             type="text"
             placeholder="Enter Value"
-            className="p-2 bg-gray-50 rounded-lg sm:ml-2 border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-300 w-full sm:w-auto"
+            className="w-full rounded-lg border border-purple-300 bg-gray-50 p-2 focus:outline-none focus:ring-2 focus:ring-purple-300 sm:ml-2 sm:w-auto"
           />
           <button
             onClick={handleAddClick}
-            className="p-2.5 sm:ml-2 bg-slate-600 px-6 text-white text-sm font-semibold rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-300 w-full sm:w-auto"
+            className="w-full rounded-lg bg-slate-600 p-2.5 px-6 text-sm font-semibold text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-300 sm:ml-2 sm:w-auto"
           >
             Add
           </button>

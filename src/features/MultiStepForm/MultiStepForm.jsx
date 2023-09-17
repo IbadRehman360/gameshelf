@@ -74,8 +74,8 @@ function useMultiStepForm({ user }) {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-end text-black py-3 rounded-lg shadow-md">
-        <p className="sm:text-sm text-[0.85rem] font-semibold mr-8">
+      <div className="flex items-center justify-end rounded-lg py-3 text-black shadow-md">
+        <p className="mr-8 text-[0.85rem] font-semibold sm:text-sm">
           You can learn more
           <HiOutlineArrowNarrowRight className="m-2 inline-block align-middle" />
           <a className="text-blue-500 hover:underline">about us</a>

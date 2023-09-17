@@ -38,7 +38,7 @@ function GameSelectionComponent({ register }) {
     <div className="step">
       <div className="my-4 3xl:my-8">
         <label
-          className="block text-gray-700 tracking-wide  text-md font-bold mb-2"
+          className="mb-2 block font-bold tracking-wide text-gray-700"
           htmlFor="service"
         >
           Select Service
@@ -48,7 +48,7 @@ function GameSelectionComponent({ register }) {
           name="service"
           defaultValue="test"
           {...register("service")}
-          className="border  border-gray-400 rounded w-full py-2 px-3"
+          className="w-full rounded border border-gray-400 px-3 py-2"
         >
           <option value="">Select an option</option>
           <option value="video-games">Video Games</option>
@@ -63,14 +63,14 @@ function GameSelectionComponent({ register }) {
         >
           Select Game
         </label>
-        <div className=" overflow-hidden">
+        <div className="overflow-hidden">
           <select
             required
             id="game"
             name="game"
             defaultValue="test"
             {...register("game")}
-            className="border    border-gray-400 rounded   overflow-hidden w-full py-2 px-3"
+            className="w-full overflow-hidden rounded border border-gray-400 px-3 py-2"
           >
             <option>Select an option</option>
             {Games.map((game, index) => (
@@ -92,7 +92,7 @@ function GameSelectionComponent({ register }) {
               name="comments"
               required
               type="checkbox"
-              className={`form-checkbox h-5 w-5 accent-gray-600 md:mt-0 mt-0.5`}
+              className={`mt-0.5 h-5 w-5 accent-gray-600 md:mt-0`}
             />
             <span className="ml-2 text-[0.8rem] font-medium text-slate-500 sm:text-[0.9rem] md:text-[0.92rem]">
               I agree to receive notifications about important changes and
