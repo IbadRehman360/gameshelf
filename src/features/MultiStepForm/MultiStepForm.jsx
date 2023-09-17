@@ -10,22 +10,19 @@ import { get, useForm } from "react-hook-form";
 
 function useMultiStepForm({ user }) {
   const [step, setStep] = useState(1);
-  const { register, handleSubmit, getValues, watch, setValue } = useForm({
+  const { register, getValues, watch, setValue } = useForm({
     defaultValues: {
       options: [
-        { key: "service", value: "defaultValue", key: "game", value: "defaultValue" },
+        { Service: "games" },
+        { Game: "CSGO" }
       ],
-    },
+    }
   });
-  const values = getValues();
-  console.log(values.options)
   const onSubmit = async () => {
     if (step === 3) {
       setStep(step + 1);
+      const values = getValues();
       const [updatedData, error] = await useUpdateHook(values, user);
-      console.log(getValues())
-
-
     } else {
       setStep(step + 1);
 
@@ -39,7 +36,7 @@ function useMultiStepForm({ user }) {
         Step Two
       </OfferInfo>
     ),
-    3: <OfferInfoImage setValue={setValue} register={register}>Step Three</OfferInfoImage>,
+    3: <OfferInfoImage register={register}>Step Three</OfferInfoImage>,
     4: <RegistrationSuccess>Step Four</RegistrationSuccess>,
   };
   return (
@@ -49,29 +46,32 @@ function useMultiStepForm({ user }) {
         style={{ backgroundImage: "url('./')" }}
       >
         <Step step={step} />
-        <div className="grid gap-4 px-5 py-10 sm:px-8">
-          {stepComponents[step]}
-          <div className="mt-2 flex justify-between">
-            <button
-              className={`cursor-pointer rounded border border-gray-300 bg-gray-100 px-4 py-2 sm:px-5 ${step === 1 ? "hidden" : "flex"
-                }`}
-              onClick={() => setStep(step - 1)}
-              disabled={step <= 1}
-            >
-              Back
-            </button>
-            <button
-              className={`cursor-pointer  rounded bg-gray-700 px-4 py-2 text-white  sm:px-5 ${step === 4 ? "hidden" : "flex"
-                }`}
-              disabled={step >= 4}
-              onClick={onSubmit}
-              type="button"
-            >
-              {step === 3 ? "Finished" : "Next"}
-            </button>
-            <pre> {JSON.stringify(watch(), null, 2)} </pre>
+        <form >
+          <div className="grid gap-4 px-5 py-10 sm:px-8">
+            {stepComponents[step]}
+            <div className="mt-2 flex justify-between">
+              <button
+                className={`cursor-pointer rounded border border-gray-300 bg-gray-100 px-4 py-2 sm:px-5 ${step === 4 ? "hidden" : "flex"
+                  }`}
+                onClick={() => setStep(step - 1)}
+                disabled={step <= 1}
+
+              >
+                Back
+              </button>
+              <button
+                className={`cursor-pointer  rounded bg-gray-700 px-4 py-2 text-white  sm:px-5 ${step === 4 ? "hidden" : "flex"
+                  }`}
+                disabled={step >= 4}
+                onClick={onSubmit}
+                type="button"
+              >
+                {step === 3 ? "Finished" : "Next"}
+              </button>
+              {/* <pre> {JSON.stringify(watch(), null, 2)} </pre> */}
+            </div>
           </div>
-        </div>
+        </form>
       </div>
       <div className="flex items-center justify-end rounded-lg py-3 text-black shadow-md">
         <p className="mr-8 text-[0.85rem] font-semibold sm:text-sm">

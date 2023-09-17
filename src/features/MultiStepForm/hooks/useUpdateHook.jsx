@@ -1,7 +1,6 @@
 import supabase from "../../../services/supabase";
 
 const useUpdateHook = async (values, user) => {
-  console.log(user.id)
   // Use the 'values' parameter to provide data for upsert
   const { data: updatedData, error } = await supabase
     .from("items")
@@ -11,7 +10,7 @@ const useUpdateHook = async (values, user) => {
         price: values.price,
         description: values.description,
         stock: values.stock,
-        images: values.images.name,
+        images: values.images[0].name,
         options: values.options,
         seller_id: user.id,
         category_id: values.serviceId,
@@ -21,11 +20,11 @@ const useUpdateHook = async (values, user) => {
 
 
   if (error) {
-    console.error(error); // Change 'console.log' to 'console.error'
+    console.error(error);
   }
 
-  if (updatedData) { // Change 'if (data)' to 'if (updatedData)'
-    console.log(updatedData); // Change 'console.log(data)' to 'console.log(updatedData)'
+  if (updatedData) {
+    console.log(updatedData);
   }
 
   return [updatedData, error];

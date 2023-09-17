@@ -100,7 +100,7 @@ function GameSelectionComponent({ register }) {
           </label>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

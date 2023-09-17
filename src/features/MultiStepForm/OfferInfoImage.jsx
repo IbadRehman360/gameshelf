@@ -1,6 +1,6 @@
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
-function OfferInfoComponent({ register, setValue }) {
+function OfferInfoComponent({ register }) {
   return (
     <div className="step">
       <div className="mb-4">
@@ -11,10 +11,10 @@ function OfferInfoComponent({ register, setValue }) {
           Product Description
         </label>
         <textarea
-          required
           id="description"
           {...register("description")}
           name="description"
+          required
           className="w-full rounded border px-3 py-2"
         ></textarea>
       </div>
@@ -42,8 +42,8 @@ function OfferInfoComponent({ register, setValue }) {
                   id="images"
                   name="images"
                   type="file"
+                  required
                   className="sr-only"
-                  onChange={(e) => setValue("images", e.target.files[0])}
                 />
 
               </label>
