@@ -109,7 +109,7 @@ export default function HeroImages({ index, imageUrl }) {
           <div className="my-4 mt-6 flex items-center justify-center gap-x-6 place-self-center text-center align-middle sm:my-0 sm:mt-6 lg:mt-8 lg:gap-x-8">
             <a
               href="/sell/ibadkhan"
-              className="  text-[0.59rem]   bg-rose-600 hover:bg-rose-500 sm:text-xs md:w-28 md:h-10 lg:w-32  h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition w-20  flex justify-center items-center rounded-md  lg:py-4 font-semibold text-gray-200 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="flex h-8 w-20 items-center justify-center rounded-md bg-rose-600 text-[0.59rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-10 sm:text-xs md:h-10 md:w-28 lg:w-32 lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
             >
               Start Selling
             </a>
