@@ -4,10 +4,10 @@ import DashboardSearchBar from "../features/DashBoardNavigation/DashboardSearchB
 export default function DashboardPage() {
   return (
     <div className="bg-[#fcfcfc]">
-      <div className="md:px-12 pt-10 px-4">
+      <div className="px-4 pt-10 md:px-12">
         <DashboardSearchBar />
       </div>
-      <div className="lg:px-12 px-4 sm:px-4  ">
+      <div className="px-4 sm:px-4 lg:px-12">
         <DashboardFeatureProductHero />
         <DashboardItemsNavigation />
       </div>

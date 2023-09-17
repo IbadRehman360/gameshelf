@@ -48,7 +48,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
           name="title"
           {...register("title")}
           required
-          className="border rounded w-full py-2 px-3"
+          className="w-full rounded border px-3 py-2"
         />
       </div>
       <label

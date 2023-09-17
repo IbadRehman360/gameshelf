@@ -58,9 +58,9 @@ export default function RegisterPage() {
   return (
     <>
       <Header />
-      <div className="bg-gray-50 flex min-h-full flex-1 flex-col justify-center  pt-[40px] pb-[80px]  py-12 sm:px-6 lg:px-8">
+      <div className="flex min-h-full flex-1 flex-col justify-center bg-gray-50 py-12 pb-[80px] pt-[40px] sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h3 className="text-3xl text-center justify-center  font-bold flex "></h3>
+          <h3 className="flex justify-center text-center text-3xl font-bold"></h3>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
@@ -82,7 +82,7 @@ export default function RegisterPage() {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function RegisterPage() {
                     autoComplete="current-password"
                     required
                     onChange={(e) => setPassword(e.target.value)}
-                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function RegisterPage() {
                     }}
                     onBlur={checkPasswordErrors}
                     required
-                    className="block w-full rounded-md border-0 py-1.5 px-2 mb-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="mb-4 block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                   <PasswordStrengthBar
                     password={confirmPassword}
@@ -135,7 +135,7 @@ export default function RegisterPage() {
               {checkPassword && (
                 <div className="rounded-md bg-red-50 p-4">
                   <div className="flex">
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                       <HiXCircle
                         className="h-5 w-5 text-red-400"
                         aria-hidden="true"
@@ -189,7 +189,7 @@ export default function RegisterPage() {
               <div className="mt-6">
                 <a
                   href="#"
-                  className="flex w-full border-[1px] border-gray-400 items-center justify-center gap-3 rounded-md bg-white text-black px-3 py-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
+                  className="flex w-full items-center justify-center gap-3 rounded-md border-[1px] border-gray-400 bg-white px-3 py-1.5 text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
                 >
                   <FcGoogle />
                   <span className="text-sm font-semibold leading-6">
@@ -200,7 +200,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <p className="mt-10 flex gap-2 justify-center items-center text-center text-sm text-gray-500">
+          <p className="mt-10 flex items-center justify-center gap-2 text-center text-sm text-gray-500">
             Already a member?
             <a
               href="/login"

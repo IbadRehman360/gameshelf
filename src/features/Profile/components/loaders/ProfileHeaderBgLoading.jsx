@@ -3,12 +3,12 @@ export default function ProfileHeaderBg() {
   return (
     <section className="relative animate-pulse">
       <div
-        className="bg-slate-400 hover:opacity-70 object-cover h-[240px] bg-center bg-cover bg-no-repeat sm:bg-cover"
+        className="h-[240px] bg-slate-400 bg-cover bg-center bg-no-repeat object-cover hover:opacity-70 sm:bg-cover"
       >
       </div>
 
       <div
-        className="top-auto bottom-0  left-0 right-0 w-full absolute pointer-events-none overflow-hidden "
+        className="pointer-events-none absolute inset-x-0 bottom-0 top-auto w-full overflow-hidden"
         style={{ transform: "translateZ(0px)" }}
       >
         <svg
@@ -21,7 +21,7 @@ export default function ProfileHeaderBg() {
           y="0"
         >
           <polygon
-            className="text-blueGray-200 fill-current"
+            className="fill-current"
             points="2560 0 2560 100 0 100"
           ></polygon>
         </svg>

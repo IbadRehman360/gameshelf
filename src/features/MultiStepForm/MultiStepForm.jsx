@@ -48,11 +48,11 @@ function useMultiStepForm({ user }) {
         style={{ backgroundImage: "url('./')" }}
       >
         <Step step={step} />
-        <div className="py-10 sm:px-8 px-5 grid gap-4">
+        <div className="grid gap-4 px-5 py-10 sm:px-8">
           {stepComponents[step]}
-          <div className="flex justify-between mt-2">
+          <div className="mt-2 flex justify-between">
             <button
-              className={`bg-gray-100 border border-gray-300 sm:px-5 px-4 py-2 rounded cursor-pointer ${
+              className={`cursor-pointer rounded border border-gray-300 bg-gray-100 px-4 py-2 sm:px-5 ${
                 step === 1 ? "hidden" : "flex"
               }`}
               onClick={() => setStep(step - 1)}
@@ -61,7 +61,7 @@ function useMultiStepForm({ user }) {
               Back
             </button>
             <button
-              className={`bg-gray-700 text-white cursor-pointer sm:px-5 px-4 py-2 rounded flex-end ${
+              className={`cursor-pointer  rounded bg-gray-700 px-4 py-2 text-white  sm:px-5 ${
                 step === 4 ? "hidden" : "flex"
               }`}
               disabled={step >= 4}
@@ -77,7 +77,7 @@ function useMultiStepForm({ user }) {
       <div className="flex items-center justify-end text-black py-3 rounded-lg shadow-md">
         <p className="sm:text-sm text-[0.85rem] font-semibold mr-8">
           You can learn more
-          <HiOutlineArrowNarrowRight className="inline-block align-middle m-2" />
+          <HiOutlineArrowNarrowRight className="m-2 inline-block align-middle" />
           <a className="text-blue-500 hover:underline">about us</a>
         </p>
       </div>

@@ -34,16 +34,16 @@ export default function ProfilePage() {
       <Suspense fallback={<ProfileHeaderBgLoading />}>
         <ProfileHeaderBg />
       </Suspense>
-      <section className="bg-blueGray-200">
+      <section>
         <div className="mx-auto md:px-4">
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-xl rounded-lg -mt-12">
-            <div className="xl:px-10 px-5">
-              <div className="grid  grid-cols-1  md:grid-cols-[34%,59%,0%]  xl:grid-cols-[30%,62%,0%] lg:gap-9 gap-8 xl:gap-14  ">
+          <div className="relative -mt-12 flex w-full min-w-0 flex-col break-words rounded-lg bg-white shadow-xl">
+            <div className="px-5 xl:px-10">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-[34%,59%,0%] lg:gap-9 xl:grid-cols-[30%,62%,0%] xl:gap-14">
                 <Suspense fallback={<ProfileInfoLoading />}>
                   <ProfileInfo profileData={profileData} />
                 </Suspense>
-                <div className="order-2 sm:order-3 md:col-span-2 row-span-2 ">
-                  <h5 className="text-[1.4rem] mb-2 font-medium text-blueGray-700">
+                <div className="order-2 row-span-2 sm:order-3 md:col-span-2">
+                  <h5 className="mb-2 text-[1.4rem] font-medium">
                     Feature offers
                   </h5>
                   <DashboardListingFilter />

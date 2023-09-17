@@ -45,14 +45,14 @@ export default function LoginPage() {
       if (event == "SIGNED_IN") 
       navigate("/")
     });
-  }, []);
+  }, [navigate]);
 
   if (isLogged === null) return <></>;
   if (isLogged) return <Navigate to="/" />;
   return (
     <>
       <Header />
-      <div className="max-w-xl p-6 mx-auto h-[80vh] flex justify-center items-center">
+      <div className="mx-auto flex h-[80vh] max-w-xl items-center justify-center p-6">
         <div className="w-full">
           <Auth
             supabaseClient={supabase}

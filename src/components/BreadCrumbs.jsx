@@ -17,7 +17,7 @@ export default function BreadCrumbs({id}) {
         <li>
           <div className="flex items-center">
             <ChevronRightIcon
-              className="h-5 w-5 flex-shrink-0 text-gray-400"
+              className="h-5 w-5 shrink-0 text-gray-400"
               aria-hidden="true"
             />
             <a

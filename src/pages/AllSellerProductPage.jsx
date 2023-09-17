@@ -8,13 +8,13 @@ import SellerListingInfo from "../features/AllSellerProductPage/AllSellerListing
 export default function DashboardPage() {
   return (
     <>
-      <div className="max-w-[1400px] border-b-2 border-gray-100 xl:px-14 mx-auto pt-8 px-4 sm:pb-6       ">
+      <div className="mx-auto max-w-[1400px] border-b-2 border-gray-100 px-4 pt-8 sm:pb-6 xl:px-14">
         <SellerListingBreadTitle />
         <SellerListingSearchBar />
         <SellerListingPopularSearches />
       </div>
-      <div className="sm:2    pb-20 " style={{ backgroundColor: "#FCFCFC " }}>
-        <div className="max-w-[1400px] xl:px-14 mx-auto  pt-8 px-2  ">
+      <div className="pb-20" style={{ backgroundColor: "#FCFCFC " }}>
+        <div className="mx-auto max-w-[1400px] px-2 pt-8 xl:px-14">
           <SellerListingListingFilter />
           <SellerListingItems />
           <FeaturePagination onchange={"sm:flex"} onchange2={"sm:hidden"} />

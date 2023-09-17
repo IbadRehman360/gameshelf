@@ -1,15 +1,15 @@
 export default function FeaturesItem({ Details }) {
   const { icon, heading, description } = Details;
   return (
-    <article className="relative mx-auto bg-[#fdfdfd] p-4 pb-8 flex flex-col items-center gap-2 sm:leading-loose tracking-wider text-center sm:last-of-type:border-none md:border-r-[2px] sm:mb-0">
+    <article className="relative mx-auto flex flex-col items-center gap-2 bg-[#fdfdfd] p-4 pb-8 text-center tracking-wider sm:mb-0 sm:leading-loose sm:last-of-type:border-none md:border-r-[2px]">
       {icon}
-      <h5 className="font-semibold text-xs lg:text-sm  2xl:text-lg">
+      <h5 className="text-xs font-semibold lg:text-sm 2xl:text-lg">
         {heading}
       </h5>
-      <p className="text-gray-400 3xl:mx-24 2xl:mx-16 text-[0.7rem] mx-0 md:mx-1 sm:text-[0.7rem] lg:text-sm lg:mx-8 2xl:text-sm font-extralight">
+      <p className="mx-0 text-[0.7rem] font-extralight text-gray-400 sm:text-[0.7rem] md:mx-1 lg:mx-8 lg:text-sm 2xl:mx-16 2xl:text-sm 3xl:mx-24">
         {description}
       </p>
-      <div className="absolute mb-3 bottom-1 left-[42%] h-[3px] w-[20%] bg-black sm:left-[40%] sm:w-[20%] lg:mb-0 sm:mb-2 sm:block" />
+      <div className="absolute bottom-1 left-[42%] mb-3 h-[3px] w-[20%] bg-black sm:left-[40%] sm:mb-2 sm:block sm:w-[20%] lg:mb-0" />
     </article>
   );
 }

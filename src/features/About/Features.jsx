@@ -1,12 +1,12 @@
 export default function Features() {
   return (
-    <div id="features" className="sm:mt-10 border-t-2 ">
+    <div id="features" className="border-t-2 sm:mt-10">
       <div className="md:w-2/3 lg:w-1/2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-6 h-6 text-secondary"
+          className="h-6 w-6 text-secondary"
         >
           <path fillRule="evenodd" d="..." />
         </svg>
@@ -21,10 +21,10 @@ export default function Features() {
           eligendi magni adipisci
         </p>
       </div>
-      <div className="mt-16 gap-4 grid divide-x divide-y divide-gray-100 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
+      <div className="mt-16 grid gap-4 divide-x divide-y divide-gray-100 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
         {/* Feature 1 */}
-        <div className="group relative rounded-md  bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-          <div className="relative space-y-8 py-12 p-8">
+        <div className="group relative rounded-md bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+          <div className="relative space-y-8 p-8 py-12">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341139.png"
               className="w-12"
@@ -32,11 +32,11 @@ export default function Features() {
               height="512"
               alt="burger illustration"
             />
-            <div className="space-y-2 ">
-              <h5 className="text-xl font-semibold text-gray-700  transition group-hover:text-secondary">
+            <div className="space-y-2">
+              <h5 className="text-xl font-semibold text-gray-700 transition group-hover:text-secondary">
                 Secure Payment Options
               </h5>
-              <p className="text-gray-600 ">
+              <p className="text-gray-600">
                 Shop confidently with our secure payment gateways.
               </p>
             </div>
@@ -49,7 +49,7 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                className="h-5 w-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
               >
                 <path fillRule="evenodd" d="..." />
               </svg>
@@ -58,7 +58,7 @@ export default function Features() {
         </div>
         {/* Feature 2 */}
         <div className="group relative rounded-md bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-          <div className="relative space-y-8 py-12 p-8">
+          <div className="relative space-y-8 p-8 py-12">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341134.png"
               className="w-12"
@@ -67,10 +67,10 @@ export default function Features() {
               alt="burger illustration"
             />
             <div className="space-y-2">
-              <h5 className="text-xl font-semibold bg-gray-50  transition group-hover:text-secondary">
+              <h5 className="bg-gray-50 text-xl font-semibold transition group-hover:text-secondary">
                 Vast Product Selection{" "}
               </h5>
-              <p className="text-gray-600 ">
+              <p className="text-gray-600">
                 Discover gaming essentials from consoles to collectibles.
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                className="h-5 w-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
               >
                 <path fillRule="evenodd" d="..." />
               </svg>
@@ -91,8 +91,8 @@ export default function Features() {
           </div>
         </div>
         {/* Feature 3 */}
-        <div className="group relative  rounded-md bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-          <div className="relative space-y-8 py-12 p-8">
+        <div className="group relative rounded-md bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+          <div className="relative space-y-8 p-8 py-12">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341160.png"
               className="w-12"
@@ -117,7 +117,7 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                className="h-5 w-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
               >
                 <path fillRule="evenodd" d="..." />
               </svg>
@@ -126,7 +126,7 @@ export default function Features() {
         </div>
         {/* More Features */}
         <div className="group relative rounded-md bg-gray-50 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
-          <div className="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white ">
+          <div className="relative space-y-8 p-8 py-12 transition duration-300 group-hover:bg-white">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341025.png"
               className="w-12"
@@ -135,10 +135,10 @@ export default function Features() {
               alt="burger illustration"
             />
             <div className="space-y-2">
-              <h5 className="text-xl font-semibold text-gray-700  transition group-hover:text-secondary">
+              <h5 className="text-xl font-semibold text-gray-700 transition group-hover:text-secondary">
                 Instant Digital Access{" "}
               </h5>
-              <p className="text-gray-600 ">
+              <p className="text-gray-600">
                 Dive into new adventures with instant digital product access.
               </p>
             </div>
@@ -151,7 +151,7 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                className="h-5 w-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
               >
                 <path fillRule="evenodd" d="..." />
               </svg>

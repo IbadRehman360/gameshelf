@@ -5,7 +5,7 @@ function DashboardFilterOption({ filterOption }) {
         name="notification-method"
         type="radio"
         defaultChecked={filterOption.id === "Recommended"}
-        className=" text-red-600 focus:ring-red-600 h-4 w-4 border-gray-300"
+        className="h-4 w-4 border-gray-300 text-red-600 focus:ring-red-600"
       />
       <label
         htmlFor={filterOption.id}

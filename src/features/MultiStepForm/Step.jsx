@@ -26,17 +26,17 @@ export default function Step({ step }) {
     <nav aria-label="Progress">
       <ol
         role="list"
-        className="divide-y divide-border-[#bababe] rounded-md border border-[#bababe] md:flex md:divide-y-0"
+        className="divide-y rounded-md border border-[#bababe] md:flex md:divide-y-0"
       >
         {steps.map((LpStep) => (
           <li key={LpStep.name} className="relative md:flex md:flex-1">
             {LpStep.status === step ? (
               <a
                 href={LpStep.href}
-                className="group flex border-b-4 border-gray-900  lg:w-72  md:w-56 items-center"
+                className="group flex items-center border-b-4 border-gray-900 md:w-56 lg:w-72"
               >
                 <span className="flex items-center px-6 py-4 text-sm font-medium">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#5e575a] to-[#4f4f58] text-white">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#5e575a] to-[#4f4f58] text-white">
                     <CheckIcon
                       className="h-6 w-6 text-white"
                       aria-hidden="true"
@@ -54,8 +54,9 @@ export default function Step({ step }) {
                 className="flex items-center px-6 py-4 text-sm font-medium"
                 aria-current="step"
               >
-                <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-[#bababe]">
-                  <span className="text-[#6e6e77] ">{LpStep.id}</span>{" "}
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#bababe]">
+                  <span className="text-[#6e6e77]">{LpStep.id}</span>{" "}
+                  {/* Display "id" */}
                 </span>
                 <span className="ml-4 text-sm font-medium text-[#76767e]">
                   {LpStep.name}
@@ -64,7 +65,7 @@ export default function Step({ step }) {
             ) : (
               <a href={step.href} className="group flex items-center">
                 <span className="flex items-center px-6 py-4 text-sm font-medium">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-[#bababe] group-hover:border-gray-400">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#bababe] group-hover:border-gray-400">
                     <span className="text-gray-500 group-hover:text-gray-900">
                       {step.id}
                     </span>

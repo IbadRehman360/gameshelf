@@ -1,13 +1,13 @@
 export default function DashBoardInfo() {
   return (
-    <div className="lg:pt-20 md:pt-16 px-2 sm:px-4 lg:px-2 pt-16">
+    <div className="px-2 pt-16 sm:px-4 md:pt-16 lg:px-2 lg:pt-20">
       <div className="">
-        <h3 className="text-xl sm:text-2xl lg:text-[1.6rem] xl:text-3xl font-bold tracking-tight text-gray-800  mb-8">
+        <h3 className="mb-8 text-xl font-bold tracking-tight text-gray-800 sm:text-2xl lg:text-[1.6rem] xl:text-3xl">
           GamerShelf - Your Ultimate Gaming Account Marketplace
         </h3>
         <article className="">
-          <div className="grid gap-3 mb-6">
-            <p className="  ">
+          <div className="mb-6 grid gap-3">
+            <p className="">
               GamerShelf is the premier online destination for both sellers and
               buyers of gaming accounts.
             </p>
@@ -23,10 +23,10 @@ export default function DashBoardInfo() {
               set to redefine the landscape of the gaming account marketplace.
             </p>
           </div>
-          <h4 className="mb-4  font-bold text-lg sm:text-1xl xl:text-[1.4rem]">
+          <h4 className="mb-4 text-lg font-bold xl:text-[1.4rem]">
             R6 Supremacy GamerShelf Accounts
           </h4>
-          <div className="grid gap-3 mb-6">
+          <div className="mb-6 grid gap-3">
             <p>
               Trust your Rainbow Six Siege account purchase to GamerShelf for
               multiple reasons.
@@ -47,10 +47,10 @@ export default function DashBoardInfo() {
             </p>
             <p></p>
           </div>
-          <h4 className="mb-4  font-bold text-lg sm:text-1xl xl:text-[1.4rem]">
+          <h4 className="mb-4 text-lg font-bold xl:text-[1.4rem]">
             Gamer&apos;s Guide: R6 Account Purchase
           </h4>
-          <ol className="grid gap-3 mb-6">
+          <ol className="mb-6 grid gap-3">
             <li>
               <strong>Account Listing:</strong> Sellers create detailed listings
               highlighting unique aspects of their gaming accounts, including
@@ -77,11 +77,11 @@ export default function DashBoardInfo() {
               verification steps may apply for a smooth transfer.
             </li>
           </ol>
-          <div className=" mb-4">
-            <h4 className="mb-4  font-bold text-lg sm:text-1xl xl:text-[1.4rem]">
+          <div className="mb-4">
+            <h4 className="mb-4 text-lg font-bold xl:text-[1.4rem]">
               Features
             </h4>
-            <ol className="grid gap-2 mb-6">
+            <ol className="mb-6 grid gap-2">
               <li className="">
                 Verified Sellers: Trustworthy sellers with badges enhance
                 credibility through a strict verification process.
@@ -111,7 +111,7 @@ export default function DashBoardInfo() {
           </div>
           <div>
             <div className="mb-4 grid gap-2">
-              <h4 className="mb-2  font-bold text-lg sm:text-1xl xl:text-[1.4rem]">
+              <h4 className="mb-2 text-lg font-bold xl:text-[1.4rem]">
                 Trustworthiness
               </h4>
               <p className="leading-loose">

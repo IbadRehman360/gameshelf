@@ -41,16 +41,16 @@ const messages = [
 ];
 export default function MessagePage() {
   return (
-    <div className="flex flex-row h-screen antialiased text-gray-800">
-      <div className="sm:flex flex-row w-72 md:w-72 lg:w-80 flex-shrink-0 bg-white hidden   border-r-2 ">
-        <div className="sm:flex flex-col w-full h-full  ">
-          <div className="flex flex-row items-center pl-4 pr-4 pt-6 ">
-            <div className="flex flex-row items-center mt-1">
+    <div className="flex h-screen flex-row text-gray-800 antialiased">
+      <div className="hidden w-72 shrink-0 flex-row border-r-2 bg-white sm:flex md:w-72 lg:w-80">
+        <div className="h-full w-full flex-col sm:flex">
+          <div className="flex flex-row items-center px-4 pt-6">
+            <div className="mt-1 flex flex-row items-center">
               <a href="/" className="text-xl font-semibold">
-                <img src="/logo4.png " className=" w-10 h-6" alt="" />
+                <img src="/logo4.png " className="h-6 w-10" alt="" />
               </a>
               <a href="/">
-                <div className="flex items-center justify-center ml-2 text-lg   text-gray-700  rounded-full font-extrabold">
+                <div className="ml-2 flex items-center justify-center rounded-full text-lg font-extrabold text-gray-700">
                   GAMERSHELF
                 </div>
               </a>
@@ -63,23 +63,23 @@ export default function MessagePage() {
               />
             </div>
           </div>
-          <div className=" pl-4 pr-4 pt-2 ">
+          <div className="px-4 pt-2">
             <MessageSearchBar />
           </div>
           <div className="pl-4">
             <select
               id="location"
               name="location"
-              className="block w-[30%]  rounded-md border-0  text-sm text-gray-900  ring-inset  "
+              className="block w-[30%] rounded-md border-0 text-sm text-gray-900 ring-inset"
               defaultValue="Canada"
             >
               <option>All Contacts</option>
             </select>
           </div>
           <div className="">
-            <div className=" overflow-y-auto ">
+            <div className="overflow-y-auto">
               {messages.map((message, index) => (
-                <button key={index} className=" p-4 hover:bg-red-100 w-full">
+                <button key={index} className="w-full p-4 hover:bg-red-100">
                   <MessageComponentEachUser message={message} index={index} />
                 </button>
               ))}
@@ -87,16 +87,16 @@ export default function MessagePage() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col h-full w-full bg-white px-4 ">
-        <div className="flex flex-row items-center py-4 px-6 rounded-2xl shadow">
-          <div className="flex items-center justify-center h-12 w-12 rounded-full bg-pink-500 text-pink-300 font-bold flex-shrink-0">
+      <div className="flex h-full w-full flex-col bg-white px-4">
+        <div className="flex flex-row items-center rounded-2xl px-6 py-4 shadow">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pink-500 font-bold text-pink-300">
             <img
               src={`/images/avatars/avatar-0.webp`}
-              className=" rounded-full"
+              className="rounded-full"
             ></img>
           </div>
-          <div className="flex flex-col ml-3">
-            <div className="font-semibold text-sm">Abdullah</div>
+          <div className="ml-3 flex flex-col">
+            <div className="text-sm font-semibold">Abdullah</div>
             <div className="text-xs text-gray-500">Active</div>
           </div>
           <div className="ml-auto">
@@ -104,11 +104,11 @@ export default function MessagePage() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-400 h-10 w-10 rounded-full"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200"
                 >
                   <span>
                     <svg
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       stroke="none"
                       viewBox="0 0 24 24"
@@ -122,11 +122,11 @@ export default function MessagePage() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-400 h-10 w-10 rounded-full"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200"
                 >
                   <span>
                     <svg
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       stroke="none"
                       viewBox="0 0 24 24"
@@ -140,11 +140,11 @@ export default function MessagePage() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-400 h-10 w-10 rounded-full"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200"
                 >
                   <span>
                     <svg
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -161,22 +161,22 @@ export default function MessagePage() {
         <div className="h-full overflow-hidden py-4">
           <div className="h-full overflow-y-auto">
             <div className="grid grid-cols-12 gap-y-2">
-              <div className="col-start-1 col-end-8 p-3 rounded-lg">
+              <div className="col-start-1 col-end-8 rounded-lg p-3">
                 <div className="flex flex-row items-center">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
                     A
                   </div>
-                  <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                  <div className="relative ml-3 rounded-xl bg-white px-4 py-2 text-sm shadow">
                     <div>Hey How are you today?</div>
                   </div>
                 </div>
               </div>
-              <div className="col-start-1 col-end-8 p-3 rounded-lg">
+              <div className="col-start-1 col-end-8 rounded-lg p-3">
                 <div className="flex flex-row items-center">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
                     A
                   </div>
-                  <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                  <div className="relative ml-3 rounded-xl bg-white px-4 py-2 text-sm shadow">
                     <div>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Vel ipsa commodi illum saepe numquam maxime asperiores
@@ -185,59 +185,59 @@ export default function MessagePage() {
                   </div>
                 </div>
               </div>
-              <div className="col-start-6 col-end-13 p-3 rounded-lg">
-                <div className="flex items-center justify-start flex-row-reverse">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+              <div className="col-start-6 col-end-13 rounded-lg p-3">
+                <div className="flex flex-row-reverse items-center justify-start">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
                     A
                   </div>
-                  <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                  <div className="relative mr-3 rounded-xl bg-indigo-100 px-4 py-2 text-sm shadow">
                     <div>Im ok what about you?</div>
                   </div>
                 </div>
               </div>
-              <div className="col-start-6 col-end-13 p-3 rounded-lg">
-                <div className="flex items-center justify-start flex-row-reverse">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+              <div className="col-start-6 col-end-13 rounded-lg p-3">
+                <div className="flex flex-row-reverse items-center justify-start">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
                     A
                   </div>
-                  <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                  <div className="relative mr-3 rounded-xl bg-indigo-100 px-4 py-2 text-sm shadow">
                     <div>
                       Lorem ipsum dolor sit, amet consectetur adipisicing. ?
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-start-1 col-end-8 p-3 rounded-lg">
+              <div className="col-start-1 col-end-8 rounded-lg p-3">
                 <div className="flex flex-row items-center">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
                     A
                   </div>
-                  <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                  <div className="relative ml-3 rounded-xl bg-white px-4 py-2 text-sm shadow">
                     <div>Lorem ipsum dolor sit amet !</div>
                   </div>
                 </div>
               </div>
-              <div className="col-start-6 col-end-13 p-3 rounded-lg">
-                <div className="flex items-center justify-start flex-row-reverse">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+              <div className="col-start-6 col-end-13 rounded-lg p-3">
+                <div className="flex flex-row-reverse items-center justify-start">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
                     A
                   </div>
-                  <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                  <div className="relative mr-3 rounded-xl bg-indigo-100 px-4 py-2 text-sm shadow">
                     <div>
                       Lorem ipsum dolor sit, amet consectetur adipisicing. ?
                     </div>
-                    <div className="absolute text-xs bottom-0 right-0 -mb-5 mr-2 text-gray-500">
+                    <div className="absolute bottom-0 right-0 -mb-5 mr-2 text-xs text-gray-500">
                       Seen
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-start-1 col-end-8 p-3 rounded-lg">
+              <div className="col-start-1 col-end-8 rounded-lg p-3">
                 <div className="flex flex-row items-center">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
                     A
                   </div>
-                  <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                  <div className="relative ml-3 rounded-xl bg-white px-4 py-2 text-sm shadow">
                     <div>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Perspiciatis, in.
@@ -245,16 +245,16 @@ export default function MessagePage() {
                   </div>
                 </div>
               </div>
-              <div className="col-start-1 col-end-8 p-3 rounded-lg">
+              <div className="col-start-1 col-end-8 rounded-lg p-3">
                 <div className="flex flex-row items-center">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
                     A
                   </div>
-                  <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                  <div className="relative ml-3 rounded-xl bg-white px-4 py-2 text-sm shadow">
                     <div className="flex flex-row items-center">
-                      <button className="flex items-center justify-center bg-indigo-600 hover:bg-indigo-800 rounded-full h-8 w-10">
+                      <button className="flex h-8 w-10 items-center justify-center rounded-full bg-indigo-600 hover:bg-indigo-800">
                         <svg
-                          className="w-6 h-6 text-white"
+                          className="h-6 w-6 text-white"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -271,11 +271,11 @@ export default function MessagePage() {
             </div>
           </div>
         </div>
-        <div className="flex flex-row items-center  mb-4">
-          <div className="flex flex-row items-center w-full border rounded-3xl h-12 px-2">
-            <button className="flex items-center justify-center h-10 w-10 text-gray-400 ml-1">
+        <div className="mb-4 flex flex-row items-center">
+          <div className="flex h-12 w-full flex-row items-center rounded-3xl border px-2">
+            <button className="ml-1 flex h-10 w-10 items-center justify-center text-gray-400">
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -284,17 +284,17 @@ export default function MessagePage() {
                 <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
               </svg>
             </button>
-            <div className="w-full ">
+            <div className="w-full">
               <input
                 type="text"
-                className="border border-transparent w-full focus:outline-none text-sm h-10 flex items-center"
+                className="flex h-10 w-full items-center border border-transparent text-sm focus:outline-none"
                 placeholder="Type your message...."
               />
             </div>
             <div className="flex flex-row">
-              <button className="flex items-center justify-center h-10 w-8 text-gray-400">
+              <button className="flex h-10 w-8 items-center justify-center text-gray-400">
                 <svg
-                  className="w-5 h-5"
+                  className="h-5 w-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -303,9 +303,9 @@ export default function MessagePage() {
                   <path d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
                 </svg>
               </button>
-              <button className="flex items-center justify-center h-10 w-8 text-gray-400 ml-1 mr-2">
+              <button className="ml-1 mr-2 flex h-10 w-8 items-center justify-center text-gray-400">
                 <svg
-                  className="w-5 h-5"
+                  className="h-5 w-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -317,9 +317,9 @@ export default function MessagePage() {
             </div>
           </div>
           <div className="ml-6">
-            <button className="flex items-center justify-center h-10 w-10 rounded-full bg-gray-200 hover:bg-gray-300 text-indigo-800 text-white">
+            <button className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 text-indigo-800 hover:bg-gray-300">
               <svg
-                className="w-5 h-5 transform rotate-90 -mr-px"
+                className="-mr-px h-5 w-5 rotate-90"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

@@ -10,7 +10,7 @@ function MiltiStepForm() {
     navigate("/");
   }
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 pb-28">
+    <div className="mx-auto max-w-7xl px-4 py-20 pb-28 sm:px-6 lg:px-8">
       <MultiStepForm user={profileData} />
     </div>
   );

@@ -7,16 +7,16 @@ export default function categoryItem({ category, index }) {
   return (
     <Link to={`/dashboard/${category.name}`}>
 
-      <div className="text-center h-12 w-11  lg:h-16    md:w-14 xl:h-[5.6rem] md:mt-2.5 md:mb-4 lg:mb-0   xl:w-[70px] flex flex-col items-center gap-2">
+      <div className="flex h-12 w-11 flex-col items-center gap-2 text-center md:mb-4 md:mt-2.5 md:w-14 lg:mb-0 lg:h-16 xl:h-[5.6rem] xl:w-[70px]">
         <div
-          className={`${category.color} p-[0.75rem] xl:p-[1rem] rounded-xl xl:rounded-3xl`}
+          className={`${category.color} rounded-xl p-[0.75rem] xl:rounded-3xl xl:p-[1rem]`}
         >
           <img
             className="transition md:hover:scale-125"
             src={`/home/catergoriesBarImages/Navigation${index + 1}.webp`}
           />
         </div>
-      <p className="capitalize text-[11px] sm:text-[14px] md:text-[0.8rem] xl:text-[0.95rem] text-black whitespace-nowrap font-semibold">
+      <p className="whitespace-nowrap text-[11px] font-semibold capitalize text-black sm:text-[14px] md:text-[0.8rem] xl:text-[0.95rem]">
         {renderName()}
       </p>
     </div>

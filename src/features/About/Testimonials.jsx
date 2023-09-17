@@ -34,13 +34,13 @@ import Testimonial from "./Testimonial";
 
 export default function Testimonials() {
   return (
-    <div className="text-gray-600  mt-20 md:mt-24" id="testimonials">
-      <div className=" space-y-4 mb-10 px-1 md:px-1">
-        <h2 className="text-center text-[1.4rem] md:text-[1.8rem] 3xl:text-4xl font-bold text-gray-800  ">
+    <div className="mt-20 text-gray-600 md:mt-24" id="testimonials">
+      <div className="mb-10 space-y-4 px-1 md:px-1">
+        <h2 className="text-center text-[1.4rem] font-bold text-gray-800 md:text-[1.8rem] 3xl:text-4xl">
           Our Customer Insights{" "}
         </h2>
       </div>
-      <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 space-y-8">
+      <div className="gap-8 space-y-8 sm:grid sm:grid-cols-2 lg:grid-cols-3">
         {reviews.map((review, index) => (
           <Testimonial
             key={index}

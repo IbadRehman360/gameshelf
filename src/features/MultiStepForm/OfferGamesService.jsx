@@ -58,7 +58,7 @@ function GameSelectionComponent({ register }) {
           <option value="accounts">Accounts</option>
         </select>
         <label
-          className="block mt-4 text-gray-700 tracking-wide  text-md font-bold mb-2"
+          className="mb-2 mt-4 block font-bold tracking-wide text-gray-700"
           htmlFor="game"
         >
           Select Game
@@ -81,11 +81,11 @@ function GameSelectionComponent({ register }) {
           </select>
         </div>
       </div>
-      <div className="px-1 mb-3">
-        <p className="text-md mt-8 font-semibold text-gray-900 mb-3">
+      <div className="mb-3 px-1">
+        <p className="mb-3 mt-8 font-semibold text-gray-900">
           Notifications
         </p>
-        <div className="mt-2 text-sm text-gray-600 flex items-start">
+        <div className="mt-2 flex items-start text-sm text-gray-600">
           <label htmlFor="comments" className="inline-flex items-start">
             <input
               id="comments"
@@ -94,7 +94,7 @@ function GameSelectionComponent({ register }) {
               type="checkbox"
               className={`form-checkbox h-5 w-5 accent-gray-600 md:mt-0 mt-0.5`}
             />
-            <span className="ml-2 text-[0.8rem] sm:text-[0.9rem] md:text-[0.92rem] font-medium text-slate-500 ">
+            <span className="ml-2 text-[0.8rem] font-medium text-slate-500 sm:text-[0.9rem] md:text-[0.92rem]">
               I agree to receive notifications about important changes and
               optional updates.
             </span>

@@ -17,32 +17,31 @@ export default function HeroImages({ index, imageUrl }) {
   const { session } = useAuth();
   return (
     <div className="relative">
-      <div className="h-[46vh] w-full sm:h-[48vh] md:h-[50vh]  border-b-4 border-gray-400  lg:h-[44vh] xl:h-[50vh] ">
+      <div className="h-[46vh] w-full border-b-4 border-gray-400 sm:h-[48vh] md:h-[50vh] lg:h-[44vh] xl:h-[50vh]">
         <img
-          className=" object-cover w-full h-full"
+          className="h-full w-full object-cover"
           src={`${imageUrl}`}
           alt={`bg ${index}`}
         />
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full opacity-40 z-10 bg-black"></div>
+      <div className="absolute left-1/2 top-1/2 z-10 h-full w-full -translate-x-1/2 -translate-y-1/2 bg-black opacity-40"></div>
       <nav
-        className="z-50 absolute top-0 right-0 flex items-center justify-between p-2 md:p-6 lg:px-8"
+        className="absolute right-0 top-0 z-50 flex items-center justify-between p-2 md:p-6 lg:px-8"
         aria-label="Global"
       >
         <div className="flex flex-1 justify-end">
           {!session && (
             <NavLink
               to="login"
-              className={`sm:text-sm text-[0.8rem]  font-semibold md:text-[1rem]  hover:text-stone-200  mt-4 sm:mr-4 mr-2 md:mt-0 leading-6 lg:text-[1rem] ${
-                darkSlides.includes(index) ? "text-white " : "text-gray-900"
-              } sm:text-gray-900"`}
+              className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-200 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${darkSlides.includes(index) ? "text-white " : "text-gray-900"
+                }`}
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </NavLink>
           )}
         </div>
       </nav>
-      <header className="absolute top-1/2 left-1/2 -translate-y-1/2 mt-4 -translate-x-1/2 z-50 w-full">
+      <header className="absolute left-1/2 top-1/2 z-50 mt-4 w-full -translate-x-1/2 -translate-y-1/2">
         <Dialog
           as="div"
           className="lg:hidden"
@@ -50,7 +49,7 @@ export default function HeroImages({ index, imageUrl }) {
           onClose={() => setMobileMenuOpen(false)}
         >
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#fdfdfd] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#fdfdfd] p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
@@ -80,7 +79,7 @@ export default function HeroImages({ index, imageUrl }) {
                 <div className="py-6">
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5  text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
                   </a>
@@ -91,15 +90,15 @@ export default function HeroImages({ index, imageUrl }) {
         </Dialog>
 
         <div className="text-center">
-          <h2 className="text-xl sm:text-2xl md:text-[1.7rem]    2xl:text-[2.35rem]   tracking-wide  mb-2 lg:text-3xl   font-bold text-white ">
+          <h2 className="mb-2 text-xl font-bold tracking-wide text-white sm:text-2xl md:text-[1.7rem] lg:text-3xl 2xl:text-[2.35rem]">
             Discover the World of{" "}
             <span className="text-orange-600">GameShelf</span>
           </h2>
-          <h3 className=" text-gray-100 text-[0.7rem] sm:mt-3 sm:text-[0.82rem] 2xl:mb-4 mt-3 mx-4   lg:mt-4  md:mt-5 md:text-[0.9rem]   2xl:text-[1rem] lg:text-[0.9rem] tracking-normal 2xl:mt-8   leading-loose md:text-md ">
+          <h3 className="mx-4 mt-3 text-[0.7rem] leading-loose tracking-normal text-gray-100 sm:mt-3 sm:text-[0.82rem] md:mt-5 md:text-[0.9rem] lg:mt-4 lg:text-[0.9rem] 2xl:mb-4 2xl:mt-8 2xl:text-[1rem]">
             <p>
               Elevate your gaming with GameShelf&apos;s exclusive offerings.
             </p>
-            <p className="sm:hidden block">Explore a vast library of games</p>
+            <p className="block sm:hidden">Explore a vast library of games</p>
             <p className="hidden sm:block">
               <p>
                 Explore a vast library of games gear up with accessories, Join
@@ -107,7 +106,7 @@ export default function HeroImages({ index, imageUrl }) {
               </p>
             </p>
           </h3>
-          <div className="my-4 sm:my-0 sm:mt-6 flex lg:mt-8 mt-6  gap-x-6 lg:gap-x-8 justify-center align-middle items-center text-center  place-self-center">
+          <div className="my-4 mt-6 flex items-center justify-center gap-x-6 place-self-center text-center align-middle sm:my-0 sm:mt-6 lg:mt-8 lg:gap-x-8">
             <a
               href="/sell/ibadkhan"
               className="  text-[0.59rem]   bg-rose-600 hover:bg-rose-500 sm:text-xs md:w-28 md:h-10 lg:w-32  h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition w-20  flex justify-center items-center rounded-md  lg:py-4 font-semibold text-gray-200 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -117,7 +116,7 @@ export default function HeroImages({ index, imageUrl }) {
 
             <a
               href="/dashboard"
-              className="text-[0.55rem]   font-semibold border-[1px] p-3  sm:text-xs w-fit h-8 sm:h-10  2xl:text-[1.03rem] 2xl:h-14  2xl:w-38transition flex justify-center items-center rounded-md  lg:py-4  text-white bg-gray-800  hover:bg-gray-600 opacity-80 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
+              className="flex h-8 w-fit items-center justify-center rounded-md border-[1px] bg-gray-800 p-3 text-[0.55rem] font-semibold text-white opacity-80 shadow-sm transition hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-10 sm:text-xs lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
             >
               Find great deals <span aria-hidden="true">→</span>
             </a>

@@ -5,7 +5,7 @@ export default function Stats() {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        className="w-6 h-6 text-sky-500"
+        className="h-6 w-6 text-sky-500"
       >
         <path
           fillRule="evenodd"
@@ -19,8 +19,8 @@ export default function Stats() {
         />
       </svg>
 
-      <div className="space-y-6 justify-between mt-20 sm:mt-14 text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
-        <div className="md:5/12 lg:w-1/2">
+      <div className="mt-20 flex-row-reverse justify-between space-y-6 text-gray-600 sm:mt-14 md:flex md:gap-6 md:space-y-0 lg:items-center lg:gap-12">
+        <div className="lg:w-1/2">
           <img
             src="./images/pie.svg"
             alt="image"
@@ -28,14 +28,14 @@ export default function Stats() {
             className="w-full"
           />
         </div>
-        <div className="md:7/12   lg:w-1/2">
+        <div className="lg:w-1/2">
           <h2
-            className=" text-[1.4rem] md:text-[1.8rem] 3xl:text-4xl font-bold  mt-10 md:mt-0 text-gray-800 
+            className=" mt-10 text-[1.4rem] font-bold text-gray-800  md:mt-0 md:text-[1.8rem] 3xl:text-4xl 
   "
           >
             Dedicated Experts Crafting the Ultimate Gaming Marketplace
           </h2>
-          <p className="my-8 text-gray-600 ">
+          <p className="my-8 text-gray-600">
             Our platform is meticulously crafted by enthusiastic developers who
             share an unwavering passion for gaming. We bring you a comprehensive
             gaming marketplace where you can explore an array of in-game items,
@@ -45,14 +45,14 @@ export default function Stats() {
             interface and discover a diverse range of options to enhance your
             gaming experience.
           </p>
-          <div className="divide-y space-y-4 divide-gray-100">
+          <div className="space-y-4 divide-y divide-gray-100">
             <div className="mt-8 flex gap-4 md:items-center">
-              <div className="w-12 h-12 flex gap-4 rounded-full bg-indigo-100 ">
+              <div className="flex h-12 w-12 gap-4 rounded-full bg-indigo-100">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-6 h-6 m-auto text-indigo-500 "
+                  className="m-auto h-6 w-6 text-indigo-500"
                 >
                   <path
                     fillRule="evenodd"
@@ -62,21 +62,21 @@ export default function Stats() {
                 </svg>
               </div>
               <div className="w-5/6">
-                <h4 className="font-semibold text-lg text-gray-700 ">
+                <h4 className="text-lg font-semibold text-gray-700">
                   Round-the-Clock Support
                 </h4>
-                <p className="text-gray-500 ">
+                <p className="text-gray-500">
                   Instant help for seamless shopping.{" "}
                 </p>
               </div>
             </div>
-            <div className="pt-4 flex gap-4 md:items-center">
-              <div className="w-12 h-12 flex gap-4 rounded-full bg-teal-100">
+            <div className="flex gap-4 pt-4 md:items-center">
+              <div className="flex h-12 w-12 gap-4 rounded-full bg-teal-100">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-6 h-6 m-auto text-teal-600 "
+                  className="m-auto h-6 w-6 text-teal-600"
                 >
                   <path
                     fillRule="evenodd"
@@ -86,7 +86,7 @@ export default function Stats() {
                 </svg>
               </div>
               <div className="w-5/6">
-                <h4 className="font-semibold text-lg text-gray-700 ">
+                <h4 className="text-lg font-semibold text-gray-700">
                   Live Tracking for Ultimate Assurance{" "}
                 </h4>
                 <p className="text-gray-500">
