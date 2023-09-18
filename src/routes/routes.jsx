@@ -45,10 +45,7 @@ const router = createBrowserRouter([
         path: "profile/:user",
         element: <ProfilePage />,
       },
-      {
-        path: "sell/:user",
-        element: <MultiStepFormPage />,
-      },
+
     ],
   },
   {
@@ -59,7 +56,14 @@ const router = createBrowserRouter([
         </ProtectedRoute>
       </AuthProvider>
     ),
+    children: [
+      {
+        path: "sell/:user",
+        element: <MultiStepFormPage />,
+      },
+    ]
   },
+
   {
     path: "login",
     element: <LoginPage />,
@@ -72,6 +76,7 @@ const router = createBrowserRouter([
     path: "chat",
     element: <MessagePage />,
   },
+
 ]);
 
 export default router;

@@ -15,11 +15,7 @@ export default function Header() {
   const { signOutUser, session } = useAuth();
   const navigate = useNavigate();
 
-  function handleSignOut() {
-    if (signOutUser()) {
-      navigate("/");
-    }
-  }
+
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
