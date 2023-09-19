@@ -3,7 +3,6 @@ import FuturePagination from "../components/FeaturePagination";
 
 import useGetProfile from "../features/profile/hooks/useGetProfile";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 //Loaders
@@ -22,12 +21,8 @@ const ProfileProduct = lazy(() => import("../features/Profile/ProfileProduct"));
 
 export default function ProfilePage() {
   const params = useParams();
-  const navigate = useNavigate();
   const [profileData] = useGetProfile(params.user);
 
-  if (profileData.none) {
-    navigate("/")
-  }
 
   return (
     <main>

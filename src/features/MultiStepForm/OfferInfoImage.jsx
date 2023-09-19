@@ -11,10 +11,10 @@ function OfferInfoComponent({ register }) {
           Product Description
         </label>
         <textarea
-          required
           id="description"
           {...register("description")}
           name="description"
+          required
           className="w-full rounded border px-3 py-2"
         ></textarea>
       </div>
@@ -42,8 +42,10 @@ function OfferInfoComponent({ register }) {
                   id="images"
                   name="images"
                   type="file"
+                  required
                   className="sr-only"
                 />
+
               </label>
               <p className="pl-1">or drag and drop</p>
             </div>

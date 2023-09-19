@@ -13,14 +13,15 @@ function GameServiceComponent({ register, setValue, getValues }) {
     const value = getValues("value");
     let currentOptions = getValues("options") || [];
 
-    const existingIndex = currentOptions.findIndex(
-      (options) => options.key === key
-    );
+    const existingIndex = currentOptions.findIndex((options) => options[key] !== undefined);
+
 
     if (existingIndex !== -1) {
-      currentOptions[existingIndex].value = value;
+      currentOptions[existingIndex][key] = value;
     } else if (currentOptions.length < 4 && key && value) {
-      currentOptions.push({ key, value });
+      const newOption = {};
+      newOption[key] = value;
+      currentOptions.push(newOption);
     }
 
     setValue("options", currentOptions);
@@ -46,8 +47,9 @@ function GameServiceComponent({ register, setValue, getValues }) {
           type="text"
           id="title"
           name="title"
-          {...register("title")}
           required
+          {...register("title")}
+
           className="w-full rounded border px-3 py-2"
         />
       </div>
@@ -62,8 +64,8 @@ function GameServiceComponent({ register, setValue, getValues }) {
           type="number"
           id="price"
           name="price"
-          {...register("price")}
           required
+          {...register("price")}
           className="w-full rounded border px-3 py-2"
         />
         <div className="my-5 sm:hidden"> </div>
@@ -78,6 +80,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
         <select
           className="rounded-lg border border-gray-400 bg-white px-6 py-1.5 outline-none hover:bg-gray-100 focus:ring sm:py-2"
           id="quantity"
+          required
           {...register("stock")}
         >
           {[...Array(10).keys()].map((num) => (
@@ -98,9 +101,12 @@ function GameServiceComponent({ register, setValue, getValues }) {
               key={index}
               className="my-1 flex w-auto items-center rounded-lg bg-gray-100 px-3 py-2 text-gray-700 shadow-md sm:mb-0"
             >
-              <span className="mr-2">
-                {option.key}: {option.value}
-              </span>
+              {Object.entries(option).map(([key, value]) => (
+
+                <div key={key} >
+                  <span className="mr-2">{key}: {value}</span>
+                </div>
+              ))}
               <button
                 onClick={() => handleRemoveClick(index)}
                 className="font-bold text-red-600 hover:text-red-700 focus:outline-none"
@@ -109,6 +115,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
               </button>
             </div>
           ))}
+
         </div>
         <h4 className="text-[1.06rem] font-bold text-gray-600">
           <span className="border-gray-400 tracking-wide">Optional Titles</span>
@@ -128,6 +135,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
           <input
             {...register("value")}
             type="text"
+
             placeholder="Enter Value"
             className="w-full rounded-lg border border-purple-300 bg-gray-50 p-2 focus:outline-none focus:ring-2 focus:ring-purple-300 sm:ml-2 sm:w-auto"
           />
@@ -139,7 +147,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
           </button>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
