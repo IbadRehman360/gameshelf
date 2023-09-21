@@ -1,5 +1,5 @@
 import MessageSearchBar from "./MessageSearchBar";
-import MessageComponentEachUser from "./MessageComponentEachUser";
+import MessageComponentEachUser from "./Chat";
 const messages = [
   {
     name: "Abdullah",

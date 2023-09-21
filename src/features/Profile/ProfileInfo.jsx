@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AiFillCamera } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function ProfileInfo({profileData}) {
   const [showEditImage, setShowEditImage] = useState(false);
@@ -51,12 +52,13 @@ export default function ProfileInfo({profileData}) {
         >
           Connect
         </button>
-        <button
+        <Link
           className="mb-1 rounded bg-gray-600 px-6 py-2.5 text-xs font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-500 hover:shadow-md focus:outline-none active:bg-red-400"
           type="button"
+          to={`/chat/new/${profileData.id}`}
         >
           Message
-        </button>
+        </Link>
       </div>
     </div>
   );

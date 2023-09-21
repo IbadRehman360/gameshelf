@@ -59,6 +59,16 @@ const router = createBrowserRouter([
         </ProtectedRoute>
       </AuthProvider>
     ),
+    children: [
+      {
+        path: "chat/",
+        element: <MessagePage />,
+      },
+      {
+        path: "/chat/new/:userId",
+        element: <MessagePage />
+      }
+    ]
   },
   {
     path: "login",
@@ -67,10 +77,6 @@ const router = createBrowserRouter([
   {
     path: "register",
     element: <RegisterPage />,
-  },
-  {
-    path: "chat",
-    element: <MessagePage />,
   },
 ]);
 
