@@ -58,6 +58,13 @@ const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "chat/",
+        element: <MessagePage />,
+      },
+      {
+        path: "/chat/new/:userId",
+        element: <MessagePage />
+      },
         path: "sell/:user",
         element: <MultiStepFormPage />,
       },
@@ -72,11 +79,6 @@ const router = createBrowserRouter([
     path: "register",
     element: <RegisterPage />,
   },
-  {
-    path: "chat",
-    element: <MessagePage />,
-  },
-
 ]);
 
 export default router;
