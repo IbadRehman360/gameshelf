@@ -9,9 +9,7 @@ import FeaturesList from "../features/HomePage/components/FeaturesList";
 import ProductLoader from "../features/HomePage/components/loader/HomeProductLoader";
 
 import Categories from "../features/HomePage/components/Category.jsx";
-const FeaturedProducts = lazy(() =>
-  import("../features/HomePage/components/Products")
-);
+import FeaturedProducts from "../features/HomePage/components/Products";
 
 export default function HomePage() {
   return (
@@ -19,9 +17,7 @@ export default function HomePage() {
       <HeroCarousel />
       <Categories />
       <div className="mx-auto mt-16 max-w-[1400px] bg-[#fdfdfd] px-0 xl:px-14">
-        <Suspense fallback={<ProductLoader />}>
-          <FeaturedProducts />
-        </Suspense>
+        <FeaturedProducts />
         <TrendingGiftCards />
         <TrendingVideoGames />
       </div>

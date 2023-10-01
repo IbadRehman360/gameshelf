@@ -16,7 +16,8 @@ const createItem = async (values, user) => {
   ]);
 
   if (error) {
-    console.error(error);
+    console.log("error on creating new item: ", error);
+    throw new Error("error creating new item: " + error.message);
   }
 
   if (updatedData) {
