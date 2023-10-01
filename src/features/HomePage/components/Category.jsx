@@ -1,6 +1,7 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import useGetCategories from "../../../hooks/getCategories";
 import CategoryItem from "./CategoryItem";
+import CategoriesLoading from "./loader/CategoriesLoading";
 
 export default function CategoryList() {
   const {
@@ -11,13 +12,15 @@ export default function CategoryList() {
     queryKey: ["categories"],
     queryFn: useGetCategories,
   });
+
   if (loadingCategories) {
-    return <p>Loading...</p>;
+    return <CategoriesLoading />;
   }
 
   if (isCategoryError) {
     return <p>Error loading categories</p>;
   }
+  console.log(categories);
 
   return (
     <div className="mx-auto border-2 bg-[#ffffff] bg-gradient-to-b">

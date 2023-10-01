@@ -6,7 +6,6 @@ import TrendingVideoGames from "../features/HomePage/components/FeatureTrendingV
 import PaymentOptions from "../features/HomePage/components/PaymentOptions";
 import FeaturesList from "../features/HomePage/components/FeaturesList";
 
-import CategoriesLoading from "../features/HomePage/components/loader/CategoriesLoading";
 import ProductLoader from "../features/HomePage/components/loader/HomeProductLoader";
 
 const Categories = lazy(() =>
@@ -20,9 +19,7 @@ export default function HomePage() {
   return (
     <div className="bg-[#fdfdfd]">
       <HeroCarousel />
-      <Suspense fallback={<CategoriesLoading />}>
-        <Categories />
-      </Suspense>
+      <Categories />
       <div className="mx-auto mt-16 max-w-[1400px] bg-[#fdfdfd] px-0 xl:px-14">
         <Suspense fallback={<ProductLoader />}>
           <FeaturedProducts />
