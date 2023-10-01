@@ -1,5 +1,4 @@
 import { FiTrash } from "react-icons/fi";
-
 function GameServiceComponent({ register, setValue, getValues }) {
   const predefinedKeys = [
     "Rank",
@@ -13,8 +12,9 @@ function GameServiceComponent({ register, setValue, getValues }) {
     const value = getValues("value");
     let currentOptions = getValues("options") || [];
 
-    const existingIndex = currentOptions.findIndex((options) => options[key] !== undefined);
-
+    const existingIndex = currentOptions.findIndex(
+      (options) => options[key] !== undefined
+    );
 
     if (existingIndex !== -1) {
       currentOptions[existingIndex][key] = value;
@@ -34,6 +34,9 @@ function GameServiceComponent({ register, setValue, getValues }) {
       setValue("options", currentOptions);
     }
   };
+
+  console.log(getValues("serviceId"));
+  console.log(getValues("gameId"));
   return (
     <div className="step">
       <div className="mb-4">
@@ -49,7 +52,6 @@ function GameServiceComponent({ register, setValue, getValues }) {
           name="title"
           required
           {...register("title")}
-
           className="w-full rounded border px-3 py-2"
         />
       </div>
@@ -83,7 +85,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
           required
           {...register("stock")}
         >
-          {[...Array(10).keys()].map((num) => (
+          {[...Array(10)?.keys()].map((num) => (
             <option
               key={num}
               value={num + 1}
@@ -96,15 +98,22 @@ function GameServiceComponent({ register, setValue, getValues }) {
       </div>
       <div className="grid gap-4">
         <div className="mb-2 flex flex-wrap gap-4 text-sm sm:text-base">
-          {getValues("options").map((option, index) => (
+          <div className="my-1 flex w-auto items-center rounded-lg bg-gray-100 px-3 py-2 text-gray-700 shadow-md sm:mb-0">
+            <span className="mr-2">Service: {getValues("serviceId")}</span>
+          </div>
+          <div className="my-1 flex w-auto items-center rounded-lg bg-gray-100 px-3 py-2 text-gray-700 shadow-md sm:mb-0">
+            <span className="mr-2">Game: {getValues("gameId")}</span>
+          </div>
+          {getValues("options")?.map((option, index) => (
             <div
               key={index}
               className="my-1 flex w-auto items-center rounded-lg bg-gray-100 px-3 py-2 text-gray-700 shadow-md sm:mb-0"
             >
-              {Object.entries(option).map(([key, value]) => (
-
-                <div key={key} >
-                  <span className="mr-2">{key}: {value}</span>
+              {Object.entries(option)?.map(([key, value]) => (
+                <div key={key}>
+                  <span className="mr-2">
+                    {key}: {value}
+                  </span>
                 </div>
               ))}
               <button
@@ -115,8 +124,8 @@ function GameServiceComponent({ register, setValue, getValues }) {
               </button>
             </div>
           ))}
-
         </div>
+
         <h4 className="text-[1.06rem] font-bold text-gray-600">
           <span className="border-gray-400 tracking-wide">Optional Titles</span>
         </h4>
@@ -135,7 +144,6 @@ function GameServiceComponent({ register, setValue, getValues }) {
           <input
             {...register("value")}
             type="text"
-
             placeholder="Enter Value"
             className="w-full rounded-lg border border-purple-300 bg-gray-50 p-2 focus:outline-none focus:ring-2 focus:ring-purple-300 sm:ml-2 sm:w-auto"
           />
@@ -147,7 +155,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
           </button>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 

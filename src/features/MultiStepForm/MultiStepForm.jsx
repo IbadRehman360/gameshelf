@@ -1,34 +1,23 @@
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import useUpdateHook from "./hooks/useUpdateHook";
 import OfferGamesService from "./OfferGamesService";
 import OfferInfo from "./OfferInfo";
-import Step from "./Step";
 import OfferInfoImage from "./OfferInfoImage";
 import RegistrationSuccess from "./OfferCompletion";
+import Step from "./Step";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { useState } from "react";
-import useUpdateHook from "./hooks/useUpdateHook";
-import { get, useForm } from "react-hook-form";
 
 function useMultiStepForm({ user }) {
   const [step, setStep] = useState(1);
-  const { register, getValues, watch, setValue } = useForm({
-    defaultValues: {
-      options: [
-        { Service: "games" },
-        { Game: "CSGO" }
-      ],
-    }
-  });
-  const onSubmit = async () => {
-    if (step === 3) {
-      setStep(step + 1);
-      const values = getValues();
-      const [updatedData, error] = await useUpdateHook(values, user);
-    } else {
-      setStep(step + 1);
+  const { register, getValues, watch, setValue, handleSubmit } = useForm({});
 
-    }
+  const onSubmit = async (data) => {
+    const [updatedData, error] = await useUpdateHook(data, user);
   };
+
   watch();
+
   const stepComponents = {
     1: <OfferGamesService register={register}>Step One</OfferGamesService>,
     2: (
@@ -39,6 +28,15 @@ function useMultiStepForm({ user }) {
     3: <OfferInfoImage register={register}>Step Three</OfferInfoImage>,
     4: <RegistrationSuccess>Step Four</RegistrationSuccess>,
   };
+
+  const handleBack = () => {
+    setStep(step - 1);
+  };
+
+  const handleNext = () => {
+    setStep(step + 1);
+  };
+
   return (
     <>
       <div
@@ -46,29 +44,30 @@ function useMultiStepForm({ user }) {
         style={{ backgroundImage: "url('./')" }}
       >
         <Step step={step} />
-        <form >
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-4 px-5 py-10 sm:px-8">
             {stepComponents[step]}
             <div className="mt-2 flex justify-between">
               <button
-                className={`cursor-pointer rounded border border-gray-300 bg-gray-100 px-4 py-2 sm:px-5 ${step === 4 ? "hidden" : "flex"
-                  }`}
-                onClick={() => setStep(step - 1)}
+                className={`cursor-pointer rounded border border-gray-300 bg-gray-100 px-4 py-2 sm:px-5 ${
+                  step === 4 ? "hidden" : "flex"
+                }`}
+                onClick={handleBack}
                 disabled={step <= 1}
-
               >
                 Back
               </button>
               <button
-                className={`cursor-pointer  rounded bg-gray-700 px-4 py-2 text-white  sm:px-5 ${step === 4 ? "hidden" : "flex"
-                  }`}
+                className={`cursor-pointer rounded bg-gray-700 px-4 py-2 text-white sm:px-5 ${
+                  step === 4 ? "hidden" : "flex"
+                }`}
                 disabled={step >= 4}
-                onClick={onSubmit}
-                type="button"
+                onClick={handleNext}
+                type={step === 3 ? "submit" : "button"}
               >
                 {step === 3 ? "Finished" : "Next"}
               </button>
-              {/* <pre> {JSON.stringify(watch(), null, 2)} </pre> */}
+              <pre> {JSON.stringify(watch(), null, 2)} </pre>
             </div>
           </div>
         </form>

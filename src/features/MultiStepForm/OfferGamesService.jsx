@@ -1,37 +1,6 @@
-const Games = [
-  "Overwatch",
-  "Apex Legends",
-  "Call of Duty",
-  "The Elder",
-  "FIFA 22",
-  "Fortnite Accounts",
-  "World of Warcraft",
-  "Dota",
-  "Far Cry",
-  "Borderlands",
-  "Fallout",
-  "Rocket League",
-  "League of Legends",
-  "Hearthstone",
-  "Destiny 2",
-  "Genshin Impact",
-  "Rocket League",
-  "The Witcher 3",
-  "Cyberpunk 2077",
-  "Rocket League",
-  "Valorant Account",
-  "CS:GO",
-  "Minecraft Account",
-  "Fortnite Skins",
-  "Valorant Account",
-  "CS:GO",
-  "Apex Legends",
-  "Minecraft Account",
-  "FIFA 22",
-  "Fortnite Accounts",
-  "Call of Duty",
-  "Cyberpunk 2077",
-];
+const Games = ["CSGO"];
+
+const options = [{ value: "5", label: "Accounts" }];
 
 function GameSelectionComponent({ register }) {
   return (
@@ -50,12 +19,11 @@ function GameSelectionComponent({ register }) {
           {...register("serviceId")}
           className="w-full rounded border border-gray-400 px-3 py-2"
         >
-          <option value="">Select an option</option>
-          <option value="1">Video Games</option>
-          <option value="2">Gift Cards</option>
-          <option value="3">Game Coins</option>
-          <option value="4">Items</option>
-          <option value="5">Accounts</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
         </select>
         <label
           className="mb-2 mt-4 block font-bold tracking-wide text-gray-700"
@@ -81,9 +49,7 @@ function GameSelectionComponent({ register }) {
         </div>
       </div>
       <div className="mb-3 px-1">
-        <p className="mb-3 mt-8 font-semibold text-gray-900">
-          Notifications
-        </p>
+        <p className="mb-3 mt-8 font-semibold text-gray-900">Notifications</p>
         <div className="mt-2 flex items-start text-sm text-gray-600">
           <label htmlFor="comments" className="inline-flex items-start">
             <input
@@ -100,7 +66,7 @@ function GameSelectionComponent({ register }) {
           </label>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 
