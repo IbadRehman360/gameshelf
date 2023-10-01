@@ -1,20 +1,13 @@
 import DashboardNavigationProducts from "./DashboardNavigationProducts";
 import FeaturePagination from "../../components/FeaturePagination";
-import { useQuery } from "@tanstack/react-query";
-import getGames from "./hooks/getGames";
+import { useGames } from "../useGames";
 
 export default function DashboardItemsNavigationProduct() {
-  const {
-    data: isGames,
-    loading: isGameLoading,
-    error: isGameError,
-  } = useQuery({ queryKey: ["games"], queryFn: getGames });
+  const { isGames, isGamesLoading, gamesError } = useGames();
   const games = isGames && isGames[0] ? isGames[0] : [];
 
-  // Slice the games array to create separate arrays for different sections
-  const trendingGames = games.slice(0, 8); // Get the first 6 games for trending section
-  const additionalGames = games.slice(8, 20); // Get the remaining games for additional section
-  console.log(trendingGames, additionalGames);
+  const trendingGames = games.slice(0, 8);
+  const additionalGames = games.slice(8, 20);
   return (
     <div className="">
       <div className="mx-auto max-w-4xl pb-14 md:pb-20 lg:pb-24 lg:max-w-7xl lg:px-8">

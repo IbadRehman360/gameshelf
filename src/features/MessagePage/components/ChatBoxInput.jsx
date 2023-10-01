@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import useCreateMessage from "../hooks/useCreateMessage";
+import { useCreateMessage } from "../../../services/apiChat";
 
 export default function ChatBoxInput({ chatId, userId }) {
   const {
@@ -8,7 +8,7 @@ export default function ChatBoxInput({ chatId, userId }) {
     handleSubmit,
     reset,
     formState,
-    formState: {isSubmitSuccessful},
+    formState: { isSubmitSuccessful },
   } = useForm();
 
   function handleCreateNewMessage(data) {

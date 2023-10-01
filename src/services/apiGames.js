@@ -1,6 +1,7 @@
-import supabase from "../../../services/supabase"
+import supabase from "../../../services/supabase";
 
-export default async function getGames() {
+
+export async function getGames() {
     let { data: games, error } = await supabase
         .from('games')
         .select("*")
@@ -12,3 +13,5 @@ export default async function getGames() {
 
     return [games, error]
 }
+
+

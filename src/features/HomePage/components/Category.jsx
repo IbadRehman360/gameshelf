@@ -1,17 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import useGetCategories from "../../../hooks/getCategories";
 import CategoryItem from "./CategoryItem";
 import CategoriesLoading from "./loader/CategoriesLoading";
+import useCategories from "../useCategories";
 
 export default function CategoryList() {
-  const {
-    data: categories,
-    isLoading: loadingCategories,
-    error: isCategoryError,
-  } = useQuery({
-    queryKey: ["categories"],
-    queryFn: useGetCategories,
-  });
+  const { categories, loadingCategories, isCategoryError } = useCategories();
 
   if (loadingCategories) {
     return <CategoriesLoading />;

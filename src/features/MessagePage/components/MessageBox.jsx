@@ -1,8 +1,7 @@
 import MessageSearchBar from "./MessageSearchBar";
 import MessageComponentEachUser from "./Chat";
 import { useEffect, useState } from "react";
-import useGetChats from "./hooks/useGetChats";
-import useCreateChat from "./hooks/useCreateChat";
+import { createChat, useGetChats } from "../../../services/apiChat";
 import { useAuth } from "../../context/AuthProvider";
 import { useParams } from "react-router-dom";
 import ChatBox from "./ChatBox";
@@ -10,12 +9,11 @@ import ChatBox from "./ChatBox";
 export default function MessageBox() {
   const params = useParams();
   const { userData } = useAuth();
-  const {userChats, isLoading} = useGetChats();
+  const { userChats, isLoading } = useGetChats();
   const [selectedChat, setSelectedChat] = useState(null);
-
   useEffect(() => {
     if (params.userId) {
-      useCreateChat(userData.id, params.userId);
+      createChat(userData.id, params.userId);
     }
   }, []);
 
@@ -29,7 +27,6 @@ export default function MessageBox() {
     //     async () => (await getChats())
     //   )
     //   .subscribe();
-
     // return () => {
     //   messageWatcher.unsubscribe();
     // };
@@ -72,15 +69,17 @@ export default function MessageBox() {
           </div>
           <div>
             <div className="overflow-y-auto">
-              {isLoading ? "Loading..." : userChats.map((chat, index) => (
-                <button
-                  key={index}
-                  className="w-full p-4 hover:bg-red-100"
-                  onClick={() => setSelectedChat(chat)}
-                >
-                  <MessageComponentEachUser chat={chat} index={index} />
-                </button>
-              ))}
+              {isLoading
+                ? "Loading..."
+                : userChats.map((chat, index) => (
+                    <button
+                      key={index}
+                      className="w-full p-4 hover:bg-red-100"
+                      onClick={() => setSelectedChat(chat)}
+                    >
+                      <MessageComponentEachUser chat={chat} index={index} />
+                    </button>
+                  ))}
             </div>
           </div>
         </div>

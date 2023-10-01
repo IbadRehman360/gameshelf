@@ -28,18 +28,6 @@ export default function DashboardSearchBar() {
             >
               Every one of the gaming accounts.{" "}
             </a>
-            {/* <a
-              href="/"
-              className="text-gray-500 hover:text-gray-100 font-semibold transition duration-300"
-            >
-              Rank
-            </a>
-            <a
-              href="/"
-              className="text-gray-500 hover:text-gray-100 font-semibold transition duration-300"
-            >
-              Budget
-            </a> */}
           </div>
 
           <Menu

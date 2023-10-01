@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import FeaturedProduct from "./HomeFeatureProduct";
-import { useQuery } from "@tanstack/react-query";
-import getItem from "../../../hooks/ItemTable/getItem";
 import HomeProductLoaders from "./loader/HomeProductLoaders";
+import useProduct from "../useProduct";
 
 export default function FeaturedProducts() {
   const [orderBy, setOrderBy] = useState("created_at");
@@ -10,14 +9,10 @@ export default function FeaturedProducts() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliceEnd, setSliceEnd] = useState(calculateSliceEnd());
 
-  const {
-    data: items,
-    isLoading: loadingItems,
-    error: isCategoryError,
-  } = useQuery({
-    queryKey: ["hpItem"],
-    queryFn: () => getItem(orderBy, orderDirection),
-  });
+  const { items, loadingItems, isItemsError } = useProduct(
+    orderBy,
+    orderDirection
+  );
 
   function calculateSliceEnd() {
     const windowWidth = window.innerWidth;

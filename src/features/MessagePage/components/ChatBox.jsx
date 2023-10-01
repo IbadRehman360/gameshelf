@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ChatMessageSender from "./components/ChatMessageSender";
 import ChatMessageRecipient from "./components/ChatMessageRecipient";
 import { useAuth } from "../../context/AuthProvider";
@@ -21,20 +21,20 @@ export default function ChatBox({ chat, user }) {
 
   useEffect(() => {
     const messageWatcher = supabase
-    .channel("custom-all-channel")
-    .on(
-      "postgres_changes",
-      { event: "*", schema: "public", table: "chat_messages" },
-      async () => {
-        (await getChatMessages());
-      }
-    )
-    .subscribe();
+      .channel("custom-all-channel")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "chat_messages" },
+        async () => {
+          await getChatMessages();
+        }
+      )
+      .subscribe();
 
     return () => {
       messageWatcher.unsubscribe();
-    }
-  },[])
+    };
+  }, []);
 
   useEffect(() => {
     getChatMessages();
