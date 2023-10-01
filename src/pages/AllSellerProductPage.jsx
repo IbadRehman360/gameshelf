@@ -1,4 +1,4 @@
-import SellerListingItems from "../components/FeatureProducts";
+import SellerListingItems from "../features/AllSellerProductPage/AllSellerProduct";
 import SellerListingBreadTitle from "../features/AllSellerProductPage/AllSellerListingBreadTitle";
 import SellerListingListingFilter from "../features/AllSellerProductPage/AllSellerListingListingFilter";
 import SellerListingSearchBar from "../features/AllSellerProductPage/AllSellerListingSearchBar";

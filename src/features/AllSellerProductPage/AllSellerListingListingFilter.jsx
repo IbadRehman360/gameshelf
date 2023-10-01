@@ -28,7 +28,7 @@ function DashboardListingFilter() {
           </select>
         </div>
 
-        <div className="hidden flex-wrap justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0 lg:flex lg:flex-1 lg:flex-row">
+        <div className="hidden    justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0 lg:flex lg:flex-1 lg:flex-row">
           {filterOptions.map((filterOption) => (
             <DashboardFilterOption
               key={filterOption.id}
