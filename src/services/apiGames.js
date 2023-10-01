@@ -1,5 +1,4 @@
-import supabase from "../../../services/supabase";
-
+import supabase from "../services/supabase";
 
 export async function getGames() {
     let { data: games, error } = await supabase

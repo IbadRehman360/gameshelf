@@ -1,10 +1,10 @@
+import { useAuth } from "../../../context/AuthProvider";
 import MessageSearchBar from "./MessageSearchBar";
 import MessageComponentEachUser from "./Chat";
 import { useEffect, useState } from "react";
-import { createChat, useGetChats } from "../../../services/apiChat";
+import { useCreateChat, useGetChats } from "../../../services/apiChat";
 import { useParams } from "react-router-dom";
 import ChatBox from "./ChatBox";
-import { useAuth } from "../../../context/AuthProvider";
 
 export default function MessageBox() {
   const params = useParams();
@@ -13,7 +13,7 @@ export default function MessageBox() {
   const [selectedChat, setSelectedChat] = useState(null);
   useEffect(() => {
     if (params.userId) {
-      createChat(userData.id, params.userId);
+      useCreateChat(userData.id, params.userId);
     }
   }, []);
 

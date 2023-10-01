@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { GetItem } from "../../services/apiItem";
+import { getItem } from "../../services/apiItem";
 
 export default function useProduct(orderBy, orderDirection) {
 
@@ -9,7 +9,7 @@ export default function useProduct(orderBy, orderDirection) {
         error: isItemsError,
     } = useQuery({
         queryKey: ["hpItem"],
-        queryFn: () => GetItem(orderBy, orderDirection),
+        queryFn: () => getItem(orderBy, orderDirection),
     });
     return { items, loadingItems, isItemsError }
 }

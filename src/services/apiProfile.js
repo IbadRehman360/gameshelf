@@ -1,4 +1,5 @@
-import supabase from "../../../services/supabase";
+import supabase from "../services/supabase";
+
 import { useEffect, useState } from "react";
 
 export function useGetProfile(user) {

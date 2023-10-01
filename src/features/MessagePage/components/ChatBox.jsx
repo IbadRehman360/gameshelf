@@ -1,9 +1,9 @@
+import { useAuth } from "../../../context/AuthProvider";
 import { useEffect, useState } from "react";
 import ChatMessageSender from "./ChatMessageSender";
 import ChatMessageRecipient from "./ChatMessageRecipient";
 import ChatBoxHeader from "./ChatBoxHeader";
 import ChatBoxInput from "./ChatBoxInput";
-import { useAuth } from "../../../context/AuthProvider";
 import supabase from "../../../services/supabase";
 
 export default function ChatBox({ chat, user }) {

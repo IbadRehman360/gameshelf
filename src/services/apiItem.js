@@ -1,5 +1,4 @@
-
-import supabase from "../../../services/supabase";
+import supabase from "../services/supabase";
 
 export const createItem = async (values, user) => {
     const { data: updatedData, error } = await supabase.from("items").upsert([

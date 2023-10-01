@@ -1,9 +1,9 @@
-import supabase from "../../../services/supabase";
+import { useAuth } from "../context/AuthProvider";
+import supabase from "../services/supabase";
 import { useEffect, useState } from "react";
-import { useAuth } from "../../../context/AuthProvider";
 
 
-export async function createChat(author, recipient) {
+export async function useCreateChat(author, recipient) {
     const { data: allChatUsers } = await supabase.from("chat_users").select("*")
     console.log(allChatUsers);
     if (allChatUsers.length > 0) {
