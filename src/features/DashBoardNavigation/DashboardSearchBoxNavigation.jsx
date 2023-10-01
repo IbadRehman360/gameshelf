@@ -8,7 +8,6 @@ function classNames(...classes) {
 }
 
 export default function DashboardSearchBar() {
-
   return (
     <div>
       <div className="">

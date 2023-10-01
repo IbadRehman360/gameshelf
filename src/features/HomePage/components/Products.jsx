@@ -67,7 +67,7 @@ export default function FeaturedProducts() {
   }, []);
 
   if (loadingItems) {
-    <HomeProductLoaders />;
+    return <HomeProductLoaders />;
   }
   return (
     <div className="mb-16 bg-[#fdfdfd] px-3 xl:mt-4">

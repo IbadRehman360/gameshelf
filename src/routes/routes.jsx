@@ -13,7 +13,7 @@ import MessagePage from "../pages/MessagePage";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { AuthProvider } from "../context/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient({
   defaultOptions: {

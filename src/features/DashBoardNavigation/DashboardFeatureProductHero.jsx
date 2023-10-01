@@ -1,8 +1,8 @@
 const gameList = [
-  { title: "Valorant Account", link: "#", stock: 396 },
-  { title: "CS:GO", link: "#", stock: 312 },
-  { title: "Minecraft Account", link: "#", stock: 210 },
-  { title: "Fortnite Skins", link: "#", stock: 150 },
+  { title: "Valorant ", link: "/valorant", stock: 396 },
+  { title: "CS:GO", link: "/csgo", stock: 312 },
+  { title: "Minecraft ", link: "/minecraft", stock: 210 },
+  { title: "Fortnite", link: "/fortnite", stock: 150 },
 ];
 export default function DashboardFeatureProductHero() {
   return (
