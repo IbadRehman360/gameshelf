@@ -2,9 +2,9 @@ import MessageSearchBar from "./MessageSearchBar";
 import MessageComponentEachUser from "./Chat";
 import { useEffect, useState } from "react";
 import { createChat, useGetChats } from "../../../services/apiChat";
-import { useAuth } from "../../context/AuthProvider";
 import { useParams } from "react-router-dom";
 import ChatBox from "./ChatBox";
+import { useAuth } from "../../../context/AuthProvider";
 
 export default function MessageBox() {
   const params = useParams();

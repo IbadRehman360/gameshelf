@@ -1,7 +1,7 @@
 import supabase from "../../../services/supabase";
 import { useEffect, useState } from "react";
 
-export default function useGetProfile(user) {
+export function useGetProfile(user) {
     const [profileData, setProfileData] = useState({});
     const [error, setError] = useState("");
 

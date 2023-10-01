@@ -1,7 +1,6 @@
-import DashboardListingFilter from "../features/AllSellerProductPage/AllSellerListingListingFilter";
+import DashboardListingFilter from "../features/GameProducts/components/GameProductsListingFilter";
 import FuturePagination from "../components/FeaturePagination";
 
-import useGetProfile from "../features/profile/hooks/useGetProfile";
 import { useParams } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
@@ -10,6 +9,7 @@ import ProfileProductLoading from "../features/Profile/components/loaders/Profil
 import ProfileStatsLoader from "../features/Profile/components/loaders/ProfileStatsLoader";
 import ProfileInfoLoading from "../features/Profile/components/loaders/ProfileInfoLoading";
 import ProfileHeaderBgLoading from "../features/Profile/components/loaders/ProfileHeaderBgLoading";
+import { useGetProfile } from "../services/apiProfile";
 
 const ProfileHeaderBg = lazy(() =>
   import("../features/Profile/ProfileHeaderBg")
@@ -18,11 +18,9 @@ const ProfileInfo = lazy(() => import("../features/Profile/ProfileInfo"));
 const ProfileStats = lazy(() => import("../features/Profile/ProfileStats"));
 const ProfileProduct = lazy(() => import("../features/Profile/ProfileProduct"));
 
-
 export default function ProfilePage() {
   const params = useParams();
   const [profileData] = useGetProfile(params.user);
-
 
   return (
     <main>

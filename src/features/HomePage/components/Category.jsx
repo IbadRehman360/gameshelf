@@ -1,5 +1,5 @@
 import CategoryItem from "./CategoryItem";
-import CategoriesLoading from "./loader/CategoriesLoading";
+import CategoriesLoading from "../loaders/CategoriesLoading";
 import useCategories from "../useCategories";
 
 export default function CategoryList() {

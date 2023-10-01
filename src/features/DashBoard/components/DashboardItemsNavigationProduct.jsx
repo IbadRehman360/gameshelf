@@ -1,6 +1,6 @@
 import DashboardNavigationProducts from "./DashboardNavigationProducts";
-import FeaturePagination from "../../components/FeaturePagination";
 import { useGames } from "../useGames";
+import FeaturePagination from "../../../components/FeaturePagination";
 
 export default function DashboardItemsNavigationProduct() {
   const { isGames, isGamesLoading, gamesError } = useGames();

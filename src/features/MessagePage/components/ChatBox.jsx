@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import ChatMessageSender from "./components/ChatMessageSender";
-import ChatMessageRecipient from "./components/ChatMessageRecipient";
-import { useAuth } from "../../context/AuthProvider";
-import ChatBoxHeader from "./components/ChatBoxHeader";
-import ChatBoxInput from "./components/ChatBoxInput";
-import supabase from "../../services/supabase";
+import ChatMessageSender from "./ChatMessageSender";
+import ChatMessageRecipient from "./ChatMessageRecipient";
+import ChatBoxHeader from "./ChatBoxHeader";
+import ChatBoxInput from "./ChatBoxInput";
+import { useAuth } from "../../../context/AuthProvider";
+import supabase from "../../../services/supabase";
 
 export default function ChatBox({ chat, user }) {
   const [chatMessages, setChatMessages] = useState([]);

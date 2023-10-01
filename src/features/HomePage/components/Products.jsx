@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FeaturedProduct from "./HomeFeatureProduct";
-import HomeProductLoaders from "./loader/HomeProductLoaders";
+import HomeProductLoaders from "../loaders/HomeProductLoaders";
 import useProduct from "../useProduct";
 
 export default function FeaturedProducts() {

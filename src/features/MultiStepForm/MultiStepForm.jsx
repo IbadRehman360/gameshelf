@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import createItem from "./hooks/createItem";
 import OfferGamesService from "./OfferGamesService";
 import OfferInfo from "./OfferInfo";
 import OfferInfoImage from "./OfferInfoImage";
 import RegistrationSuccess from "./OfferCompletion";
 import Step from "./Step";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { createItem } from "../../services/apiItem";
 
 function MultiStepForm({ user }) {
   const [step, setStep] = useState(1);

@@ -1,4 +1,4 @@
-import GameProductItems from "../features/GameProducts/GameProducts";
+import GameProductItems from "../features/GameProducts/components/GameProducts";
 import GameProductBreadTitle from "../features/GameProducts/components/GameProductsBreadTitle";
 import GameProductListingFilter from "../features/GameProducts/components/GameProductsListingFilter";
 import GameProductSearchBar from "../features/GameProducts/components/GameProductsSearchBar";
