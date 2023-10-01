@@ -8,20 +8,20 @@ import FeaturesList from "../features/HomePage/components/FeaturesList";
 
 import CategoriesLoading from "../features/HomePage/components/loader/CategoriesLoading";
 import ProductLoader from "../features/HomePage/components/loader/HomeProductLoader";
-import useGetCategories from "../features/HomePage/hooks/useGetCategories";
 
-
-const Categories = lazy(() => import("../features/HomePage/components/CategoryList"));
-const FeaturedProducts = lazy(() => import("../features/HomePage/components/Products"));
+const Categories = lazy(() =>
+  import("../features/HomePage/components/Category.jsx")
+);
+const FeaturedProducts = lazy(() =>
+  import("../features/HomePage/components/Products")
+);
 
 export default function HomePage() {
-  const [categories] = useGetCategories();
-
   return (
     <div className="bg-[#fdfdfd]">
       <HeroCarousel />
       <Suspense fallback={<CategoriesLoading />}>
-        <Categories categories={categories} />
+        <Categories />
       </Suspense>
       <div className="mx-auto mt-16 max-w-[1400px] bg-[#fdfdfd] px-0 xl:px-14">
         <Suspense fallback={<ProductLoader />}>

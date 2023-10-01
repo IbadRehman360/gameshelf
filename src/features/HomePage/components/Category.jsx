@@ -1,4 +1,5 @@
-import { useGetCategories } from "../../../hooks/getCategories";
+import { useQuery } from "react-query";
+import useGetCategories from "../../../hooks/getCategories";
 import CategoryItem from "./CategoryItem";
 
 export default function CategoryList() {

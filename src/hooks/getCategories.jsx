@@ -1,6 +1,6 @@
 import supabase from "../services/supabase";
 
-export async function useGetCategories() {
+export default async function useGetCategories() {
   const { data, error } = await supabase.from("categories").select("*");
 
   if (error) {
