@@ -1,7 +1,9 @@
 const Games = ["CSGO"];
 
-const options = [{ value: "5", label: "Accounts" }];
-
+const options = [
+  { value: "", label: "Select an option" },
+  { value: "5", label: "Accounts" },
+];
 function GameSelectionComponent({ register }) {
   return (
     <div className="step">
@@ -13,11 +15,11 @@ function GameSelectionComponent({ register }) {
           Select Service
         </label>
         <select
-          required
           id="service"
-          name="service"
-          {...register("serviceId")}
+          name="serviceId"
+          required
           className="w-full rounded border border-gray-400 px-3 py-2"
+          {...register("serviceId")}
         >
           {options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -33,13 +35,13 @@ function GameSelectionComponent({ register }) {
         </label>
         <div className="overflow-hidden">
           <select
-            required
             id="game"
-            name="game"
-            {...register("gameId")}
+            required
+            name="gameId"
             className="w-full overflow-hidden rounded border border-gray-400 px-3 py-2"
+            {...register("gameId")}
           >
-            <option>Select an option</option>
+            <option value={""}>Select an option</option>
             {Games.map((game, index) => (
               <option key={index} value={index + 1}>
                 {game}
@@ -55,7 +57,6 @@ function GameSelectionComponent({ register }) {
             <input
               id="comments"
               name="comments"
-              required
               type="checkbox"
               className={`mt-0.5 h-5 w-5 accent-gray-600 md:mt-0`}
             />

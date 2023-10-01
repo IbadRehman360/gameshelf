@@ -8,9 +8,7 @@ import FeaturesList from "../features/HomePage/components/FeaturesList";
 
 import ProductLoader from "../features/HomePage/components/loader/HomeProductLoader";
 
-const Categories = lazy(() =>
-  import("../features/HomePage/components/Category.jsx")
-);
+import Categories from "../features/HomePage/components/Category.jsx";
 const FeaturedProducts = lazy(() =>
   import("../features/HomePage/components/Products")
 );

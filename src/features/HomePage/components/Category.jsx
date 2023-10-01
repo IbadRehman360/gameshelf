@@ -20,7 +20,6 @@ export default function CategoryList() {
   if (isCategoryError) {
     return <p>Error loading categories</p>;
   }
-  console.log(categories);
 
   return (
     <div className="mx-auto border-2 bg-[#ffffff] bg-gradient-to-b">
@@ -29,7 +28,7 @@ export default function CategoryList() {
       </h3>
       <div className="mx-auto mb-4 grid max-w-[1400px] grid-cols-4 justify-items-center gap-10 p-4 pb-10 md:mb-6 md:grid-cols-8 md:gap-5 lg:gap-2 xl:gap-0 xl:p-3 xl:pb-6">
         {categories.map((categoryItem, i) => (
-          <CategoryItem key={i} index={i} category={categoryItem} />
+          <CategoryItem key={i} category={categoryItem} />
         ))}
       </div>
     </div>

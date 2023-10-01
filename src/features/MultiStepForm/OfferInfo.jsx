@@ -7,7 +7,8 @@ function GameServiceComponent({ register, setValue, getValues }) {
     "Battle-Passes",
     "Currency",
   ];
-  const handleAddClick = () => {
+  const handleAddClick = (e) => {
+    e.preventDefault();
     const key = getValues("key");
     const value = getValues("value");
     let currentOptions = getValues("options") || [];
@@ -18,7 +19,7 @@ function GameServiceComponent({ register, setValue, getValues }) {
 
     if (existingIndex !== -1) {
       currentOptions[existingIndex][key] = value;
-    } else if (currentOptions.length < 4 && key && value) {
+    } else if (currentOptions.length < 2 && key && value) {
       const newOption = {};
       newOption[key] = value;
       currentOptions.push(newOption);
@@ -35,8 +36,6 @@ function GameServiceComponent({ register, setValue, getValues }) {
     }
   };
 
-  console.log(getValues("serviceId"));
-  console.log(getValues("gameId"));
   return (
     <div className="step">
       <div className="mb-4">

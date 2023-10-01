@@ -121,15 +121,17 @@ export default function FeaturedProducts() {
           <a
             href="#trendingGiftCardsSlide1"
             onClick={handlePrevPage}
-            className={`mr-1 block h-[4px] w-[28px] rounded-2xl ${currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
-              } `}
+            className={`mr-1 block h-[4px] w-[28px] rounded-2xl ${
+              currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
+            } `}
             id="prevPage"
           />
           <a
             href="#trendingGiftCardsSlide2"
             onClick={handleNextPage}
-            className={`mr-1 block h-[4px]  w-[28px] rounded-2xl ${currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
-              } `}
+            className={`mr-1 block h-[4px]  w-[28px] rounded-2xl ${
+              currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
+            } `}
           />
         </div>
       </div>
