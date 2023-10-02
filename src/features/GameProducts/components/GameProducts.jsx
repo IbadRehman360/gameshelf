@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import FeaturedProduct from "../../../components/FeatureProducts";
 import useProduct from "../useCategoryItems";
+import { Spinner } from "@material-tailwind/react";
 
 const gameNameToIdMap = {
   apexlegends: 2,
@@ -22,7 +23,6 @@ const gameNameToIdMap = {
   supermarioodyssey: 19,
   residentevilvillage: 20,
 };
-
 export default function GameProducts() {
   const { game } = useParams();
 
@@ -30,17 +30,40 @@ export default function GameProducts() {
 
   const selectedGameId = isGameNameValid
     ? gameNameToIdMap[game]
-    : alert("NO SUCH GAME EXIST EXIST EXIST WITH THIS GAME");
-  console.log(selectedGameId);
+    : alert("NO SUCH GAME EXISTS WITH THIS NAME");
 
   const { isGameLoading, isGameError, isGames } = useProduct(selectedGameId);
 
-  const games = isGames ? isGames : [];
-  console.log(games);
+  const games = isGames || [];
+
+  if (isGameLoading || !isGames) {
+    return (
+      <div className="flex flex-col items-center justify-center py-16">
+        <Spinner className="h-20 w-20 text-red-500" />;
+      </div>
+    );
+  }
+
+  if (isGames.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-16">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-6 text-gray-800">
+            Oops! No Products Found
+          </h1>
+          <p className="text-lg text-gray-600">
+            It seems like there are no products available in this category.
+            <div className="mt-2" />
+            Why not explore our other categories?
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 lg:gap-4 xl:grid-cols-5">
-      {games.map((game, i) => (
+      {isGames.map((game, i) => (
         <FeaturedProduct
           key={i}
           title={game.title}

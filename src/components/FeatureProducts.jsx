@@ -32,7 +32,7 @@ export default function FeaturedProduct({
           </p>
         </div>
         <div className="border-t"></div>
-        <div className="m-3 my-1 flex text-[0.4rem] sm:text-[0.7rem]">
+        <div className="m-0 my-1 flex text-[0.4rem] sm:text-[0.7rem]">
           <img
             className="mt-1.5 h-8 w-8 rounded-full sm:h-8 sm:w-8 lg:h-9 lg:w-9"
             src="/userImage/3.jpg"
@@ -47,9 +47,9 @@ export default function FeaturedProduct({
               </p>
             </div>
             <div className="mt-3">
-              <p className="mb-2 hidden text-[1rem] font-medium text-slate-600 sm:flex sm:text-[0.9rem] md:text-[0.9rem] lg:text-[0.96rem] xl:text-[0.94rem]">
+              <p className="mb-2 hidden text-[1rem] font-medium text-slate-600 sm:flex sm:text-[0.85rem] md:text-[0.85rem] lg:text-[0.96rem] xl:text-[0.94rem]">
                 {decimalConversion}
-                <span className="ml-[1px] text-[0.5rem] font-medium text-gray-800 sm:ml-[3px] sm:mt-[2px] sm:text-[0.55rem] md:mt-[1px] md:text-[0.6rem] lg:ml-1 lg:mt-[2px] xl:mt-[3.5px] xl:text-[0.6rem]">
+                <span className="ml-[1px] text-[0.5rem] font-medium text-gray-800 sm:ml-[4px] sm:mt-[4.5px] sm:text-[0.59rem] md:mt-[3px] md:text-[0.65rem] lg:ml-1 lg:mt-[4px] xl:mt-[3.4px] xl:text-[0.7rem]">
                   USD
                 </span>
               </p>

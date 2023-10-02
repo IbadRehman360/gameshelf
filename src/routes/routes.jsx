@@ -12,7 +12,7 @@ import MessagePage from "../pages/MessagePage";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { AuthProvider } from "../context/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import GameCategoryProductPage from "../pages/GameCategoryProductPage";
 
 const queryClient = new QueryClient({
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   {
     element: (
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false} />;
+        {/* <ReactQueryDevtools initialIsOpen={false} />; */}
         <AuthProvider>
           <AppLayout />
         </AuthProvider>
