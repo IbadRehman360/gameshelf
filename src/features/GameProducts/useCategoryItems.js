@@ -4,15 +4,13 @@ import { getCategoryItems } from "../../services/apiItem";
 
 export default function useProduct(game) {
     const {
-        data: isGames,
+        data: games,
         loading: isGameLoading,
         error: isGameError,
     } = useQuery({
         queryKey: [game],
         queryFn: () => getCategoryItems(game),
-
     });
 
-
-    return { isGameLoading, isGameError, isGames };
+    return { isGameLoading, isGameError, games };
 }

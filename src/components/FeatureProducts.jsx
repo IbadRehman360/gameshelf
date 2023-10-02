@@ -6,13 +6,16 @@ export default function FeaturedProduct({
   price,
   level,
   fullName,
+  games,
+  gamesID,
 }) {
   const date = new Date(created_at);
   const getHour = date.getHours(date);
   const decimalConversion = price.toFixed(2);
-
   return (
-    <Link>
+    <Link
+      to={`/dashboard/${games[0]?.game_id?.title.toLowerCase()}/${gamesID}`}
+    >
       <div className="flex flex-col rounded-2xl border-2 bg-[#fdfdfd] p-3 lg:p-4">
         <div className="flex flex-col gap-1">
           <h3 className="my-1 line-clamp-2 text-[0.8rem] font-medium tracking-tighter text-black sm:text-xs lg:text-sm xl:text-[0.95rem]">

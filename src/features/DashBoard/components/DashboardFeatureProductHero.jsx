@@ -1,4 +1,3 @@
-import useGames from "../useGames";
 import DashboardNavigationProducts from "./DashboardNavigationProducts";
 
 const gameList = [
@@ -7,10 +6,25 @@ const gameList = [
   { title: "Minecraft ", link: "/dashboard/minecraft", stock: 210 },
   { title: "Fortnite", link: "/dashboard/fortnite", stock: 150 },
 ];
-export default function DashboardFeatureProductHero() {
-  const { isGames, isGamesLoading, gamesError } = useGames();
-  const games = isGames && isGames[0] ? isGames[0] : [];
-  const slice = games.slice(6, 10);
+export default function DashboardFeatureProductHero({
+  games: isGames,
+  loading,
+}) {
+  if (loading || !isGames) {
+    return (
+      <>
+        <h1>loading...</h1>
+        <h1>loading...</h1>
+        <h1>loading...</h1>
+        <h1>loading...</h1>
+        <h1>loading...</h1>
+        <h1>loading...</h1>
+      </>
+    );
+  }
+  const games = isGames[0];
+
+  const slice = games.slice(16, 20);
   return (
     <div className="mt-10">
       <div className="mx-auto grid max-w-4xl grid-cols-1 lg:max-w-7xl lg:grid-cols-2">
