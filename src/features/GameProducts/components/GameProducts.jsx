@@ -19,7 +19,7 @@ export default function dashboardItems() {
           created_at={game.created_at}
           price={game.price}
           level={game.seller_id.level}
-          fullName={game.seller_id.fullName}
+          fullName={game.seller_id.username}
         />
       ))}
     </div>
