@@ -105,7 +105,7 @@ export default function FeaturedProducts() {
               created_at={product.created_at}
               price={product.price}
               level={product.users.level}
-              fullName={product.users.fullName}
+              fullName={product.users.username}
             />
           ))}
         </div>
@@ -120,7 +120,7 @@ export default function FeaturedProducts() {
               created_at={product.created_at}
               price={product.price}
               level={product.users.level}
-              fullName={product.users.fullName}
+              fullName={product.users.username}
             />
           ))}
         </div>
