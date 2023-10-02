@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import FeaturedProduct from "./HomeFeatureProduct";
 import HomeProductLoaders from "../loaders/HomeProductLoaders";
 import useProduct from "../useProduct";
+import FeaturedProduct from "../../../components/FeatureProducts";
 
 export default function FeaturedProducts() {
   const [orderBy, setOrderBy] = useState("created_at");
@@ -13,7 +13,6 @@ export default function FeaturedProducts() {
     orderBy,
     orderDirection
   );
-
   function calculateSliceEnd() {
     const windowWidth = window.innerWidth;
     if (windowWidth >= 800 && windowWidth <= 2200) {
@@ -100,7 +99,14 @@ export default function FeaturedProducts() {
           className="carousel-item mx-auto my-4 w-full gap-2 sm:w-full md:gap-3"
         >
           {slide1.map((product) => (
-            <FeaturedProduct key={product.id} featureProduct={product} />
+            <FeaturedProduct
+              key={product.id}
+              title={product.title}
+              created_at={product.created_at}
+              price={product.price}
+              level={product.users.level}
+              fullName={product.users.username}
+            />
           ))}
         </div>
         <div
@@ -108,7 +114,14 @@ export default function FeaturedProducts() {
           className="carousel-item mx-auto my-4 w-full gap-2 sm:w-full md:gap-3"
         >
           {slide2.map((product) => (
-            <FeaturedProduct key={product.id} featureProduct={product} />
+            <FeaturedProduct
+              key={product.id}
+              title={product.title}
+              created_at={product.created_at}
+              price={product.price}
+              level={product.users.level}
+              fullName={product.users.username}
+            />
           ))}
         </div>
       </div>

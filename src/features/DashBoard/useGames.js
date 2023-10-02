@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getGames } from '../../services/apiGames';
 
-export function useGames() {
+export default function useGames() {
     const {
         data: isGames,
         loading: isGamesLoading,

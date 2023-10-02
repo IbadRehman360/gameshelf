@@ -1,11 +1,11 @@
 import DashboardNavigationProducts from "./DashboardNavigationProducts";
-import { useGames } from "../useGames";
+import useGames from "../useGames";
 import FeaturePagination from "../../../components/FeaturePagination";
 
 export default function DashboardItemsNavigationProduct() {
   const { isGames, isGamesLoading, gamesError } = useGames();
+  console.log(isGames);
   const games = isGames && isGames[0] ? isGames[0] : [];
-
   const trendingGames = games.slice(0, 8);
   const additionalGames = games.slice(8, 20);
   return (

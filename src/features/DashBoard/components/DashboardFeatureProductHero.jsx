@@ -1,10 +1,16 @@
+import useGames from "../useGames";
+import DashboardNavigationProducts from "./DashboardNavigationProducts";
+
 const gameList = [
-  { title: "Valorant ", link: "/valorant", stock: 396 },
-  { title: "CS:GO", link: "/csgo", stock: 312 },
-  { title: "Minecraft ", link: "/minecraft", stock: 210 },
-  { title: "Fortnite", link: "/fortnite", stock: 150 },
+  { title: "Valorant ", link: "/dashboard/valorant", stock: 396 },
+  { title: "CS:GO", link: "/dashboard/csgo", stock: 312 },
+  { title: "Minecraft ", link: "/dashboard/minecraft", stock: 210 },
+  { title: "Fortnite", link: "/dashboard/fortnite", stock: 150 },
 ];
 export default function DashboardFeatureProductHero() {
+  const { isGames, isGamesLoading, gamesError } = useGames();
+  const games = isGames && isGames[0] ? isGames[0] : [];
+  const slice = games.slice(6, 10);
   return (
     <div className="mt-10">
       <div className="mx-auto grid max-w-4xl grid-cols-1 lg:max-w-7xl lg:grid-cols-2">
@@ -28,30 +34,12 @@ export default function DashboardFeatureProductHero() {
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-x-2 gap-y-8 sm:mt-8 sm:grid-cols-2 lg:gap-x-8">
-            {gameList.map((game, index) => (
-              <div
+            {slice.map((game, index) => (
+              <DashboardNavigationProducts
                 key={index}
-                className="flex flex-col justify-between rounded-lg bg-[#fdfdfd] p-6 shadow-md transition hover:scale-105 hover:shadow-lg"
-              >
-                <div className="my-4 flex items-center justify-between text-[0.8rem]">
-                  <a
-                    href={game.link}
-                    className="font-semibold text-gray-600 hover:underline lg:text-[0.96rem]"
-                  >
-                    {game.title}
-                  </a>
-                  <p className="mb-1 hidden justify-end self-end whitespace-nowrap rounded-md bg-zinc-400 px-2 py-1 text-xs text-white sm:flex">
-                    {game.stock} offers
-                  </p>
-                </div>
-                <div className="flex justify-end">
-                  <img
-                    src="/gamelogo1.png"
-                    alt="game logo"
-                    className="w-12 rounded text-white sm:w-14 md:w-16"
-                  />
-                </div>
-              </div>
+                game={game}
+                index={index}
+              />
             ))}
           </div>
         </div>

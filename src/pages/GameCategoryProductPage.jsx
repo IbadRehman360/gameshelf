@@ -5,7 +5,7 @@ import GameProductSearchBar from "../features/GameProducts/components/GameProduc
 import GameProductPopularSearches from "../features/GameProducts/components/GameProductsPopularSearches";
 import FeaturePagination from "../components/FeaturePagination";
 import GameProductInfo from "../features/GameProducts/components/GameProductsInfo";
-export default function DashboardPage() {
+export default function GameCategoryProductPage() {
   return (
     <>
       <div className="mx-auto max-w-[1400px] border-b-2 border-gray-100 px-4 pt-8 sm:pb-6 xl:px-14">
