@@ -1,8 +1,6 @@
-import React from "react";
-
 export default function ChatMessageSender({ user, message }) {
   function renderUsername() {
-    return user.slice(0,1);
+    return user.slice(0, 1);
   }
   return (
     <div className="col-start-6 col-end-13 rounded-lg p-3">

@@ -1,7 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function RegistrationSuccess() {
-  const navigate = useNavigate();
   return (
     <div className="my-10 grid text-center">
       <svg
@@ -26,13 +25,11 @@ function RegistrationSuccess() {
         profile. Feel free to explore and manage your listing at your
         convenience.
       </div>
-
-      <button
-        onClick={() => navigate("/")}
-        className="mx-auto block w-40 rounded-lg border bg-white px-5 py-2 text-center font-medium text-gray-600 shadow-sm hover:bg-gray-100 focus:outline-none"
-      >
-        Back to home
-      </button>
+      <Link to={"/"}>
+        <button className="mx-auto block w-40 rounded-lg border bg-white px-5 py-2 text-center font-medium text-gray-600 shadow-sm hover:bg-gray-100 focus:outline-none">
+          Back to home
+        </button>
+      </Link>
     </div>
   );
 }

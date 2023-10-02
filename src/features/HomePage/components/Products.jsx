@@ -1,15 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FeaturedProduct from "./HomeFeatureProduct";
-import useGetItem from "../../../hooks/ItemTable/useGetItem";
-import { useState } from "react";
+import HomeProductLoaders from "../loaders/HomeProductLoaders";
+import useProduct from "../useProduct";
+
 export default function FeaturedProducts() {
   const [orderBy, setOrderBy] = useState("created_at");
   const [orderDirection, setOrderDirection] = useState("asc");
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [data, error] = useGetItem(orderBy, orderDirection);
-  const [sliceEnd, setSliceEnd] = useState();
+  const [sliceEnd, setSliceEnd] = useState(calculateSliceEnd());
 
-  const products = data;
+  const { items, loadingItems, isItemsError } = useProduct(
+    orderBy,
+    orderDirection
+  );
+
+  function calculateSliceEnd() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= 800 && windowWidth <= 2200) {
+      return 4;
+    } else if (windowWidth >= 600 && windowWidth < 800) {
+      return 3;
+    } else if (windowWidth >= 200 && windowWidth < 600) {
+      return 2;
+    } else {
+      return 5;
+    }
+  }
+  const products = items && items[0] ? items[0] : [];
+  console.log(products);
   const handlePrevPage = () => {
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
@@ -20,31 +38,6 @@ export default function FeaturedProducts() {
     if (currentSlide < 2) setCurrentSlide(currentSlide + 1);
   };
 
-  useEffect(() => {
-    const updateSliceEnd = () => {
-      const windowWidth = window.innerWidth;
-      if (windowWidth >= 800 && windowWidth <= 2200) {
-        setSliceEnd(4);
-      } else if (windowWidth >= 600 && windowWidth < 800) {
-        setSliceEnd(3);
-      } else if (windowWidth >= 200 && windowWidth < 600) {
-        setSliceEnd(2);
-      } else {
-        setSliceEnd(5);
-      }
-    };
-
-    window.addEventListener("resize", updateSliceEnd);
-
-    updateSliceEnd();
-
-    return () => {
-      window.removeEventListener("resize", updateSliceEnd);
-    };
-  }, [setOrderBy]);
-  const slide1 = products.slice(0, sliceEnd);
-  const slide2 = products.slice(6, sliceEnd);
-
   const toggleSorting = (newOrderBy) => {
     if (newOrderBy === orderBy) {
       setOrderDirection(orderDirection === "desc" ? "asc" : "desc");
@@ -53,6 +46,24 @@ export default function FeaturedProducts() {
     }
   };
 
+  const slide1 = products.slice(0, sliceEnd);
+  const slide2 = products.slice(sliceEnd, 2 * sliceEnd);
+
+  useEffect(() => {
+    function updateSliceEnd() {
+      setSliceEnd(calculateSliceEnd());
+    }
+
+    window.addEventListener("resize", updateSliceEnd);
+
+    return () => {
+      window.removeEventListener("resize", updateSliceEnd);
+    };
+  }, []);
+
+  if (loadingItems) {
+    return <HomeProductLoaders />;
+  }
   return (
     <div className="mb-16 bg-[#fdfdfd] px-3 xl:mt-4">
       <h2 className="text-[1.4rem] font-semibold text-gray-700 md:text-[1.7rem] lg:text-[1.8rem] 3xl:text-[2rem]">
@@ -97,19 +108,11 @@ export default function FeaturedProducts() {
           className="carousel-item mx-auto my-4 w-full gap-2 sm:w-full md:gap-3"
         >
           {slide2.map((product) => (
-            <FeaturedProduct key={product.id} feat ureProduct={product} />
+            <FeaturedProduct key={product.id} featureProduct={product} />
           ))}
         </div>
       </div>
-      {/* <div className="hidden md:grid md-grid-col-4 lg:grid-cols-5 md:grid-cols-4 gap-5">
-        <FeaturedProduct />
-        <FeaturedProduct />
-        <FeaturedProduct />
-        <FeaturedProduct />
-        <div className="lg:flex md:hidden">
-          <FeaturedProduct />
-        </div>
-      </div> */}
+
       <div className="mt-2 flex justify-center text-xs sm:mt-4 md:mt-6">
         <p
           className="text-[0.97rem] sm:text-[1rem] md:hidden"
@@ -119,17 +122,19 @@ export default function FeaturedProducts() {
         </p>
         <div className="hidden justify-center md:flex">
           <a
-            href="#trendingGiftCardsSlide1"
+            href="#featuredProductsSlide1"
             onClick={handlePrevPage}
-            className={`mr-1 block h-[4px] w-[28px] rounded-2xl ${currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
-              } `}
+            className={`mr-1 block h-[4px] w-[28px] rounded-2xl ${
+              currentSlide === 0 ? "bg-[#f03827]" : "bg-[#888888]"
+            } `}
             id="prevPage"
           />
           <a
-            href="#trendingGiftCardsSlide2"
+            href="#featuredProductsSlide2"
             onClick={handleNextPage}
-            className={`mr-1 block h-[4px]  w-[28px] rounded-2xl ${currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
-              } `}
+            className={`mr-1 block h-[4px]  w-[28px] rounded-2xl ${
+              currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
+            } `}
           />
         </div>
       </div>

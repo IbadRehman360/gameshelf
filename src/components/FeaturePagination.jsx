@@ -1,7 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
-
-export default function FeaturePagination({ onchange, onchange2 }) {
+export default function FeaturePagination({ onchange, onchange2, total }) {
   return (
     <div className="mt-8 border-b border-gray-200 px-4 py-3 pb-12 sm:px-6">
       <div className={`flex flex-1 justify-between ${onchange2} `}>
@@ -21,12 +20,10 @@ export default function FeaturePagination({ onchange, onchange2 }) {
       <div>
         <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
           <div>
-            <p
-              className={`hidden text-sm ${onchange} gap-1  text-gray-700`}
-            >
+            <p className={`hidden text-sm ${onchange} gap-1  text-gray-700`}>
               Showing <span className="font-medium">1</span> to{" "}
-              <span className="font-medium">10</span> of{" "}
-              <span className="font-medium">97</span> results
+              <span className="font-medium">{total} </span> of{" "}
+              <span className="font-medium"> {total} </span> results
             </p>
           </div>
           <div
@@ -50,7 +47,7 @@ export default function FeaturePagination({ onchange, onchange2 }) {
               >
                 1
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
               >
@@ -82,7 +79,7 @@ export default function FeaturePagination({ onchange, onchange2 }) {
                 className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
               >
                 10
-              </a>
+              </a> */}
               <a
                 href="#"
                 className="relative inline-flex items-center rounded-r-md p-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"

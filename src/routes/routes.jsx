@@ -12,13 +12,26 @@ import MultiStepFormPage from "../pages/MultiStepFormPage";
 import MessagePage from "../pages/MessagePage";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { AuthProvider } from "../context/AuthProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
     element: (
-      <AuthProvider>
-        <AppLayout />
-      </AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />;
+        <AuthProvider>
+          <AppLayout />
+        </AuthProvider>
+      </QueryClientProvider>
     ),
     children: [
       {
@@ -34,18 +47,21 @@ const router = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
-        path: "dashboard/products",
+        path: "dashboard/:game",
         element: <AllSellerProductPage />,
       },
       {
-        path: "dashboard/products/:id",
+        path: "dashboard/:game/:id",
         element: <ProductPage />,
       },
       {
         path: "profile/:user",
         element: <ProfilePage />,
       },
-
+      {
+        path: "sell/:user",
+        element: <MultiStepFormPage />,
+      },
     ],
   },
   {
@@ -63,14 +79,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/chat/new/:userId",
-        element: <MessagePage />
+        element: <MessagePage />,
       },
-        path: "sell/:user",
-        element: <MultiStepFormPage />,
-      },
-    ]
+    ],
   },
-
   {
     path: "login",
     element: <LoginPage />,

@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function ChatBoxHeader({name}) {
+export default function ChatBoxHeader({ name }) {
   return (
     <div className="flex flex-row items-center rounded-2xl px-6 py-4 shadow">
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pink-500 font-bold text-pink-300">

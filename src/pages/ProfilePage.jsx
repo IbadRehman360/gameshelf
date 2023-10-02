@@ -1,28 +1,32 @@
-import DashboardListingFilter from "../features/AllSellerProductPage/AllSellerListingListingFilter";
+import DashboardListingFilter from "../features/GameProducts/components/GameProductsListingFilter";
 import FuturePagination from "../components/FeaturePagination";
 
-import useGetProfile from "../features/profile/hooks/useGetProfile";
 import { useParams } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 //Loaders
-import ProfileProductLoading from "../features/Profile/components/loaders/ProfileProductLoading";
-import ProfileStatsLoader from "../features/Profile/components/loaders/ProfileStatsLoader";
-import ProfileInfoLoading from "../features/Profile/components/loaders/ProfileInfoLoading";
-import ProfileHeaderBgLoading from "../features/Profile/components/loaders/ProfileHeaderBgLoading";
+import ProfileProductLoading from "../features/Profile/loaders/ProfileProductLoading";
+import ProfileStatsLoader from "../features/Profile/loaders/ProfileStatsLoader";
+import ProfileInfoLoading from "../features/Profile/loaders/ProfileInfoLoading";
+import ProfileHeaderBgLoading from "../features/Profile/loaders/ProfileHeaderBgLoading";
+import { useGetProfile } from "../services/apiProfile";
 
 const ProfileHeaderBg = lazy(() =>
-  import("../features/Profile/ProfileHeaderBg")
+  import("../features/Profile/components/ProfileHeaderBg")
 );
-const ProfileInfo = lazy(() => import("../features/Profile/ProfileInfo"));
-const ProfileStats = lazy(() => import("../features/Profile/ProfileStats"));
-const ProfileProduct = lazy(() => import("../features/Profile/ProfileProduct"));
-
+const ProfileInfo = lazy(() =>
+  import("../features/Profile/components/ProfileInfo")
+);
+const ProfileStats = lazy(() =>
+  import("../features/Profile/components/ProfileStats")
+);
+const ProfileProduct = lazy(() =>
+  import("../features/Profile/components/ProfileProduct")
+);
 
 export default function ProfilePage() {
   const params = useParams();
   const [profileData] = useGetProfile(params.user);
-
 
   return (
     <main>

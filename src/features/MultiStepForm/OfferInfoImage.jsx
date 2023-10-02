@@ -45,7 +45,6 @@ function OfferInfoComponent({ register }) {
                   required
                   className="sr-only"
                 />
-
               </label>
               <p className="pl-1">or drag and drop</p>
             </div>
