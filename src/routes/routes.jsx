@@ -3,7 +3,6 @@ import HomePage from "../pages/HomePage";
 import AppLayout from "../layouts/AppLayout";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-import AllSellerProductPage from "../pages/AllSellerProductPage";
 import ProductPage from "../pages/ProductPage";
 import ProfilePage from "../pages/ProfilePage";
 import AboutPage from "../pages/AboutPage";
@@ -14,6 +13,7 @@ import ProtectedRoute from "../components/ProtectedRoute";
 import { AuthProvider } from "../context/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import GameCategoryProductPage from "../pages/GameCategoryProductPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard/:game",
-        element: <AllSellerProductPage />,
+        element: <GameCategoryProductPage />,
       },
       {
         path: "dashboard/:game/:id",

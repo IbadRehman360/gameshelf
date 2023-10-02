@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
+import { getCategoryItems } from "../../services/apiItem";
 // import { useParams } from "react-router-dom";
-import { getGames } from "../../services/apiGames";
 
-export default function useGame(game) {
+export default function useProduct(game) {
     const {
         data: isGames,
         loading: isGameLoading,
         error: isGameError,
     } = useQuery({
         queryKey: [game],
-        queryFn: () => getGames(game),
+        queryFn: () => getCategoryItems(game),
 
     });
 
