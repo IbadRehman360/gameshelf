@@ -34,6 +34,9 @@ export async function getItem(orderBy, orderDirection) {
             `*,
           users (
             *
+          ),
+          games (
+            *
           )
         `
         )
@@ -53,7 +56,7 @@ export async function getItem(orderBy, orderDirection) {
 export async function getCategoryItems(gameId) {
     let { data: games, error } = await supabase
         .from('items')
-        .select(`* ,game_id(*), seller_id(*)`)
+        .select(`*, game_id(*), seller_id(*)`)
         .eq('game_id', gameId);
 
     if (error) {
@@ -63,11 +66,11 @@ export async function getCategoryItems(gameId) {
 
     return games;
 }
-export async function getUserItems(paramsId) {
+export async function getUserItems(id) {
     let { data: games, error } = await supabase
         .from('items')
-        .select(`* ,game_id(*), seller_id(*)`)
-        .eq('id', paramsId);
+        .select(`*, game_id(*), seller_id(*), category_id(*)`)
+        .eq('id', id);
 
     if (error) {
         console.log("error getting games: " + error.message);

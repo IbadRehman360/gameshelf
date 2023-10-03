@@ -18,7 +18,7 @@ export default function GameProducts({ loading, games }) {
       </div>
     );
   }
-
+  console.log(games);
   if (games.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16">
@@ -38,7 +38,6 @@ export default function GameProducts({ loading, games }) {
 
   return (
     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 lg:gap-4 xl:grid-cols-5">
-      {/* <Link to={`/dashboard/${games[0]?.game_id?.title}/ibadkhan`}> */}
       {games.map((game, i) => (
         <FeaturedProduct
           key={i}
@@ -47,11 +46,10 @@ export default function GameProducts({ loading, games }) {
           price={game.price}
           level={game.seller_id.level}
           fullName={game.seller_id.username}
-          games={games}
-          gamesID={game.id}
+          productID={game.id}
+          games={games[0]?.game_id.title?.toLowerCase()}
         />
       ))}
-      {/* </Link> */}
     </div>
   );
 }

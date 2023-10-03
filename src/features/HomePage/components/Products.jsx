@@ -106,6 +106,8 @@ export default function FeaturedProducts() {
               price={product.price}
               level={product.users.level}
               fullName={product.users.username}
+              productID={product.id}
+              games={product.games.title.toLowerCase()}
             />
           ))}
         </div>
@@ -121,6 +123,8 @@ export default function FeaturedProducts() {
               price={product.price}
               level={product.users.level}
               fullName={product.users.username}
+              productID={product.id}
+              games={product.games.title.toLowerCase()}
             />
           ))}
         </div>
