@@ -1,17 +1,18 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
 
-export default function BreadCrumbs({id}) {
+export default function BreadCrumbs({ id }) {
   return (
     <nav className="flex" aria-label="Breadcrumb">
       <ol role="list" className="flex items-center space-x-4">
         <li>
           <div>
-            <a
-              href="#"
+            <Link
+              to="/"
               className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
             >
               Home
-            </a>
+            </Link>
           </div>
         </li>
         <li>
@@ -20,13 +21,27 @@ export default function BreadCrumbs({id}) {
               className="h-5 w-5 shrink-0 text-gray-400"
               aria-hidden="true"
             />
-            <a
+            <Link
+              to="/dashboard"
+              className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+            >
+              Dashboard
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className="flex items-center">
+            <ChevronRightIcon
+              className="h-5 w-5 shrink-0 text-gray-400"
+              aria-hidden="true"
+            />
+            <Link
               href={"#"}
               className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
               aria-current={"page"}
             >
               Product #{id}
-            </a>
+            </Link>
           </div>
         </li>
       </ol>

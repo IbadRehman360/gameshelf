@@ -7,12 +7,12 @@ const filterOptions = [
   { id: "Highest Price", title: "Highest Price" },
 ];
 
-function DashboardListingFilter() {
+function DashboardListingFilter({ total }) {
   return (
     <div>
       <div className="mb-6 flex gap-4">
         <p className="mt-1.5 text-[0.85rem] font-medium text-gray-600 sm:text-[0.9em] md:text-[0.95rem]">
-          About 93,741 results
+          About total {total} results
         </p>
         <div className="flex flex-1 justify-end lg:hidden">
           <select

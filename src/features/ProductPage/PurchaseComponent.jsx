@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import ProductImages from "./ProductImages";
 import "swiper/css";
 import useEqProduct from "./useSpProduct";
+import { decimalConversion } from "../../utils/helpers";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -17,8 +18,11 @@ export default function ProductPage() {
     if (quantity > 1) setQuantity((prevQuantity) => prevQuantity - 1);
   }
   function addQuantity() {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    if (product[0].stock > quantity) {
+      setQuantity((prevQuantity) => prevQuantity + 1);
+    }
   }
+
   if (!product || loading) {
     return (
       <>
@@ -28,6 +32,8 @@ export default function ProductPage() {
       </>
     );
   }
+
+  const convertedPrice = decimalConversion(product[0]?.price);
   const description = product[0]?.description;
   const words = description?.split(" ");
   const firstHalf = words?.slice(0, 140).join(" ");
@@ -37,7 +43,7 @@ export default function ProductPage() {
       <div className="mx-auto mt-4 max-w-7xl p-4 sm:p-8">
         <BreadCrumbs id={id} />
         <div className="my-6 mb-10 ml-1 flex justify-between">
-          <h1 className="text-1xl pr-14 pt-4 text-lg font-bold lg:text-2xl sm:text-xl ">
+          <h1 className="pr-14 pt-4 text-lg font-bold sm:text-xl lg:text-2xl ">
             {product[0]?.title}
           </h1>
         </div>
@@ -45,7 +51,7 @@ export default function ProductPage() {
         <div className="flex flex-col gap-10 md:flex-row lg:gap-20">
           <div className="flex flex-col gap-6 rounded-lg border-[1px] p-4 sm:p-8 md:w-2/3 md:gap-8 lg:w-3/5">
             <div className="">
-              <PurchaseUser />
+              <PurchaseUser user={product} />
             </div>
             <div className="flex flex-col gap-1">
               <h3 className="mb-2 font-semibold sm:text-lg md:text-xl">
@@ -90,7 +96,9 @@ export default function ProductPage() {
               </Swiper>
             </div>
             <div className="flex flex-col gap-4 text-center">
-              <span className="text-xs">1,000 in stock</span>
+              <span className="text-xs  tracking-wide">
+                {product[0].stock} in stock
+              </span>
               <div className="flex items-center gap-2 rounded-full bg-white p-1">
                 <button
                   className="btn btn-sm rounded-full bg-gray-200"
@@ -106,13 +114,19 @@ export default function ProductPage() {
                   +
                 </button>
               </div>
-              <span className="text-xs">Unit price $20.99 USD</span>
+              <span className="text-xs   tracking-wider">
+                Unit price {convertedPrice} USD
+              </span>
             </div>
             <hr className="w-full border-[1px] border-gray-400" />
             <div className="flex w-full flex-col gap-4">
               <div className="flex justify-between">
-                <h3 className="text-lg font-medium">Total</h3>
-                <h3 className="text-lg font-medium">$20.99</h3>
+                <h3 className="text-[1.1rem] font-medium text-gray-700 xl:text-[1.15rem]">
+                  Total
+                </h3>
+                <h3 className="text-[1rem] font-medium tracking-wide  text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
+                  ${(convertedPrice * quantity).toFixed(2)}
+                </h3>
               </div>
               <div className="mt-4 rounded-lg border border-gray-200">
                 <button className="btn w-full bg-white">Buy Now</button>

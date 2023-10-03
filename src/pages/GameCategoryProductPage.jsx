@@ -48,7 +48,7 @@ export default function GameCategoryProductPage() {
       </div>
       <div className="pb-20" style={{ backgroundColor: "#FCFCFC " }}>
         <div className="mx-auto max-w-[1400px] px-2 pt-8 xl:px-14">
-          <GameProductListingFilter />
+          <GameProductListingFilter total={ifGames} />
           <GameProductItems isGameLoading={isGameLoading} games={games} />
           <FeaturePagination
             onchange={"sm:flex"}
