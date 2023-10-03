@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import BreadCrumbs from "../../components/BreadCrumbs";
+import BreadCrumbs from "./BreadCrumbs";
 import { useState } from "react";
 import PurchaseUser from "./PurchaseUser";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,7 +11,6 @@ import { decimalConversion } from "../../utils/helpers";
 export default function ProductPage() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
-  const images = Array.from({ length: 4 }, (_, index) => `${index + 1}.webp`);
   const { product, loading, productError } = useEqProduct(id);
 
   function subQuantity() {
@@ -32,7 +31,6 @@ export default function ProductPage() {
       </>
     );
   }
-
   const convertedPrice = decimalConversion(product[0]?.price);
   const description = product[0]?.description;
   const words = description?.split(" ");
@@ -64,9 +62,20 @@ export default function ProductPage() {
                 <span className="w-fit rounded-lg bg-gray-300 p-2">
                   Game: {product[0]?.game_id?.title}
                 </span>
-                <span className="w-fit rounded-lg bg-gray-300 p-2">
-                  Account Level: 70
-                </span>
+                {product[0]?.options?.map((option, index) => {
+                  const optionObj = JSON.parse(option);
+                  const key = Object.keys(optionObj)[0];
+                  const value = optionObj[key];
+
+                  return (
+                    <span
+                      className="w-fit rounded-lg bg-gray-300 p-2"
+                      key={index}
+                    >
+                      {key}: {value}
+                    </span>
+                  );
+                })}
               </div>
             </div>
             <div className="flex flex-col gap-4">
@@ -81,19 +90,22 @@ export default function ProductPage() {
               className="w-full 
       "
             >
-              <Swiper
-                className="flex flex-col"
-                spaceBetween={0}
-                slidesPerView={1}
-                loop={true}
-                autoplay={{ delay: 3000 }}
-              >
-                {images.map((imageUrl, index) => (
-                  <SwiperSlide key={imageUrl}>
-                    <ProductImages index={index} imageUrl={imageUrl} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              {product[0]?.images ? (
+                <Swiper
+                  className="flex flex-col"
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  loop={true}
+                >
+                  {product[0]?.images?.map((imageUrl, index) => (
+                    <SwiperSlide key={imageUrl}>
+                      <ProductImages index={index} imageUrl={imageUrl} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              ) : (
+                <img src="/N">no IMAGE</img>
+              )}
             </div>
             <div className="flex flex-col gap-4 text-center">
               <span className="text-xs  tracking-wide">
