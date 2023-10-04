@@ -41,7 +41,7 @@ export default function ProductPage() {
       <div className="mx-auto mt-4 max-w-7xl p-4 sm:p-8">
         <BreadCrumbs id={id} />
         <div className="my-6 mb-10 ml-1 flex justify-between">
-          <h1 className="pr-14 pt-4 text-lg font-bold sm:text-xl lg:text-2xl ">
+          <h1 className="pt-2 text-lg font-bold text-gray-700 sm:text-xl lg:text-[1.3rem] ">
             {product[0]?.title}
           </h1>
         </div>
@@ -52,7 +52,7 @@ export default function ProductPage() {
               <PurchaseUser user={product} />
             </div>
             <div className="flex flex-col gap-1">
-              <h3 className="mb-2 font-semibold sm:text-lg md:text-xl">
+              <h3 className="mb-2 font-semibold sm:text-lg text-md md:text-xl">
                 Product Info
               </h3>
               <div className="flex w-fit flex-wrap gap-2 text-[10px] sm:text-xs">
@@ -79,9 +79,15 @@ export default function ProductPage() {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <h3 className="font-semibold sm:text-lg md:text-xl">Details</h3>
-              <p className="sm:md:text-sm">{firstHalf}</p>
-              <div>{secondHalf}</div>
+              <h3 className="font-semibold sm:text-lg md:text-xl text-md">
+                Details
+              </h3>
+              <div className="sm:md:text-sm text-[0.9rem]  text-gray-700  tracking-wide">
+                <p>{firstHalf}</p>
+                <div className="mt-8">
+                  <p>{secondHalf}</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -104,7 +110,9 @@ export default function ProductPage() {
                   ))}
                 </Swiper>
               ) : (
-                <img src="/N">no IMAGE</img>
+                <div className="flex justify-center">
+                  <img className="w-36" src="/NOIMAGE2.webp" />
+                </div>
               )}
             </div>
             <div className="flex flex-col gap-4 text-center">
@@ -133,7 +141,7 @@ export default function ProductPage() {
             <hr className="w-full border-[1px] border-gray-400" />
             <div className="flex w-full flex-col gap-4">
               <div className="flex justify-between">
-                <h3 className="text-[1.1rem] font-medium text-gray-700 xl:text-[1.15rem]">
+                <h3 className="text-[1.05rem] sm:text-[1.1rem] font-medium text-gray-700 xl:text-[1.15rem]">
                   Total
                 </h3>
                 <h3 className="text-[1rem] font-medium tracking-wide  text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">

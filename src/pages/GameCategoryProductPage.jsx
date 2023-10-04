@@ -41,7 +41,7 @@ export default function GameCategoryProductPage() {
 
   return (
     <>
-      <div className="mx-auto max-w-[1400px] border-b-2 border-gray-100 px-4 pt-8 sm:pb-6 xl:px-14">
+      <div className="mx-auto max-w-[1400px] border-b-2 border-gray-100 px-4 pt-8 pb-8 xl:px-14">
         <GameProductBreadTitle />
         <GameProductSearchBar />
         <GameProductPopularSearches />

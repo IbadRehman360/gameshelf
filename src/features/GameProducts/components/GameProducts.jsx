@@ -23,12 +23,12 @@ export default function GameProducts({ loading, games }) {
     return (
       <div className="flex flex-col items-center justify-center py-16">
         <div className="text-center">
-          <h1 className="mb-6 text-4xl font-bold text-gray-800">
-            Oops! No Products Found
-          </h1>
-          <p className="text-lg text-gray-600">
-            It seems like there are no products available in this category.
-            <div className="mt-2" />
+          <div class="flex justify-center">
+            <img src="/NOPRODUCT.png" className=" w-3/4" />
+          </div>
+          <p className="md:text-lg text-sm -mt-4 sm:-mt-10 text-gray-600">
+            It seems like there are no products available in this category. {""}
+            <div className="mt-2 hidden sm:flex" />
             Why not explore our other categories?
           </p>
         </div>
