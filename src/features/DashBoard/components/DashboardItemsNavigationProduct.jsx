@@ -21,7 +21,6 @@ export default function DashboardItemsNavigationProduct({
 
   const trendingGames = games.slice(0, 8);
   const additionalGames = games.slice(8, 20);
-  console.log(trendingGames, additionalGames);
   return (
     <div className="">
       <div className="mx-auto max-w-4xl pb-14 md:pb-20 lg:max-w-7xl lg:px-8 lg:pb-24">

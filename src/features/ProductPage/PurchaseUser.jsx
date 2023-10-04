@@ -10,9 +10,9 @@ function PurchaseUser({ user }) {
       <div>
         <h3 className="pb-1 text-[0.82rem] font-medium  text-gray-700 md:text-[1rem]">
           {user[0]?.seller_id?.username}
-          <p className="text-[0.75rem] -mt-0.5 text-gray-600 ">
+          <p className="-mt-0.5 text-[0.75rem] text-gray-600 ">
             Level{" "}
-            <span className=" font-medium text-[0.7rem] tracking-wider">
+            <span className="text-[0.7rem] font-medium tracking-wider">
               {user[0]?.seller_id?.level}
             </span>
           </p>

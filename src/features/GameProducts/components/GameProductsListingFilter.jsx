@@ -18,7 +18,7 @@ function DashboardListingFilter({ total }) {
           <select
             id="location"
             name="location"
-            className="max-w-xs rounded-md border border-gray-400 bg-transparent px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 sm:text-[1.2em]"
+            className="max-w-xs rounded-md border border-gray-400 bg-transparent px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 "
             defaultValue="Recommend"
           >
             <option>Recommend</option>

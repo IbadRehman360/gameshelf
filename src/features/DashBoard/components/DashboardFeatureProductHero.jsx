@@ -1,11 +1,5 @@
 import DashboardNavigationProducts from "./DashboardNavigationProducts";
 
-const gameList = [
-  { title: "Valorant ", link: "/dashboard/valorant", stock: 396 },
-  { title: "CS:GO", link: "/dashboard/csgo", stock: 312 },
-  { title: "Minecraft ", link: "/dashboard/minecraft", stock: 210 },
-  { title: "Fortnite", link: "/dashboard/fortnite", stock: 150 },
-];
 export default function DashboardFeatureProductHero({
   games: isGames,
   loading,
@@ -23,7 +17,6 @@ export default function DashboardFeatureProductHero({
     );
   }
   const games = isGames[0];
-
   const slice = games.slice(16, 20);
   return (
     <div className="mt-10">

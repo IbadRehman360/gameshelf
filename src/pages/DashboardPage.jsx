@@ -3,8 +3,7 @@ import DashboardItemsNavigation from "../features/DashBoard/components/Dashboard
 import DashboardSearchBar from "../features/DashBoard/components/DashboardSearchBoxNavigation";
 import useGames from "../features/DashBoard/useGames";
 export default function DashboardPage() {
-  const { games, loading, gamesError } = useGames();
-
+  const { loading, gamesError, games } = useGames();
   return (
     <div className="bg-[#fcfcfc]">
       <div className="px-4 pt-10 md:px-12">

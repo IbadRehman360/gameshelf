@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 export default function ProductImages({ index, imageUrl }) {
   return (
     <div className="relative">
