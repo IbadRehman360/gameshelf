@@ -1,22 +1,18 @@
 import DashboardNavigationProducts from "./DashboardNavigationProducts";
 import FeaturePagination from "../../../components/FeaturePagination";
+// import { AiOutlineLoading } from "react-icons/ai"; // Import the Loading icon
 
 export default function DashboardItemsNavigationProduct({
   games: isGames,
   isLoading,
 }) {
-  if (isLoading || !isGames) {
-    return (
-      <>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-      </>
-    );
-  }
+  // if (isLoading || !isGames) {
+  //   return (
+  //     <div className="flex items-center justify-center h-screen">
+  //       <AiOutlineLoading className="animate-spin text-blue-500 text-4xl" />
+  //     </div>
+  //   );
+  // }
   const games = isGames[0];
 
   const trendingGames = games.slice(0, 8);

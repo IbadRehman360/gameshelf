@@ -26,32 +26,19 @@ export const createItem = async (values, user) => {
 
     return [updatedData, error];
 };
-
 export async function getItem(orderBy, orderDirection) {
     const { data: items, error } = await supabase
         .from("items")
-        .select(
-            `*,
-          users (
-            *
-          ),
-          games (
-            *
-          )
-        `
-        )
+        .select("*, users(*), games(*)") // Fetch only necessary fields
         .order(orderBy, { ascending: orderDirection === "asc" });
 
     if (error) {
         console.error("Error fetching item:", error.message);
         throw new Error("Error fetching item: " + error.message);
     }
-    if (items) {
-        console.log(items);
-    }
-    return [items, error];
-}
 
+    return items;
+}
 
 export async function getCategoryItems(gameId) {
     let { data: games, error } = await supabase

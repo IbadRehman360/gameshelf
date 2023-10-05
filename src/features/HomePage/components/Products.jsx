@@ -2,31 +2,21 @@ import { useEffect, useState } from "react";
 import HomeProductLoaders from "../loaders/HomeProductLoaders";
 import useProduct from "../useProduct";
 import FeaturedProduct from "../../../components/FeatureProducts";
+const SLICE_END_CONSTANT = 4; // Adjust this value as needed
 
 export default function FeaturedProducts() {
-  const [orderBy, setOrderBy] = useState("created_at");
-  const [orderDirection, setOrderDirection] = useState("asc");
+  const [sortCriteria, setSortCriteria] = useState({
+    orderBy: "created_at",
+    orderDirection: "asc",
+  });
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [sliceEnd, setSliceEnd] = useState(calculateSliceEnd());
+  const [sliceEnd, setSliceEnd] = useState(SLICE_END_CONSTANT);
 
   const { items, loadingItems, isItemsError } = useProduct(
-    orderBy,
-    orderDirection
+    sortCriteria.orderBy,
+    sortCriteria.orderDirection
   );
-  function calculateSliceEnd() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth >= 800 && windowWidth <= 2200) {
-      return 4;
-    } else if (windowWidth >= 600 && windowWidth < 800) {
-      return 3;
-    } else if (windowWidth >= 200 && windowWidth < 600) {
-      return 2;
-    } else {
-      return 5;
-    }
-  }
-  const products = items && items[0] ? items[0] : [];
-  console.log(products);
+
   const handlePrevPage = () => {
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
@@ -38,19 +28,19 @@ export default function FeaturedProducts() {
   };
 
   const toggleSorting = (newOrderBy) => {
-    if (newOrderBy === orderBy) {
-      setOrderDirection(orderDirection === "desc" ? "asc" : "desc");
+    if (newOrderBy === sortCriteria.orderBy) {
+      setSortCriteria({
+        ...sortCriteria,
+        orderDirection: sortCriteria.orderDirection === "desc" ? "asc" : "desc",
+      });
     } else {
-      setOrderBy(newOrderBy);
+      setSortCriteria({ orderBy: newOrderBy, orderDirection: "asc" });
     }
   };
 
-  const slide1 = products.slice(0, sliceEnd);
-  const slide2 = products.slice(sliceEnd, 2 * sliceEnd);
-
   useEffect(() => {
     function updateSliceEnd() {
-      setSliceEnd(calculateSliceEnd());
+      setSliceEnd(SLICE_END_CONSTANT);
     }
 
     window.addEventListener("resize", updateSliceEnd);
@@ -63,6 +53,10 @@ export default function FeaturedProducts() {
   if (loadingItems) {
     return <HomeProductLoaders />;
   }
+
+  const slide1 = items.slice(0, sliceEnd);
+  const slide2 = items.slice(sliceEnd, 2 * sliceEnd);
+
   return (
     <div className="mb-16 bg-[#fdfdfd] px-3 xl:mt-4">
       <h2 className="text-[1.4rem] font-semibold text-gray-700 md:text-[1.7rem] lg:text-[1.8rem] 3xl:text-[2rem]">

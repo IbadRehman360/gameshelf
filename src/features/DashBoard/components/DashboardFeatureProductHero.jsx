@@ -2,20 +2,15 @@ import DashboardNavigationProducts from "./DashboardNavigationProducts";
 
 export default function DashboardFeatureProductHero({
   games: isGames,
-  loading,
+  isLoading,
 }) {
-  if (loading || !isGames) {
-    return (
-      <>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-        <h1>loading...</h1>
-      </>
-    );
-  }
+  // if (isLoading || !isGames) {
+  //   return (
+  //     <div className="flex items-center justify-center h-screen">
+  //       <AiOutlineLoading className="animate-spin text-blue-500 text-4xl" />
+  //     </div>
+  //   );
+  // }
   const games = isGames[0];
   const slice = games.slice(16, 20);
   return (
