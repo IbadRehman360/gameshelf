@@ -9,7 +9,7 @@ export default function BreadCrumbs({ id }) {
           <div>
             <Link
               to="/"
-              className="sm:ml-4 ml-2  text-sm font-medium text-gray-500 hover:text-gray-700"
+              className="ml-2 text-sm  font-medium text-gray-500 hover:text-gray-700 sm:ml-4"
             >
               Home
             </Link>
@@ -23,7 +23,7 @@ export default function BreadCrumbs({ id }) {
             />
             <Link
               to="/dashboard"
-              className="sm:ml-4 ml-2  text-sm font-medium text-gray-500 hover:text-gray-700"
+              className="ml-2 text-sm  font-medium text-gray-500 hover:text-gray-700 sm:ml-4"
             >
               Dashboard
             </Link>
@@ -37,7 +37,7 @@ export default function BreadCrumbs({ id }) {
             />
             <Link
               href={"#"}
-              className="sm:ml-4 ml-2 text-sm font-medium text-gray-500 hover:text-gray-700"
+              className="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700 sm:ml-4"
               aria-current={"page"}
             >
               Product #{id}

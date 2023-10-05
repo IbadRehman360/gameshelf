@@ -66,3 +66,16 @@ export async function getUserItems(id) {
 
     return games;
 }
+export async function getUpdateDescription(id) {
+    let { data: games, error } = await supabase
+        .from('items')
+        .select(`*`)
+        .eq('id', id);
+
+    if (error) {
+        console.log("error getting games: " + error.message);
+        throw new Error("error getting games: " + error.message);
+    }
+
+    return games;
+}

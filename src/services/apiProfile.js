@@ -1,45 +1,43 @@
 import supabase from "../services/supabase";
 
-import { useEffect, useState } from "react";
+export async function getProfileData(user) {
+    const { data: userData, error: userError } = await supabase
+        .from("users")
+        .select("*")
+        .eq("username", user);
 
-export function useGetProfile(user) {
-    const [profileData, setProfileData] = useState({});
-    const [error, setError] = useState("");
+    if (userError) {
+        return { data: null, error: userError };
+    }
 
-    useEffect(() => {
-        async function getProfileData() {
-            const { data: userData, error: userError } = await supabase
-                .from("users")
-                .select("*")
-                .eq("username", user);
+    const { data: itemsData, error: itemsError } = await supabase
+        .from("items")
+        .select("*")
+        .eq("seller_id", userData[0].id);
 
-            if (userError) {
-                setError(userError);
-                return;
-            }
+    if (itemsError) {
+        return { data: null, error: itemsError };
+    }
 
-            if (!userData[0]?.id) {
-                setProfileData({ none: true });
-                return;
-            }
-
-            const { data: itemsData, error: itemsError } = await supabase
-                .from("items")
-                .select("*")
-                .eq("seller_id", userData[0].id);
-
-            if (itemsError) {
-                setError(itemsError);
-                return;
-            }
-
-            setProfileData({
-                ...userData[0],
-                items: itemsData,
-            });
-        }
-
-        getProfileData();
-    }, [user]);
-    return [profileData, error];
+    return {
+        data: {
+            ...userData[0],
+            items: itemsData,
+        },
+        error: null,
+    };
+}
+export async function updateDescription(id, newDescription) {
+    console.log(id, newDescription)
+    const { data, error } = await supabase
+        .from("users")
+        .update({ description: newDescription })
+        .eq("id", id);
+    if (error) {
+        console.log(error)
+    }
+    if (data) {
+        console.log(data)
+    }
+    return [data, error];
 }

@@ -26,19 +26,19 @@ export default function DashboardSearchBar() {
           </div>
           <div className="hidden w-[100%] flex-1 space-x-4 sm:ml-8 sm:flex sm:gap-4 md:ml-14 md:gap-8 lg:gap-14">
             <a
-              href="/"
+              href="#"
               className="font-semibold text-gray-500 transition duration-300 hover:text-gray-400"
             >
               Server
             </a>
             <a
-              href="/"
+              href="#"
               className="font-semibold text-gray-500 transition duration-300 hover:text-gray-400"
             >
               Rank
             </a>
             <a
-              href="/"
+              href="#"
               className="font-semibold text-gray-500 transition duration-300 hover:text-gray-400"
             >
               Budget

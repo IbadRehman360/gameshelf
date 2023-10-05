@@ -1,20 +1,39 @@
 import { useState } from "react";
-import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
-import ProfileEdit from "./ProfileEdit";
 import ProfileEditLanguage from "./ProfileEditLanguage";
+import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import moment from "moment";
+import ProfileEdit from "./ProfileEdit";
+import { queryClient } from "../../../routes/routes";
+import { useMutation } from "@tanstack/react-query";
+import { updateDescription } from "../../../services/apiProfile";
 
 export default function ProfileInfo({ profileData }) {
   const [isEdit, setIsEdit] = useState(false);
   const [isEditLanguage, setIsEditLanguage] = useState(false);
-  const [showMore, setShowMore] = useState(false);
-  const toggleShowMore = () => {
-    setShowMore((prevState) => !prevState);
+  const [newDescription, setNewDescription] = useState(
+    profileData.data.description
+  );
+
+  const updateDescriptionMutation = useMutation(
+    (newDescription) => {
+      return updateDescription(profileData.data.id, newDescription);
+    },
+    {
+      onSuccess: () => {
+        console.log("Description updated successfully!");
+        queryClient.invalidateQueries(["profile"]);
+        setIsEdit(false);
+      },
+      onError: (error) => {
+        console.error("Error updating description:", error);
+      },
+    }
+  );
+
+  const handleSaveDescription = (newDescription) => {
+    updateDescriptionMutation.mutate(newDescription);
   };
-
   const user = profileData;
-
-  //Erase after attaching with live description content from database
   return (
     <div className="row-span-2 mt-12">
       <div className="grid">
@@ -36,8 +55,8 @@ export default function ProfileInfo({ profileData }) {
                   {" "}
                   <p className="">
                     🏅{" "}
-                    <span className="text-sm font-medium text-gray-900">
-                      {user.successful_delivery}%
+                    <span className="text-[0.9rem]  font-medium tracking-wide text-gray-900">
+                      {user.data.successful_delivery}%
                     </span>{" "}
                   </p>
                   <p className="text-[0.9rem] text-gray-500">(123k orders)</p>
@@ -73,8 +92,8 @@ export default function ProfileInfo({ profileData }) {
               </div>
               <div className="flex justify-around border-y-2 py-6">
                 <div className="text-center lg:block">
-                  <span className="block text-xl font-semibold uppercase tracking-wide text-gray-700">
-                    {user.followers}
+                  <span className="block text-xl  font-medium uppercase tracking-wide text-gray-700">
+                    {user.data.followers}
                   </span>
                   <span className="text-sm tracking-wide text-gray-500">
                     Followers
@@ -82,8 +101,8 @@ export default function ProfileInfo({ profileData }) {
                 </div>
                 <div className="border-r"></div>
                 <div className="text-center">
-                  <span className="block text-xl font-semibold uppercase tracking-wide text-gray-700">
-                    {user.following}
+                  <span className="block text-xl font-medium uppercase tracking-wide text-gray-700">
+                    {user.data.following}
                   </span>
                   <span className="text-sm tracking-wide text-gray-500">
                     Following
@@ -94,74 +113,51 @@ export default function ProfileInfo({ profileData }) {
           </div>
           <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">
             <div className="flex flex-col gap-4">
-              <h3 className="inline-flex justify-between text-xl font-semibold">
+              <h3 className="inline-flex items-center justify-between text-xl font-semibold">
                 Description{" "}
-                <button
-                  onClick={() => setIsEdit(!isEdit)}
-                  className="mt-1 text-sm font-normal text-gray-500 underline"
-                >
-                  Edit
-                </button>
+                <div className="flex items-center">
+                  {isEdit && (
+                    <button
+                      onClick={() => handleSaveDescription(newDescription)}
+                      className="mr-2 mt-[3px] rounded-full px-1 py-2  text-sm font-semibold tracking-wider transition duration-300 ease-in-out"
+                    >
+                      Save
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setIsEdit(!isEdit)}
+                    className={`mt-[4.1px] text-sm   font-semibold text-gray-500 ${
+                      isEdit ? "underline" : "hover:underline"
+                    }`}
+                  >
+                    {isEdit ? "Cancel" : "Edit"}
+                  </button>
+                </div>
               </h3>
-              <div className="flex flex-wrap">
+              <div
+                className="flex flex-wrap"
+                style={{ whiteSpace: "pre-line" }}
+              >
                 {isEdit ? (
-                  <ProfileEdit content={user.description} />
+                  <ProfileEdit
+                    content={profileData.data.description}
+                    onSave={handleSaveDescription}
+                    newDescription={newDescription}
+                    setNewDescription={setNewDescription}
+                  />
                 ) : (
-                  <>
-                    {/* <div className="mb-4 text-sm md:text-md font-normal gap-4 text-gray-500 grid leading-relaxed text-blueGray-700">
-                      <p>
-                        We offer various items,services in our store for your
-                        enjoyment and convenience. ^-^
-                      </p>
-                      <p>
-                        Over the past 8 years, we have successfully fulfilled
-                        more than 2,000,000 orders across various websites.
-                      </p>
-                      <p>
-                        Contact Me if you got any problem or some other
-                        questions{" "}
-                        {!showMore && (
-                          <a
-                            href="#pablo"
-                            className="font-normal ml-2 md:text-md text-sm text-red-500"
-                            onClick={toggleShowMore}
-                          >
-                            Show more
-                          </a>
-                        )}
-                      </p>
-                    </div>
-                    {showMore && (
-                      <div className="mb-4 text-sm md:text-md font-normal gap-4 text-gray-500 grid leading-relaxed text-blueGray-700">
-                        <p>Why you should choose us?</p>
-                        <p>✔️ 100% Safe and Cheap</p>
-                        <p>✔️ Fast Delivery</p>
-                        <p>✔️ Verified by G2G.</p>
-                        <p>✔️ Friendly Support</p>
-                        <p>✔️ Changeable Gmail</p>
-                      </div>
-                    )} */}
-                    {user.description}
-                  </>
+                  <>{profileData.data.description}</>
                 )}
               </div>
-              {showMore && (
-                <a
-                  href="#pablo"
-                  className="ml-2 text-sm font-normal text-red-500"
-                  onClick={toggleShowMore}
-                >
-                  Show less
-                </a>
-              )}
             </div>
           </div>
+
           <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold">Languages</h3>
               <button
                 onClick={() => setIsEditLanguage(!isEditLanguage)}
-                className="mt-1 text-sm font-normal text-gray-500 underline"
+                className="mt-1 text-sm  font-semibold text-gray-500 underline"
               >
                 Edit
               </button>
@@ -170,12 +166,18 @@ export default function ProfileInfo({ profileData }) {
               <ProfileEditLanguage />
             ) : (
               <div className="flex flex-wrap gap-4 py-6">
-                {user?.languages ?
-                  user.languages.map((language) => (
-                    <div key={language} className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5">
+                {user?.data?.languages ? (
+                  user.data.languages.map((language) => (
+                    <div
+                      key={language}
+                      className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5"
+                    >
                       {language}
                     </div>
-                  )): <></>}
+                  ))
+                ) : (
+                  <></>
+                )}
               </div>
             )}
           </div>

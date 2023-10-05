@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AiFillCamera } from "react-icons/ai";
 
-export default function ProfileInfo() {
+export default function ProfileInfoLoader() {
   const [showEditImage, setShowEditImage] = useState(false);
   return (
     <div className="md:order-3 lg:text-right">

@@ -34,14 +34,14 @@ export default function FeaturedProduct({ featureProduct, profileData }) {
           <div className="ml-2 inline-flex flex-1 items-center justify-between">
             <div className="mt-1 md:mt-2 lg:mt-0.5">
               <h6 className="inline-flex truncate text-[11px] font-semibold text-gray-600 md:text-[10px] lg:text-[12px]">
-                {profileData.username}
+                {profileData.data.username}
               </h6>
-              <p className="text-[10px] tracking-wide text-gray-500 md:text-[10px] lg:text-[11px]">
-                Level {profileData.level}
+              <p className="text-[10px] tracking-wide text-gray-500 md:text-[10px] lg:text-[10px]">
+                Level {profileData.data.level}
               </p>
             </div>
             <div className="mt-3">
-              <p className="mb-2 hidden text-[1rem] font-medium text-slate-600 sm:flex sm:text-[0.85rem] md:text-[0.85rem] lg:text-[0.96rem] xl:text-[0.94rem]">
+              <p className="mb-2 hidden text-[1rem] font-medium text-slate-600 sm:flex sm:text-[0.85rem] md:text-[0.85rem] lg:text-[0.94rem] xl:text-[0.92rem]">
                 {decimalConversion}
                 <span className="ml-[1px] text-[0.5rem] font-medium text-gray-800 sm:ml-[4px] sm:mt-[4.5px] sm:text-[0.59rem] md:mt-[3px] md:text-[0.65rem] lg:ml-1 lg:mt-[4px] xl:mt-[3.4px] xl:text-[0.7rem]">
                   USD
