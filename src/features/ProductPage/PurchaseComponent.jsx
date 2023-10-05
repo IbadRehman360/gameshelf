@@ -79,7 +79,7 @@ export default function ProductPage() {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <h3 className="font-semibold sm:text-lg md:text-xl text-md">
+              <h3 className="text-md font-semibold sm:text-lg md:text-xl">
                 Details
               </h3>
               <div className="sm:md:text-sm text-[0.9rem]  text-gray-700  tracking-wide">

@@ -1,13 +1,13 @@
 import DashboardFilterOption from "./GameProductsFilterOption";
 
 const filterOptions = [
-  { id: "Recommended", title: "Recommended" },
-  { id: "Most Recent", title: "Recent" },
-  { id: "Lowest Price", title: "Lowest Price" },
-  { id: "Highest Price", title: "Highest Price" },
+  { name: "Recommended", value: "Recommended" },
+  { name: "Most Recent", value: "Recent" },
+  { name: "Lowest Price", value: "Lowest" },
+  { name: "Highest Price", value: "Highest" },
 ];
 
-function DashboardListingFilter({ total }) {
+function GameProductListingFilter({ total, selectedFilter, onFilterChange }) {
   return (
     <div>
       <div className="mb-6 flex gap-4">
@@ -18,21 +18,24 @@ function DashboardListingFilter({ total }) {
           <select
             id="location"
             name="location"
-            className="max-w-xs rounded-md border border-gray-400 bg-transparent px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 "
-            defaultValue="Recommend"
+            className="max-w-xs rounded-md border border-gray-400 bg-transparent px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600"
+            value={selectedFilter}
+            onChange={onFilterChange}
           >
-            <option>Recommend</option>
-            <option>Most Recent</option>
-            <option>Lowest Price</option>
-            <option>Highest Price</option>
+            {filterOptions.map((filterOption) => (
+              <option key={filterOption.value} value={filterOption.value}>
+                {filterOption.name}
+              </option>
+            ))}
           </select>
         </div>
-
-        <div className="hidden    justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0 lg:flex lg:flex-1 lg:flex-row">
+        <div className="hidden justify-end space-y-4 sm:items-center sm:space-x-2 sm:space-y-0 lg:flex lg:flex-1 lg:flex-row">
           {filterOptions.map((filterOption) => (
             <DashboardFilterOption
-              key={filterOption.id}
+              key={filterOption.value}
               filterOption={filterOption}
+              selectedFilter={selectedFilter}
+              onFilterChange={onFilterChange}
             />
           ))}
         </div>
@@ -40,5 +43,4 @@ function DashboardListingFilter({ total }) {
     </div>
   );
 }
-
-export default DashboardListingFilter;
+export default GameProductListingFilter;

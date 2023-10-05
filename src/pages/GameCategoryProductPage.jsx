@@ -7,6 +7,52 @@ import FeaturePagination from "../components/FeaturePagination";
 import GameProductInfo from "../features/GameProducts/components/GameProductsInfo";
 import { useParams } from "react-router-dom";
 import useProduct from "../features/GameProducts/useCategoryItems";
+import { useState } from "react";
+
+export default function GameCategoryProductPage() {
+  const { game } = useParams();
+  const [selectedFilter, setSelectedFilter] = useState("Recommended");
+  const isGameNameValid = gameNameToIdMap.hasOwnProperty(game);
+
+  const selectedGameId = isGameNameValid
+    ? gameNameToIdMap[game]
+    : alert("NO SUCH GAME EXISTS WITH THIS NAME");
+
+  const { isGameLoading, games } = useProduct(selectedGameId);
+
+  const handleFilterChange = (event) => {
+    setSelectedFilter(event.target.value);
+  };
+  return (
+    <>
+      <div className="mx-auto max-w-[1400px] border-b-2 border-gray-100 px-4 py-8 xl:px-14">
+        <GameProductBreadTitle />
+        <GameProductSearchBar />
+        <GameProductPopularSearches />
+      </div>
+      <div className="pb-20" style={{ backgroundColor: "#FCFCFC " }}>
+        <div className="mx-auto max-w-[1400px] px-2 pt-8 xl:px-14">
+          <GameProductListingFilter
+            total={game.length}
+            selectedFilter={selectedFilter}
+            onFilterChange={handleFilterChange}
+          />
+          <GameProductItems
+            loading={isGameLoading}
+            games={games}
+            selectedFilter={selectedFilter}
+          />
+          <FeaturePagination
+            onchange={"sm:flex"}
+            onchange2={"sm:hidden"}
+            total={game.length}
+          />
+          <GameProductInfo />
+        </div>
+      </div>
+    </>
+  );
+}
 
 const gameNameToIdMap = {
   apexlegends: 2,
@@ -28,36 +74,3 @@ const gameNameToIdMap = {
   supermarioodyssey: 19,
   residentevilvillage: 20,
 };
-export default function GameCategoryProductPage() {
-  const { game } = useParams();
-  const isGameNameValid = gameNameToIdMap.hasOwnProperty(game);
-
-  const selectedGameId = isGameNameValid
-    ? gameNameToIdMap[game]
-    : alert("NO SUCH GAME EXISTS WITH THIS NAME");
-
-  const { isGameLoading, isGameError, games } = useProduct(selectedGameId);
-  const ifGames = games ? games.length : 0;
-
-  return (
-    <>
-      <div className="mx-auto max-w-[1400px] border-b-2 border-gray-100 px-4 pt-8 pb-8 xl:px-14">
-        <GameProductBreadTitle />
-        <GameProductSearchBar />
-        <GameProductPopularSearches />
-      </div>
-      <div className="pb-20" style={{ backgroundColor: "#FCFCFC " }}>
-        <div className="mx-auto max-w-[1400px] px-2 pt-8 xl:px-14">
-          <GameProductListingFilter total={ifGames} />
-          <GameProductItems isGameLoading={isGameLoading} games={games} />
-          <FeaturePagination
-            onchange={"sm:flex"}
-            onchange2={"sm:hidden"}
-            total={ifGames}
-          />
-          <GameProductInfo />
-        </div>
-      </div>
-    </>
-  );
-}
