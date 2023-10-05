@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function ProfileInfo({ profileData }) {
   const [showEditImage, setShowEditImage] = useState(false);
-  const user = profileData;
+  const user = profileData.data;
 
   return (
     <div className="md:order-3 lg:text-right">
@@ -30,15 +30,16 @@ export default function ProfileInfo({ profileData }) {
                 onMouseLeave={() => setShowEditImage(false)}
               />
               <div
-                className={`${showEditImage ? "z-30 block bg-black opacity-30" : "hidden"
-                  } absolute mx-0 -mt-28 h-full w-full max-w-[7rem] rounded-full border-none align-middle md:top-1/2 md:-mt-12 md:translate-y-[-7%] lg:-ml-0`}
+                className={`${
+                  showEditImage ? "z-30 block bg-black opacity-30" : "hidden"
+                } absolute mx-0 -mt-28 h-full w-full max-w-[7rem] rounded-full border-none align-middle md:top-1/2 md:-mt-12 md:translate-y-[-7%] lg:-ml-0`}
                 onMouseEnter={() => setShowEditImage(true)}
                 onMouseLeave={() => setShowEditImage(false)}
               ></div>
             </div>
           </div>
         </div>
-        <h3 className="text-[1.3rem] font-medium md:text-[1.6rem]">
+        <h3 className="text-[1.15rem] sm:text-[1.2rem] 2xl:text-[1.3rem] font-medium 3xl:text-[1.35rem]">
           {user.first_name} {""}
           {user.last_name}
         </h3>

@@ -12,7 +12,7 @@ export default function DashboardFeatureProductHero({
   //   );
   // }
   const games = isGames[0];
-  const slice = games.slice(16, 20);
+  const slice = games.slice(15, 19);
   return (
     <div className="mt-10">
       <div className="mx-auto grid max-w-4xl grid-cols-1 lg:max-w-7xl lg:grid-cols-2">

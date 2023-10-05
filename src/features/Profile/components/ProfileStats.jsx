@@ -3,18 +3,31 @@ import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import ProfileEdit from "./ProfileEdit";
 import ProfileEditLanguage from "./ProfileEditLanguage";
 import moment from "moment";
+import { queryClient } from "../../../routes/routes";
+import { useMutation } from "@tanstack/react-query";
 
 export default function ProfileInfo({ profileData }) {
-  const [isEdit, setIsEdit] = useState(false);
   const [isEditLanguage, setIsEditLanguage] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
   const toggleShowMore = () => {
     setShowMore((prevState) => !prevState);
   };
-
+  const updateDescriptionMutation = useMutation(
+    (newDescription) =>
+      updateDescriptionInSupabase(profileData.id, newDescription),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["profile"]);
+        setIsEdit(false);
+      },
+    }
+  );
+  const handleSaveDescription = (newDescription) => {
+    updateDescriptionMutation.mutate(newDescription);
+  };
   const user = profileData;
 
-  //Erase after attaching with live description content from database
   return (
     <div className="row-span-2 mt-12">
       <div className="grid">
@@ -36,8 +49,8 @@ export default function ProfileInfo({ profileData }) {
                   {" "}
                   <p className="">
                     🏅{" "}
-                    <span className="text-sm font-medium text-gray-900">
-                      {user.successful_delivery}%
+                    <span className="text-[0.9rem]  font-medium tracking-wide text-gray-900">
+                      {user.data.successful_delivery}%
                     </span>{" "}
                   </p>
                   <p className="text-[0.9rem] text-gray-500">(123k orders)</p>
@@ -73,8 +86,8 @@ export default function ProfileInfo({ profileData }) {
               </div>
               <div className="flex justify-around border-y-2 py-6">
                 <div className="text-center lg:block">
-                  <span className="block text-xl font-semibold uppercase tracking-wide text-gray-700">
-                    {user.followers}
+                  <span className="block text-xl  font-medium uppercase tracking-wide text-gray-700">
+                    {user.data.followers}
                   </span>
                   <span className="text-sm tracking-wide text-gray-500">
                     Followers
@@ -82,8 +95,8 @@ export default function ProfileInfo({ profileData }) {
                 </div>
                 <div className="border-r"></div>
                 <div className="text-center">
-                  <span className="block text-xl font-semibold uppercase tracking-wide text-gray-700">
-                    {user.following}
+                  <span className="block text-xl font-medium uppercase tracking-wide text-gray-700">
+                    {user.data.following}
                   </span>
                   <span className="text-sm tracking-wide text-gray-500">
                     Following
@@ -105,44 +118,12 @@ export default function ProfileInfo({ profileData }) {
               </h3>
               <div className="flex flex-wrap">
                 {isEdit ? (
-                  <ProfileEdit content={user.description} />
+                  <ProfileEdit
+                    content={user.data.description}
+                    onSave={handleSaveDescription}
+                  />
                 ) : (
-                  <>
-                    {/* <div className="mb-4 text-sm md:text-md font-normal gap-4 text-gray-500 grid leading-relaxed text-blueGray-700">
-                      <p>
-                        We offer various items,services in our store for your
-                        enjoyment and convenience. ^-^
-                      </p>
-                      <p>
-                        Over the past 8 years, we have successfully fulfilled
-                        more than 2,000,000 orders across various websites.
-                      </p>
-                      <p>
-                        Contact Me if you got any problem or some other
-                        questions{" "}
-                        {!showMore && (
-                          <a
-                            href="#pablo"
-                            className="font-normal ml-2 md:text-md text-sm text-red-500"
-                            onClick={toggleShowMore}
-                          >
-                            Show more
-                          </a>
-                        )}
-                      </p>
-                    </div>
-                    {showMore && (
-                      <div className="mb-4 text-sm md:text-md font-normal gap-4 text-gray-500 grid leading-relaxed text-blueGray-700">
-                        <p>Why you should choose us?</p>
-                        <p>✔️ 100% Safe and Cheap</p>
-                        <p>✔️ Fast Delivery</p>
-                        <p>✔️ Verified by G2G.</p>
-                        <p>✔️ Friendly Support</p>
-                        <p>✔️ Changeable Gmail</p>
-                      </div>
-                    )} */}
-                    {user.description}
-                  </>
+                  <>{user.data.description}</>
                 )}
               </div>
               {showMore && (
@@ -170,12 +151,18 @@ export default function ProfileInfo({ profileData }) {
               <ProfileEditLanguage />
             ) : (
               <div className="flex flex-wrap gap-4 py-6">
-                {user?.languages ?
-                  user.languages.map((language) => (
-                    <div key={language} className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5">
+                {user?.data?.languages ? (
+                  user.data.languages.map((language) => (
+                    <div
+                      key={language}
+                      className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5"
+                    >
                       {language}
                     </div>
-                  )): <></>}
+                  ))
+                ) : (
+                  <></>
+                )}
               </div>
             )}
           </div>

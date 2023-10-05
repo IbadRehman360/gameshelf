@@ -1,5 +1,4 @@
-export default function ProfileInfo() {
-
+export default function ProfileStatsLoader() {
   return (
     <div className="row-span-2 mt-12">
       <div className="grid">

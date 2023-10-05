@@ -6,7 +6,7 @@ import PurchaseUser from "./PurchaseUser";
 import useEqProduct from "./useSpProduct";
 import { decimalConversion } from "../../utils/helpers";
 import { AiOutlineLoading } from "react-icons/ai";
-import { FiChevronRight } from "react-icons/fi";
+import ProductImage from "./ProductImage";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -29,8 +29,6 @@ export default function ProductPage() {
     );
   };
 
-  const imageUrl = product[0]?.images[currentImageIndex];
-
   function subQuantity() {
     if (quantity > 1) setQuantity((prevQuantity) => prevQuantity - 1);
   }
@@ -40,17 +38,22 @@ export default function ProductPage() {
       setQuantity((prevQuantity) => prevQuantity + 1);
     }
   }
+
+  const imageUrl =
+    product[0].images === null ? null : product[0]?.images[currentImageIndex];
+
   const convertedPrice = decimalConversion(product[0]?.price);
   const description = product[0]?.description;
   const words = description?.split(" ");
   const firstHalf = words?.slice(0, 140).join(" ");
   const secondHalf = words?.slice(140).join(" ");
+
   return (
     <div className="pb-20">
       <div className="mx-auto mt-4 max-w-7xl p-4 sm:p-8">
         <BreadCrumbs id={id} />
         <div className="my-6 mb-10 ml-1 flex justify-between">
-          <h1 className="pt-2 text-lg font-bold text-gray-700 sm:text-xl lg:text-[1.3rem] ">
+          <h1 className="pt-2 text-lg font-bold text-gray-700 sm:text-xl lg:text-[1.3rem]">
             {product[0]?.title}
           </h1>
         </div>
@@ -91,7 +94,7 @@ export default function ProductPage() {
               <h3 className="text-md font-semibold sm:text-lg md:text-xl">
                 Details
               </h3>
-              <div className="text-[0.9rem] tracking-wide  text-gray-700  sm:md:text-sm">
+              <div className="text-[0.9rem] tracking-wide text-gray-700 sm:md:text-sm">
                 <p>{firstHalf}</p>
                 <div className="mt-8">
                   <p>{secondHalf}</p>
@@ -101,45 +104,15 @@ export default function ProductPage() {
           </div>
 
           <div className="flex flex-col items-center justify-center gap-6 rounded-lg bg-gray-100 p-6 sm:w-full md:w-1/2 lg:w-2/5">
-            <div
-              className="w-full 
-      "
-            >
-              {product[0]?.images ? (
-                <div className="relative">
-                  <div className="relative flex h-[40vh] w-full items-center justify-center sm:h-[40vh] md:h-[46vh] lg:h-[20vh]">
-                    <img
-                      className="h-5/6 w-full border-[4px] border-gray-700 object-cover object-center lg:h-full"
-                      src={`${imageUrl}`}
-                      alt={`bg ${currentImageIndex}`}
-                    />
-                    <button
-                      className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full  bg-gray-50/20 p-1  text-white"
-                      onClick={onNextClick}
-                    >
-                      <FiChevronRight size={18} />
-                    </button>
-                  </div>
-
-                  <div className="absolute inset-x-0 bottom-0 bg-white bg-opacity-80 py-0.5 text-center">
-                    <a
-                      href={`${imageUrl}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-bold text-gray-500 hover:underline"
-                    >
-                      CLICK THE IMAGE TO VIEW
-                    </a>
-                  </div>
-                </div>
-              ) : (
-                <div className="flex justify-center">
-                  <img className="w-36" src="/NOIMAGE2.webp" alt="No Image" />
-                </div>
-              )}
-            </div>
+            <div className="w-full">
+              <ProductImage
+                imageUrl={imageUrl}
+                currentImageIndex={currentImageIndex}
+                onNextClick={onNextClick}
+              />
+            </div>{" "}
             <div className="flex flex-col gap-4 text-center">
-              <span className="text-xs  tracking-wide">
+              <span className="text-xs tracking-wide">
                 {product[0].stock} in stock
               </span>
               <div className="flex items-center gap-2 rounded-full bg-white p-1">
@@ -157,7 +130,7 @@ export default function ProductPage() {
                   +
                 </button>
               </div>
-              <span className="text-xs   tracking-wider">
+              <span className="text-xs tracking-wider">
                 Unit price {convertedPrice} USD
               </span>
             </div>
@@ -167,7 +140,7 @@ export default function ProductPage() {
                 <h3 className="text-[1.05rem] font-medium text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
                   Total
                 </h3>
-                <h3 className="text-[1rem] font-medium tracking-wide  text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
+                <h3 className="text-[1rem] font-medium tracking-wide text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
                   ${(convertedPrice * quantity).toFixed(2)}
                 </h3>
               </div>
