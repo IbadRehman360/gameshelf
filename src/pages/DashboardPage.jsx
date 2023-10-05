@@ -9,7 +9,7 @@ export default function DashboardPage() {
   if (loading || !games) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <AiOutlineLoading className="animate-spin text-4xl sm:text-5xl lg:text-6xl text-gray-500" />
+        <AiOutlineLoading className="animate-spin text-4xl text-gray-500 sm:text-5xl lg:text-6xl" />
       </div>
     );
   }

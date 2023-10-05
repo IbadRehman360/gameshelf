@@ -1,35 +1,44 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import { useParams } from "react-router-dom";
 import BreadCrumbs from "./BreadCrumbs";
 import { useState } from "react";
 import PurchaseUser from "./PurchaseUser";
-import { Swiper, SwiperSlide } from "swiper/react";
-import ProductImages from "./ProductImages";
-import "swiper/css";
 import useEqProduct from "./useSpProduct";
 import { decimalConversion } from "../../utils/helpers";
+import { AiOutlineLoading } from "react-icons/ai";
+import { FiChevronRight } from "react-icons/fi";
 
 export default function ProductPage() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const { product, loading, productError } = useEqProduct(id);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  if (productError) return <h1>ERROR</h1>;
+  if (loading || !product) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <AiOutlineLoading className="animate-spin text-5xl text-gray-500 sm:text-6xl lg:text-7xl" />
+      </div>
+    );
+  }
+
+  const onNextClick = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex + 1) % product[0]?.images.length
+    );
+  };
+
+  const imageUrl = product[0]?.images[currentImageIndex];
 
   function subQuantity() {
     if (quantity > 1) setQuantity((prevQuantity) => prevQuantity - 1);
   }
+
   function addQuantity() {
     if (product[0].stock > quantity) {
       setQuantity((prevQuantity) => prevQuantity + 1);
     }
-  }
-
-  if (!product || loading) {
-    return (
-      <>
-        <h1>h</h1>
-        <h1>w</h1>
-        <h1>h</h1>
-      </>
-    );
   }
   const convertedPrice = decimalConversion(product[0]?.price);
   const description = product[0]?.description;
@@ -52,7 +61,7 @@ export default function ProductPage() {
               <PurchaseUser user={product} />
             </div>
             <div className="flex flex-col gap-1">
-              <h3 className="mb-2 font-semibold sm:text-lg text-md md:text-xl">
+              <h3 className="text-md mb-2 font-semibold sm:text-lg md:text-xl">
                 Product Info
               </h3>
               <div className="flex w-fit flex-wrap gap-2 text-[10px] sm:text-xs">
@@ -82,7 +91,7 @@ export default function ProductPage() {
               <h3 className="text-md font-semibold sm:text-lg md:text-xl">
                 Details
               </h3>
-              <div className="sm:md:text-sm text-[0.9rem]  text-gray-700  tracking-wide">
+              <div className="text-[0.9rem] tracking-wide  text-gray-700  sm:md:text-sm">
                 <p>{firstHalf}</p>
                 <div className="mt-8">
                   <p>{secondHalf}</p>
@@ -97,21 +106,35 @@ export default function ProductPage() {
       "
             >
               {product[0]?.images ? (
-                <Swiper
-                  className="flex flex-col"
-                  spaceBetween={0}
-                  slidesPerView={1}
-                  loop={true}
-                >
-                  {product[0]?.images?.map((imageUrl, index) => (
-                    <SwiperSlide key={imageUrl}>
-                      <ProductImages index={index} imageUrl={imageUrl} />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                <div className="relative">
+                  <div className="relative flex h-[40vh] w-full items-center justify-center sm:h-[40vh] md:h-[46vh] lg:h-[20vh]">
+                    <img
+                      className="h-5/6 w-full border-[4px] border-gray-700 object-cover object-center lg:h-full"
+                      src={`${imageUrl}`}
+                      alt={`bg ${currentImageIndex}`}
+                    />
+                    <button
+                      className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full  bg-gray-50/20 p-1  text-white"
+                      onClick={onNextClick}
+                    >
+                      <FiChevronRight size={18} />
+                    </button>
+                  </div>
+
+                  <div className="absolute inset-x-0 bottom-0 bg-white bg-opacity-80 py-0.5 text-center">
+                    <a
+                      href={`${imageUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-bold text-gray-500 hover:underline"
+                    >
+                      CLICK THE IMAGE TO VIEW
+                    </a>
+                  </div>
+                </div>
               ) : (
                 <div className="flex justify-center">
-                  <img className="w-36" src="/NOIMAGE2.webp" />
+                  <img className="w-36" src="/NOIMAGE2.webp" alt="No Image" />
                 </div>
               )}
             </div>
@@ -141,7 +164,7 @@ export default function ProductPage() {
             <hr className="w-full border-[1px] border-gray-400" />
             <div className="flex w-full flex-col gap-4">
               <div className="flex justify-between">
-                <h3 className="text-[1.05rem] sm:text-[1.1rem] font-medium text-gray-700 xl:text-[1.15rem]">
+                <h3 className="text-[1.05rem] font-medium text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
                   Total
                 </h3>
                 <h3 className="text-[1rem] font-medium tracking-wide  text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">

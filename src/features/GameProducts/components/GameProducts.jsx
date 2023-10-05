@@ -9,7 +9,7 @@ export default function GameProductItems({ loading, games, selectedFilter }) {
       return games;
     } else if (selectedFilter === "Lowest") {
       return games.slice().sort((a, b) => a.price - b.price);
-    } else if (selectedFilter === "Highestg") {
+    } else if (selectedFilter === "Highest") {
       return games.slice().sort((a, b) => b.price - a.price);
     }
     return games;

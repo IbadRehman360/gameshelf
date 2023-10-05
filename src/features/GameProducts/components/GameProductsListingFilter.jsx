@@ -2,7 +2,6 @@ import DashboardFilterOption from "./GameProductsFilterOption";
 
 const filterOptions = [
   { name: "Recommended", value: "Recommended" },
-  { name: "Most Recent", value: "Recent" },
   { name: "Lowest Price", value: "Lowest" },
   { name: "Highest Price", value: "Highest" },
 ];
