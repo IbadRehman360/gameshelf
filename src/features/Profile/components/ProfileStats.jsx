@@ -1,33 +1,39 @@
 import { useState } from "react";
-import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
-import ProfileEdit from "./ProfileEdit";
 import ProfileEditLanguage from "./ProfileEditLanguage";
+import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import moment from "moment";
+import ProfileEdit from "./ProfileEdit";
 import { queryClient } from "../../../routes/routes";
 import { useMutation } from "@tanstack/react-query";
+import { updateDescription } from "../../../services/apiProfile";
 
 export default function ProfileInfo({ profileData }) {
-  const [isEditLanguage, setIsEditLanguage] = useState(false);
-  const [showMore, setShowMore] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
-  const toggleShowMore = () => {
-    setShowMore((prevState) => !prevState);
-  };
+  const [isEditLanguage, setIsEditLanguage] = useState(false);
+  const [newDescription, setNewDescription] = useState(
+    profileData.data.description
+  );
+
   const updateDescriptionMutation = useMutation(
-    (newDescription) =>
-      updateDescriptionInSupabase(profileData.id, newDescription),
+    (newDescription) => {
+      return updateDescription(profileData.data.id, newDescription);
+    },
     {
       onSuccess: () => {
+        console.log("Description updated successfully!");
         queryClient.invalidateQueries(["profile"]);
         setIsEdit(false);
       },
+      onError: (error) => {
+        console.error("Error updating description:", error);
+      },
     }
   );
+
   const handleSaveDescription = (newDescription) => {
     updateDescriptionMutation.mutate(newDescription);
   };
   const user = profileData;
-
   return (
     <div className="row-span-2 mt-12">
       <div className="grid">
@@ -107,36 +113,42 @@ export default function ProfileInfo({ profileData }) {
           </div>
           <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">
             <div className="flex flex-col gap-4">
-              <h3 className="inline-flex justify-between text-xl font-semibold">
+              <h3 className="inline-flex items-center justify-between text-xl font-semibold">
                 Description{" "}
-                <button
-                  onClick={() => setIsEdit(!isEdit)}
-                  className="mt-1 text-sm font-normal text-gray-500 underline"
-                >
-                  Edit
-                </button>
+                <div className="flex items-center">
+                  {isEdit && (
+                    <button
+                      onClick={() => handleSaveDescription(newDescription)}
+                      className="mr-2 mt-[3px] px-1 py-2 text-sm  tracking-wider font-semibold rounded-full transition duration-300 ease-in-out"
+                    >
+                      Save
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setIsEdit(!isEdit)}
+                    className={`mt-[4.1px] text-sm   font-semibold text-gray-600 ${
+                      isEdit ? "underline" : "hover:underline"
+                    }`}
+                  >
+                    {isEdit ? "Cancel" : "Edit"}
+                  </button>
+                </div>
               </h3>
               <div className="flex flex-wrap">
                 {isEdit ? (
                   <ProfileEdit
-                    content={user.data.description}
+                    content={profileData.data.description}
                     onSave={handleSaveDescription}
+                    newDescription={newDescription}
+                    setNewDescription={setNewDescription}
                   />
                 ) : (
-                  <>{user.data.description}</>
+                  <>{profileData.data.description}</>
                 )}
               </div>
-              {showMore && (
-                <a
-                  href="#pablo"
-                  className="ml-2 text-sm font-normal text-red-500"
-                  onClick={toggleShowMore}
-                >
-                  Show less
-                </a>
-              )}
             </div>
           </div>
+
           <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold">Languages</h3>
