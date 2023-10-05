@@ -119,14 +119,14 @@ export default function ProfileInfo({ profileData }) {
                   {isEdit && (
                     <button
                       onClick={() => handleSaveDescription(newDescription)}
-                      className="mr-2 mt-[3px] px-1 py-2 text-sm  tracking-wider font-semibold rounded-full transition duration-300 ease-in-out"
+                      className="mr-2 mt-[3px] rounded-full px-1 py-2  text-sm font-semibold tracking-wider transition duration-300 ease-in-out"
                     >
                       Save
                     </button>
                   )}
                   <button
                     onClick={() => setIsEdit(!isEdit)}
-                    className={`mt-[4.1px] text-sm   font-semibold text-gray-600 ${
+                    className={`mt-[4.1px] text-sm   font-semibold text-gray-500 ${
                       isEdit ? "underline" : "hover:underline"
                     }`}
                   >
@@ -134,7 +134,10 @@ export default function ProfileInfo({ profileData }) {
                   </button>
                 </div>
               </h3>
-              <div className="flex flex-wrap">
+              <div
+                className="flex flex-wrap"
+                style={{ whiteSpace: "pre-line" }}
+              >
                 {isEdit ? (
                   <ProfileEdit
                     content={profileData.data.description}
@@ -154,7 +157,7 @@ export default function ProfileInfo({ profileData }) {
               <h3 className="text-lg font-semibold">Languages</h3>
               <button
                 onClick={() => setIsEditLanguage(!isEditLanguage)}
-                className="mt-1 text-sm font-normal text-gray-500 underline"
+                className="mt-1 text-sm  font-semibold text-gray-500 underline"
               >
                 Edit
               </button>
