@@ -1,16 +1,18 @@
-import useGames from "../useGames";
 import DashboardNavigationProducts from "./DashboardNavigationProducts";
 
-const gameList = [
-  { title: "Valorant ", link: "/dashboard/valorant", stock: 396 },
-  { title: "CS:GO", link: "/dashboard/csgo", stock: 312 },
-  { title: "Minecraft ", link: "/dashboard/minecraft", stock: 210 },
-  { title: "Fortnite", link: "/dashboard/fortnite", stock: 150 },
-];
-export default function DashboardFeatureProductHero() {
-  const { isGames, isGamesLoading, gamesError } = useGames();
-  const games = isGames && isGames[0] ? isGames[0] : [];
-  const slice = games.slice(6, 10);
+export default function DashboardFeatureProductHero({
+  games: isGames,
+  isLoading,
+}) {
+  // if (isLoading || !isGames) {
+  //   return (
+  //     <div className="flex items-center justify-center h-screen">
+  //       <AiOutlineLoading className="animate-spin text-blue-500 text-4xl" />
+  //     </div>
+  //   );
+  // }
+  const games = isGames[0];
+  const slice = games.slice(16, 20);
   return (
     <div className="mt-10">
       <div className="mx-auto grid max-w-4xl grid-cols-1 lg:max-w-7xl lg:grid-cols-2">

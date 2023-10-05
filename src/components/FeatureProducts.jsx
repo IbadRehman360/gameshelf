@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { decimalConversion } from "../utils/helpers";
 
 export default function FeaturedProduct({
   title,
@@ -6,13 +7,17 @@ export default function FeaturedProduct({
   price,
   level,
   fullName,
+  games,
+  productID,
 }) {
   const date = new Date(created_at);
+
   const getHour = date.getHours(date);
-  const decimalConversion = price.toFixed(2);
+
+  const convertedPrice = decimalConversion(price);
 
   return (
-    <Link>
+    <Link to={`/dashboard/${games}/${productID}`}>
       <div className="flex flex-col rounded-2xl border-2 bg-[#fdfdfd] p-3 lg:p-4">
         <div className="flex flex-col gap-1">
           <h3 className="my-1 line-clamp-2 text-[0.8rem] font-medium tracking-tighter text-black sm:text-xs lg:text-sm xl:text-[0.95rem]">
@@ -25,7 +30,7 @@ export default function FeaturedProduct({
           </div>
 
           <p className="-mt-0.5 text-[0.85rem] font-medium text-slate-800 sm:hidden sm:text-[0.8rem] md:text-[0.9rem] lg:text-[0.85rem] xl:text-[0.9rem]">
-            {decimalConversion}
+            {convertedPrice}
             <span className="ml-[3px] text-[0.6rem] font-normal text-gray-700 sm:text-[0.6rem] md:text-[0.6rem] xl:text-[0.6rem]">
               USD
             </span>
@@ -48,7 +53,7 @@ export default function FeaturedProduct({
             </div>
             <div className="mt-3">
               <p className="mb-2 hidden text-[1rem] font-medium text-slate-600 sm:flex sm:text-[0.85rem] md:text-[0.85rem] lg:text-[0.96rem] xl:text-[0.94rem]">
-                {decimalConversion}
+                {convertedPrice}
                 <span className="ml-[1px] text-[0.5rem] font-medium text-gray-800 sm:ml-[4px] sm:mt-[4.5px] sm:text-[0.59rem] md:mt-[3px] md:text-[0.65rem] lg:ml-1 lg:mt-[4px] xl:mt-[3.4px] xl:text-[0.7rem]">
                   USD
                 </span>

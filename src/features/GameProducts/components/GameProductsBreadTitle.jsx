@@ -1,6 +1,8 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { HomeIcon } from "@heroicons/react/20/solid";
+import { useParams } from "react-router-dom";
 export default function BreedTitle() {
+  const { game } = useParams();
   return (
     <div>
       <div>
@@ -9,7 +11,7 @@ export default function BreedTitle() {
             <li>
               <div className="flex">
                 <a
-                  href="#"
+                  href="/"
                   className="text-xs font-medium text-gray-500 hover:text-gray-700 sm:text-sm"
                 >
                   <HomeIcon
@@ -26,10 +28,10 @@ export default function BreedTitle() {
                   aria-hidden="true"
                 />
                 <a
-                  href="#"
+                  href="/dashboard"
                   className="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
-                  Account
+                  Dashboard
                 </a>
               </div>
             </li>
@@ -40,11 +42,11 @@ export default function BreedTitle() {
                   aria-hidden="true"
                 />
                 <a
-                  href="#"
+                  href={`/dashboard/${game}`}
                   aria-current="page"
                   className="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
-                  Valorant
+                  {game.charAt(0).toUpperCase() + game.slice(1)}
                 </a>
               </div>
             </li>

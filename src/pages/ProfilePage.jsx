@@ -41,15 +41,16 @@ export default function ProfilePage() {
                 <Suspense fallback={<ProfileInfoLoading />}>
                   <ProfileInfo profileData={profileData} />
                 </Suspense>
-                <div className="order-2 row-span-2 sm:order-3 md:col-span-2">
-                  <h5 className="mb-2 text-[1.4rem] font-medium">
+                <div className="order-2  row-span-2 sm:order-3 md:col-span-2">
+                  <h5 className="mb-6 text-[1.4rem] font-medium">
                     Feature offers
                   </h5>
-                  <DashboardListingFilter />
+                  <DashboardListingFilter total={profileData?.items?.length} />
                   <Suspense fallback={<ProfileProductLoading />}>
                     <ProfileProduct profileData={profileData} />
                   </Suspense>
                   <FuturePagination
+                    total={profileData?.items?.length}
                     onchange={"xl:flex"}
                     onchange2={"xl:hidden"}
                   />

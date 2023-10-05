@@ -2,7 +2,7 @@ import { FiTrash } from "react-icons/fi";
 function GameServiceComponent({ register, setValue, getValues }) {
   const predefinedKeys = [
     "Rank",
-    "Level",
+    "Acccount Level",
     "Items",
     "Battle-Passes",
     "Currency",

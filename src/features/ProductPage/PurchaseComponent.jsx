@@ -1,100 +1,124 @@
 import { useParams } from "react-router-dom";
-import BreadCrumbs from "../../components/BreadCrumbs";
+import BreadCrumbs from "./BreadCrumbs";
 import { useState } from "react";
 import PurchaseUser from "./PurchaseUser";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProductImages from "./ProductImages";
 import "swiper/css";
+import useEqProduct from "./useSpProduct";
+import { decimalConversion } from "../../utils/helpers";
+
 export default function ProductPage() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
-  const images = Array.from({ length: 4 }, (_, index) => `${index + 1}.webp`);
+  const { product, loading, productError } = useEqProduct(id);
 
   function subQuantity() {
     if (quantity > 1) setQuantity((prevQuantity) => prevQuantity - 1);
   }
-
   function addQuantity() {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    if (product[0].stock > quantity) {
+      setQuantity((prevQuantity) => prevQuantity + 1);
+    }
   }
+
+  if (!product || loading) {
+    return (
+      <>
+        <h1>h</h1>
+        <h1>w</h1>
+        <h1>h</h1>
+      </>
+    );
+  }
+  const convertedPrice = decimalConversion(product[0]?.price);
+  const description = product[0]?.description;
+  const words = description?.split(" ");
+  const firstHalf = words?.slice(0, 140).join(" ");
+  const secondHalf = words?.slice(140).join(" ");
   return (
     <div className="pb-20">
       <div className="mx-auto mt-4 max-w-7xl p-4 sm:p-8">
         <BreadCrumbs id={id} />
         <div className="my-6 mb-10 ml-1 flex justify-between">
-          <h1 className="text-lg font-bold sm:text-xl md:text-2xl">
-            [Asia] TL52 - Jing Yuan, Gepard, Himeko (E1)
+          <h1 className="pt-2 text-lg font-bold text-gray-700 sm:text-xl lg:text-[1.3rem] ">
+            {product[0]?.title}
           </h1>
-          {/* <div className="bg-blue-50 py-4 px-36 flex justify-between gap-10 text-auto rounded-md">
-            <p>Free Insurance</p>
-            <p> 14 Days</p>
-          </div> */}
         </div>
 
-        <div className="flex flex-col gap-24 md:flex-row">
-          <div className="flex flex-col gap-6 rounded-lg border-[1px] p-4 sm:p-8 md:w-1/2 md:gap-8 lg:w-3/5">
+        <div className="flex flex-col gap-10 md:flex-row lg:gap-20">
+          <div className="flex flex-col gap-6 rounded-lg border-[1px] p-4 sm:p-8 md:w-2/3 md:gap-8 lg:w-3/5">
             <div className="">
-              <PurchaseUser />
+              <PurchaseUser user={product} />
             </div>
             <div className="flex flex-col gap-1">
-              <h3 className="mb-2 font-semibold sm:text-lg md:text-xl">
+              <h3 className="mb-2 font-semibold sm:text-lg text-md md:text-xl">
                 Product Info
               </h3>
               <div className="flex w-fit flex-wrap gap-2 text-[10px] sm:text-xs">
                 <span className="w-fit rounded-lg bg-gray-300 p-2">
-                  Item Type: Account
+                  Item Type: {product[0]?.category_id?.name}
                 </span>
                 <span className="w-fit rounded-lg bg-gray-300 p-2">
-                  Game: CSGO
+                  Game: {product[0]?.game_id?.title}
                 </span>
-                <span className="w-fit rounded-lg bg-gray-300 p-2">
-                  Account Level: 70
-                </span>
+                {product[0]?.options?.map((option, index) => {
+                  const optionObj = JSON.parse(option);
+                  const key = Object.keys(optionObj)[0];
+                  const value = optionObj[key];
+
+                  return (
+                    <span
+                      className="w-fit rounded-lg bg-gray-300 p-2"
+                      key={index}
+                    >
+                      {key}: {value}
+                    </span>
+                  );
+                })}
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <h3 className="font-semibold sm:text-lg md:text-xl">
+              <h3 className="font-semibold sm:text-lg md:text-xl text-md">
                 Details
               </h3>
-              <p className="sm:md:text-sm">
-                This battle-hardened account has reached the pinnacle of
-                progression at Level 70. Countless battles have honed the skills
-                and strategic prowess that are at your disposal. As the new
-                owner of this account, you inherit not just its achievements,
-                but also the thrill of surmounting insurmountable odds. T ready
-                to face any challenge that lies ahead.
-              </p>
-              <div>
-                <p>├ PC : ✔️</p>
-                <p>├ IOS : ✔️ ├</p>
-                <p>├ Android : ✔️ ├</p>
-                <p>├ PlayStation : ⛔ └</p>
-                <p> └ Xbox : ⛔</p>
+              <div className="sm:md:text-sm text-[0.9rem]  text-gray-700  tracking-wide">
+                <p>{firstHalf}</p>
+                <div className="mt-8">
+                  <p>{secondHalf}</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-6 rounded-lg bg-gray-100 p-8 sm:w-full md:w-1/2 lg:w-2/5">
+          <div className="flex flex-col items-center justify-center gap-6 rounded-lg bg-gray-100 p-6 sm:w-full md:w-1/2 lg:w-2/5">
             <div
               className="w-full 
       "
             >
-              <Swiper
-                className="flex flex-col"
-                spaceBetween={0}
-                slidesPerView={2}
-                loop={true}
-                autoplay={{ delay: 3000 }}
-              >
-                {images.map((imageUrl, index) => (
-                  <SwiperSlide key={imageUrl}>
-                    <ProductImages index={index} imageUrl={imageUrl} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              {product[0]?.images ? (
+                <Swiper
+                  className="flex flex-col"
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  loop={true}
+                >
+                  {product[0]?.images?.map((imageUrl, index) => (
+                    <SwiperSlide key={imageUrl}>
+                      <ProductImages index={index} imageUrl={imageUrl} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              ) : (
+                <div className="flex justify-center">
+                  <img className="w-36" src="/NOIMAGE2.webp" />
+                </div>
+              )}
             </div>
             <div className="flex flex-col gap-4 text-center">
-              <span className="text-xs">1,000 in stock</span>
+              <span className="text-xs  tracking-wide">
+                {product[0].stock} in stock
+              </span>
               <div className="flex items-center gap-2 rounded-full bg-white p-1">
                 <button
                   className="btn btn-sm rounded-full bg-gray-200"
@@ -110,13 +134,19 @@ export default function ProductPage() {
                   +
                 </button>
               </div>
-              <span className="text-xs">Unit price $20.99 USD</span>
+              <span className="text-xs   tracking-wider">
+                Unit price {convertedPrice} USD
+              </span>
             </div>
             <hr className="w-full border-[1px] border-gray-400" />
             <div className="flex w-full flex-col gap-4">
               <div className="flex justify-between">
-                <h3 className="text-lg font-medium">Total</h3>
-                <h3 className="text-lg font-medium">$20.99</h3>
+                <h3 className="text-[1.05rem] sm:text-[1.1rem] font-medium text-gray-700 xl:text-[1.15rem]">
+                  Total
+                </h3>
+                <h3 className="text-[1rem] font-medium tracking-wide  text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
+                  ${(convertedPrice * quantity).toFixed(2)}
+                </h3>
               </div>
               <div className="mt-4 rounded-lg border border-gray-200">
                 <button className="btn w-full bg-white">Buy Now</button>

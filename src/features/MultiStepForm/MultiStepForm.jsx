@@ -33,9 +33,9 @@ function MultiStepForm({ user }) {
 
   const onSubmitStep = async () => {
     if (step === 3) {
-      setStep(step + 1);
       const values = getValues();
       const [updatedData, error] = await createItem(values, user);
+      setStep(step + 1);
     } else {
       setStep(step + 1);
     }
@@ -63,7 +63,7 @@ function MultiStepForm({ user }) {
                 }`}
                 onClick={onSubmitStep}
                 disabled={step === 4}
-                type={step === 3 ? "submit" : "button"}
+                type="submit"
               >
                 {step === 3 ? "Finish" : "Next"}
               </button>

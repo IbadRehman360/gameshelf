@@ -11,9 +11,11 @@ export default function DashboardNavigationProducts({ index, game }) {
         <p className="font-semibold text-gray-600 hover:underline lg:text-[0.96rem]">
           {game.title}
         </p>
-        <p className="mb-1 hidden justify-end self-end rounded-md bg-zinc-400 px-2 py-1 text-xs text-white sm:flex">
-          {game.stock} offers
-        </p>
+        <div className="flex justify-end self-end">
+          <p className="mb-1 hidden rounded-md bg-zinc-400 px-2 py-1 text-xs text-white sm:flex">
+            Offers: <span className="ml-1 font-semibold">{game.offers}</span>
+          </p>
+        </div>
       </div>
       <div className="flex justify-end">
         <img

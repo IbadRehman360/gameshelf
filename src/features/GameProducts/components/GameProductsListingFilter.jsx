@@ -7,18 +7,18 @@ const filterOptions = [
   { id: "Highest Price", title: "Highest Price" },
 ];
 
-function DashboardListingFilter() {
+function DashboardListingFilter({ total }) {
   return (
     <div>
       <div className="mb-6 flex gap-4">
         <p className="mt-1.5 text-[0.85rem] font-medium text-gray-600 sm:text-[0.9em] md:text-[0.95rem]">
-          About 93,741 results
+          About total {total} results
         </p>
         <div className="flex flex-1 justify-end lg:hidden">
           <select
             id="location"
             name="location"
-            className="max-w-xs rounded-md border border-gray-400 bg-transparent px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 sm:text-[1.2em]"
+            className="max-w-xs rounded-md border border-gray-400 bg-transparent px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 "
             defaultValue="Recommend"
           >
             <option>Recommend</option>
