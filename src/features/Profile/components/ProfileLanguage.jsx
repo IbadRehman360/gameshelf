@@ -1,19 +1,24 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { upsertLanguage } from "../../../services/apiProfile";
+import { updateLanguage } from "../../../services/apiProfile";
 import ProfileEditLanguage from "./ProfileEditLanguage";
 import createMutationConfig from "../useUpdateProfile";
 
 function ProfileLanguage({ profileData }) {
   const [isEditLanguage, setIsEditLanguage] = useState(false);
-  const [newLanguage, setNewLanguage] = useState([]);
+  const [newLanguage, setNewLanguage] = useState({
+    first: profileData.data.language.first,
+    second: profileData.data.language.second,
+    third: profileData.data.language.third,
+  });
 
   const updateLanguageMutation = useMutation(
-    (newLanguage) => {
-      return upsertLanguage(profileData.data.id, newLanguage);
+    (languages) => {
+      return updateLanguage(profileData.data.id, languages);
     },
     { ...createMutationConfig(setIsEditLanguage) }
   );
+
   const handleSaveLanguage = () => {
     updateLanguageMutation.mutate(newLanguage);
   };
@@ -43,22 +48,36 @@ function ProfileLanguage({ profileData }) {
       </div>
       {isEditLanguage ? (
         <ProfileEditLanguage
-          content={profileData.data.language}
-          onSave={handleSaveLanguage}
           newLanguage={newLanguage}
           setNewLanguage={setNewLanguage}
         />
       ) : (
         <div className="flex flex-wrap gap-4 py-6">
-          {profileData.data.languages ? (
-            profileData.data.languages.map((language) => (
-              <div
-                key={language}
-                className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5"
-              >
-                {language}
-              </div>
-            ))
+          {profileData.data.language ? (
+            <div className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5">
+              {profileData.data.language}
+            </div>
+          ) : (
+            <></>
+          )}
+          {profileData.data.first_language ? (
+            <div className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5">
+              {profileData.data.first_language}
+            </div>
+          ) : (
+            <></>
+          )}
+          {profileData.data.second_language ? (
+            <div className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5">
+              {profileData.data.second_language}
+            </div>
+          ) : (
+            <></>
+          )}
+          {profileData.data.third_language ? (
+            <div className="w-fit rounded-lg border-[1px] border-gray-400 bg-white p-5">
+              {profileData.data.third_language}
+            </div>
           ) : (
             <></>
           )}

@@ -39,22 +39,24 @@ export async function updateDescription(id, newDescription) {
         console.log(data)
     }
     return [data, error];
+
 }
-
-export async function upsertLanguage(id, newLanguage) {
-
-    console.log("Updating language:", typeof (newLanguage));
-
+export async function updateLanguage(id, languages) {
+    console.log(languages.second)
     const { data, error } = await supabase
         .from("users")
-        .insert([{ id: id, languages: newLanguage }])
+        .update({
+            first_language: languages.first,
+            second_language: languages.second,
+            third_language: languages.third,
+        })
+        .eq("id", id);
+
     if (error) {
-        console.log(error);
+        console.error(error);
+        return [null, error];
     }
 
-    if (data) {
-        console.log(data);
-    }
 
     return [data, error];
 }

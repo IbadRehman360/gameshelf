@@ -1,7 +1,4 @@
-export default function ProfileEditLanguage({
-  newLanguageProp,
-  setNewLanguage,
-}) {
+export default function ProfileEditLanguage({ newLanguage, setNewLanguage }) {
   return (
     <div className="flex flex-col gap-2 py-2">
       <p className="grid gap-4 font-normal leading-relaxed text-gray-500">
@@ -9,8 +6,10 @@ export default function ProfileEditLanguage({
       </p>
       <select
         className="w-full max-w-xs rounded-md border border-gray-400 bg-white px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
-        value={newLanguageProp}
-        onChange={(e) => setNewLanguage(e.target.value)}
+        value={newLanguage.first}
+        onChange={(e) =>
+          setNewLanguage({ ...newLanguage, first: e.target.value })
+        }
       >
         <option value="Spanish">Spanish</option>
         <option value="German">German</option>
@@ -22,8 +21,10 @@ export default function ProfileEditLanguage({
       </p>
       <select
         className="w-full max-w-xs rounded-md border border-gray-400 bg-white px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
-        value={newLanguageProp}
-        onChange={(e) => setNewLanguage(e.target.value)}
+        value={newLanguage.second}
+        onChange={(e) =>
+          setNewLanguage({ ...newLanguage, second: e.target.value })
+        }
       >
         <option value="Italian">Italian</option>
         <option value="Arabic">Arabic</option>
@@ -36,8 +37,10 @@ export default function ProfileEditLanguage({
         </p>
         <select
           className="w-full max-w-xs rounded-md border border-gray-400 bg-white px-3 py-[0.4rem] text-[0.8rem] font-semibold text-gray-900 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600 sm:text-sm"
-          value={newLanguageProp}
-          onChange={(e) => setNewLanguage(e.target.value)}
+          value={newLanguage.third}
+          onChange={(e) =>
+            setNewLanguage({ ...newLanguage, third: e.target.value })
+          }
         >
           <option value="Japanese">Japanese</option>
           <option value="Korean">Korean</option>
