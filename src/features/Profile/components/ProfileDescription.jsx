@@ -22,9 +22,13 @@ function ProfileDescription({ profileData }) {
     updateDescriptionMutation.mutate(newDescription);
   };
   return (
-    <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">
-      <div className="flex flex-col gap-4">
-        <h3 className="inline-flex items-center justify-between text-xl font-semibold">
+    <div
+      className={` rounded-lg pb-6 border-b-2 md:pb-4 ${
+        isEdit && "h-52  md:h-56"
+      } md:bg-gray-50 md:p-4`}
+    >
+      <div className="flex flex-col gap-4 ">
+        <h3 className="inline-flex items-center text-gray-800 justify-between text-[1.04rem] sm:text-[1.2rem] font-semibold">
           Description{" "}
           <div className="flex items-center">
             {isEdit && (
@@ -54,7 +58,12 @@ function ProfileDescription({ profileData }) {
               setNewDescription={setNewDescription}
             />
           ) : (
-            <>{profileData.data.description}</>
+            <div
+              className="  tracking-wide text-gray-800"
+              style={{ whiteSpace: "pre-line" }}
+            >
+              {profileData.data.description}
+            </div>
           )}
         </div>
       </div>

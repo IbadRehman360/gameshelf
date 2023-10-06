@@ -26,7 +26,9 @@ function ProfileLanguage({ profileData }) {
   return (
     <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold">Languages</h3>
+        <h3 className="inline-flex items-center text-gray-800 justify-between text-[1.09rem] sm:text-[1.2rem] font-semibold">
+          Language
+        </h3>
         <div className="flex items-center">
           {isEditLanguage && (
             <button

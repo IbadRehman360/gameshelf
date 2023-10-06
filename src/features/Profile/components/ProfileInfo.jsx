@@ -5,22 +5,39 @@ import { Link } from "react-router-dom";
 export default function ProfileInfo({ profileData }) {
   const [showEditImage, setShowEditImage] = useState(false);
   const user = profileData.data;
-
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    if (selectedImage) {
+      console.log(`Selected image: ${selectedImage.name}`);
+    }
+  };
   return (
     <div className="md:order-3 lg:text-right">
       <div className="mt-16 text-center md:mt-0 lg:order-1">
         <div className="mb-4 flex w-full justify-center px-4 lg:order-2">
           <div className="relative">
-            {showEditImage && (
-              <button
-                className="absolute bottom-1 left-1/2 z-50 translate-x-[-50%] translate-y-[-50%] md:top-1/4"
-                onMouseEnter={() => setShowEditImage(true)}
-                onMouseLeave={() => setShowEditImage(false)}
-              >
-                <AiFillCamera color="white" size="1.5rem" />
-                <span className="text-xs text-white">Edit</span>
-              </button>
-            )}
+            <div>
+              {showEditImage && (
+                <>
+                  <label
+                    htmlFor="imageInput"
+                    className="absolute bottom-1 left-1/2 z-50 translate-x-[-50%] translate-y-[-50%] md:top-1/4 cursor-pointer"
+                    onMouseEnter={() => setShowEditImage(true)}
+                    onMouseLeave={() => setShowEditImage(false)}
+                  >
+                    <AiFillCamera color="white" size="1.5rem" />
+                    <span className="text-xs text-white">Edit</span>
+                  </label>
+                </>
+              )}
+
+              <input
+                type="file"
+                id="imageInput"
+                style={{ display: "none" }}
+                onChange={handleImageChange}
+              />
+            </div>
             <div className={`relative rounded-full`}>
               <img
                 alt="..."

@@ -11,12 +11,16 @@ const ProductImage = ({ imageUrl, currentImageIndex, onNextClick }) => {
             src={imageUrl}
             alt={`bg ${currentImageIndex}`}
           />
-          <button
-            className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-gray-50/20 p-1 text-white"
-            onClick={onNextClick}
-          >
-            <FiChevronRight size={18} />
-          </button>
+          {imageUrl.length >= 2 ? (
+            <button
+              className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-gray-50/20 p-1 text-white"
+              onClick={onNextClick}
+            >
+              <FiChevronRight size={18} />
+            </button>
+          ) : (
+            <></>
+          )}
         </div>
 
         <div className="absolute inset-x-0 bottom-0 bg-white bg-opacity-80 py-0.5 text-center">
