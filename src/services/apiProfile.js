@@ -28,7 +28,6 @@ export async function getProfileData(user) {
     };
 }
 export async function updateDescription(id, newDescription) {
-    console.log(id, newDescription)
     const { data, error } = await supabase
         .from("users")
         .update({ description: newDescription })
@@ -39,5 +38,23 @@ export async function updateDescription(id, newDescription) {
     if (data) {
         console.log(data)
     }
+    return [data, error];
+}
+
+export async function upsertLanguage(id, newLanguage) {
+
+    console.log("Updating language:", typeof (newLanguage));
+
+    const { data, error } = await supabase
+        .from("users")
+        .insert([{ id: id, languages: newLanguage }])
+    if (error) {
+        console.log(error);
+    }
+
+    if (data) {
+        console.log(data);
+    }
+
     return [data, error];
 }

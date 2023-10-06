@@ -1,4 +1,4 @@
-import FeaturedProductLoading from "../../../components/FeaturedProductLoading";
+import FeaturedProductLoading from "./FeaturedProductLoading";
 
 export default function ProfileProductLoader() {
   return (

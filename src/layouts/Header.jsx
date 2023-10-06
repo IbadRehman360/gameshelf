@@ -15,15 +15,17 @@ export default function Header() {
   const { signOutUser, session } = useAuth();
   const navigate = useNavigate();
 
-
+  function handleSignOut() {
+    if (signOutUser()) {
+      navigate("/");
+    }
+  }
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
   const handleHover = () => {
     setIsHovered(true);
   };
-
-
 
   return (
     <Disclosure as="nav">
@@ -88,15 +90,19 @@ export default function Header() {
                     <img
                       src="/dollar(2).png"
                       alt="Coin Image"
-                      className={`h-[35px] w-10 transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
-                        }`}
+                      className={`h-[35px] w-10 transition-transform hover:scale-110 active:scale-95 ${
+                        isClicked ? "scale-110" : ""
+                      }`}
                       onMouseEnter={handleHover}
                     />
                     <div
-                      className={`absolute ${isHovered || isClicked ? 'block' : 'hidden'
-                        } -bottom-14 left-1/3 z-50 w-24  -translate-x-1/3 rounded-lg border border-gray-300 bg-white p-2 opacity-0 shadow-lg transition-all duration-300 ease-in-out group-hover:opacity-100`}
+                      className={`absolute ${
+                        isHovered || isClicked ? "block" : "hidden"
+                      } -bottom-14 left-1/3 z-50 w-24  -translate-x-1/3 rounded-lg border border-gray-300 bg-white p-2 opacity-0 shadow-lg transition-all duration-300 ease-in-out group-hover:opacity-100`}
                     >
-                      <p className="text-center font-semibold text-gray-800">200 Coins</p>
+                      <p className="text-center font-semibold text-gray-800">
+                        200 Coins
+                      </p>
                     </div>
                   </div>
                   <a
@@ -166,23 +172,24 @@ export default function Header() {
                     </Transition>
                   </Menu>
                 </div>
-              ) : <div className="hidden gap-6 lg:ml-4 lg:flex lg:items-center">
-                <NavLink
-                  className="mt-1 rounded-full bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
-                  type="button"
-                  to={"/sell/ibadkhan"}
-                >
-                  Sell
-                </NavLink>
-                <NavLink
-                  className="mt-1 rounded-full bg-rose-500 px-6 py-2.5 text-[0.9rem] font-medium text-gray-50 shadow outline-none transition-all duration-150 ease-linear hover:bg-rose-500 hover:opacity-95 hover:shadow-md focus:outline-none active:bg-gray-400"
-                  type="button"
-                  to={"/login"}
-                >
-                  Login / Sign up
-                </NavLink>
-              </div>
-              }
+              ) : (
+                <div className="hidden gap-6 lg:ml-4 lg:flex lg:items-center">
+                  <NavLink
+                    className="mt-1 rounded-full bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
+                    type="button"
+                    to={"/sell/ibadkhan"}
+                  >
+                    Sell
+                  </NavLink>
+                  <NavLink
+                    className="mt-1 rounded-full bg-rose-500 px-6 py-2.5 text-[0.9rem] font-medium text-gray-50 shadow outline-none transition-all duration-150 ease-linear hover:bg-rose-500 hover:opacity-95 hover:shadow-md focus:outline-none active:bg-gray-400"
+                    type="button"
+                    to={"/login"}
+                  >
+                    Login / Sign up
+                  </NavLink>
+                </div>
+              )}
             </div>
           </div>
 
@@ -223,15 +230,19 @@ export default function Header() {
                     <img
                       src="/dollar(1).png"
                       alt="Coin Image"
-                      className={`h-8 w-9 transition-transform hover:scale-110 active:scale-95 ${isClicked ? 'scale-110' : ''
-                        }`}
+                      className={`h-8 w-9 transition-transform hover:scale-110 active:scale-95 ${
+                        isClicked ? "scale-110" : ""
+                      }`}
                       onMouseEnter={handleHover}
                     />
                     <div
-                      className={`absolute ${isHovered || isClicked ? 'block' : 'hidden'
-                        } -bottom-9 z-50 w-20 -translate-x-1/3  rounded-lg border border-gray-300 bg-white p-1 opacity-0  shadow-lg transition-all duration-300 ease-in-out group-hover:opacity-100`}
+                      className={`absolute ${
+                        isHovered || isClicked ? "block" : "hidden"
+                      } -bottom-9 z-50 w-20 -translate-x-1/3  rounded-lg border border-gray-300 bg-white p-1 opacity-0  shadow-lg transition-all duration-300 ease-in-out group-hover:opacity-100`}
                     >
-                      <p className="text-center text-xs font-semibold text-gray-800">200 Coins</p>
+                      <p className="text-center text-xs font-semibold text-gray-800">
+                        200 Coins
+                      </p>
                     </div>
                   </div>
                 </div>

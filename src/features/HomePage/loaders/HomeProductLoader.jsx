@@ -30,14 +30,16 @@ function ProfileProductLoading() {
   }, []);
 
   return (
-    <div className="carousel mt-2 w-full justify-items-stretch sm:mt-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5 lg:grid-cols-5">
-      <div
-        id="featuredProductsSlide1"
-        className="carousel-item mx-auto my-4 w-full gap-2 sm:w-full md:gap-3"
-      >
-        {Array.from({ length: sliceEnd }, (_, index) => (
-          <HomeProductLoaders key={index} />
-        ))}
+    <div className=" bg-[#fdfdfd] px-3">
+      <div className="carousel mt-2 w-full justify-items-stretch sm:mt-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5 lg:grid-cols-5">
+        <div
+          id="featuredProductsSlide1"
+          className="carousel-item mx-auto my-4 w-full gap-2 sm:w-full md:gap-3"
+        >
+          {Array.from({ length: sliceEnd }, (_, index) => (
+            <HomeProductLoaders key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );
