@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useProduct from "../useProduct";
 import FeaturedProduct from "../../../components/FeatureProducts";
-import HomeProductLoaders from "../loaders/HomeProductLoaders";
+import ProfileProductLoading from "../loaders/HomeProductLoader";
 
 export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,7 +37,7 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
   }, []);
 
   if (loadingItems) {
-    return <HomeProductLoaders />;
+    return <ProfileProductLoading />;
   }
   const products = items ? items : [];
 
