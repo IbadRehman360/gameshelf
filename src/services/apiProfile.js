@@ -60,3 +60,4 @@ export async function updateLanguage(id, languages) {
 
     return [data, error];
 }
+

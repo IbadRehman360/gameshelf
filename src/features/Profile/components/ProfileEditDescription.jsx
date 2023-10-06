@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-
-export default function ProfileEdit({ newDescription, setNewDescription }) {
+export default function ProfileEditDescription({
+  newDescription,
+  setNewDescription,
+}) {
   const maxCharacters = 300;
   const maxWordLength = 20;
 

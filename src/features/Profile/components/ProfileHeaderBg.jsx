@@ -8,6 +8,13 @@ export default function ProfileHeaderBg() {
 
   const handleImageClick = () => {
     fileInputRef.current.click();
+
+    fileInputRef.current.addEventListener("change", (e) => {
+      const selectedFile = e.target.files[0]; // Get the selected file
+      if (selectedFile) {
+        console.log("Selected image name:", selectedFile.name);
+      }
+    });
   };
 
   return (

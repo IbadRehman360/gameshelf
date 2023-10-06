@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 
-import ProfileEdit from "./ProfileEdit";
+import ProfileEdit from "./ProfileEditDescription";
 import { updateDescription } from "../../../services/apiProfile";
 import createMutationConfig from "../useUpdateProfile";
 
