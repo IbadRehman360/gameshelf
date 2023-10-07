@@ -31,7 +31,7 @@ function ProfileLanguage({ profileData }) {
         <h3 className="inline-flex items-center text-gray-800 justify-between text-[1.09rem] sm:text-[1.2rem] font-semibold">
           Language
         </h3>
-        {session.user.id === profileData.data.id ? (
+        {session?.user?.id && session?.user?.id === profileData?.data?.id && (
           <div className="flex items-center">
             {isEditLanguage && (
               <button
@@ -50,8 +50,6 @@ function ProfileLanguage({ profileData }) {
               {isEditLanguage ? "Cancel" : "Edit"}
             </button>
           </div>
-        ) : (
-          <></>
         )}
       </div>
       {isEditLanguage ? (

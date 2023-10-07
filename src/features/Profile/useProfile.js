@@ -4,7 +4,7 @@ import { getProfileData } from "../../services/apiProfile";
 
 export default function useProfile(user) {
     const { data: profileData, loading, error: profileError } = useQuery({
-        queryKey: ["profile"],
+        queryKey: ["profile", user],
         queryFn: () => getProfileData(user),
     });
 

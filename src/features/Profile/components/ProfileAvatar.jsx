@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiFillCamera } from "react-icons/ai";
 import useUpdateProfileImage from "../useUpdateProfileImage";
+import { useAuth } from "../../../context/AuthProvider";
 
 function ProfileAvatar({ user }) {
   const [showEditImage, setShowEditImage] = useState(false);
@@ -12,6 +13,7 @@ function ProfileAvatar({ user }) {
     params,
     image_col
   );
+  const { session } = useAuth();
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -39,26 +41,27 @@ function ProfileAvatar({ user }) {
     <div className="mt-16 text-center md:mt-0 lg:order-1">
       <div className="mb-3 flex w-full justify-center px-4 lg:order-2">
         <div className="relative ">
-          <div>
-            {showEditImage && (
-              <label
-                htmlFor="imageInput"
-                className="absolute bottom-1 left-1/2 z-50 translate-x-[-50%] translate-y-[-50%] cursor-pointer md:top-1/4"
-                onMouseEnter={() => setShowEditImage(true)}
-                onMouseLeave={() => setShowEditImage(false)}
-              >
-                <AiFillCamera color="white" size="1.5rem" />
-                <span className="text-xs text-white">Edit</span>
-              </label>
-            )}
-
-            <input
-              type="file"
-              id="imageInput"
-              style={{ display: "none" }}
-              onChange={handleImageChange}
-            />
-          </div>
+          {session?.user?.id && session?.user?.id === userId && (
+            <div>
+              {showEditImage && (
+                <label
+                  htmlFor="imageInput"
+                  className="absolute bottom-1 left-1/2 z-50 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer md:top-1/4"
+                  onMouseEnter={() => setShowEditImage(true)}
+                  onMouseLeave={() => setShowEditImage(false)}
+                >
+                  <AiFillCamera color="white" size="1.5rem" />
+                  <span className="text-xs text-white">Edit</span>
+                </label>
+              )}
+              <input
+                type="file"
+                id="imageInput"
+                style={{ display: "none" }}
+                onChange={handleImageChange}
+              />
+            </div>
+          )}
           <div className="relative rounded-full ">
             <img
               alt="..."

@@ -1,5 +1,4 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { useNavigate, useParams } from "react-router-dom";
 import BreadCrumbs from "./BreadCrumbs";
 import { useState } from "react";
 import PurchaseUser from "./PurchaseUser";
@@ -7,18 +6,14 @@ import useEqProduct from "./useSpProduct";
 import { decimalConversion } from "../../utils/helpers";
 import { AiOutlineLoading } from "react-icons/ai";
 import ProductImage from "./ProductImage";
-import { useAuth } from "../../context/AuthProvider";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import PurchaseBuyBtn from "./PurchaseBuyBtn";
+import { useParams } from "react-router-dom";
 
 export default function ProductPage() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const { product, loading, productError } = useEqProduct(id);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { session } = useAuth();
-  const navigate = useNavigate();
-  console.log(session);
-  const isSessionAvailable = !!session;
 
   if (productError) return <h1>ERROR</h1>;
   if (loading || !product) {
@@ -45,21 +40,16 @@ export default function ProductPage() {
     }
   }
 
+  const productPrice = product[0]?.price;
+  const sellerProductId = product[0].id;
   const imageUrl =
     product[0].images === null ? null : product[0]?.images[currentImageIndex];
-
   const convertedPrice = decimalConversion(product[0]?.price);
   const description = product[0]?.description;
   const words = description?.split(" ");
   const firstHalf = words?.slice(0, 140).join(" ");
   const secondHalf = words?.slice(140).join(" ");
-
-  const handleButtonClick = () => {
-    if (!isSessionAvailable) {
-      navigate("/login");
-    }
-  };
-
+  const productTitle = product[0].game_id.title;
   return (
     <div className="pb-20">
       <div className="mx-auto mt-4 max-w-7xl p-4 sm:p-8">
@@ -156,15 +146,12 @@ export default function ProductPage() {
                   ${(convertedPrice * quantity).toFixed(2)}
                 </h3>
               </div>
-              <div className="mt-4 rounded-lg border border-gray-200">
-                <button
-                  type="button"
-                  onClick={handleButtonClick}
-                  className="btn w-full border text-gray-800 tracking-wide border-gray-300 bg-white/60 flex items-center justify-center "
-                >
-                  <AiOutlineShoppingCart size={18} /> <span>Buy Now</span>
-                </button>
-              </div>
+
+              <PurchaseBuyBtn
+                productPrice={productPrice}
+                sellerProductId={sellerProductId}
+                productTitle={productTitle}
+              />
             </div>
           </div>
         </div>

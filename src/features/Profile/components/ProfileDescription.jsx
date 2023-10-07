@@ -24,8 +24,6 @@ function ProfileDescription({ profileData }) {
   const handleSaveDescription = () => {
     updateDescriptionMutation.mutate(newDescription);
   };
-  console.log(profileData.data.id);
-  console.log(session.user.id);
   return (
     <div
       className={` rounded-lg pb-6 border-b-2 md:pb-4 ${
@@ -44,18 +42,17 @@ function ProfileDescription({ profileData }) {
                 Save
               </button>
             )}
-            {session.user.id === profileData.data.id ? (
-              <button
-                onClick={() => setIsEdit(!isEdit)}
-                className={`mt-[4.1px] text-sm   font-semibold text-gray-500 ${
-                  isEdit ? "underline" : "hover:underline"
-                }`}
-              >
-                {isEdit ? "Cancel" : "Edit"}
-              </button>
-            ) : (
-              <></>
-            )}
+            {session?.user?.id &&
+              session?.user?.id === profileData?.data?.id && (
+                <button
+                  onClick={() => setIsEdit(!isEdit)}
+                  className={`mt-[4.1px] text-sm font-semibold text-gray-500 ${
+                    isEdit ? "underline" : "hover:underline"
+                  }`}
+                >
+                  {isEdit ? "Cancel" : "Edit"}
+                </button>
+              )}
           </div>
         </h3>
         <div className="flex flex-wrap" style={{ whiteSpace: "pre-line" }}>
