@@ -151,6 +151,7 @@ export default function ProductPage() {
                 productPrice={productPrice}
                 sellerProductId={sellerProductId}
                 productTitle={productTitle}
+                sellerProductId2={product[0]}
               />
             </div>
           </div>

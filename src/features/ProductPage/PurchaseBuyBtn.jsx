@@ -10,6 +10,7 @@ export default function PurchaseBuyBtn({
   productPrice,
   sellerProductId,
   productTitle,
+  sellerProductId2,
 }) {
   const navigate = useNavigate();
   const { session } = useAuth();
@@ -41,13 +42,21 @@ export default function PurchaseBuyBtn({
       }
     }
   };
-
   return (
     <div>
       <button
         type="button"
         onClick={handleButtonClick}
-        className="btn flex w-full items-center justify-center border border-gray-300 bg-white/60 tracking-wide text-gray-800"
+        disabled={session?.user?.id === sellerProductId2?.seller_id?.id}
+        className={`btn flex w-full items-center justify-center border  bg-gray-50 border-gray-400 tracking-wide text-gray-800 ${
+          session?.user?.id === sellerProductId2?.seller_id?.id
+            ? "animate-bounce "
+            : "  "
+        }  `}
+        style={{
+          backgroundColor:
+            session?.user?.id === sellerProductId2?.seller_id?.id && "#E5E7EB",
+        }}
       >
         <AiOutlineShoppingCart size={18} /> <span>Buy Now</span>
       </button>
