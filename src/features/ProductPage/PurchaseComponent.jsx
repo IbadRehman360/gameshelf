@@ -1,5 +1,5 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import BreadCrumbs from "./BreadCrumbs";
 import { useState } from "react";
 import PurchaseUser from "./PurchaseUser";
@@ -7,12 +7,18 @@ import useEqProduct from "./useSpProduct";
 import { decimalConversion } from "../../utils/helpers";
 import { AiOutlineLoading } from "react-icons/ai";
 import ProductImage from "./ProductImage";
+import { useAuth } from "../../context/AuthProvider";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function ProductPage() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const { product, loading, productError } = useEqProduct(id);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { session } = useAuth();
+  const navigate = useNavigate();
+  console.log(session);
+  const isSessionAvailable = !!session;
 
   if (productError) return <h1>ERROR</h1>;
   if (loading || !product) {
@@ -47,6 +53,12 @@ export default function ProductPage() {
   const words = description?.split(" ");
   const firstHalf = words?.slice(0, 140).join(" ");
   const secondHalf = words?.slice(140).join(" ");
+
+  const handleButtonClick = () => {
+    if (!isSessionAvailable) {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="pb-20">
@@ -137,15 +149,21 @@ export default function ProductPage() {
             <hr className="w-full border-[1px] border-gray-400" />
             <div className="flex w-full flex-col gap-4">
               <div className="flex justify-between">
-                <h3 className="text-[1.05rem] font-medium text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
+                <h3 className="text-[1.05rem] font-medium text-gray-600 sm:text-[1.1rem] xl:text-[1.15rem]">
                   Total
                 </h3>
-                <h3 className="text-[1rem] font-medium tracking-wide text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
+                <h3 className="text-[1rem] font-medium tracking-wide text-gray-600 sm:text-[1.1rem] xl:text-[1.15rem]">
                   ${(convertedPrice * quantity).toFixed(2)}
                 </h3>
               </div>
               <div className="mt-4 rounded-lg border border-gray-200">
-                <button className="btn w-full bg-white">Buy Now</button>
+                <button
+                  type="button"
+                  onClick={handleButtonClick}
+                  className="btn w-full border text-gray-800 tracking-wide border-gray-300 bg-white/60 flex items-center justify-center "
+                >
+                  <AiOutlineShoppingCart size={18} /> <span>Buy Now</span>
+                </button>
               </div>
             </div>
           </div>

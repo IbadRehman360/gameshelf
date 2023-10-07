@@ -51,16 +51,12 @@ const router = createBrowserRouter([
         element: <GameCategoryProductPage />,
       },
       {
-        path: "dashboard/:game/:id",
-        element: <ProductPage />,
-      },
-      {
         path: "profile/:user",
         element: <ProfilePage />,
       },
       {
-        path: "sell/:user",
-        element: <MultiStepFormPage />,
+        path: "dashboard/:game/:id",
+        element: <ProductPage />,
       },
     ],
   },
@@ -80,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: "/chat/new/:userId",
         element: <MessagePage />,
+      },
+      {
+        path: "sell/:user",
+        element: <MultiStepFormPage />,
       },
     ],
   },

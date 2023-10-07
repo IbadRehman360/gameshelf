@@ -3,6 +3,7 @@ import { useState } from "react";
 import { updateLanguage } from "../../../services/apiProfile";
 import ProfileEditLanguage from "./ProfileEditLanguage";
 import createMutationConfig from "../useUpdateProfile";
+import { useAuth } from "../../../context/AuthProvider";
 
 function ProfileLanguage({ profileData }) {
   const [isEditLanguage, setIsEditLanguage] = useState(false);
@@ -23,30 +24,35 @@ function ProfileLanguage({ profileData }) {
     updateLanguageMutation.mutate(newLanguage);
   };
 
+  const { session } = useAuth();
   return (
     <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">
       <div className="flex items-center justify-between">
         <h3 className="inline-flex items-center text-gray-800 justify-between text-[1.09rem] sm:text-[1.2rem] font-semibold">
           Language
         </h3>
-        <div className="flex items-center">
-          {isEditLanguage && (
+        {session.user.id === profileData.data.id ? (
+          <div className="flex items-center">
+            {isEditLanguage && (
+              <button
+                onClick={handleSaveLanguage}
+                className="mr-2 mt-[3px] rounded-full px-1 py-2  text-sm font-semibold tracking-wider transition duration-300 ease-in-out"
+              >
+                Save
+              </button>
+            )}
             <button
-              onClick={handleSaveLanguage}
-              className="mr-2 mt-[3px] rounded-full px-1 py-2  text-sm font-semibold tracking-wider transition duration-300 ease-in-out"
+              onClick={() => setIsEditLanguage(!isEditLanguage)}
+              className={`mt-[4.1px] text-sm   font-semibold text-gray-500 ${
+                isEditLanguage ? "underline" : "hover:underline"
+              }`}
             >
-              Save
+              {isEditLanguage ? "Cancel" : "Edit"}
             </button>
-          )}
-          <button
-            onClick={() => setIsEditLanguage(!isEditLanguage)}
-            className={`mt-[4.1px] text-sm   font-semibold text-gray-500 ${
-              isEditLanguage ? "underline" : "hover:underline"
-            }`}
-          >
-            {isEditLanguage ? "Cancel" : "Edit"}
-          </button>
-        </div>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
       {isEditLanguage ? (
         <ProfileEditLanguage

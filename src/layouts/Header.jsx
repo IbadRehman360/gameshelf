@@ -179,13 +179,13 @@ export default function Header() {
                 </div>
               ) : (
                 <div className="hidden gap-6 lg:ml-4 lg:flex lg:items-center">
-                  <NavLink
+                  <a
                     className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
-                    to={`/sell/${user[0]?.username}`}
+                    href={!session ? "/login" : `/sell/${user[0]?.username}`}
                   >
                     Sell
-                  </NavLink>
+                  </a>
                   <NavLink
                     className="mt-1 rounded-full bg-rose-500 px-6 py-2.5 text-[0.9rem] font-medium text-gray-50 shadow outline-none transition-all duration-150 ease-linear hover:bg-rose-500 hover:opacity-95 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
@@ -297,7 +297,7 @@ export default function Header() {
                   <>
                     <Disclosure.Button
                       as="a"
-                      onClick={() => handleSignOut()}
+                      href="/chat"
                       className="flex items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
                     >
                       <FiMessageCircle className="mr-2" /> Messages

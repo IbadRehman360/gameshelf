@@ -90,6 +90,5 @@ export async function getUserInfo(userId) {
         console.log("error getting games: " + error.message);
         throw new Error("error getting games: " + error.message);
     }
-
     return games;
 }

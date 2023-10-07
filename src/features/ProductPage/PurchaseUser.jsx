@@ -1,6 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthProvider";
 
 function PurchaseUser({ user }) {
+  const { session } = useAuth();
+  const navigate = useNavigate();
+
+  const isSessionAvailable = !!session;
+  const handleButtonClick = () => {
+    if (!isSessionAvailable) {
+      navigate("/login");
+    }
+  };
   return (
     <div className="flex items-center space-x-4">
       <span className="relative inline-block">
@@ -27,19 +37,41 @@ function PurchaseUser({ user }) {
         </h3>
 
         <div className="flex space-x-2">
-          <Link
-            to={`/profile/${user[0]?.seller_id?.username}`}
-            className="mb-1 rounded-md bg-red-500 px-4 py-2 text-[0.6rem] font-semibold text-white shadow outline-none transition-all duration-150 ease-linear hover:bg-red-400 hover:shadow-md focus:outline-none active:bg-red-400"
-            type="button"
-          >
-            Message
-          </Link>
-          <Link
-            className="mb-1 rounded-md bg-gray-600 px-4 py-1.5 text-[0.7rem] font-semibold text-white shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-500 hover:shadow-md focus:outline-none active:bg-red-400"
-            type="button"
-          >
-            Follow
-          </Link>
+          {isSessionAvailable ? (
+            <Link
+              to={`/profile/${user[0]?.seller_id?.username}`}
+              className="mb-1 rounded-md px-4 py-2 text-[0.6rem] font-semibold text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none bg-red-500 hover:bg-red-400 active:bg-red-400"
+              type="button"
+            >
+              Message
+            </Link>
+          ) : (
+            <button
+              className="mb-1 rounded-md px-4 py-2 text-[0.6rem] font-semibold text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none bg-red-400 hover:bg-red-300 active:bg-red-300"
+              type="button"
+              onClick={handleButtonClick}
+            >
+              Message
+            </button>
+          )}
+
+          {isSessionAvailable ? (
+            <Link
+              to={`/profile/${user[0]?.seller_id?.username}`}
+              className="mb-1 rounded-md px-4 py-1.5 text-[0.7rem] font-semibold text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none bg-gray-600 hover:bg-gray-500"
+              type="button"
+            >
+              Follow
+            </Link>
+          ) : (
+            <button
+              className="mb-1 rounded-md px-4 py-1.5 text-[0.7rem] font-semibold text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none bg-gray-400 hover:bg-gray-300"
+              type="button"
+              onClick={handleButtonClick}
+            >
+              Follow
+            </button>
+          )}
         </div>
       </div>
     </div>
