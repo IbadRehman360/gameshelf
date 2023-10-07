@@ -1,22 +1,28 @@
 import { useState } from "react";
 import { BsCardImage } from "react-icons/bs";
 import { useRef } from "react";
+import useUpdateProfileImage from "../useUpdateProfileImage";
 
-export default function ProfileHeaderBg() {
+// import useUpdateProfileImage from "../useUpdateProfileImage";
+
+export default function ProfileHeaderBg({ profileData }) {
   const [showImageEditBtn, setShowImageEditBtn] = useState(false);
   const fileInputRef = useRef(null);
+  const userId = profileData.data.id;
+  const params = "banners";
+  const image_col = "banner_image";
+  const { mutate } = useUpdateProfileImage(userId, params, image_col);
 
   const handleImageClick = () => {
     fileInputRef.current.click();
-
-    fileInputRef.current.addEventListener("change", (e) => {
-      const selectedFile = e.target.files[0]; // Get the selected file
-      if (selectedFile) {
-        console.log("Selected image name:", selectedFile.name);
-      }
-    });
   };
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
+    mutate(file);
+  };
+  console.log(profileData.data.banner_image);
   return (
     <section className="relative">
       <div>
@@ -42,6 +48,7 @@ export default function ProfileHeaderBg() {
                 id="imageInput"
                 ref={fileInputRef}
                 style={{ display: "none" }}
+                onChange={handleFileChange}
               />
             </label>
           </div>
@@ -49,10 +56,12 @@ export default function ProfileHeaderBg() {
       </div>
       <div
         className={`w-full ${
-          showImageEditBtn && "opacity-70"
-        } h-[240px] bg-cover bg-center bg-no-repeat object-cover hover:opacity-70 sm:bg-cover`}
-        style={{ backgroundImage: 'url("/ProfileBanner.png")' }}
-        onClick={handleImageClick} // Handle image click
+          showImageEditBtn ? "opacity-70" : ""
+        } h-[260px] bg-cover bg-center bg-no-repeat object-cover hover:opacity-70 sm:bg-cover`}
+        style={{
+          backgroundImage: `url("${profileData.data.banner_image}")`,
+        }}
+        onClick={handleImageClick}
         onMouseEnter={() => setShowImageEditBtn(true)}
         onMouseLeave={() => setShowImageEditBtn(false)}
       >

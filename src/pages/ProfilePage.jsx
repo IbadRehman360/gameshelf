@@ -19,7 +19,7 @@ export default function ProfilePage() {
 
   return (
     <main>
-      <ProfileHeaderBg />
+      <ProfileHeaderBg profileData={profileData} />
       <section>
         <div className="mx-auto md:px-4">
           <div className="relative -mt-12 flex w-full min-w-0 flex-col break-words rounded-lg bg-white shadow-xl">
