@@ -6,7 +6,10 @@ import { Link, NavLink } from "react-router-dom";
 // import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import { FiMessageCircle, FiLogOut } from "react-icons/fi"; // Import icons from React Icons library
+import { FiMessageCircle, FiLogOut } from "react-icons/fi";
+import { FiUser } from "react-icons/fi"; // Import the FiUser icon from the react-icons library
+import getUser from "./getUser";
+import { FiLogIn, FiUserPlus, FiInfo, FiMail } from "react-icons/fi";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -21,6 +24,8 @@ export default function Header() {
       navigate("/");
     }
   }
+  const user = session ? getUser(session.user.id)?.user || [] : [];
+
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -83,7 +88,7 @@ export default function Header() {
                   <NavLink
                     className="mt-1 rounded-full bg-gray-50 px-9 py-[6px] text-[1.02rem] font-medium text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
-                    to={"/sell/ibadkhan"}
+                    to={`/sell/${user[0]?.username}`}
                   >
                     Sell
                   </NavLink>
@@ -101,8 +106,8 @@ export default function Header() {
                         isHovered || isClicked ? "block" : "hidden"
                       } -bottom-14 left-1/3 z-50 w-24  -translate-x-1/3 rounded-lg border border-gray-300 bg-white p-2 opacity-0 shadow-lg transition-all duration-300 ease-in-out group-hover:opacity-100`}
                     >
-                      <p className="text-center font-semibold text-gray-800">
-                        200 Coins
+                      <p className="text-center text-[0.94rem] font-semibold tracking-wide text-gray-600">
+                        {user[0]?.coin} Coins
                       </p>
                     </div>
                   </div>
@@ -126,7 +131,7 @@ export default function Header() {
                         <div className="mt-0.5 rounded-full">
                           <img
                             className="h-[46px] w-[50px] rounded-full border-[1px] border-gray-800 object-cover"
-                            src="/ProfileImg2.jpg"
+                            src={user[0]?.avatar_image}
                             alt=""
                           />
                         </div>
@@ -145,27 +150,26 @@ export default function Header() {
                         <Menu.Item>
                           {({ active }) => (
                             <a
-                              href="/profile/ibadkhan"
+                              href={`/profile/${user[0]?.username}`}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                "block px-4 py-2 text-sm border-b text-gray-700 flex items-center"
                               )}
                             >
-                              Your Profile
+                              <FiUser className="mr-2" /> Your Profile
                             </a>
                           )}
                         </Menu.Item>
-
                         <Menu.Item>
                           {({ active }) => (
                             <button
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block  text-start pl-4   w-full py-2 text-sm text-gray-700"
+                                "flex items-center pl-4 w-full py-2 text-sm text-gray-700"
                               )}
                               onClick={() => handleSignOut()}
                             >
-                              Log Out
+                              <FiLogOut className="mr-2" /> Log Out
                             </button>
                           )}
                         </Menu.Item>
@@ -176,9 +180,9 @@ export default function Header() {
               ) : (
                 <div className="hidden gap-6 lg:ml-4 lg:flex lg:items-center">
                   <NavLink
-                    className="mt-1 rounded-full bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
+                    className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
-                    to={"/sell/ibadkhan"}
+                    to={`/sell/${user[0]?.username}`}
                   >
                     Sell
                   </NavLink>
@@ -193,77 +197,100 @@ export default function Header() {
               )}
             </div>
           </div>
-
           <Disclosure.Panel className="absolute z-20 w-full bg-[#3b404e] lg:hidden">
-            <div className="space-y-1">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
-              <Disclosure.Button
-                as="a"
-                href="/profile/ibadkhan"
-                className="block border-l-4 border-indigo-500 bg-indigo-50 py-3 pl-3 pr-4 text-base font-medium text-indigo-700"
-              >
-                View Profile
-              </Disclosure.Button>
-            </div>
-
-            <div className="border-b-2 border-t border-gray-600 pb-2 pt-4">
-              <div className="mt-2 flex items-center px-4">
-                <div className="shrink-0">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3">
-                  <div className="text-base font-medium text-gray-100">
-                    Tom Cook
-                  </div>
-                  <div className="text-sm font-medium text-gray-300">
-                    tom@example.com
-                  </div>
-                </div>
-                <div
-                  type="button"
-                  className="relative -left-1 -top-1 ml-auto shrink-0 rounded-full bg-white p-1 text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            {session && (
+              <div className="space-y-1">
+                {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
+                <Disclosure.Button
+                  as="a"
+                  href={`/profile/${user[0]?.username}`}
+                  className="block border-l-4 border-indigo-500 bg-indigo-50 py-3 pl-3 pr-4 text-base font-medium text-indigo-700"
                 >
-                  <div className="group relative">
+                  View Profile
+                </Disclosure.Button>
+              </div>
+            )}
+
+            <div
+              className={`border-b-2 pb-2  border-gray-600 border-t ${
+                session ? "  pt-4  " : ""
+              }`}
+            >
+              {session && (
+                <div className="mt-2 flex items-center px-4">
+                  <div className="shrink-0 rounded-full border-[2px] border-gray-500">
                     <img
-                      src="/dollar(1).png"
-                      alt="Coin Image"
-                      className={`h-8 w-9 transition-transform hover:scale-110 active:scale-95 ${
-                        isClicked ? "scale-110" : ""
-                      }`}
-                      onMouseEnter={handleHover}
+                      className="h-11  w-12 rounded-full"
+                      src={user[0]?.avatar_image}
+                      alt=""
                     />
-                    <div
-                      className={`absolute ${
-                        isHovered || isClicked ? "block" : "hidden"
-                      } -bottom-9 z-50 w-20 -translate-x-1/3  rounded-lg border border-gray-300 bg-white p-1 opacity-0  shadow-lg transition-all duration-300 ease-in-out group-hover:opacity-100`}
-                    >
-                      <p className="text-center text-xs font-semibold text-gray-800">
-                        200 Coins
-                      </p>
+                  </div>
+                  <div className="mb-1 ml-2">
+                    <div className="text-[0.9rem] font-medium tracking-wide text-gray-100">
+                      {user[0]?.username}
+                    </div>
+                    <div className="text-[0.8rem] font-medium text-gray-300">
+                      {session.user.email}
+                    </div>
+                  </div>
+                  <div
+                    type="button"
+                    className="relative -left-1 -top-1 ml-auto shrink-0 rounded-full bg-white p-1 text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  >
+                    <div className="group relative">
+                      <img
+                        src="/dollar(1).png"
+                        alt="Coin Image"
+                        className={`h-8 w-9 transition-transform hover:scale-110 active:scale-95 ${
+                          isClicked ? "scale-110" : ""
+                        }`}
+                        onMouseEnter={handleHover}
+                      />
+                      <div
+                        className={`absolute ${
+                          isHovered || isClicked ? "block" : "hidden"
+                        } -bottom-8 z-50 w-20 -translate-x-1/3  rounded-lg border border-gray-300 bg-white p-1 opacity-0  shadow-lg transition-all duration-300 ease-in-out group-hover:opacity-100`}
+                      >
+                        <p className="text-center text-xs font-semibold text-gray-00">
+                          {user[0]?.coin} Coins
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="mt-4 space-y-1 pt-4">
+              )}
+              <div className={`${session ? "mt-3 pt-4" : ""} space-y-1`}>
                 {!session ? (
                   <>
                     <Disclosure.Button
                       as="a"
                       href="/login"
-                      className="block border-t border-gray-600 px-4 py-2 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                      className="block border-t border-gray-600 px-4 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
                     >
-                      Login
+                      <FiLogIn className="inline-block mr-2" /> Login
                     </Disclosure.Button>
                     <Disclosure.Button
                       as="a"
                       href="/register"
-                      className="block px-4 py-2 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
                     >
-                      Sign Up
+                      <FiUserPlus className="inline-block mr-2" /> Sign Up
+                    </Disclosure.Button>
+
+                    {/* Additional unnecessary style buttons */}
+                    <Disclosure.Button
+                      as="a"
+                      href="/about"
+                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-blue-500 hover:bg-blue-100 hover:text-blue-700 rounded-md"
+                    >
+                      <FiInfo className="inline-block mr-2" /> About Us
+                    </Disclosure.Button>
+                    <Disclosure.Button
+                      as="a"
+                      href="/profile/Ibad Khan"
+                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-green-500 hover:bg-green-100 hover:text-green-700 rounded-md"
+                    >
+                      <FiMail className="inline-block mr-2" /> Contact Us
                     </Disclosure.Button>
                   </>
                 ) : (

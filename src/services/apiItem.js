@@ -79,3 +79,17 @@ export async function getUpdateDescription(id) {
 
     return games;
 }
+
+export async function getUserInfo(userId) {
+    let { data: games, error } = await supabase
+        .from('users')
+        .select(`*`)
+        .eq('id', userId);
+
+    if (error) {
+        console.log("error getting games: " + error.message);
+        throw new Error("error getting games: " + error.message);
+    }
+
+    return games;
+}

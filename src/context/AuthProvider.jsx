@@ -35,7 +35,6 @@ function AuthProvider({ children }) {
     }
   }
 
-
   useEffect(() => {
     getSession();
   }, []);

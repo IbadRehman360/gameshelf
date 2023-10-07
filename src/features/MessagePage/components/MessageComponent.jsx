@@ -5,39 +5,6 @@ const messages = [
     name: "Abdullah",
     message: "Hey, how are you doing?",
   },
-  {
-    name: "Alice",
-    message: "I'm good, thanks for asking!",
-  },
-  {
-    name: "Alice",
-    message: "I'm good, thanks for asking!",
-  },
-  {
-    name: "Jordan",
-    message: "Did you catch the game last night?",
-  },
-  {
-    name: "Jennifer",
-    message: "Sure did! It was an intense match.",
-  },
-  {
-    name: "Emma",
-    message: "What's the plan for the weekend?",
-  },
-
-  // {
-  //   name: "Olivia",
-  //   message: "We're aiming to finish it by next week.",
-  // },
-  // {
-  //   name: "Ibad",
-  //   message: "I heard there's a new restaurant in town.",
-  // },
-  // {
-  //   name: "Michael",
-  //   message: "Any updates on the project deadline?",
-  // },
 ];
 export default function MessagePage() {
   return (
