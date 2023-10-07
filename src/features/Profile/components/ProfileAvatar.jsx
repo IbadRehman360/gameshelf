@@ -7,17 +7,38 @@ function ProfileAvatar({ user }) {
   const userId = user.id;
   const params = "avatars";
   const image_col = "avatar_image";
-  const { mutate } = useUpdateProfileImage(userId, params, image_col);
+  const { mutate, isLoading } = useUpdateProfileImage(
+    userId,
+    params,
+    image_col
+  );
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
     mutate(file);
   };
+  if (isLoading)
+    return (
+      <div className="mb-3 flex   w-full justify-center px-4 lg:order-2">
+        <img
+          alt="..."
+          className="mx-0 -mt-12 sm-mt-28 h-auto animate-pulse bg-slate-400 border-2   align-middle shadow-xl md:-mt-12 lg:-ml-0 rounded-full"
+          style={{
+            width: "115px",
+            height: "112px",
+            borderRadius: "50%",
+            overflow: "hidden",
+          }}
+          onMouseEnter={() => setShowEditImage(true)}
+          onMouseLeave={() => setShowEditImage(false)}
+        />
+      </div>
+    );
 
   return (
     <div className="mt-16 text-center md:mt-0 lg:order-1">
-      <div className="mb-4 flex w-full justify-center px-4 lg:order-2">
-        <div className="relative">
+      <div className="mb-3 flex w-full justify-center px-4 lg:order-2">
+        <div className="relative ">
           <div>
             {showEditImage && (
               <label
@@ -38,28 +59,28 @@ function ProfileAvatar({ user }) {
               onChange={handleImageChange}
             />
           </div>
-          <div className={`relative rounded-full`}>
+          <div className="relative rounded-full ">
             <img
               alt="..."
               src={user.avatar_image}
-              className={`mx-0 -mt-28 h-auto max-w-[7rem] rounded-full border-none align-middle shadow-xl md:-mt-12 lg:-ml-0`}
+              className="mx-0 -mt-28 h-auto rounded-full border border-gray-600 align-middle shadow-xl md:-mt-12 lg:-ml-0"
+              style={{
+                width: "112px",
+                height: "112px",
+                borderRadius: "50%",
+                overflow: "hidden",
+                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)", // Add box shadow
+              }}
               onMouseEnter={() => setShowEditImage(true)}
               onMouseLeave={() => setShowEditImage(false)}
             />
-            <div
-              className={`${
-                showEditImage ? "z-30 block bg-black opacity-30" : "hidden"
-              } absolute mx-0 -mt-28 h-full w-full max-w-[7rem] rounded-full border-none align-middle md:top-1/2 md:-mt-12 md:translate-y-[-7%] lg:-ml-0`}
-              onMouseEnter={() => setShowEditImage(true)}
-              onMouseLeave={() => setShowEditImage(false)}
-            ></div>
+
+            {showEditImage && (
+              <div className="z-30 block bg-black opacity-30 absolute inset-0 rounded-full"></div>
+            )}
           </div>
         </div>
       </div>
-      <h3 className="text-[1.15rem] font-medium sm:text-[1.2rem] 2xl:text-[1.3rem] 3xl:text-[1.35rem]">
-        {user.first_name} {user.last_name}
-      </h3>
-      <p className="mt-0.5 text-[0.8rem] uppercase">Level {user.level}</p>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 // import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { FiMessageCircle, FiLogOut } from "react-icons/fi"; // Import icons from React Icons library
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -205,7 +206,7 @@ export default function Header() {
               </Disclosure.Button>
             </div>
 
-            <div className="border-b-2 border-t border-gray-800 pb-3 pt-4">
+            <div className="border-b-2 border-t border-gray-600 pb-2 pt-4">
               <div className="mt-2 flex items-center px-4">
                 <div className="shrink-0">
                   <img
@@ -266,13 +267,23 @@ export default function Header() {
                     </Disclosure.Button>
                   </>
                 ) : (
-                  <Disclosure.Button
-                    as="a"
-                    onClick={() => handleSignOut()}
-                    className="block border-t border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
-                  >
-                    Logout
-                  </Disclosure.Button>
+                  <>
+                    <Disclosure.Button
+                      as="a"
+                      onClick={() => handleSignOut()}
+                      className="flex items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                    >
+                      <FiMessageCircle className="mr-2" /> Messages
+                    </Disclosure.Button>
+
+                    <Disclosure.Button
+                      as="a"
+                      onClick={() => handleSignOut()}
+                      className="flex  items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                    >
+                      <FiLogOut className="mr-2" /> Logout
+                    </Disclosure.Button>
+                  </>
                 )}
               </div>
             </div>

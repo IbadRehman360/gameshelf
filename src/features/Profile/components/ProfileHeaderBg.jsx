@@ -11,7 +11,11 @@ export default function ProfileHeaderBg({ profileData }) {
   const userId = profileData.data.id;
   const params = "banners";
   const image_col = "banner_image";
-  const { mutate } = useUpdateProfileImage(userId, params, image_col);
+  const { mutate, isLoading } = useUpdateProfileImage(
+    userId,
+    params,
+    image_col
+  );
 
   const handleImageClick = () => {
     fileInputRef.current.click();
@@ -22,7 +26,17 @@ export default function ProfileHeaderBg({ profileData }) {
 
     mutate(file);
   };
-  console.log(profileData.data.banner_image);
+  if (isLoading)
+    return (
+      <div
+        className={`h-[260px] w-full animate-pulse bg-gray-300 bg-cover bg-center bg-no-repeat object-cover hover:opacity-70 sm:bg-cover`}
+      >
+        <span
+          id="blackOverlay"
+          className="absolute h-full w-full bg-black opacity-5"
+        ></span>
+      </div>
+    );
   return (
     <section className="relative">
       <div>

@@ -31,6 +31,8 @@ export default function MessageBox() {
     //   messageWatcher.unsubscribe();
     // };
   }, []);
+
+  console.log(userChats);
   return (
     <div className="flex h-screen flex-row text-gray-800 antialiased">
       <div className="hidden w-72 shrink-0 flex-row border-r-2 bg-white sm:flex md:w-72 lg:w-80">
@@ -61,12 +63,13 @@ export default function MessageBox() {
             <select
               id="location"
               name="location"
-              className="block w-[30%] rounded-md border-0 text-sm text-gray-900 ring-inset"
+              className="block w-[38%] rounded-lg border  border-gray-700  p-1.5  text-sm italic tracking-wide ring-gray-500 text-gray-700 shadow-md focus:outline-none  focus:ring-1"
               defaultValue="Canada"
             >
-              <option>All Contacts</option>
+              <option className="text-gray-600">All Contacts</option>
             </select>
           </div>
+
           <div>
             <div className="overflow-y-auto">
               {isLoading
