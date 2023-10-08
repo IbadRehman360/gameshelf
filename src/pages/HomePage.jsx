@@ -8,6 +8,7 @@ import Categories from "../features/HomePage/components/Category.jsx";
 import FeaturedProducts from "../features/HomePage/components/Products";
 import ProductsFilter from "../features/HomePage/components/ProductsFilter";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const [sortCriteria, setSortCriteria] = useState({
@@ -18,12 +19,32 @@ export default function HomePage() {
   return (
     <div className="bg-[#fdfdfd]">
       <HeroCarousel />
-      <div className="mx-auto border-2 bg-[#ffffff] bg-gradient-to-b">
+      <div className="relative mx-auto border-2 bg-[#ffffff] bg-gradient-to-b">
         <h3 className="mb-2 ml-2 mt-6 block justify-center text-center text-[1.3rem] font-semibold text-gray-700 md:mb-4 md:mt-8 md:text-[1.7rem] lg:text-[1.7rem] 3xl:text-[1.8rem]">
           EXPLORE CATEGORIES
         </h3>
         <Categories />
+        {/* <Link
+          to="/dashboard"
+          className="absolute hid right-0 mr-2 top-1/2 transform -translate-y-1/2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </Link> */}
       </div>
+
       <div className="mx-auto mt-16 max-w-[1400px] bg-[#fdfdfd] px-0 xl:px-14">
         <ProductsFilter
           sortCriteria={sortCriteria}

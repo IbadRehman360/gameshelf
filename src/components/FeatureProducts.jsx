@@ -9,13 +9,14 @@ export default function FeaturedProduct({
   fullName,
   games,
   productID,
+  image,
 }) {
   const date = new Date(created_at);
 
   const getHour = date.getHours(date);
 
   const convertedPrice = decimalConversion(price);
-
+  console.log(image);
   return (
     <Link to={`/dashboard/${games}/${productID}`}>
       <div className="flex flex-col rounded-2xl border-2 bg-[#fdfdfd] p-3 lg:p-4">
@@ -39,15 +40,15 @@ export default function FeaturedProduct({
         <div className="border-t"></div>
         <div className="m-0 my-1 flex text-[0.4rem] sm:text-[0.7rem]">
           <img
-            className="mt-1.5 h-8 w-8 rounded-full sm:h-8 sm:w-8 lg:h-9 lg:w-9"
-            src="/userImage/3.jpg"
+            className="mt-1.5 h-9 w-9 rounded-full sm:h-9 sm:w-9 lg:h-10 lg:w-10"
+            src={image}
           />
           <div className="ml-2 inline-flex flex-1 items-center justify-between">
             <div className="mt-1 md:mt-2 lg:mt-0.5">
               <h6 className="inline-flex truncate text-[11px] font-semibold text-gray-600 md:text-[10px] lg:text-[12px]">
                 {fullName}
               </h6>
-              <p className="text-[10px] tracking-wide text-gray-500 md:text-[10px] lg:text-[11px]">
+              <p className="text-[10px] -mt-0.5 tracking-wide text-gray-500 md:text-[10px] lg:text-[11px]">
                 Level {level}
               </p>
             </div>

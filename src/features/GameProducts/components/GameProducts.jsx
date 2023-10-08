@@ -61,6 +61,7 @@ export default function GameProductItems({ loading, games, selectedFilter }) {
           fullName={game.seller_id.username}
           productID={game.id}
           games={games[0]?.game_id.title?.toLowerCase()}
+          image={game.seller_id.avatar_image}
         />
       ))}
     </div>

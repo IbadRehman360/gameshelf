@@ -305,15 +305,15 @@ function FakeCall() {
   //     gameId: 1,
   //   };
 
-  //   const item10 = {
-  //     title: "[CS:GO] Iron CSGO Smurf Account - Rare Skins & High MMR",
-  //     price: 99.99,
-  //     description:
-  //       "Challenge yourself with this Iron-ranked CSGO smurf account. It comes with rare weapon skins and a high MMR rating, offering a unique and exciting gaming experience that only a true CS:GO enthusiast can appreciate. Embrace the challenge and become a legend!",
-  //     stock: 1,
-  //     serviceId: 6,
-  //     gameId: 1,
-  //   };
+  // const item10 = {
+  //   title: "[CS:GO] Iron CSGO Smurf Account - Rare Skins & High MMR",
+  //   price: 99.99,
+  //   description:
+  //     "Challenge yourself with this Iron-ranked CSGO smurf account. It comes with rare weapon skins and a high MMR rating, offering a unique and exciting gaming experience that only a true CS:GO enthusiast can appreciate. Embrace the challenge and become a legend!",
+  //   stock: 1,
+  //   serviceId: 6,
+  //   gameId: 1,
+  // };
 
   //   const user = { id: "bb2e70fa-9f22-4eb2-b0ce-82ba1bf0e709" };
 

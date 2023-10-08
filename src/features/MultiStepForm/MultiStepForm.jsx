@@ -76,7 +76,7 @@ function MultiStepForm({ user }) {
       } else if (step === 2) {
         if (!values.title) {
           newValidationErrors.title = "Please provide a title for your item.";
-        } else if (values.title.length < 20 || values.title.length > 50) {
+        } else if (values.title.length < 20 || values.title.length > 60) {
           newValidationErrors.title =
             "Title must be between 20 and 50 characters long.";
         }
@@ -145,7 +145,7 @@ function MultiStepForm({ user }) {
               </button>
             </div>
           </div>
-          <pre> {JSON.stringify(watch(), null, 2)} </pre>
+          {/* <pre> {JSON.stringify(watch(), null, 2)} </pre> */}
         </form>
       </div>
       <div className="flex items-center justify-end rounded-lg py-3 text-black shadow-md">

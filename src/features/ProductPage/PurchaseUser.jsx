@@ -21,7 +21,7 @@ function PurchaseUser({ user }) {
           <Link to={`/profile/${user[0]?.seller_id?.username}`}>
             <img
               className="h-20 w-20 rounded-full"
-              src="/ProfileImg2.jpg"
+              src={user[0]?.seller_id?.avatar_image}
               alt=""
             />
           </Link>

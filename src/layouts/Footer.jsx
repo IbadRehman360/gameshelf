@@ -27,7 +27,9 @@ export default function Footer() {
         <div className="flex-col sm:flex">
           <span className="footer-title">Company</span>
           <div className="grid gap-2 text-xs lg:text-sm">
-            <a className="link-hover link">About us</a>
+            <a className="link-hover link" href="/about">
+              About us
+            </a>
             <a className="link-hover link">Contact</a>
             <a className="link-hover link">Jobs</a>
             <a className="link-hover link">Press kit</a>

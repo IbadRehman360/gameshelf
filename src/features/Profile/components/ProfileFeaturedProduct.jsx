@@ -28,8 +28,8 @@ export default function FeaturedProduct({ featureProduct, profileData }) {
         <div className="border-t"></div>
         <div className="m-1 flex text-[0.4rem] sm:text-[0.7rem]">
           <img
-            className="mt-1.5 h-8 w-8 rounded-full sm:h-8 sm:w-8 lg:h-9 lg:w-9"
-            src="/userImage/3.jpg"
+            className="mt-1.5 h-8 w-8 rounded-full sm:h-8    sm:w-8 lg:h-9 lg:w-9"
+            src={profileData.data.avatar_image}
           />
           <div className="ml-2 inline-flex flex-1 items-center justify-between">
             <div className="mt-1 md:mt-2 lg:mt-0.5">

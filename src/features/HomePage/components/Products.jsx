@@ -53,7 +53,6 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
 
   const slide1 = products.slice(0, sliceEnd);
   const slide2 = products.slice(sliceEnd, 2 * sliceEnd);
-
   return (
     <div className="mb-16 bg-[#fdfdfd] px-3">
       <div className="carousel mt-2 w-full justify-items-stretch sm:mt-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5 lg:grid-cols-5">
@@ -71,6 +70,7 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
               fullName={product.users.username}
               productID={product.id}
               games={product.games.title.toLowerCase()}
+              image={product.users.avatar_image}
             />
           ))}
         </div>
@@ -88,6 +88,7 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
               fullName={product.users.username}
               productID={product.id}
               games={product.games.title.toLowerCase()}
+              image={product.users.avatar_image}
             />
           ))}
         </div>
