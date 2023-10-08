@@ -125,12 +125,12 @@ export default function Header() {
                   </a>
                   <Menu as="div" className="relative shrink-0">
                     <div>
-                      <Menu.Button className="relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      <Menu.Button className="relative flex rounded-full text-sm">
                         <span className="absolute" />
                         <span className="sr-only">Open user menu</span>
                         <div className="mt-0.5 rounded-full">
                           <img
-                            className="h-[46px] w-[50px] rounded-full border-[1px] border-gray-800 object-cover"
+                            className="h-[46px] w-[50px] rounded-full  object-cover   border-none"
                             src={user[0]?.avatar_image}
                             alt=""
                           />
@@ -218,7 +218,7 @@ export default function Header() {
             >
               {session && (
                 <div className="mt-2 flex items-center px-4">
-                  <div className="shrink-0 rounded-full border-[2px] border-gray-500">
+                  <div className="shrink-0 rounded-full ">
                     <img
                       className="h-11  w-12 rounded-full"
                       src={user[0]?.avatar_image}

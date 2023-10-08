@@ -10,6 +10,5 @@ export async function useGetCategories() {
   // const { error: storageError } = await supabase.storage
   //   .from("cabin-images")
   //   .upload(imageName, newCabin.image);
-
   return data;
 }

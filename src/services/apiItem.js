@@ -1,19 +1,43 @@
 import supabase from "../services/supabase";
 
+
+
+export async function uploadImageToStorage(file, params) {
+    console.log(file, params)
+    // Generate a random file name for the image
+    const fileName = `${file.name}-${Math.random()}`.replaceAll("/", "");
+    // Construct the URL for the new image
+    const newImage = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/${params}/${fileName}`;
+
+    // Upload the image to Supabase storage
+    const { data: uploadData, error: uploadError } = await supabase.storage.from(params).upload(fileName, file);
+
+    if (uploadError) {
+        console.error("Error uploading image to storage:", uploadError);
+        throw uploadError;
+    }
+
+    return newImage;
+}
+
+
 export const createItem = async (values, user) => {
-    const { data: updatedData, error } = await supabase.from("items").upsert([
-        {
-            title: values.title,
-            price: values.price,
-            description: values.description,
-            stock: values.stock,
-            images: values.images[0].name,
-            options: values.options,
-            seller_id: user.id,
-            category_id: values.serviceId,
-            game_id: values.gameId,
-        },
-    ]);
+
+    const itemData = {
+        title: values.title,
+        price: values.price,
+        description: values.description,
+        stock: values.stock,
+        options: values.options,
+        seller_id: user.id,
+        category_id: values.serviceId,
+        game_id: values.gameId,
+    };
+
+    if (values.images.length > 0) {
+        itemData.images = [values.images[0].name];
+    }
+    const { data: updatedData, error } = await supabase.from("items").upsert([itemData]);
 
     if (error) {
         console.log("error on creating new item: ", error);
@@ -26,6 +50,7 @@ export const createItem = async (values, user) => {
 
     return [updatedData, error];
 };
+
 export async function getItem(orderBy, orderDirection) {
     const { data: items, error } = await supabase
         .from("items")

@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useProduct from "../features/GameProducts/useCategoryItems";
 import { useState } from "react";
 import GameProductsNavigate from "../features/GameProducts/components/GameProductsNavigate";
+import toast from "react-hot-toast";
 export default function GameCategoryProductPage() {
   const { game } = useParams();
   const [selectedFilter, setSelectedFilter] = useState("Recommended");
@@ -21,7 +22,7 @@ export default function GameCategoryProductPage() {
     ? gameNameToIdMap[game]
     : (() => {
         navigate("/dashboard");
-        return alert("Please select a valid game name");
+        return toast.error("Please select a valid game name");
       })();
 
   const { isGameLoading, games } = useProduct(selectedGameId);

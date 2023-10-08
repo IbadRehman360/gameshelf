@@ -62,11 +62,13 @@ const router = createBrowserRouter([
   },
   {
     element: (
-      <AuthProvider>
-        <ProtectedRoute>
-          <AppLayout />
-        </ProtectedRoute>
-      </AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <ProtectedRoute>
+            <AppLayout />
+          </ProtectedRoute>
+        </AuthProvider>
+      </QueryClientProvider>
     ),
     children: [
       {

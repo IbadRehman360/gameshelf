@@ -8,13 +8,14 @@ import { AiOutlineLoading } from "react-icons/ai";
 import ProductImage from "./ProductImage";
 import PurchaseBuyBtn from "./PurchaseBuyBtn";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../../context/AuthProvider";
 
 export default function ProductPage() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const { product, loading, productError } = useEqProduct(id);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  const { session } = useAuth();
   if (productError) return <h1>ERROR</h1>;
   if (loading || !product) {
     return (
@@ -46,12 +47,16 @@ export default function ProductPage() {
     product[0].images === null ? null : product[0]?.images[currentImageIndex];
   const convertedPrice = decimalConversion(product[0]?.price);
   const description = product[0]?.description;
-  const words = description?.split(" ");
-  const firstHalf = words?.slice(0, 140).join(" ");
-  const secondHalf = words?.slice(140).join(" ");
   const productTitle = product[0].game_id.title;
   return (
     <div className="pb-20">
+      {session?.user?.id === product[0]?.seller_id?.id && (
+        <div className="mb-6 border-gray-500 border animate-pulse rounded-lg bg-gray-50 p-3.5 text-center shadow-lg">
+          <p className="text-sm text-gray-900">
+            You are currently viewing your own profile.
+          </p>
+        </div>
+      )}
       <div className="mx-auto mt-4 max-w-7xl p-4 sm:p-8">
         <BreadCrumbs id={id} />
         <div className="my-6 mb-10 ml-1 flex justify-between">
@@ -96,11 +101,11 @@ export default function ProductPage() {
               <h3 className="text-md font-semibold sm:text-lg md:text-xl">
                 Details
               </h3>
-              <div className="text-[0.9rem] tracking-wide text-gray-700 sm:md:text-sm">
-                <p>{firstHalf}</p>
-                <div className="mt-8">
-                  <p>{secondHalf}</p>
-                </div>
+              <div
+                className="text-[0.86rem] tracking-wide text-gray-800 pb-4 sm:pb-0 sm:md:text-sm"
+                style={{ whiteSpace: "pre-wrap" }}
+              >
+                <p>{description}</p>
               </div>
             </div>
           </div>

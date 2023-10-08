@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 export default function categoryItem({ category }) {
   function renderName() {
-    return category.name.split("-").join(" ");
+    return category?.name?.split("-").join(" ");
   }
 
   return (

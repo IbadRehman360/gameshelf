@@ -15,15 +15,7 @@ function PurchaseUser({ user }) {
 
   return (
     <>
-      <div className="">
-        {session?.user?.id === user[0]?.seller_id?.id && (
-          <div className="mb-6 border-gray-400 border animate-pulse rounded-lg bg-gray-50 p-2.5 text-center shadow-lg">
-            <p className="text-xs text-gray-900">
-              You are currently viewing your own profile.
-            </p>
-          </div>
-        )}
-      </div>
+      <div className=""></div>
       <div className="flex items-center space-x-4">
         <span className="relative inline-block border-2 rounded-full border-gray-600 ">
           <Link to={`/profile/${user[0]?.seller_id?.username}`}>
