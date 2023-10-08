@@ -2,53 +2,63 @@ import supabase from "../services/supabase";
 
 
 
-export async function uploadImageToStorage(file, params) {
-    console.log(file, params)
-    // Generate a random file name for the image
-    const fileName = `${file.name}-${Math.random()}`.replaceAll("/", "");
-    // Construct the URL for the new image
-    const newImage = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/${params}/${fileName}`;
+export async function uploadImageToStorage(file, values, userId, fileName) {
+    try {
+        console.log(values)
+        const uploadfileName = `${fileName}-${Math.random()}`.replaceAll("/", "");
+        const newImage = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/item_images/${uploadfileName}`;
 
-    // Upload the image to Supabase storage
-    const { data: uploadData, error: uploadError } = await supabase.storage.from(params).upload(fileName, file);
+        const { data: uploadData, error: uploadError } = await supabase.storage.from("item_images").upload(uploadfileName, file);
 
-    if (uploadError) {
-        console.error("Error uploading image to storage:", uploadError);
-        throw uploadError;
+        if (uploadError) {
+            throw uploadError;
+        }
+
+        await createItem(values, userId, newImage);
+
+        return newImage;
+    } catch (error) {
+        console.error("Error uploading image to storage:", error);
+        throw error;
     }
-
-    return newImage;
 }
 
+export const createItem = async (values, user, newImage) => {
+    console.log(values)
+    try {
+        const itemData = {
+            title: values.title,
+            price: values.price,
+            description: values.description,
+            stock: values.stock,
+            options: values.options,
+            seller_id: user,
+            category_id: values.serviceId,
+            game_id: values.gameId,
+        };
 
-export const createItem = async (values, user) => {
+        if (values.images.length > 0) {
+            itemData.images = [values.images[0].name];
+        } else if (newImage) {
+            itemData.images = [newImage];
+        }
 
-    const itemData = {
-        title: values.title,
-        price: values.price,
-        description: values.description,
-        stock: values.stock,
-        options: values.options,
-        seller_id: user.id,
-        category_id: values.serviceId,
-        game_id: values.gameId,
-    };
+        const { data: updatedData, error } = await supabase.from("items").upsert([itemData]);
 
-    if (values.images.length > 0) {
-        itemData.images = [values.images[0].name];
+        if (error) {
+            console.error("Error creating new item:", error);
+            throw error;
+        }
+
+        if (updatedData) {
+            console.log("New item created:", updatedData);
+        }
+
+        return [updatedData, error];
+    } catch (error) {
+        console.error("Error creating new item:", error);
+        throw error;
     }
-    const { data: updatedData, error } = await supabase.from("items").upsert([itemData]);
-
-    if (error) {
-        console.log("error on creating new item: ", error);
-        throw new Error("error creating new item: " + error.message);
-    }
-
-    if (updatedData) {
-        console.log(updatedData);
-    }
-
-    return [updatedData, error];
 };
 
 export async function getItem(orderBy, orderDirection) {

@@ -10,6 +10,7 @@ import Step from "./Step";
 import useCategories from "../HomePage/useCategories";
 import useGames from "./useGames";
 import useUpdateProfileImage from "./userImage";
+import MultiStepLoader from "./MultiStepLoader";
 
 function MultiStepForm({ user }) {
   const [step, setStep] = useState(1);
@@ -21,27 +22,16 @@ function MultiStepForm({ user }) {
     formState: { errors },
     watch,
   } = useForm();
-  const values = getValues();
-  const imageFile = values.images[0];
+  watch();
+  const { mutate, isLoading } = useUpdateProfileImage();
+
   const { categories, loadingCategories } = useCategories();
   const { games, gamesLoading } = useGames();
   const [validationErrors, setValidationErrors] = useState({});
   if (loadingCategories || gamesLoading) {
-    return (
-      <div className="flex flex-col items-center justify-center py-56 ">
-        <div
-          className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-          role="status"
-        >
-          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-            Loading...
-          </span>
-        </div>{" "}
-      </div>
-    );
+    return <MultiStepLoader />;
   }
 
-  watch();
   const stepComponents = {
     1: (
       <OfferGamesService
@@ -64,14 +54,12 @@ function MultiStepForm({ user }) {
     ),
     4: <RegistrationSuccess />,
   };
-  const userId = user.id;
   const handleBack = () => {
     console.log("Before Back:", step);
     setStep(step - 1);
     console.log("After Back:", step);
   };
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { mutate, isLoading } = useUpdateProfileImage(imageFile, userId);
+  const userId = user.id;
 
   const onSubmitStep = async () => {
     try {
@@ -113,8 +101,13 @@ function MultiStepForm({ user }) {
 
       if (step === 3) {
         if (values.images && values.images.length > 0) {
-          console.log("TEST1");
-          mutate(values.images[0]);
+          console.log(values);
+          mutate({
+            file: values.images[0],
+            values,
+            userId,
+            fileName: values.images[0].name,
+          });
         } else {
           const { updatedData } = await createItem(values, userId);
         }

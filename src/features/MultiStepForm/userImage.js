@@ -1,16 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../routes/routes";
-import { createItem, uploadImageToStorage } from "../../services/apiItem";
+import { uploadImageToStorage } from "../../services/apiItem";
 
-export default function useUpdateProfileImage(values, userId) {
-    console.log("TEST3")
-    const mutationFn = async (file) => {
-        console.log(file, "TEST2")
-
+export default function useUpdateProfileImage() {
+    const mutationFn = async (file, values, userId, fileName) => {
+        console.log(values)
         try {
-            const imageUrl = await uploadImageToStorage(file, "item_images");
-            const updatedData = await createItem({ ...values, imageUrl }, userId);
-            return updatedData;
+            const { data } = await uploadImageToStorage(file, values, userId, fileName);
         } catch (error) {
             console.error("Error updating data:", error);
             throw error;
