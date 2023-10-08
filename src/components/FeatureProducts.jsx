@@ -39,10 +39,16 @@ export default function FeaturedProduct({
         </div>
         <div className="border-t"></div>
         <div className="m-0 my-1 flex text-[0.4rem] sm:text-[0.7rem]">
-          <img
-            className="mt-1.5 h-9 w-9 rounded-full sm:h-9 sm:w-9 lg:h-10 lg:w-10"
-            src={image}
-          />
+          <div className="mt-1.5 h-9 w-9 rounded-full sm:h-9 sm:w-9 lg:h-10 lg:w-10">
+            {image ? (
+              <img src={image} alt="" className="h-full w-full rounded-full" />
+            ) : (
+              <div className="h-full w-full flex items-center  justify-center rounded-full bg-gray-300 text-white">
+                {fullName && fullName[0]}
+              </div>
+            )}
+          </div>
+
           <div className="ml-2 inline-flex flex-1 items-center justify-between">
             <div className="mt-1 md:mt-2 lg:mt-0.5">
               <h6 className="inline-flex truncate text-[11px] font-semibold text-gray-600 md:text-[10px] lg:text-[12px]">

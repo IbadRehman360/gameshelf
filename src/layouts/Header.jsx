@@ -129,11 +129,17 @@ export default function Header() {
                         <span className="absolute" />
                         <span className="sr-only">Open user menu</span>
                         <div className="mt-0.5 rounded-full">
-                          <img
-                            className="h-[46px] w-[50px] rounded-full  object-cover   border-none"
-                            src={user[0]?.avatar_image}
-                            alt=""
-                          />
+                          {user[0]?.avatar_image ? (
+                            <img
+                              className="h-[46px] w-[50px] rounded-full object-cover border-none"
+                              src={user[0]?.avatar_image}
+                              alt=""
+                            />
+                          ) : (
+                            <div className="h-[46px] w-[50px] mb-0.5 rounded-full flex items-center justify-center bg-gray-300 text-white">
+                              {user[0]?.username[0].toUpperCase()}
+                            </div>
+                          )}
                         </div>
                       </Menu.Button>
                     </div>
@@ -218,16 +224,29 @@ export default function Header() {
             >
               {session && (
                 <div className="mt-2 flex items-center px-4">
-                  <div className="shrink-0 rounded-full ">
-                    <img
-                      className="h-11  w-12 rounded-full"
-                      src={user[0]?.avatar_image}
-                      alt=""
-                    />
+                  <div className="shrink-0 rounded-full">
+                    {user[0]?.avatar_image ? (
+                      <img
+                        className="h-11 w-12 rounded-full"
+                        src={user[0].avatar_image}
+                        alt=""
+                      />
+                    ) : (
+                      <div
+                        className="h-10 w-11 rounded-full flex items-center justify-center text-white bg-gray-400"
+                        style={{ fontSize: "16px" }}
+                      >
+                        {user[0]?.username.charAt(0).toUpperCase()}
+                      </div>
+                    )}
                   </div>
-                  <div className="mb-1 ml-2">
-                    <div className="text-[0.9rem] font-medium tracking-wide text-gray-100">
-                      {user[0]?.username}
+
+                  <div className="mb-0.5 ml-2">
+                    <div className="text-[0.82rem] font-medium tracking-wider text-gray-100">
+                      {user[0]?.username
+                        ? user[0].username.charAt(0).toUpperCase() +
+                          user[0].username.slice(1).toLowerCase()
+                        : ""}
                     </div>
                     <div className="text-[0.8rem] font-medium text-gray-300">
                       {session.user.email}
@@ -235,7 +254,7 @@ export default function Header() {
                   </div>
                   <div
                     type="button"
-                    className="relative -left-1 -top-1 ml-auto shrink-0 rounded-full bg-white p-1 text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="relative -left-1  ml-auto shrink-0 rounded-full bg-white p-1 text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
                     <div className="group relative">
                       <img

@@ -17,7 +17,7 @@ async function CheckAuth() {
 export default function LoginPage() {
   const navigate = useNavigate();
   const [isLogged, setIslogged] = useState(null);
-  
+
   const appearance = {
     theme: ThemeSupa,
     variables: {
@@ -42,8 +42,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event) => {
-      if (event == "SIGNED_IN") 
-      navigate("/")
+      if (event == "SIGNED_IN") navigate("/");
     });
   }, [navigate]);
 

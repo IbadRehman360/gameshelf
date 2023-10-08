@@ -36,11 +36,11 @@ export default function HeroImages({ index, imageUrl }) {
           {!session && (
             <NavLink
               to="login"
-              className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-200 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${
+              className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-50 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${
                 darkSlides.includes(index) ? "text-white " : "text-gray-900"
               }`}
             >
-              Log in <span aria-hidden="true">&rarr;</span>
+              About Us <span aria-hidden="true">&rarr;</span>
             </NavLink>
           )}
         </div>
@@ -85,7 +85,7 @@ export default function HeroImages({ index, imageUrl }) {
                     to="/login"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Log in
+                    Log
                   </Link>
                 </div>
               </div>

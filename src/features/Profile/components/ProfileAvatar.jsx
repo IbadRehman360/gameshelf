@@ -62,21 +62,38 @@ function ProfileAvatar({ user }) {
               />
             </div>
           )}
-          <div className="relative rounded-full ">
-            <img
-              alt="..."
-              src={user.avatar_image}
-              className="mx-0 -mt-28 h-auto rounded-full border border-gray-600 align-middle shadow-xl md:-mt-12 lg:-ml-0"
-              style={{
-                width: "112px",
-                height: "112px",
-                borderRadius: "50%",
-                overflow: "hidden",
-                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)", // Add box shadow
-              }}
-              onMouseEnter={() => setShowEditImage(true)}
-              onMouseLeave={() => setShowEditImage(false)}
-            />
+          <div className="relative rounded-full">
+            {user.avatar_image ? (
+              <img
+                alt="..."
+                src={user.avatar_image}
+                className="mx-0 -mt-28 h-auto rounded-full border border-gray-600 align-middle shadow-xl md:-mt-12 lg:-ml-0"
+                style={{
+                  width: "112px",
+                  height: "112px",
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
+                }}
+                onMouseEnter={() => setShowEditImage(true)}
+                onMouseLeave={() => setShowEditImage(false)}
+              />
+            ) : (
+              <div
+                className="mx-0 -mt-28 h-auto rounded-full border border-gray-600 align-middle shadow-xl md:-mt-12 lg:-ml-0 flex items-center justify-center bg-gray-300 text-white"
+                style={{
+                  width: "112px",
+                  height: "112px",
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
+                }}
+                onMouseEnter={() => setShowEditImage(true)}
+                onMouseLeave={() => setShowEditImage(false)}
+              >
+                {user.username[0].toUpperCase()}
+              </div>
+            )}
 
             {showEditImage && (
               <div className="z-30 block bg-black opacity-30 absolute inset-0 rounded-full"></div>
