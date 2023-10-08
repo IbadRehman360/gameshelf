@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../context/AuthProvider";
+import useGetUser from "../../../layouts/getUser";
 const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
@@ -15,6 +16,8 @@ const darkSlides = [0, 1, 2, 3, 8, 6];
 export default function HeroImages({ index, imageUrl }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { session } = useAuth();
+  const user = session ? useGetUser(session.user.id)?.user || [] : [];
+
   return (
     <div className="relative">
       <div className="h-[50vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
@@ -33,8 +36,9 @@ export default function HeroImages({ index, imageUrl }) {
           {!session && (
             <NavLink
               to="login"
-              className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-200 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${darkSlides.includes(index) ? "text-white " : "text-gray-900"
-                }`}
+              className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-200 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${
+                darkSlides.includes(index) ? "text-white " : "text-gray-900"
+              }`}
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </NavLink>
@@ -67,22 +71,22 @@ export default function HeroImages({ index, imageUrl }) {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="#"
+                  <Link
+                    to="/login"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -108,18 +112,18 @@ export default function HeroImages({ index, imageUrl }) {
           </h3>
           <div className="my-4 mt-6 flex items-center justify-center gap-x-6 place-self-center text-center align-middle sm:my-0 sm:mt-6 lg:mt-8 lg:gap-x-8">
             <a
-              href="/sell/ibadkhan"
+              href={!session ? "/login" : `/sell/${user[0]?.username}`}
               className="flex h-8 w-20 items-center justify-center  rounded-md bg-rose-600 text-[0.59rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-9 sm:text-xs md:h-9 md:w-28 lg:h-10 lg:w-32 lg:py-4  2xl:h-14 2xl:text-[1.03rem]"
             >
               Start Selling
             </a>
 
-            <a
-              href="/dashboard"
+            <Link
+              to="/dashboard"
               className="flex h-8 w-fit items-center justify-center rounded-md border-[1px] bg-gray-800 p-3 text-[0.55rem] font-semibold text-white opacity-80 shadow-sm transition hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-10 sm:text-xs lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
             >
               Find great deals <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </header>

@@ -79,3 +79,50 @@ export async function getUpdateDescription(id) {
 
     return games;
 }
+
+export async function getUserInfo(userId) {
+    let { data: games, error } = await supabase
+        .from('users')
+        .select(`*`)
+        .eq('id', userId);
+
+    if (error) {
+        console.log("error getting games: " + error.message);
+        throw new Error("error getting games: " + error.message);
+    }
+    return games;
+}
+export async function updateBuyerCoins(buyerID, updatedBuyerCoin) {
+    try {
+        const { data, error } = await supabase
+            .from("users")
+            .update({ coin: updatedBuyerCoin })
+            .eq("id", buyerID);
+
+        if (error) {
+            throw new Error("Error updating buyer's coins: " + error.message);
+        }
+
+        return data;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
+export async function deletePurchasedProduct(sellerProductId) {
+    console.log(sellerProductId)
+    try {
+        const { data, error } = await supabase
+            .from("items")
+            .delete()
+            .eq("id", sellerProductId);
+
+        if (error) {
+            throw new Error("Error deleting purchased product: " + error.message);
+        }
+
+        return data;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}

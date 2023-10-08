@@ -45,20 +45,20 @@ export default function ProfileStatsLoader() {
                   <span className="text-sm tracking-wide text-gray-500">
                     Following
                   </span>
-                  <div className="mt-1 h-6 w-24 animate-pulse bg-slate-400"></div>
+                  <div className="mt-1  h-6  w-24 animate-pulse bg-slate-400"></div>
                 </div>
               </div>
             </div>
           </div>
           <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">
             <div className="flex flex-col gap-4">
-              <h3 className="inline-flex justify-between text-xl font-semibold">
+              <h3 className="inline-flex justify-between text-lg sm:text-xl  font-semibold">
                 Description
                 <button className="mt-1 text-sm font-normal text-gray-500 underline">
                   Edit
                 </button>
               </h3>
-              <div className="flex h-52 animate-pulse flex-wrap bg-slate-400"></div>
+              <div className="flex md:h-52 h-36 sm:h-40 animate-pulse flex-wrap bg-slate-400"></div>
             </div>
           </div>
           <div className="rounded-lg border-b-2 pb-4 md:bg-gray-50 md:p-4">

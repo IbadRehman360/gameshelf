@@ -5,16 +5,16 @@ import { useEffect, useState } from "react";
 
 export async function useCreateChat(author, recipient) {
     const { data: allChatUsers } = await supabase.from("chat_users").select("*")
-    console.log(allChatUsers);
+    // console.log(allChatUsers);
     if (allChatUsers.length > 0) {
-        console.log("in");
+        // console.log("in");
         allChatUsers.forEach(async (chat) => {
-            console.log(author, chat.author_id);
-            console.log(recipient, chat.recipient_id);
+            // console.log(author, chat.author_id);
+            // console.log(recipient, chat.recipient_id);
 
             if (chat.author_id !== author || chat.recipient_id !== recipient) {
                 createChat(author, recipient);
-                console.log("test")
+                // console.log("test")
             }
         });
     } else {
@@ -36,7 +36,6 @@ async function createChat(author, recipient) {
         .insert(newChatObj)
         .select("*");
 
-    console.log(newChat);
 }
 
 

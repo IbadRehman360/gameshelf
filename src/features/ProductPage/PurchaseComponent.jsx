@@ -1,5 +1,4 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { useParams } from "react-router-dom";
 import BreadCrumbs from "./BreadCrumbs";
 import { useState } from "react";
 import PurchaseUser from "./PurchaseUser";
@@ -7,6 +6,8 @@ import useEqProduct from "./useSpProduct";
 import { decimalConversion } from "../../utils/helpers";
 import { AiOutlineLoading } from "react-icons/ai";
 import ProductImage from "./ProductImage";
+import PurchaseBuyBtn from "./PurchaseBuyBtn";
+import { useParams } from "react-router-dom";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -39,15 +40,16 @@ export default function ProductPage() {
     }
   }
 
+  const productPrice = product[0]?.price;
+  const sellerProductId = product[0].id;
   const imageUrl =
     product[0].images === null ? null : product[0]?.images[currentImageIndex];
-
   const convertedPrice = decimalConversion(product[0]?.price);
   const description = product[0]?.description;
   const words = description?.split(" ");
   const firstHalf = words?.slice(0, 140).join(" ");
   const secondHalf = words?.slice(140).join(" ");
-
+  const productTitle = product[0].game_id.title;
   return (
     <div className="pb-20">
       <div className="mx-auto mt-4 max-w-7xl p-4 sm:p-8">
@@ -137,16 +139,20 @@ export default function ProductPage() {
             <hr className="w-full border-[1px] border-gray-400" />
             <div className="flex w-full flex-col gap-4">
               <div className="flex justify-between">
-                <h3 className="text-[1.05rem] font-medium text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
+                <h3 className="text-[1.05rem] font-medium text-gray-600 sm:text-[1.1rem] xl:text-[1.15rem]">
                   Total
                 </h3>
-                <h3 className="text-[1rem] font-medium tracking-wide text-gray-700 sm:text-[1.1rem] xl:text-[1.15rem]">
+                <h3 className="text-[1rem] font-medium tracking-wide text-gray-600 sm:text-[1.1rem] xl:text-[1.15rem]">
                   ${(convertedPrice * quantity).toFixed(2)}
                 </h3>
               </div>
-              <div className="mt-4 rounded-lg border border-gray-200">
-                <button className="btn w-full bg-white">Buy Now</button>
-              </div>
+
+              <PurchaseBuyBtn
+                productPrice={productPrice}
+                sellerProductId={sellerProductId}
+                productTitle={productTitle}
+                sellerProductId2={product[0]}
+              />
             </div>
           </div>
         </div>

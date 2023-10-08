@@ -5,24 +5,31 @@ import GameProductSearchBar from "../features/GameProducts/components/GameProduc
 import GameProductPopularSearches from "../features/GameProducts/components/GameProductsPopularSearches";
 import FeaturePagination from "../components/FeaturePagination";
 import GameProductInfo from "../features/GameProducts/components/GameProductsInfo";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useProduct from "../features/GameProducts/useCategoryItems";
 import { useState } from "react";
-
+import GameProductsNavigate from "../features/GameProducts/components/GameProductsNavigate";
 export default function GameCategoryProductPage() {
   const { game } = useParams();
   const [selectedFilter, setSelectedFilter] = useState("Recommended");
   const isGameNameValid = gameNameToIdMap.hasOwnProperty(game);
+  const navigate = useNavigate();
+
+  // Move navigateToDashboard function declaration here
 
   const selectedGameId = isGameNameValid
     ? gameNameToIdMap[game]
-    : alert("NO SUCH GAME EXISTS WITH THIS NAME");
+    : (() => {
+        navigate("/dashboard");
+        return alert("Please select a valid game name");
+      })();
 
   const { isGameLoading, games } = useProduct(selectedGameId);
 
   const handleFilterChange = (event) => {
     setSelectedFilter(event.target.value);
   };
+
   return (
     <>
       <div className="mx-auto max-w-[1400px] border-b-2 border-gray-100 px-4 py-8 xl:px-14">
@@ -73,4 +80,5 @@ const gameNameToIdMap = {
   overwatch: 18,
   supermarioodyssey: 19,
   residentevilvillage: 20,
+  assassinscreed: 16,
 };

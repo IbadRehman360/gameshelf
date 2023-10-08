@@ -1,30 +1,85 @@
 import { useState } from "react";
 import { BsCardImage } from "react-icons/bs";
+import { useRef } from "react";
+import useUpdateProfileImage from "../useUpdateProfileImage";
+import { useAuth } from "../../../context/AuthProvider";
 
-export default function ProfileHeaderBg() {
+// import useUpdateProfileImage from "../useUpdateProfileImage";
+
+export default function ProfileHeaderBg({ profileData }) {
   const [showImageEditBtn, setShowImageEditBtn] = useState(false);
+  const fileInputRef = useRef(null);
+  const { session } = useAuth();
+  const userId = profileData.data.id;
+  const params = "banners";
+  const image_col = "banner_image";
+  const { mutate, isLoading } = useUpdateProfileImage(
+    userId,
+    params,
+    image_col
+  );
 
+  const handleImageClick = () => {
+    fileInputRef.current.click();
+  };
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    mutate(file);
+  };
+  if (isLoading)
+    return (
+      <div
+        className={`h-[260px] w-full animate-pulse bg-gray-300 bg-cover bg-center bg-no-repeat object-cover hover:opacity-70 sm:bg-cover`}
+      >
+        <span
+          id="blackOverlay"
+          className="absolute h-full w-full bg-black opacity-5"
+        ></span>
+      </div>
+    );
   return (
     <section className="relative">
-      {showImageEditBtn && (
-        <div className="absolute left-1/2 top-20 z-50 translate-x-[-50%] translate-y-[-50%] md:top-24">
-          <button
-            className="flex flex-col gap-2 rounded-xl bg-slate-400 p-2 md:p-2 xl:p-3"
-            onMouseEnter={() => setShowImageEditBtn(true)}
-            onMouseLeave={() => setShowImageEditBtn(false)}
-          >
-            <BsCardImage className="w-full" color="white" size="1.3rem" />
-            <span className="text-[0.6rem] font-medium tracking-tight text-white sm:text-[0.7rem] xl:text-[0.8rem]">
-              Edit Image
-            </span>
-          </button>
+      {session?.user?.id !== undefined && session?.user?.id === userId && (
+        <div>
+          {showImageEditBtn && (
+            <div className="absolute left-1/2 top-20 z-50 translate-x-[-50%] translate-y-[-50%] md:top-24">
+              <label
+                htmlFor="imageInput"
+                className="inline-block cursor-pointer"
+                onMouseEnter={() => setShowImageEditBtn(true)}
+                onMouseLeave={() => setShowImageEditBtn(false)}
+              >
+                <button
+                  className="flex flex-col gap-2 rounded-xl bg-gray-300 p-2 md:p-2 xl:p-3"
+                  onClick={handleImageClick}
+                >
+                  <BsCardImage className="w-full" color="white" size="1.3rem" />
+                  <span className="text-[0.6rem] font-medium tracking-tight text-white sm:text-[0.7rem] xl:text-[0.8rem]">
+                    Edit Image
+                  </span>
+                </button>
+                <input
+                  type="file"
+                  id="imageInput"
+                  ref={fileInputRef}
+                  style={{ display: "none" }}
+                  onChange={handleFileChange}
+                />
+              </label>
+            </div>
+          )}
         </div>
       )}
       <div
         className={`w-full ${
-          showImageEditBtn && "opacity-70"
-        } h-[240px] bg-cover bg-center bg-no-repeat object-cover hover:opacity-70 sm:bg-cover`}
-        style={{ backgroundImage: 'url("/ProfileBanner.png")' }}
+          showImageEditBtn ? "opacity-70" : ""
+        } h-[260px] bg-cover bg-center bg-no-repeat object-cover hover:opacity-70 sm:bg-cover`}
+        style={{
+          backgroundImage: `url("${profileData.data.banner_image}")`,
+        }}
+        onClick={handleImageClick}
         onMouseEnter={() => setShowImageEditBtn(true)}
         onMouseLeave={() => setShowImageEditBtn(false)}
       >
@@ -32,26 +87,6 @@ export default function ProfileHeaderBg() {
           id="blackOverlay"
           className="absolute h-full w-full bg-black opacity-5"
         ></span>
-      </div>
-
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 top-auto w-full overflow-hidden"
-        style={{ transform: "translateZ(0px)" }}
-      >
-        <svg
-          className="absolute bottom-0 overflow-hidden"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          version="1.1"
-          viewBox="0 0 2560 100"
-          x="0"
-          y="0"
-        >
-          <polygon
-            className="fill-current"
-            points="2560 0 2560 100 0 100"
-          ></polygon>
-        </svg>
       </div>
     </section>
   );
