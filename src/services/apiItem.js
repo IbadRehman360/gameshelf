@@ -2,13 +2,16 @@ import supabase from "../services/supabase";
 
 
 
-export async function uploadImageToStorage(file, values, userId, fileName) {
+export async function uploadImageToStorage(file) {
     try {
-        console.log(values)
+        const Paramfile = file.file
+        const userId = file.userId
+        const values = file.values
+        const fileName = file.fileName
         const uploadfileName = `${fileName}-${Math.random()}`.replaceAll("/", "");
         const newImage = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/item_images/${uploadfileName}`;
 
-        const { data: uploadData, error: uploadError } = await supabase.storage.from("item_images").upload(uploadfileName, file);
+        const { data: uploadData, error: uploadError } = await supabase.storage.from("item_images").upload(uploadfileName, Paramfile);
 
         if (uploadError) {
             throw uploadError;
@@ -36,11 +39,10 @@ export const createItem = async (values, user, newImage) => {
             category_id: values.serviceId,
             game_id: values.gameId,
         };
-
-        if (values.images.length > 0) {
-            itemData.images = [values.images[0].name];
-        } else if (newImage) {
+        if (newImage) {
             itemData.images = [newImage];
+        } else if (values.images.length > 0) {
+            itemData.images = [values.images[0].name];
         }
 
         const { data: updatedData, error } = await supabase.from("items").upsert([itemData]);

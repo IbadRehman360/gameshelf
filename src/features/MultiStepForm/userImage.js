@@ -3,10 +3,10 @@ import { queryClient } from "../../routes/routes";
 import { uploadImageToStorage } from "../../services/apiItem";
 
 export default function useUpdateProfileImage() {
-    const mutationFn = async (file, values, userId, fileName) => {
-        console.log(values)
+    const mutationFn = async (file) => {
+
         try {
-            const { data } = await uploadImageToStorage(file, values, userId, fileName);
+            const { data } = await uploadImageToStorage(file);
         } catch (error) {
             console.error("Error updating data:", error);
             throw error;

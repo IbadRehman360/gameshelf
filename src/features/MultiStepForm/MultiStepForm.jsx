@@ -76,9 +76,9 @@ function MultiStepForm({ user }) {
       } else if (step === 2) {
         if (!values.title) {
           newValidationErrors.title = "Please provide a title for your item.";
-        } else if (values.title.length < 10 || values.title.length > 50) {
+        } else if (values.title.length < 20 || values.title.length > 50) {
           newValidationErrors.title =
-            "Title must be between 10 and 50 characters long.";
+            "Title must be between 20 and 50 characters long.";
         }
         if (!values.price) {
           newValidationErrors.price = "Please specify a price for your item.";
@@ -101,7 +101,6 @@ function MultiStepForm({ user }) {
 
       if (step === 3) {
         if (values.images && values.images.length > 0) {
-          console.log(values);
           mutate({
             file: values.images[0],
             values,
