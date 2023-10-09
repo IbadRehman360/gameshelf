@@ -8,7 +8,6 @@ import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import { Navigate, useNavigate } from "react-router-dom";
 
-//Quick hack to fix later
 async function CheckAuth() {
   const {
     data: { user },
@@ -21,6 +20,7 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [checkPassword, setCheckPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -42,14 +42,26 @@ export default function RegisterPage() {
       }
     });
   }, []);
-
   async function handleSignUp() {
-    const { data } = await supabase.auth.signUp({
-      email: email,
-      password: password,
-    });
-    if (data) {
-      navigate("/login");
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          data: {
+            username: "John",
+          },
+        },
+      });
+      if (error) {
+        console.error("Error signing up:", error);
+        alert("An error occurred while signing up. Please try again later.");
+      }
+      if (data) {
+        console.log(data);
+      }
+    } catch (error) {
+      console.error("Unexpected error:", error);
     }
   }
 
@@ -58,13 +70,13 @@ export default function RegisterPage() {
   return (
     <>
       <Header />
-      <div className="flex min-h-full flex-1 flex-col justify-center bg-gray-50 py-12 pb-[80px] pt-[40px] sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="flex min-h-full flex-1 flex-col justify-center   sm:px-6 lg:px-8">
+        <div className="sm:w-full sm:max-w-md">
           <h3 className="flex justify-center text-center text-3xl font-bold"></h3>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+          <div className="bg-white px-10 py-12 shadow sm:rounded-lg sm:px-12">
             <form className="space-y-6" onSubmit={handleSubmit(handleSignUp)}>
               <div>
                 <label
@@ -81,6 +93,24 @@ export default function RegisterPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     autoComplete="email"
+                    required
+                    className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  htmlFor="username"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Username
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="username"
+                    name="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                     className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
