@@ -26,9 +26,20 @@ export default function RegisterPage() {
 
   const { handleSubmit } = useForm();
 
+  useEffect(() => {
+    CheckAuth().then((data) => {
+      if (data) {
+        setIslogged(true);
+      } else {
+        setIslogged(false);
+      }
+    });
+  }, []);
+
   function checkPasswordErrors() {
     setCheckPassword(true);
     if (confirmPassword.length < 8) return true;
+    if (username.length < 2) return true;
     if (password != confirmPassword) return true;
     setCheckPassword(false);
   }
@@ -42,6 +53,7 @@ export default function RegisterPage() {
       }
     });
   }, []);
+
   async function handleSignUp() {
     try {
       const { data, error } = await supabase.auth.signUp({
@@ -49,16 +61,13 @@ export default function RegisterPage() {
         password: password,
         options: {
           data: {
-            username: "John",
+            username: username,
           },
         },
       });
-      if (error) {
-        console.error("Error signing up:", error);
-        alert("An error occurred while signing up. Please try again later.");
-      }
+      console.log(username);
       if (data) {
-        console.log(data);
+        navigate("/");
       }
     } catch (error) {
       console.error("Unexpected error:", error);
@@ -70,12 +79,12 @@ export default function RegisterPage() {
   return (
     <>
       <Header />
-      <div className="flex min-h-full flex-1 flex-col justify-center   sm:px-6 lg:px-8">
-        <div className="sm:w-full sm:max-w-md">
+      <div className="flex min-h-full flex-1 flex-col justify-center  md:py-12 pb-[80px] sm:pt-[40px] sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full  sm:max-w-md">
           <h3 className="flex justify-center text-center text-3xl font-bold"></h3>
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+        <div className="mt-10 sm:mx-auto  sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-10 py-12 shadow sm:rounded-lg sm:px-12">
             <form className="space-y-6" onSubmit={handleSubmit(handleSignUp)}>
               <div>
@@ -219,7 +228,7 @@ export default function RegisterPage() {
               <div className="mt-6">
                 <a
                   href="#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md border-[1px] border-gray-400 bg-white px-3 py-1.5 text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
+                  className="flex w-full items-center justify-center gap-3 rounded-md border-[1px] border-gray-300 bg-white px-3 py-1.5 text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
                 >
                   <FcGoogle />
                   <span className="text-sm font-semibold leading-6">
@@ -234,7 +243,7 @@ export default function RegisterPage() {
             Already a member?
             <a
               href="/login"
-              className="font-semibold leading-6 text-navy-blue hover:text-[#4b4e6b]"
+              className="font-semibold leading-6 text-gray-600 hover:text-[#4b4e6b]"
             >
               Login
             </a>

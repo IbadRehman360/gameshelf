@@ -44,11 +44,19 @@ export default function LoginPage() {
       if (event === "SIGNED_IN") navigate("/");
     });
   }, [navigate]);
+  useEffect(() => {
+    const linkElements = document.querySelectorAll(".c-dumjqv");
+
+    if (linkElements.length >= 2) {
+      linkElements[1].remove();
+      linkElements[0].remove();
+    }
+  });
 
   return (
-    <>
+    <div>
       <Header />
-      <div className="absolute relative  mx-auto flex h-[80vh] max-w-xl items-center justify-center bg-white p-6">
+      <div className=" sm:mx-auto  flex h-[80vh] max-w-xl items-center justify-center px-4 bg-white sm:p-6">
         <div className="w-full">
           <Auth
             supabaseClient={supabase}
@@ -57,21 +65,20 @@ export default function LoginPage() {
             view="sign_in"
             redirectTo="http://localhost:5173/"
           />
-          <Link
-            to="/register"
-            className="absolute  bg-transparent bg-gray-100 relative bottom-4 bottom-14 left-24 right-0  mb-2 mt-5 block h-8 w-80 text-center text-sm"
-          >
-            <span style={{ color: "transparent" }}>
-              Don't have an account? Sign up here.
-            </span>
-          </Link>
+          <div className="flex justify-center items-start">
+            <Link
+              to="/register"
+              className="text-center ml-2 -mt-3 tracking-wide text-gray-500 text-[0.84rem] underline hover:text-gray-500 w-60 sm:w-80"
+            >
+              Don't have an account? Sign up
+            </Link>
+          </div>
         </div>
       </div>
+
       <Footer />
-    </>
+    </div>
   );
 }
 
 // bg-transparent
-{
-}
