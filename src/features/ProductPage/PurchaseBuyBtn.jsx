@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import useGetUser from "../../layouts/getUser";
 import useUpdateDeleteProduct from "./useBuyItem";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function PurchaseBuyBtn({
@@ -28,13 +27,13 @@ export default function PurchaseBuyBtn({
       toast.error("You don't have enough coins to purchase");
     } else {
       try {
-        const updatedBuyerCoin = buyerCoins - productPrice;
+        const formattedBuyerCoin = parseInt(buyerCoins - productPrice);
         navigate(
           "/dashboard/" + productTitle.toLowerCase().split(" ").join("")
         );
         toast.success("You Successfully Purchase  Your Order  ");
         const deletedProduct = await mutate({
-          updatedBuyerCoin,
+          formattedBuyerCoin,
           buyerID,
           sellerProductId,
         });

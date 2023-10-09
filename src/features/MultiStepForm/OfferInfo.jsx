@@ -4,6 +4,7 @@ import { faGamepad, faCogs } from "@fortawesome/free-solid-svg-icons";
 import RenderInfo from "./OfferRenderInfo";
 import { FaExclamationCircle } from "react-icons/fa";
 import { useState } from "react";
+import FakeCall from "./FakeCall";
 
 function GameServiceComponent({
   register,

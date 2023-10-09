@@ -1,60 +1,60 @@
-import { createItem } from "../../services/apiItem";
+import supabase from "../../services/supabase";
 
 function FakeCall() {
-  // const item1 = {
-  //     title: "[Valorant] Unranked Valorant Smurf Account - Premium Skins & More",
-  //     price: 149.99,
-  //     description:
-  //       "Start fresh with this Unranked Valorant smurf account, equipped with premium weapon skins and extra goodies. Climb the ranks in style!",
-  //     stock: 1,
+  const item1 = {
+    title: "[Valorant] Unranked Valorant Smurf Account - Premium Skins & More",
+    price: 149.99,
+    description:
+      "Start fresh with this Unranked Valorant smurf account, equipped with premium weapon skins and extra goodies. Climb the ranks in style!",
+    stock: 1,
 
-  //     serviceId: 6,
-  //     gameId: 9,
-  //   };
-  //   const item2 = {
-  //     title:
-  //       "[Valorant] Platinum Valorant Account - Unlocked Agents & Competitive Ready",
-  //     price: 199.99,
-  //     description:
-  //       "Take your Valorant game to the next level with this Platinum-ranked account. All agents unlocked and ready for competitive play!",
-  //     stock: 1,
+    serviceId: 6,
+    gameId: 9,
+  };
+  // const item2 = {
+  //   title:
+  //     "[Valorant] Platinum Valorant Account - Unlocked Agents & Competitive Ready",
+  //   price: 199.99,
+  //   description:
+  //     "Take your Valorant game to the next level with this Platinum-ranked account. All agents unlocked and ready for competitive play!",
+  //   stock: 1,
 
-  //     serviceId: 6,
-  //     gameId: 9,
-  //   };
+  //   serviceId: 6,
+  //   gameId: 9,
+  // };
 
-  //   const item3 = {
-  //     title: "[Valorant] Radiant Smurf Account - Rare Skins & High MMR",
-  //     price: 299.99,
-  //     description:
-  //       "Dominate the competition with this Radiant-ranked Valorant smurf account. It comes with rare weapon skins and a high MMR rating!",
-  //     stock: 1,
+  // const item3 = {
+  //   title: "[Valorant] Radiant Smurf Account - Rare Skins & High MMR",
+  //   price: 299.99,
+  //   description:
+  //     "Dominate the competition with this Radiant-ranked Valorant smurf account. It comes with rare weapon skins and a high MMR rating!",
+  //   stock: 1,
 
-  //     serviceId: 6,
-  //     gameId: 9,
-  //   };
+  //   serviceId: 6,
+  //   gameId: 9,
+  // };
 
-  //   const item4 = {
-  //     title: "[Valorant] Gold Valorant Account - Skins & Competitive Edge",
-  //     price: 149.99,
-  //     description:
-  //       "Secure your victory with this Gold-ranked Valorant account. It includes exclusive skins and a competitive edge to climb the ladder!",
-  //     stock: 1,
+  // const item4 = {
+  //   title: "[Valorant] Gold Valorant Account - Skins & Competitive Edge",
+  //   price: 149.99,
+  //   description:
+  //     "Secure your victory with this Gold-ranked Valorant account. It includes exclusive skins and a competitive edge to climb the ladder!",
+  //   stock: 1,
 
-  //     serviceId: 6,
-  //     gameId: 9,
-  //   };
+  //   serviceId: 6,
+  //   gameId: 9,
+  // };
 
-  //   const item5 = {
-  //     title: "[Valorant] Diamond Valorant Smurf Account - Premium Skins & More",
-  //     price: 249.99,
-  //     description:
-  //       "Ascend the ranks with style using this Diamond-ranked Valorant smurf account. Premium skins and extras are all at your fingertips!",
-  //     stock: 1,
+  // const item5 = {
+  //   title: "[Valorant] Diamond Valorant Smurf Account - Premium Skins & More",
+  //   price: 249.99,
+  //   description:
+  //     "Ascend the ranks with style using this Diamond-ranked Valorant smurf account. Premium skins and extras are all at your fingertips!",
+  //   stock: 1,
 
-  //     serviceId: 6,
-  //     gameId: 9,
-  //   };
+  //   serviceId: 6,
+  //   gameId: 9,
+  // };
 
   //   const item6 = {
   //     title:
@@ -315,29 +315,34 @@ function FakeCall() {
   //   gameId: 1,
   // };
 
-  //   const user = { id: "bb2e70fa-9f22-4eb2-b0ce-82ba1bf0e709" };
+  const user = { id: "bb2e70fa-9f22-4eb2-b0ce-82ba1bf0e709" };
 
-  //   const handleCreateItem = async () => {
-  //     try {
-  //       const createdItems = await createItem(item7, user);
-  //       console.log("Created items:", createdItems);
-  //     } catch (error) {
-  //       console.error("Error creating items:", error);
-  //     }
-  //   };
-
-  //   const { data: updatedData, error } = await supabase.from("items").upsert([
-  //     {
-  //         title: values.title,
-  //         price: values.price,
-  //         description: values.description,
-  //         stock: values.stock,
-  //         seller_id: user.id,
-  //         images: ["https://gymfqfbuzjjanrwewyft.supabase.co/storage/v1/object/public/item_images/CSGOACCOUNT2.webp", "https://gymfqfbuzjjanrwewyft.supabase.co/storage/v1/object/public/item_images/CSGOACCOUNT3.webp", "https://gymfqfbuzjjanrwewyft.supabase.co/storage/v1/object/public/item_images/CSGOACCOUNT1.webp"],
-  //         category_id: values.serviceId,
-  //         game_id: values.gameId,
-  //     },
-  // ]);
+  const handleCreateItem = async () => {
+    try {
+      const createdItems = await createItem(item1, user);
+      console.log("Created items:", createdItems);
+    } catch (error) {
+      console.error("Error creating items:", error);
+    }
+  };
+  async function createItem(values, user) {
+    const { data: updatedData, error } = await supabase.from("items").upsert([
+      {
+        title: values.title,
+        price: values.price,
+        description: values.description,
+        stock: values.stock,
+        seller_id: user.id,
+        images: [
+          "https://gymfqfbuzjjanrwewyft.supabase.co/storage/v1/object/public/item_images/CSGOACCOUNT2.webp",
+          "https://gymfqfbuzjjanrwewyft.supabase.co/storage/v1/object/public/item_images/CSGOACCOUNT3.webp",
+          "https://gymfqfbuzjjanrwewyft.supabase.co/storage/v1/object/public/item_images/CSGOACCOUNT1.webp",
+        ],
+        category_id: values.serviceId,
+        game_id: values.gameId,
+      },
+    ]);
+  }
 
   return (
     <button

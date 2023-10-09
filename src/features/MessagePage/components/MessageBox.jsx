@@ -72,17 +72,21 @@ export default function MessageBox() {
 
           <div>
             <div className="overflow-y-auto">
-              {isLoading
-                ? "Loading..."
-                : userChats.map((chat, index) => (
-                    <button
-                      key={index}
-                      className="w-full p-4 hover:bg-red-100"
-                      onClick={() => setSelectedChat(chat)}
-                    >
-                      <MessageComponentEachUser chat={chat} index={index} />
-                    </button>
-                  ))}
+              {isLoading ? (
+                <div className="w-full p-6 text-center text-gray-500">
+                  Loading...
+                </div>
+              ) : (
+                userChats.map((chat, index) => (
+                  <button
+                    key={index}
+                    className="w-full p-4 hover:bg-gray-100 focus:outline-none"
+                    onClick={() => setSelectedChat(chat)}
+                  >
+                    <MessageComponentEachUser chat={chat} index={index} />
+                  </button>
+                ))
+              )}
             </div>
           </div>
         </div>

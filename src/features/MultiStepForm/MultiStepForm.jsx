@@ -11,6 +11,8 @@ import useCategories from "../HomePage/useCategories";
 import useGames from "./useGames";
 import useUpdateProfileImage from "./userImage";
 import MultiStepLoader from "./MultiStepLoader";
+import { Link } from "react-router-dom";
+import FakeCall from "./FakeCall";
 
 function MultiStepForm({ user }) {
   const [step, setStep] = useState(1);
@@ -121,6 +123,7 @@ function MultiStepForm({ user }) {
       <div className="border border-gray-300">
         <Step />{" "}
         <form>
+          <FakeCall />
           <div className="grid gap-4 px-5 py-10 sm:px-8">
             {stepComponents[step]}
             <div className="mt-2 flex justify-between">
@@ -152,7 +155,9 @@ function MultiStepForm({ user }) {
         <p className="mr-8 text-[0.85rem] font-semibold sm:text-sm">
           You can learn more
           <HiOutlineArrowNarrowRight className="m-2 inline-block align-middle" />
-          <a className="text-blue-500 hover:underline">about us</a>
+          <Link to={"/about"} className="text-blue-500 hover:underline">
+            about us
+          </Link>
         </p>
       </div>
     </>

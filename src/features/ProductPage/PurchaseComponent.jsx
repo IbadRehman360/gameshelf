@@ -9,6 +9,7 @@ import ProductImage from "./ProductImage";
 import PurchaseBuyBtn from "./PurchaseBuyBtn";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
+import { Portal } from "@headlessui/react";
 
 export default function ProductPage() {
   const { id } = useParams();

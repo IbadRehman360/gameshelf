@@ -17,7 +17,7 @@ export default function ProfileInfo({ profileData }) {
           Level {profileData.data.level}
         </p>
       </div>
-      {session?.user?.id || session?.user?.id === profileData?.data?.id ? (
+      {session?.user?.id === profileData?.data?.id ? (
         <div className="bg-gray-100 animate-pulse p-3.5 rounded-lg shadow-lg mt-5 text-center">
           <p className="text-gray-700 text-lg font-semibold mb-2">
             Viewing Your Profile

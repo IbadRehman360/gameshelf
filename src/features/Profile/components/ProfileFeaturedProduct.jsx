@@ -4,7 +4,6 @@ export default function FeaturedProduct({ featureProduct, profileData }) {
   const date = new Date(featureProduct.created_at);
   const getHour = date.getHours(date);
   const decimalConversion = featureProduct.price.toFixed(2);
-
   return (
     <Link to={`/dashboard/csgo/${featureProduct.id}`}>
       <div className="flex flex-col rounded-2xl border-2 bg-[#fdfdfd] p-3 ">

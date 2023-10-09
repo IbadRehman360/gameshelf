@@ -15,7 +15,6 @@ export default function DashboardSearchBar() {
             />
             <AiOutlineSearch className="absolute mx-3 text-lg sm:mx-4" />
           </div>
-
           <Menu
             as="div"
             className="relative w-16 border-l-[1px] p-2 text-left sm:inline-block sm:w-fit sm:border-0 sm:py-0"

@@ -42,7 +42,6 @@ export async function updateDescription(id, newDescription) {
 
 }
 export async function updateLanguage(id, languages) {
-    console.log(languages.second)
     const { data, error } = await supabase
         .from("users")
         .update({

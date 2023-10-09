@@ -12,7 +12,6 @@ function PurchaseUser({ user }) {
       navigate("/login");
     }
   };
-
   return (
     <>
       <div className=""></div>
@@ -49,7 +48,8 @@ function PurchaseUser({ user }) {
             </span>
           </p>
           <div className="flex -ml-0.5 space-x-2">
-            {isSessionAvailable && session?.user?.id === user[0]?.seller_id ? (
+            {isSessionAvailable &&
+            session?.user?.id !== user[0]?.seller_id.id ? (
               <Link
                 to={`/profile/${user[0]?.seller_id?.username}`}
                 className="mb-1  rounded-md px-4 py-1.5 text-[0.6rem] font-semibold text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none bg-red-500 hover:bg-red-400 active:bg-red-400"
@@ -67,7 +67,7 @@ function PurchaseUser({ user }) {
               </button>
             )}
 
-            {session?.user?.id === user[0]?.seller_id ? (
+            {session?.user?.id !== user[0]?.seller_id.id ? (
               <Link
                 to={`/profile/${user[0]?.seller_id?.username}`}
                 className="mb-1 rounded-md px-4 py-1.5 text-[0.7rem] font-semibold text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none bg-gray-600 hover:bg-gray-500"

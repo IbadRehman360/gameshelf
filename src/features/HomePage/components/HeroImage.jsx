@@ -23,7 +23,7 @@ export default function HeroImages({ index, imageUrl }) {
       <div className="h-[50vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
         <img
           className="h-full w-full object-cover"
-          src={`${imageUrl}`}
+          src={`/HeroImages/${imageUrl}`}
           alt={`bg ${index}`}
         />
       </div>
@@ -35,7 +35,7 @@ export default function HeroImages({ index, imageUrl }) {
         <div className="flex flex-1 justify-end">
           {!session && (
             <NavLink
-              to="login"
+              to="/about"
               className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-50 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${
                 darkSlides.includes(index) ? "text-white " : "text-gray-900"
               }`}

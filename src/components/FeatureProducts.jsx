@@ -16,7 +16,6 @@ export default function FeaturedProduct({
   const getHour = date.getHours(date);
 
   const convertedPrice = decimalConversion(price);
-  console.log(image);
   return (
     <Link to={`/dashboard/${games}/${productID}`}>
       <div className="flex flex-col rounded-2xl border-2 bg-[#fdfdfd] p-3 lg:p-4">

@@ -27,7 +27,6 @@ export async function uploadImageToStorage(file) {
 }
 
 export const createItem = async (values, user, newImage) => {
-    console.log(values)
     try {
         const itemData = {
             title: values.title,
@@ -129,11 +128,12 @@ export async function getUserInfo(userId) {
     }
     return games;
 }
-export async function updateBuyerCoins(buyerID, updatedBuyerCoin) {
+export async function updateBuyerCoins(buyerID, formattedBuyerCoin) {
     try {
+        console.log(formattedBuyerCoin)
         const { data, error } = await supabase
             .from("users")
-            .update({ coin: updatedBuyerCoin })
+            .update({ coin: formattedBuyerCoin })
             .eq("id", buyerID);
 
         if (error) {
@@ -147,7 +147,6 @@ export async function updateBuyerCoins(buyerID, updatedBuyerCoin) {
 }
 
 export async function deletePurchasedProduct(sellerProductId) {
-    console.log(sellerProductId)
     try {
         const { data, error } = await supabase
             .from("items")
