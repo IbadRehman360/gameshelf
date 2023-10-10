@@ -1,38 +1,51 @@
 import { useAuth } from "../../../context/AuthProvider";
 import MessageSearchBar from "./MessageSearchBar";
-import MessageComponentEachUser from "./Chat";
+import AllUsersMessagesBox from "./AllUsersMessagesBox";
 import { useEffect, useState } from "react";
-import { useCreateChat, useGetChats } from "../../../services/apiChat";
+import { useCreateChat } from "../../../services/apiChat";
 import { useParams } from "react-router-dom";
 import ChatBox from "./ChatBox";
+import { useGetChats } from "../useChats";
+// useEffect(() => {
+//   const messageWatcher = supabase
+//     .channel("any")
+//     .on(
+//       "postgres_changes",
+//       { event: "*", schema: "public", table: "chat_users" },
+//       async () => await getChats()
+//     )
+//     .subscribe();
+//   return () => {
+//     messageWatcher.unsubscribe();
+//   };
+// }, []);
 
 export default function MessageBox() {
   const params = useParams();
   const { userData } = useAuth();
-  const { userChats, isLoading } = useGetChats();
+  const { userChats, isLoading, isError } = useGetChats();
   const [selectedChat, setSelectedChat] = useState(null);
+
   useEffect(() => {
-    if (params.userId) {
+    if (params.userId && userData) {
       useCreateChat(userData.id, params.userId);
     }
-  }, []);
+  }, [params.userId, userData]);
 
-  useEffect(() => {
-    //FIX REAL TIME DATA FOR CHATS
-    // const messageWatcher = supabase
-    //   .channel("any")
-    //   .on(
-    //     "postgres_changes",
-    //     { event: "*", schema: "public", table: "chat_users" },
-    //     async () => (await getChats())
-    //   )
-    //   .subscribe();
-    // return () => {
-    //   messageWatcher.unsubscribe();
-    // };
-  }, []);
+  if (isLoading) {
+    return (
+      <div className="w-full p-6 text-center text-gray-500">Loading...</div>
+    );
+  }
 
-  console.log(userChats);
+  if (isError) {
+    return (
+      <div className="w-full p-6 text-center text-red-500">
+        An error occurred while fetching user chats.
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-screen flex-row text-gray-800 antialiased">
       <div className="hidden w-72 shrink-0 flex-row border-r-2 bg-white sm:flex md:w-72 lg:w-80">
@@ -49,11 +62,7 @@ export default function MessageBox() {
               </a>
             </div>
             <div className="ml-auto">
-              <img
-                className="h-9 w-9 rounded-full"
-                src="/ProfileImg2.jpg"
-                alt=""
-              />
+              <img className="h-9 w-9 rounded-full" src="/logo4.png" alt="" />
             </div>
           </div>
           <div className="px-4 pt-2">
@@ -72,27 +81,21 @@ export default function MessageBox() {
 
           <div>
             <div className="overflow-y-auto">
-              {isLoading ? (
-                <div className="w-full p-6 text-center text-gray-500">
-                  Loading...
-                </div>
-              ) : (
-                userChats.map((chat, index) => (
-                  <button
-                    key={index}
-                    className="w-full p-4 hover:bg-gray-100 focus:outline-none"
-                    onClick={() => setSelectedChat(chat)}
-                  >
-                    <MessageComponentEachUser chat={chat} index={index} />
-                  </button>
-                ))
-              )}
+              {userChats.map((chat, index) => (
+                <button
+                  key={index}
+                  className="w-full p-4 hover:bg-gray-100 focus:outline-none"
+                  onClick={() => setSelectedChat(chat)}
+                >
+                  <AllUsersMessagesBox chat={chat} index={index} key={index} />
+                </button>
+              ))}
             </div>
           </div>
         </div>
       </div>
       <div className="flex h-full w-full flex-col bg-white px-4">
-        {selectedChat && <ChatBox chat={selectedChat} />}
+        {/* {selectedChat && <ChatBox chat={selectedChat} />} */}
       </div>
     </div>
   );

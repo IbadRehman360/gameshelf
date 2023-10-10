@@ -1,92 +1,72 @@
-import { useAuth } from "../context/AuthProvider";
-import supabase from "../services/supabase";
 import { useEffect, useState } from "react";
-
+import supabase from "../services/supabase";
+import { useAuth } from "../context/AuthProvider";
 
 export async function useCreateChat(author, recipient) {
-    const { data: allChatUsers } = await supabase.from("chat_users").select("*")
-    // console.log(allChatUsers);
-    if (allChatUsers.length > 0) {
-        // console.log("in");
-        allChatUsers.forEach(async (chat) => {
-            // console.log(author, chat.author_id);
-            // console.log(recipient, chat.recipient_id);
-
-            if (chat.author_id !== author || chat.recipient_id !== recipient) {
-                createChat(author, recipient);
-                // console.log("test")
-            }
-        });
-    } else {
-        createChat(author, recipient);
-    }
-}
-
-async function createChat(author, recipient) {
-    const { data } = await supabase.from("chats").insert({}).select("*");
-
-    const newChatObj = {
-        id: data[0].id,
-        author_id: author,
-        recipient_id: recipient,
-    };
-
-    const { data: newChat } = await supabase
-        .from("chat_users")
-        .insert(newChatObj)
-        .select("*");
-
-}
-
-
-
-export async function useCreateMessage(chatId, userId, content) {
-    const messageObj = {
-        chat_id: chatId,
-        user_id: userId,
-        content
-    }
-    const { data, error } = await supabase.from("chat_messages").insert(messageObj).select('*');
-}
-
-
-export function useGetChats() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [userChats, setUserChats] = useState([]);
-    const { userData } = useAuth();
-
-    async function getChats() {
-        const { data: userChatsData, error } = await supabase
+    try {
+        const { data: chatUsers, error } = await supabase
             .from("chat_users")
             .select("*")
-            .eq("author_id", userData.id)
-            .select("recipient_id, users (username), chats (id)");
+            .eq("author_id", author)
+            .eq("recipient_id", recipient);
 
-        let chats = [];
-
-        for (let i = 0; i < userChatsData.length; i++) {
-            const { data: userChatMessages } = await supabase
-                .from("chat_messages")
-                .select("*")
-                .eq("chat_id", userChatsData[i].chats.id);
-            let newChatObj = {
-                ...userChatsData[i],
-                lastMessage: {
-                    content: userChatMessages.at(-1).content,
-                    created_at: userChatMessages.at(-1).created_at,
-                },
-            };
-
-            chats.push(newChatObj);
+        if (error) {
+            console.error("Error fetching chat users:", error);
+            return;
         }
 
-        setUserChats(chats);
-        setIsLoading(false);
+        if (chatUsers.length === 0) {
+            const { data: newChat, error: chatError } = await supabase
+                .from("chats")
+                .insert({})
+                .select("*");
+
+            if (chatError) {
+                console.error("Error creating chat:", chatError);
+                return;
+            }
+
+            const newChatObj = {
+                id: newChat[0].id,
+                author_id: author,
+                recipient_id: recipient,
+            };
+
+            const { data, error: insertError } = await supabase
+                .from("chat_users")
+                .insert([newChatObj])
+                .select("*");
+
+            if (insertError) {
+                console.error("Error inserting chat user:", insertError);
+                return;
+            }
+        }
+    } catch (error) {
+        console.error("An error occurred:", error);
     }
+}
 
-    useEffect(() => {
-        getChats();
-    }, [])
 
-    return { userChats, isLoading };
+
+export function fetchUserChats(userData) {
+    return supabase
+        .from("chat_users")
+        .select("*")
+        .eq("author_id", userData.id)
+        .then((response) => response.data)
+        .catch((error) => {
+            throw new Error("Error fetching user chats: " + error.message);
+        });
+}
+
+export function fetchUserChatMessages(chatId) {
+    return supabase
+        .from("chat_messages")
+        .select("*")
+        .eq("chat_id", chatId)
+        .then((response) => response.data)
+        .catch((error) => {
+            throw new Error("Error fetching chat messages: " + error.message);
+        });
 }

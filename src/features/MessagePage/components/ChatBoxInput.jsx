@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useCreateMessage } from "../../../services/apiChat";
+// import { useCreateMessage } from "../../../services/apiChat";
 
 export default function ChatBoxInput({ chatId, userId }) {
   const {
@@ -11,22 +11,22 @@ export default function ChatBoxInput({ chatId, userId }) {
     formState: { isSubmitSuccessful },
   } = useForm();
 
-  function handleCreateNewMessage(data) {
-    const content = data.content;
-    useCreateMessage(chatId, userId, content);
-  }
+  // function handleCreateNewMessage(data) {
+  //   const content = data.content;
+  //   useCreateMessage(chatId, userId, content);
+  // }
 
-  useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      reset({ content: "" });
-    }
-  }, [formState, reset]);
+  // useEffect(() => {
+  //   if (formState.isSubmitSuccessful) {
+  //     reset({ content: "" });
+  //   }
+  // }, [formState, reset]);
 
-  useEffect(() => {}, [chatId]);
+  // useEffect(() => {}, [chatId]);
   return (
     <form
       className="mb-4 flex flex-row items-center"
-      onSubmit={handleSubmit(handleCreateNewMessage)}
+      // onSubmit={handleSubmit(handleCreateNewMessage)}
     >
       <div className="flex h-12 w-full flex-row items-center rounded-3xl border px-2">
         <button className="ml-1 flex h-10 w-10 items-center justify-center text-gray-400">

@@ -258,7 +258,7 @@ export default function Header() {
                   >
                     <div className="group relative">
                       <img
-                        src="/dollar(1).png"
+                        src="/dollar(2).png"
                         alt="Coin Image"
                         className={`h-8 w-9 transition-transform hover:scale-110 active:scale-95 ${
                           isClicked ? "scale-110" : ""
