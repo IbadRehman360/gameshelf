@@ -72,19 +72,36 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "chat/",
-        element: <MessagePage />,
-      },
-      {
-        path: "/chat/new/:userId",
-        element: <MessagePage />,
-      },
-      {
         path: "sell/:user",
         element: <MultiStepFormPage />,
       },
     ],
   },
+  {
+    path: "chat/",
+    element: (
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <ProtectedRoute>
+            <MessagePage />
+          </ProtectedRoute>
+        </AuthProvider>
+      </QueryClientProvider>
+    ),
+  },
+  {
+    path: "/chat/new/:userId",
+    element: (
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <ProtectedRoute>
+            <MessagePage />
+          </ProtectedRoute>
+        </AuthProvider>
+      </QueryClientProvider>
+    ),
+  },
+
   {
     path: "login",
     element: <LoginPage />,

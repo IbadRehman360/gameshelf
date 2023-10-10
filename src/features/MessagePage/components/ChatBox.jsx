@@ -1,70 +1,46 @@
-import { useAuth } from "../../../context/AuthProvider";
-import { useEffect, useState } from "react";
 import ChatMessageSender from "./ChatMessageSender";
 import ChatMessageRecipient from "./ChatMessageRecipient";
 import ChatBoxHeader from "./ChatBoxHeader";
 import ChatBoxInput from "./ChatBoxInput";
-import supabase from "../../../services/supabase";
+import { useChatMessages } from "../useChatMessages";
+import { useAuth } from "../../../context/AuthProvider";
 
 export default function ChatBox({ chat, user }) {
-  const [chatMessages, setChatMessages] = useState([]);
   const { userData } = useAuth();
+  const { chatMessagesData, loadingChatMessages, isChatMessagesError } =
+    useChatMessages(chat);
 
-  async function getChatMessages() {
-    const { data: chatMessagesData, error } = await supabase
-      .from("chat_messages")
-      .select("*")
-      .eq("chat_id", chat.chats.id);
-
-    setChatMessages(chatMessagesData);
-  }
-
-  useEffect(() => {
-    const messageWatcher = supabase
-      .channel("custom-all-channel")
-      .on(
-        "postgres_changes",
-        { event: "*", schema: "public", table: "chat_messages" },
-        async () => {
-          await getChatMessages();
-        }
-      )
-      .subscribe();
-
-    return () => {
-      messageWatcher.unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    getChatMessages();
-  }, [chat]);
-
+  if (loadingChatMessages) return "loading";
   return (
-    <div className="flex h-full w-full flex-col bg-white px-4">
-      <ChatBoxHeader name={chat.users.username} />
+    <div className="flex h-full w-full flex-col bg-white sm:px-4">
+      <ChatBoxHeader
+        name={chat.users.username}
+        image={chat.users.avatar_image}
+      />
       <div className="h-full overflow-hidden py-4">
         <div className="h-full overflow-y-auto">
           <div className="grid grid-cols-12 gap-y-2">
-            {chatMessages.map((message) =>
+            {chatMessagesData.map((message) =>
               message.user_id === userData.id ? (
                 <ChatMessageSender
                   key={message.id}
                   message={message.content}
-                  user={userData.email}
+                  user={user}
                 />
               ) : (
                 <ChatMessageRecipient
                   key={message.id}
                   message={message.content}
-                  user={chat.users.username}
+                  user={user}
                 />
               )
             )}
           </div>
         </div>
       </div>
-      <ChatBoxInput chatId={chat.chats.id} userId={userData.id} />
+      <div className="px-2 sm:px-0">
+        <ChatBoxInput chatId={chat.id} userId={userData.id} />
+      </div>
     </div>
   );
 }

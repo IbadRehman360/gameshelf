@@ -12,7 +12,6 @@ import useGames from "./useGames";
 import useUpdateProfileImage from "./userImage";
 import MultiStepLoader from "./MultiStepLoader";
 import { Link } from "react-router-dom";
-import FakeCall from "./FakeCall";
 
 function MultiStepForm({ user }) {
   const [step, setStep] = useState(1);
@@ -123,7 +122,6 @@ function MultiStepForm({ user }) {
       <div className="border border-gray-300">
         <Step />{" "}
         <form>
-          <FakeCall />
           <div className="grid gap-4 px-5 py-10 sm:px-8">
             {stepComponents[step]}
             <div className="mt-2 flex justify-between">

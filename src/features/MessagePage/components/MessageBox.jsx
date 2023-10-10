@@ -6,19 +6,9 @@ import { useCreateChat } from "../../../services/apiChat";
 import { useParams } from "react-router-dom";
 import ChatBox from "./ChatBox";
 import { useGetChats } from "../useChats";
-// useEffect(() => {
-//   const messageWatcher = supabase
-//     .channel("any")
-//     .on(
-//       "postgres_changes",
-//       { event: "*", schema: "public", table: "chat_users" },
-//       async () => await getChats()
-//     )
-//     .subscribe();
-//   return () => {
-//     messageWatcher.unsubscribe();
-//   };
-// }, []);
+import Header from "../../../layouts/Header";
+import { AiOutlineMessage } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineRollback } from "react-icons/ai";
 
 export default function MessageBox() {
   const params = useParams();
@@ -32,9 +22,26 @@ export default function MessageBox() {
     }
   }, [params.userId, userData]);
 
-  if (isLoading) {
+  const toggleChat = (chat) => {
+    // If the selectedChat is already open, close it.
+    // Otherwise, set the selectedChat to the clicked chat.
+    setSelectedChat((prevSelectedChat) =>
+      prevSelectedChat === chat ? null : chat
+    );
+  };
+
+  const goBackToChatList = () => {
+    setSelectedChat(null);
+  };
+  function renderUsername() {
+    return userChats[0].your.username.charAt(0).toUpperCase();
+  }
+
+  if (isLoading || userChats.length === 0) {
     return (
-      <div className="w-full p-6 text-center text-gray-500">Loading...</div>
+      <div className="min-h-screen flex items-center justify-center">
+        {/* Loading UI */}
+      </div>
     );
   }
 
@@ -47,56 +54,94 @@ export default function MessageBox() {
   }
 
   return (
-    <div className="flex h-screen flex-row text-gray-800 antialiased">
-      <div className="hidden w-72 shrink-0 flex-row border-r-2 bg-white sm:flex md:w-72 lg:w-80">
-        <div className="h-full w-full flex-col sm:flex">
-          <div className="flex flex-row items-center px-4 pt-6">
-            <div className="mt-1 flex flex-row items-center">
-              <a href="/" className="text-xl font-semibold">
-                <img src="/logo4.png " className="h-6 w-10" alt="" />
-              </a>
-              <a href="/">
-                <div className="ml-2 flex items-center justify-center rounded-full text-lg font-extrabold text-gray-700">
-                  GAMERSHELF
-                </div>
-              </a>
+    <>
+      <Header />
+      <div className="sm:flex h-[91vh] sm:flex-row  text-gray-800 antialiased">
+        <div
+          className={`${
+            selectedChat && " hidden"
+          } shrink-0 sm:flex-row sm:border-r-2 bg-white sm:flex sm:w-72 lg:w-80`}
+        >
+          <div className="h-full w-full flex-col sm:flex">
+            <div className="flex flex-row items-center px-4 pt-6">
+              <div className="mt-1 flex flex-row items-center">
+                <a href="/">
+                  <div className="ml-2 flex items-center justify-center rounded-full text-xl  tracking-wide font-extrabold text-gray-600">
+                    GAMERSHELF
+                    <span className="ml-2">
+                      <AiOutlineMessage
+                        className="mb-1   text-gray-600"
+                        size={24}
+                      />{" "}
+                      {/* Add the message icon here */}
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div className="ml-auto">
+                {userChats[0]?.your?.avatar_image ? (
+                  <img
+                    className="h-9 w-9 rounded-full"
+                    src={userChats[0]?.your?.avatar_image}
+                    alt=""
+                  />
+                ) : (
+                  <div className="flex h-10 w-10 items-center  justify-center rounded-full bg-indigo-500">
+                    {renderUsername()}
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="ml-auto">
-              <img className="h-9 w-9 rounded-full" src="/logo4.png" alt="" />
+            <div className="px-3 sm:px-4 pt-2">
+              <MessageSearchBar />
             </div>
-          </div>
-          <div className="px-4 pt-2">
-            <MessageSearchBar />
-          </div>
-          <div className="pl-4">
-            <select
-              id="location"
-              name="location"
-              className="block w-[38%] rounded-lg border  border-gray-700  p-1.5  text-sm italic tracking-wide ring-gray-500 text-gray-700 shadow-md focus:outline-none  focus:ring-1"
-              defaultValue="Canada"
-            >
-              <option className="text-gray-600">All Contacts</option>
-            </select>
-          </div>
+            <div className="pl-3 sm:pl-4">
+              <select className="block w-[38%] rounded-lg border border-gray-500 p-[4.5px] text-[0.86rem]   italic tracking-wide text-gray-700  shadow-md ring-gray-200 focus:outline-none focus:ring-1 sm:w-[46%] sm:p-[4.5px] sm:text-[0.8rem] sm:text-sm  xl:w-[39%]">
+                <option className="text-gray-600  ">All Contacts</option>
+              </select>
+            </div>
 
-          <div>
-            <div className="overflow-y-auto">
-              {userChats.map((chat, index) => (
-                <button
-                  key={index}
-                  className="w-full p-4 hover:bg-gray-100 focus:outline-none"
-                  onClick={() => setSelectedChat(chat)}
-                >
-                  <AllUsersMessagesBox chat={chat} index={index} key={index} />
-                </button>
-              ))}
+            <div>
+              <div className="overflow-y-auto mt-6  border-t">
+                {userChats.map((chat, index) => (
+                  <button
+                    key={index}
+                    className="w-full py-3 px-4 border hover:bg-gray-100 focus:outline-none"
+                    onClick={() => toggleChat(chat)}
+                  >
+                    <AllUsersMessagesBox
+                      chat={chat}
+                      index={index}
+                      key={index}
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+        <div className="flex h-full w-full flex-col bg-white sm:px-4">
+          {selectedChat ? (
+            <>
+              <button
+                className="w-full py-3  px-4 border sm:hidden text-black hover:bg-gray-100 focus:outline-none"
+                onClick={goBackToChatList}
+              >
+                <div className="flex items-center">
+                  <div className="flex items-center mr-2">
+                    <AiOutlineArrowLeft className="-mb-1.5" />
+                    <AiOutlineRollback />
+                  </div>
+                  <span className="flex-grow mr-6">Back to Chat List</span>
+                </div>
+              </button>
+              <ChatBox chat={selectedChat} user={userChats} />
+            </>
+          ) : (
+            <div> HI</div>
+          )}
+        </div>
       </div>
-      <div className="flex h-full w-full flex-col bg-white px-4">
-        {/* {selectedChat && <ChatBox chat={selectedChat} />} */}
-      </div>
-    </div>
+    </>
   );
 }

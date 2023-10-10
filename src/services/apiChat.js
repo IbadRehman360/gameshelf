@@ -70,3 +70,46 @@ export function fetchUserChatMessages(chatId) {
             throw new Error("Error fetching chat messages: " + error.message);
         });
 }
+
+export async function fetchUserDetails(authorId) {
+    try {
+        const { data, error } = await supabase
+            .from("users")
+            .select("*")
+            .eq("id", authorId)
+            .single();
+
+        if (error) {
+            throw new Error("Error fetching user details: " + error.message);
+        }
+
+        return data;
+    } catch (error) {
+        throw new Error("Error fetching user details: " + error.message);
+    }
+}
+
+export async function getChatMessages(chat) {
+    const { data: chatMessagesData, error } = await supabase
+        .from("chat_messages")
+        .select("*")
+        .eq("chat_id", chat.id);
+    if (error) {
+        throw new Error("Error fetching user details: " + error.message);
+    }
+    return chatMessagesData
+}
+
+
+export async function getCreateMessage(chat) {
+    const messageObj = {
+        chat_id: chat.chatId,
+        user_id: chat.userId,
+        content: chat.content
+    }
+    const { data, error } = await supabase.from("chat_messages").insert([messageObj]).select('*');
+    if (error) {
+        console.log(error)
+    }
+    return data;
+}

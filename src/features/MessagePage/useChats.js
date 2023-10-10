@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../context/AuthProvider";
-import { fetchUserChatMessages, fetchUserChats } from "../../services/apiChat";
+import { fetchUserChatMessages, fetchUserChats, fetchUserDetails } from "../../services/apiChat";
 import { useState } from "react";
 import { useEffect } from "react";
-
 export function useGetChats() {
     const { userData } = useAuth();
 
@@ -23,13 +22,18 @@ export function useGetChats() {
                 userChats.map(async (chatUser) => {
                     const userChatMessages = await fetchUserChatMessages(chatUser.id);
                     const lastMessage = userChatMessages[userChatMessages.length - 1];
-
+                    const userDetails = await fetchUserDetails(chatUser.recipient_id);
+                    const yourDetails = await fetchUserDetails(chatUser.author_id);
+                    const length = userChatMessages.length
                     return {
                         ...chatUser,
                         lastMessage: {
                             content: lastMessage ? lastMessage.content : "",
                             created_at: lastMessage ? lastMessage.created_at : null,
                         },
+                        length: length || null,
+                        users: userDetails || null,
+                        your: yourDetails || null
                     };
                 })
             )
