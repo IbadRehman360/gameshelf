@@ -18,7 +18,6 @@ export default function MessageBox() {
   const [selectedChat, setSelectedChat] = useState(null);
   const { userChats, isLoading, isError } = useGetChats();
   const isInitialRender = useRef(true);
-  const { user } = useGetUser(userData.id);
   useEffect(() => {
     if (!isInitialRender.current || userData) {
       if (params.userId && userData) {
@@ -37,8 +36,9 @@ export default function MessageBox() {
   const goBackToChatList = () => {
     setSelectedChat(null);
   };
+  const { user } = useGetUser(userData.id);
 
-  if (isLoading || !userChats) {
+  if (isLoading || !userChats || !user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div
@@ -68,9 +68,8 @@ export default function MessageBox() {
       <Header />
       <div className="sm:flex h-[91vh] sm:flex-row  text-gray-800 antialiased">
         <div
-          className={`${
-            selectedChat && " hidden"
-          } shrink-0 sm:flex-row sm:border-r-2 bg-white sm:flex sm:w-72 lg:w-80`}
+          className={`${selectedChat && " hidden"
+            } shrink-0 sm:flex-row sm:border-r-2 bg-white sm:flex sm:w-72 lg:w-80`}
         >
           <div className="h-full w-full flex-col sm:flex">
             <div className="flex flex-row items-center px-4 pt-6">
@@ -123,6 +122,7 @@ export default function MessageBox() {
                       chat={chat}
                       index={index}
                       key={index}
+                      userData={userData}
                     />
                   </button>
                 ))}

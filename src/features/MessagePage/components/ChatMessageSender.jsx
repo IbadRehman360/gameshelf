@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 
 export default function ChatMessageSender({ user, message, yourId, chat }) {
+
+  console.log(message.user_id, yourId.id)
   const displayData =
-    message.user_id !== yourId.id ? user[0].users : user[0].your;
+    yourId.id !== user[0].users.id ? user[0].your : user[0].users
   function renderUsername() {
     // return displayData.charAt(0).toUpperCase();
   }
-
   const avatarContent = displayData ? (
     <Link
       to={`/profile/${displayData.username}`}
@@ -29,7 +30,7 @@ export default function ChatMessageSender({ user, message, yourId, chat }) {
       <div className="flex flex-row-reverse items-center justify-start">
         {avatarContent}
         <div className="relative mr-3 rounded-xl bg-indigo-50 px-4 py-2 text-sm shadow">
-          {/* <div>{message}</div> */}
+          <div>{message.content}</div>
         </div>
       </div>
     </div>

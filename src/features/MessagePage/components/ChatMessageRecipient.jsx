@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 export default function ChatMessageRecipient({ user, message, yourId, chat }) {
   const displayData =
-    message.user_id === yourId.id ? user[0].users : user[0].your;
+    yourId.id === user[0].users.id ? user[0].your : user[0].users
   function renderUsername() {
     return displayData.username.charAt(0).toUpperCase();
   }
-  console.log(user, message, yourId, chat);
+  // console.log(user, message, yourId, chat);
 
   const avatarContent = displayData.avatar_image ? (
     <Link
