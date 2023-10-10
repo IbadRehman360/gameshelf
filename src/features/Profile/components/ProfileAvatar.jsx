@@ -80,7 +80,7 @@ function ProfileAvatar({ user }) {
               />
             ) : (
               <div
-                className="mx-0 -mt-28 h-auto rounded-full border border-gray-600 align-middle shadow-xl md:-mt-12 lg:-ml-0 flex items-center justify-center bg-gray-300 text-white"
+                className="mx-0 -mt-28 h-auto text-3xl rounded-full border border-gray-600 align-middle shadow-xl md:-mt-12 lg:-ml-0 flex items-center justify-center bg-gray-300 text-white"
                 style={{
                   width: "112px",
                   height: "112px",

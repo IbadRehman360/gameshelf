@@ -52,16 +52,37 @@ export async function getCreateChat(author, recipient) {
     }
 }
 
-export function fetchUserChats(userData) {
-    return supabase
-        .from("chat_users")
-        .select("*")
-        .eq("author_id", userData.id)
-        .then((response) => response.data)
-        .catch((error) => {
-            throw new Error("Error fetching user chats: " + error.message);
-        });
+export async function fetchRecipientChats(userData) {
+    try {
+        const response = await supabase
+            .from("chat_users")
+            .select("*")
+            .eq("recipient_id", userData.id);
+
+        if (response.error) {
+            throw new Error("Error fetching user chats: " + response.error.message);
+        }
+        return response.data;
+    } catch (error) {
+        throw new Error("Error fetching user chats: " + error.message);
+    }
 }
+export async function fetchAuthorChats(userData) {
+    try {
+        const response = await supabase
+            .from("chat_users")
+            .select("*")
+            .eq("author_id", userData.id);
+
+        if (response.error) {
+            throw new Error("Error fetching user chats: " + response.error.message);
+        }
+        return response.data;
+    } catch (error) {
+        throw new Error("Error fetching user chats: " + error.message);
+    }
+}
+
 
 export function fetchUserChatMessages(chatId) {
     return supabase
@@ -73,9 +94,9 @@ export function fetchUserChatMessages(chatId) {
             throw new Error("Error fetching chat messages: " + error.message);
         });
 }
-
 export async function fetchUserDetails(authorId) {
     try {
+
         const { data, error } = await supabase
             .from("users")
             .select("*")
@@ -103,7 +124,6 @@ export async function getChatMessages(chat) {
     return chatMessagesData
 }
 
-
 export async function getCreateMessage(chat) {
     const messageObj = {
         chat_id: chat.chatId,
@@ -116,3 +136,7 @@ export async function getCreateMessage(chat) {
     }
     return data;
 }
+// export async function useRecievingChats(userID) {
+//     console.log(userID)
+
+// }

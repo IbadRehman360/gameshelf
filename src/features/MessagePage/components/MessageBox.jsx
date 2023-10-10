@@ -3,33 +3,31 @@ import MessageSearchBar from "./MessageSearchBar";
 import AllUsersMessagesBox from "./AllUsersMessagesBox";
 import { useEffect, useState } from "react";
 import { getCreateChat } from "../../../services/apiChat";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ChatBox from "./ChatBox";
 import { useGetChats } from "../useChats";
 import Header from "../../../layouts/Header";
 import { AiOutlineMessage } from "react-icons/ai";
 import { AiOutlineArrowLeft, AiOutlineRollback } from "react-icons/ai";
 import { useRef } from "react";
+import useGetUser from "../../../layouts/getUser";
 
 export default function MessageBox() {
   const { userData } = useAuth();
   const params = useParams();
   const [selectedChat, setSelectedChat] = useState(null);
   const { userChats, isLoading, isError } = useGetChats();
-
   const isInitialRender = useRef(true);
-
+  const { user } = useGetUser(userData.id);
   useEffect(() => {
-    if (!isInitialRender.current) {
+    if (!isInitialRender.current || userData) {
       if (params.userId && userData) {
-        console.log("hi");
         getCreateChat(userData.id, params.userId);
       }
     } else {
       isInitialRender.current = false;
     }
   }, [params.userId, userData]);
-
   const toggleChat = (chat) => {
     setSelectedChat((prevSelectedChat) =>
       prevSelectedChat === chat ? null : chat
@@ -63,7 +61,7 @@ export default function MessageBox() {
     );
   }
   function renderUsername() {
-    return userChats[0]?.your?.username?.charAt(0).toUpperCase();
+    return user[0]?.username?.charAt(0).toUpperCase();
   }
   return (
     <>
@@ -78,7 +76,7 @@ export default function MessageBox() {
             <div className="flex flex-row items-center px-4 pt-6">
               <div className="mt-1 flex flex-row items-center">
                 <a href="/">
-                  <div className="ml-2 flex items-center justify-center rounded-full text-xl  tracking-wide font-extrabold text-gray-600">
+                  <div className="ml-2 flex items-center justify-center rounded-full text-[1.5rem]  tracking-wide font-extrabold text-gray-600">
                     GAMERSHELF
                     <span className="ml-2">
                       <AiOutlineMessage
@@ -90,19 +88,19 @@ export default function MessageBox() {
                   </div>
                 </a>
               </div>
-              <div className="ml-auto">
-                {userChats[0]?.your?.avatar_image ? (
+              <Link to={`/profile/${user[0]?.username}`} className="ml-auto">
+                {user[0]?.avatar_image ? (
                   <img
                     className="h-9 w-9 rounded-full"
-                    src={userChats[0]?.your?.avatar_image}
+                    src={user[0]?.avatar_image}
                     alt=""
                   />
                 ) : (
-                  <div className="flex h-10 w-10 items-center  justify-center rounded-full bg-indigo-500">
+                  <div className="flex h-9 w-9 items-center  justify-center rounded-full bg-gray-400">
                     {renderUsername()}
                   </div>
                 )}
-              </div>
+              </Link>
             </div>
             <div className="px-3 sm:px-4 pt-2">
               <MessageSearchBar />

@@ -9,7 +9,6 @@ export default function ChatBox({ chat, user }) {
   const { userData } = useAuth();
   const { chatMessagesData, loadingChatMessages, isChatMessagesError } =
     useChatMessages(chat);
-
   if (loadingChatMessages)
     return (
       <div className="flex flex-col items-center justify-center h-full">
@@ -49,10 +48,7 @@ export default function ChatBox({ chat, user }) {
     );
   return (
     <div className="flex h-full w-full flex-col bg-white sm:px-4">
-      <ChatBoxHeader
-        name={chat.users.username}
-        image={chat.users.avatar_image}
-      />
+      <ChatBoxHeader chat={chat} yourId={userData} />
       <div className="h-full overflow-hidden py-4">
         <div className="h-full overflow-y-auto">
           <div className="grid grid-cols-12 gap-y-2">
@@ -60,14 +56,18 @@ export default function ChatBox({ chat, user }) {
               message.user_id === userData.id ? (
                 <ChatMessageSender
                   key={message.id}
-                  message={message.content}
+                  message={message}
                   user={user}
+                  yourId={userData}
+                  chat={chat}
                 />
               ) : (
                 <ChatMessageRecipient
                   key={message.id}
                   message={message.content}
+                  yourId={userData}
                   user={user}
+                  chat={chat}
                 />
               )
             )}

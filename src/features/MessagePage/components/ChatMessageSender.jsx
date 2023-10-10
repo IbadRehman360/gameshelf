@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 
-export default function ChatMessageSender({ user, message }) {
+export default function ChatMessageSender({ user, message, yourId, chat }) {
+  const displayData =
+    message.user_id !== yourId.id ? user[0].users : user[0].your;
   function renderUsername() {
-    return user[0].your.username.charAt(0).toUpperCase();
+    // return displayData.charAt(0).toUpperCase();
   }
 
-  const avatarContent = user[0].your.avatar_image ? (
+  const avatarContent = displayData ? (
     <Link
-      to={`/profile/${user[0].your.username}`}
+      to={`/profile/${displayData.username}`}
       className="flex h-10 w-10 shrink-0 items-center justify-center "
     >
       <img
         className="rounded-full "
-        src={user[0].your.avatar_image}
+        src={displayData.avatar_image}
         alt="User Avatar"
       />
     </Link>
@@ -27,7 +29,7 @@ export default function ChatMessageSender({ user, message }) {
       <div className="flex flex-row-reverse items-center justify-start">
         {avatarContent}
         <div className="relative mr-3 rounded-xl bg-indigo-50 px-4 py-2 text-sm shadow">
-          <div>{message}</div>
+          {/* <div>{message}</div> */}
         </div>
       </div>
     </div>

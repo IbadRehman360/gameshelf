@@ -35,9 +35,7 @@ export async function updateDescription(id, newDescription) {
     if (error) {
         console.log(error)
     }
-    if (data) {
-        console.log(data)
-    }
+
     return [data, error];
 
 }

@@ -1,14 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../context/AuthProvider";
-import { fetchUserChatMessages, fetchUserChats, fetchUserDetails } from "../../services/apiChat";
+import { fetchUserChatMessages, fetchRecipientChats, fetchUserDetails, fetchAuthorChats } from "../../services/apiChat";
 import { useState } from "react";
 import { useEffect } from "react";
+
 export function useGetChats() {
     const { userData } = useAuth();
 
-    const { data: userChats, isLoading, isError } = useQuery(
-        ['userChats', userData],
-        () => fetchUserChats(userData),
+    // Use two separate queries for recipient and author chats
+    const recipientQuery = useQuery(
+        ['recipientChats', userData],
+        () => fetchRecipientChats(userData),
+        {
+            enabled: !!userData,
+        }
+    );
+
+    const authorQuery = useQuery(
+        ['authorChats', userData],
+        () => fetchAuthorChats(userData),
         {
             enabled: !!userData,
         }
@@ -17,8 +27,12 @@ export function useGetChats() {
     const [resolvedUserChats, setResolvedUserChats] = useState([]);
 
     useEffect(() => {
-        if (userChats) {
-            const chatPromises = userChats.map(async (chatUser) => {
+        if (recipientQuery.data && authorQuery.data) {
+            // Combine recipient and author chats
+            const combinedChats = [...recipientQuery.data, ...authorQuery.data];
+
+            // Perform additional processing on the combined chats
+            const chatPromises = combinedChats.map(async (chatUser) => {
                 const chatId = chatUser.id;
                 const userChatMessages = await fetchUserChatMessages(chatId);
                 const userDetails = await fetchUserDetails(chatUser.recipient_id);
@@ -45,11 +59,11 @@ export function useGetChats() {
                     console.error("Error resolving user chats:", error);
                 });
         }
-    }, [userChats]);
+    }, [recipientQuery.data, authorQuery.data]);
 
-    if (isError) {
+    if (recipientQuery.isError || authorQuery.isError) {
         console.error("An error occurred while fetching user chats.");
     }
 
-    return { userChats: resolvedUserChats, isLoading, isError };
+    return { userChats: resolvedUserChats, isLoading: recipientQuery.isLoading || authorQuery.isLoading, isError: recipientQuery.isError || authorQuery.isError };
 }
