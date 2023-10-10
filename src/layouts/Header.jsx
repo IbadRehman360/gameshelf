@@ -43,7 +43,7 @@ export default function Header() {
                 <div className="flex shrink-0 items-center">
                   <Link to="/">
                     <img
-                      className="mr-4 mt-1.5 h-8 w-9 rounded-xl bg-gray-100 object-contain lg:h-8"
+                      className="mr-3.5 sm:mr-4 mt-1.5 h-8 w-9 rounded-xl bg-gray-100 object-contain lg:h-8"
                       src="/logo4.png"
                       alt="Your Company"
                     />
@@ -51,7 +51,7 @@ export default function Header() {
 
                   <Link
                     to="/"
-                    className="mt-1 min-w-fit text-[1.1rem] font-extrabold tracking-[0.4rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
+                    className="mt-1 min-w-fit text-[1.2rem] font-extrabold tracking-[0.35rem] sm:tracking-[0.4rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
                   >
                     GAMESHELF
                   </Link>

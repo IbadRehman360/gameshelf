@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { queryClient } from "../routes/routes";
 import supabase from "../services/supabase";
-import { useAuth } from "../context/AuthProvider";
 
-export async function useCreateChat(author, recipient) {
+
+export async function getCreateChat(author, recipient) {
     try {
         const { data: chatUsers, error } = await supabase
             .from("chat_users")
@@ -15,39 +15,42 @@ export async function useCreateChat(author, recipient) {
             return;
         }
 
-        if (chatUsers.length === 0) {
-            const { data: newChat, error: chatError } = await supabase
-                .from("chats")
-                .insert({})
-                .select("*");
-
-            if (chatError) {
-                console.error("Error creating chat:", chatError);
-                return;
-            }
-
-            const newChatObj = {
-                id: newChat[0].id,
-                author_id: author,
-                recipient_id: recipient,
-            };
-
-            const { data, error: insertError } = await supabase
-                .from("chat_users")
-                .insert([newChatObj])
-                .select("*");
-
-            if (insertError) {
-                console.error("Error inserting chat user:", insertError);
-                return;
-            }
+        if (chatUsers.length > 0) {
+            return;
         }
+
+        const { data: newChat, error: chatError } = await supabase
+            .from("chats")
+            .insert({})
+            .select("*");
+
+
+        if (chatError) {
+            console.error("Error creating chat:", chatError);
+            return;
+        }
+
+        const newChatObj = {
+            id: newChat[0].id,
+            author_id: author,
+            recipient_id: recipient,
+        };
+
+        const { error: insertError } = await supabase
+            .from("chat_users")
+            .insert([newChatObj])
+            .select("*");
+
+        if (insertError) {
+            console.error("Error inserting chat user:", insertError);
+            return;
+        }
+
+        queryClient.invalidateQueries('userChats');
     } catch (error) {
         console.error("An error occurred:", error);
     }
 }
-
-
 
 export function fetchUserChats(userData) {
     return supabase

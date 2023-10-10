@@ -2,29 +2,35 @@ import { useAuth } from "../../../context/AuthProvider";
 import MessageSearchBar from "./MessageSearchBar";
 import AllUsersMessagesBox from "./AllUsersMessagesBox";
 import { useEffect, useState } from "react";
-import { useCreateChat } from "../../../services/apiChat";
+import { getCreateChat } from "../../../services/apiChat";
 import { useParams } from "react-router-dom";
 import ChatBox from "./ChatBox";
 import { useGetChats } from "../useChats";
 import Header from "../../../layouts/Header";
 import { AiOutlineMessage } from "react-icons/ai";
 import { AiOutlineArrowLeft, AiOutlineRollback } from "react-icons/ai";
+import { useRef } from "react";
 
 export default function MessageBox() {
-  const params = useParams();
   const { userData } = useAuth();
-  const { userChats, isLoading, isError } = useGetChats();
+  const params = useParams();
   const [selectedChat, setSelectedChat] = useState(null);
+  const { userChats, isLoading, isError } = useGetChats();
+
+  const isInitialRender = useRef(true);
 
   useEffect(() => {
-    if (params.userId && userData) {
-      useCreateChat(userData.id, params.userId);
+    if (!isInitialRender.current) {
+      if (params.userId && userData) {
+        console.log("hi");
+        getCreateChat(userData.id, params.userId);
+      }
+    } else {
+      isInitialRender.current = false;
     }
   }, [params.userId, userData]);
 
   const toggleChat = (chat) => {
-    // If the selectedChat is already open, close it.
-    // Otherwise, set the selectedChat to the clicked chat.
     setSelectedChat((prevSelectedChat) =>
       prevSelectedChat === chat ? null : chat
     );
@@ -33,14 +39,18 @@ export default function MessageBox() {
   const goBackToChatList = () => {
     setSelectedChat(null);
   };
-  function renderUsername() {
-    return userChats[0].your.username.charAt(0).toUpperCase();
-  }
 
-  if (isLoading || userChats.length === 0) {
+  if (isLoading || !userChats) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        {/* Loading UI */}
+        <div
+          className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+          role="status"
+        >
+          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+            Loading...
+          </span>
+        </div>
       </div>
     );
   }
@@ -52,7 +62,9 @@ export default function MessageBox() {
       </div>
     );
   }
-
+  function renderUsername() {
+    return userChats[0]?.your?.username?.charAt(0).toUpperCase();
+  }
   return (
     <>
       <Header />
@@ -138,7 +150,33 @@ export default function MessageBox() {
               <ChatBox chat={selectedChat} user={userChats} />
             </>
           ) : (
-            <div> HI</div>
+            <div className="sm:flex sm:flex-col items-center hidden sm:justify-center sm:h-full">
+              <div className="bg-gray-300 rounded-full  w-40 h-40 flex items-center justify-center mb-4">
+                <img src="/vector.png" className="rounded-full w-40 h-40" />
+              </div>
+              <div className="text-center  ">
+                <p className="text-xl font-semibold">
+                  Welcome to GamerShelf chat
+                </p>
+                <p className="text-gray-600">Start chatting now!</p>
+              </div>
+              <div className="bg-blue-100 p-5 rounded-lg mt-4 text-center">
+                <h2 className="mb-4 text-xl font-semibold">
+                  Online Trading Safety Tips
+                </h2>
+                <ul className="text-gray-600 list-disc pl-4">
+                  <p className="mb-2 text-[0.92rem]  ">
+                    Always prioritize safety when trading online.
+                  </p>
+                  <p className="mb-2 text-[0.92rem] ">
+                    Never share your personal information with strangers.
+                  </p>
+                  <p className="mb-2 text-[0.92rem] ">
+                    Use our platform responsibly and follow our guidelines.
+                  </p>
+                </ul>
+              </div>
+            </div>
           )}
         </div>
       </div>

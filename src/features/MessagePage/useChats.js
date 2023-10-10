@@ -18,25 +18,26 @@ export function useGetChats() {
 
     useEffect(() => {
         if (userChats) {
-            Promise.all(
-                userChats.map(async (chatUser) => {
-                    const userChatMessages = await fetchUserChatMessages(chatUser.id);
-                    const lastMessage = userChatMessages[userChatMessages.length - 1];
-                    const userDetails = await fetchUserDetails(chatUser.recipient_id);
-                    const yourDetails = await fetchUserDetails(chatUser.author_id);
-                    const length = userChatMessages.length
-                    return {
-                        ...chatUser,
-                        lastMessage: {
-                            content: lastMessage ? lastMessage.content : "",
-                            created_at: lastMessage ? lastMessage.created_at : null,
-                        },
-                        length: length || null,
-                        users: userDetails || null,
-                        your: yourDetails || null
-                    };
-                })
-            )
+            const chatPromises = userChats.map(async (chatUser) => {
+                const chatId = chatUser.id;
+                const userChatMessages = await fetchUserChatMessages(chatId);
+                const userDetails = await fetchUserDetails(chatUser.recipient_id);
+                const yourDetails = await fetchUserDetails(chatUser.author_id);
+                const lastMessage = userChatMessages[userChatMessages.length - 1];
+
+                return {
+                    ...chatUser,
+                    lastMessage: {
+                        content: lastMessage ? lastMessage.content : "",
+                        created_at: lastMessage ? lastMessage.created_at : null,
+                    },
+                    length: userChatMessages.length,
+                    users: userDetails,
+                    your: yourDetails,
+                };
+            });
+
+            Promise.all(chatPromises)
                 .then((chatsWithLastMessages) => {
                     setResolvedUserChats(chatsWithLastMessages);
                 })
