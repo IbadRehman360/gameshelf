@@ -29,7 +29,7 @@ export default function FeaturedProduct({
             🕞 {getHour}H
           </div>
 
-          <p className="-mt-0.5 text-[0.85rem] font-medium text-slate-800 sm:hidden sm:text-[0.8rem] md:text-[0.9rem] lg:text-[0.85rem] xl:text-[0.9rem]">
+          <p className="-mt-0.5 text-[0.8rem] font-medium text-slate-800 sm:hidden sm:text-[0.8rem] md:text-[0.9rem] lg:text-[0.85rem] xl:text-[0.9rem]">
             {convertedPrice}
             <span className="ml-[3px] text-[0.6rem] font-normal text-gray-700 sm:text-[0.6rem] md:text-[0.6rem] xl:text-[0.6rem]">
               USD
@@ -58,7 +58,7 @@ export default function FeaturedProduct({
               </p>
             </div>
             <div className="mt-3">
-              <p className="mb-2 hidden text-[1rem] font-medium text-slate-600 sm:flex sm:text-[0.85rem] md:text-[0.85rem] lg:text-[0.96rem] xl:text-[0.94rem]">
+              <p className="mb-2 hidden text-[1rem] font-medium text-slate-600 sm:flex sm:text-[0.8rem] md:text-[0.8rem] lg:text-[0.89rem] xl:text-[0.9rem]">
                 {convertedPrice}
                 <span className="ml-[1px] text-[0.5rem] font-medium text-gray-800 sm:ml-[4px] sm:mt-[4.5px] sm:text-[0.59rem] md:mt-[3px] md:text-[0.65rem] lg:ml-1 lg:mt-[4px] xl:mt-[3.4px] xl:text-[0.7rem]">
                   USD

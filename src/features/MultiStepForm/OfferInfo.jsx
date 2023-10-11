@@ -83,7 +83,7 @@ function GameServiceComponent({
         />
       </div>
       {validationErrors.title && (
-        <div className=" text-sm border w-96 mb-5 border-red-500  tracking-wide text-red-700 px-5 py-1.5 rounded-md mt-2">
+        <div className=" text-sm border w-full  sm:w-80 mt-3 border-red-500  tracking-wide text-red-700 px-5 py-1.5 rounded-md ">
           <div className="flex items-center">
             <FaExclamationCircle className="mr-2 mt-0.5" />
             {validationErrors.title}
@@ -134,7 +134,7 @@ function GameServiceComponent({
         </select>
       </div>
       {validationErrors.price && (
-        <div className=" text-sm border w-96 mb-5 border-red-500  tracking-wide text-red-700 px-5 py-1.5 rounded-md mt-2">
+        <div className=" text-sm border w-full  sm:w-80 mt-3 border-red-500  tracking-wide text-red-700 px-5 py-1.5 rounded-md ">
           <div className="flex items-center">
             <FaExclamationCircle className="mr-2 mt-0.5" />
             {validationErrors.price}

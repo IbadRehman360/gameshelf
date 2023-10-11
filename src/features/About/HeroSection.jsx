@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HeroSection() {
   return (
     <div className="relative" id="home">
@@ -22,21 +24,24 @@ export default function HeroSection() {
             and thirst for adventure.
           </p>
           <div className="mt-12 flex flex-wrap justify-center gap-x-3 gap-y-2">
-            <a
+            <Link
               href="/"
               className="relative flex h-10 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
             >
               <span className="relative text-sm font-semibold text-white sm:text-base">
                 Get started
               </span>
-            </a>
+            </Link>
             <a
               href="#"
               className="relative flex h-10 items-center justify-center rounded-3xl border-gray-700 bg-gray-800 px-5 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
             >
-              <span className="relative text-sm font-semibold text-white sm:text-base">
+              <Link
+                to={"/dashboard"}
+                className="relative text-sm font-semibold text-white sm:text-base"
+              >
                 Explore Deals{" "}
-              </span>
+              </Link>
             </a>
           </div>
           <div className="mt-16 hidden gap-20 border-y border-gray-100 py-8 dark:border-gray-800 sm:flex">

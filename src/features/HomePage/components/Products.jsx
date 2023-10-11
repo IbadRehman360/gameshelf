@@ -11,7 +11,8 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
     sortCriteria.orderDirection
   );
 
-  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [displayedProducts1, setDisplayedProducts1] = useState([]);
+  const [displayedProducts2, setDisplayedProducts2] = useState([]);
 
   function calculateSliceEnd() {
     const windowWidth = window.innerWidth;
@@ -40,18 +41,22 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
 
   useEffect(() => {
     if (items) {
-      // Determine which products to display based on the currentSlide
-      if (currentSlide === 0) {
-        setDisplayedProducts(items.slice(0, sliceEnd));
-      } else if (currentSlide === 1) {
-        setDisplayedProducts(items.slice(sliceEnd, 2 * sliceEnd));
-      }
+      const sliceStart1 = 0;
+      const sliceEnd1 = sliceStart1 + sliceEnd;
+      setDisplayedProducts1(items.slice(sliceStart1, sliceEnd1));
+
+      const sliceStart2 = sliceEnd;
+      const sliceEnd2 = sliceStart2 + sliceEnd;
+      setDisplayedProducts2(items.slice(sliceStart2, sliceEnd2));
     }
-  }, [items, currentSlide, sliceEnd]);
+  }, [items, sliceEnd]);
 
   const handlePrevPage = () => {
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
+    } else {
+      // Wrap to the last slide when at the beginning
+      setCurrentSlide(1);
     }
   };
 
@@ -59,6 +64,7 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
     if (currentSlide < 1) {
       setCurrentSlide(currentSlide + 1);
     } else {
+      // Wrap to the first slide when at the end
       setCurrentSlide(0);
     }
   };
@@ -74,7 +80,25 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
           id="featuredProductsSlide1"
           className="carousel-item mx-auto my-4 w-full gap-2 sm:w-full md:gap-3"
         >
-          {displayedProducts.map((product) => (
+          {displayedProducts1.map((product) => (
+            <FeaturedProduct
+              key={product.id}
+              title={product.title}
+              created_at={product.created_at}
+              price={product.price}
+              level={product.users.level}
+              fullName={product.users.username}
+              productID={product.id}
+              games={product.games.title.toLowerCase()}
+              image={product.users.avatar_image}
+            />
+          ))}
+        </div>
+        <div
+          id="featuredProductsSlide2"
+          className="carousel-item mx-auto my-4 gap-2 w-full md:gap-3"
+        >
+          {displayedProducts2.map((product) => (
             <FeaturedProduct
               key={product.id}
               title={product.title}
@@ -94,7 +118,7 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
           className="text-[0.97rem] sm:text-[1rem] md:hidden"
           style={{ letterSpacing: "0.1em" }}
         >
-          {currentSlide < 1 ? "1/2" : "2/2"}
+          {currentSlide + 1}/2
         </p>
         <div className="hidden justify-center md:flex">
           <a

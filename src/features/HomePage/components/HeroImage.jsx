@@ -34,16 +34,14 @@ export default function HeroImages({ index, imageUrl }) {
         aria-label="Global"
       >
         <div className="flex flex-1 justify-end">
-          {!session && (
-            <NavLink
-              to="/about"
-              className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-50 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${
-                darkSlides.includes(index) ? "text-white " : "text-gray-900"
-              }`}
-            >
-              About Us <span aria-hidden="true">&rarr;</span>
-            </NavLink>
-          )}
+          <NavLink
+            to="/about"
+            className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-50 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${
+              darkSlides.includes(index) ? "text-white " : "text-gray-900"
+            }`}
+          >
+            About Us <span aria-hidden="true">&rarr;</span>
+          </NavLink>
         </div>
       </nav>
       <header className="absolute left-1/2 top-1/2 z-50 mt-4 w-full -translate-x-1/2 -translate-y-1/2">
