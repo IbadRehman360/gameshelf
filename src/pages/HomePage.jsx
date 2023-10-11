@@ -73,13 +73,13 @@ export default function HomePage() {
           <div className="fixed bottom-0 py-2  bg-white w-full sm:hidden flex ">
             <Link
               to={"/login"}
-              className="flex-1 text-center  ml-3 mr-2 bg-white border border-gray-400 text-gray-500 px-3 py-1 rounded-sm"
+              className="flex-1 text-center  ml-4 mr-2 bg-white border border-gray-400 text-gray-500 px-3 py-1 rounded-sm"
             >
               Login
             </Link>
             <Link
               to={"/register"}
-              className="flex-1 text-center  mr-3 bg-red-500 text-white px-3 py-1 rounded-sm"
+              className="flex-1 text-center  mr-4 bg-red-500 text-white px-3 py-1 rounded-sm"
             >
               Sign Up
             </Link>

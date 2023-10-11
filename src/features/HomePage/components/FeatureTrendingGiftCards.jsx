@@ -60,10 +60,10 @@ const TrendingGiftCards = () => {
         </div>
       </div>
 
-      <div className="carousel-center hidden w-full gap-x-4 rounded-lg sm:carousel">
+      <div className="carousel-center   hidden w-full gap-x-4 rounded-lg sm:carousel">
         <div
           id="trendingGiftCardsSlide1"
-          className="carousel-item w-full gap-2 xl:gap-4"
+          className="carousel-item   w-full gap-2  xl:gap-4"
         >
           {giftCardData.slice(0, 4).map((giftCard) => (
             <TrendingGiftCard key={giftCard.id} giftCard={giftCard} />
@@ -82,7 +82,7 @@ const TrendingGiftCards = () => {
       <div className="carousel relative w-full gap-x-4 rounded-lg sm:hidden">
         <div
           id="mbTrendingGiftCardsSlide1"
-          className="carousel-item w-full gap-2 sm:gap-5 md:gap-10"
+          className="carousel-item w-full gap-1  sm:gap-5 md:gap-10"
         >
           {giftCardData.slice(0, 2).map((giftCard) => (
             <TrendingGiftCard key={giftCard.id} giftCard={giftCard} />
@@ -90,7 +90,7 @@ const TrendingGiftCards = () => {
         </div>
         <div
           id="mbTrendingGiftCardsSlide2"
-          className="carousel-item w-full gap-4 sm:gap-5 md:gap-10"
+          className="carousel-item w-full gap-1 sm:gap-5 md:gap-10"
         >
           {giftCardData.slice(2, 4).map((giftCard) => (
             <TrendingGiftCard key={giftCard.id} giftCard={giftCard} />
