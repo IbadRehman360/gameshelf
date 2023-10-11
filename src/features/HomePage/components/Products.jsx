@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import useProduct from "../useProduct";
 import FeaturedProduct from "../../../components/FeatureProducts";
 import ProfileProductLoading from "../loaders/HomeProductLoader";
-import { Link } from "react-router-dom";
 
 export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,6 +10,8 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
     sortCriteria.orderBy,
     sortCriteria.orderDirection
   );
+
+  const [displayedProducts, setDisplayedProducts] = useState([]);
 
   function calculateSliceEnd() {
     const windowWidth = window.innerWidth;
@@ -37,10 +38,16 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
     };
   }, []);
 
-  if (loadingItems) {
-    return <ProfileProductLoading />;
-  }
-  const products = items ? items : [];
+  useEffect(() => {
+    if (items) {
+      // Determine which products to display based on the currentSlide
+      if (currentSlide === 0) {
+        setDisplayedProducts(items.slice(0, sliceEnd));
+      } else if (currentSlide === 1) {
+        setDisplayedProducts(items.slice(sliceEnd, 2 * sliceEnd));
+      }
+    }
+  }, [items, currentSlide, sliceEnd]);
 
   const handlePrevPage = () => {
     if (currentSlide > 0) {
@@ -49,11 +56,17 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
   };
 
   const handleNextPage = () => {
-    if (currentSlide < 2) setCurrentSlide(currentSlide + 1);
+    if (currentSlide < 1) {
+      setCurrentSlide(currentSlide + 1);
+    } else {
+      setCurrentSlide(0);
+    }
   };
 
-  const slide1 = products.slice(0, sliceEnd);
-  const slide2 = products.slice(sliceEnd, 2 * sliceEnd);
+  if (loadingItems) {
+    return <ProfileProductLoading />;
+  }
+
   return (
     <div className="sm:mb-12 mb-10 md:mb-16 bg-[#fdfdfd] px-3">
       <div className="carousel mt-2 w-full justify-items-stretch sm:mt-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5 lg:grid-cols-5">
@@ -61,25 +74,7 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
           id="featuredProductsSlide1"
           className="carousel-item mx-auto my-4 w-full gap-2 sm:w-full md:gap-3"
         >
-          {slide1.map((product) => (
-            <FeaturedProduct
-              key={product.id}
-              title={product.title}
-              created_at={product.created_at}
-              price={product.price}
-              level={product.users.level}
-              fullName={product.users.username}
-              productID={product.id}
-              games={product.games.title.toLowerCase()}
-              image={product.users.avatar_image}
-            />
-          ))}
-        </div>
-        <div
-          id="featuredProductsSlide2"
-          className="carousel-item mx-auto my-4 w-full gap-2 sm:w-full md:gap-3"
-        >
-          {slide2.map((product) => (
+          {displayedProducts.map((product) => (
             <FeaturedProduct
               key={product.id}
               title={product.title}
@@ -113,7 +108,7 @@ export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
           <a
             href="#featuredProductsSlide2"
             onClick={handleNextPage}
-            className={`mr-1 block h-[4px]  w-[28px] rounded-2xl ${
+            className={`mr-1 block h-[4px] w-[28px] rounded-2xl ${
               currentSlide === 1 ? "bg-[#f03827]" : "bg-[#888888]"
             } `}
           />

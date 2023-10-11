@@ -14,9 +14,17 @@ const TrendingGiftCards = () => {
   };
 
   const handleNextPage = () => {
-    if (currentSlide < 2) setCurrentSlide(currentSlide + 1);
+    if (currentSlide < 1) {
+      setCurrentSlide(currentSlide + 1);
+    } else {
+      setCurrentSlide(0);
+    }
   };
 
+  const visibleData = giftCardData.slice(
+    currentSlide * 4,
+    (currentSlide + 1) * 4
+  );
   return (
     <div className="mt-8 bg-[#fdfdfd]">
       <div className="my-8 mr-2 flex items-center justify-between">
@@ -65,7 +73,7 @@ const TrendingGiftCards = () => {
           id="trendingGiftCardsSlide1"
           className="carousel-item   w-full gap-2  xl:gap-4"
         >
-          {giftCardData.slice(0, 4).map((giftCard) => (
+          {visibleData.slice(0, 4).map((giftCard) => (
             <TrendingGiftCard key={giftCard.id} giftCard={giftCard} />
           ))}
         </div>
@@ -73,7 +81,7 @@ const TrendingGiftCards = () => {
           id="trendingGiftCardsSlide2"
           className="carousel-item w-full gap-4 sm:gap-5 lg:gap-8"
         >
-          {giftCardData.slice(0, 4).map((giftCard) => (
+          {visibleData.slice(0, 4).map((giftCard) => (
             <TrendingGiftCard key={giftCard.id} giftCard={giftCard} />
           ))}
         </div>
