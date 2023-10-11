@@ -1,8 +1,8 @@
 import { useState } from "react";
+import videoCardData from "../../../assets/giftcardsData/videocardData.json";
 import TrendingVideoGame from "./TrendingVideoGame";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
-import videoCardData from "../../../assets/giftcardsData/videocardData.json";
 
 const TrendingVideoGames = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
