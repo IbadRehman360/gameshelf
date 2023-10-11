@@ -111,8 +111,8 @@ export default function Header() {
                       </p>
                     </div>
                   </div>
-                  <a
-                    href="/chat"
+                  <Link
+                    to="/chat"
                     type="button"
                     className="relative shrink-0 rounded-full text-gray-600 hover:text-slate-500"
                   >
@@ -122,7 +122,7 @@ export default function Header() {
                       className="m-1 h-[36px] w-10 text-gray-100 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       aria-hidden="true"
                     />
-                  </a>
+                  </Link>
                   <Menu as="div" className="relative shrink-0">
                     <div>
                       <Menu.Button className="relative flex rounded-full text-sm">
@@ -155,15 +155,15 @@ export default function Header() {
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href={`/profile/${user[0]?.username}`}
+                            <Link
+                              to={`/profile/${user[0]?.username}`}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm border-b text-gray-700 flex items-center"
                               )}
                             >
                               <FiUser className="mr-2" /> Your Profile
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                         <Menu.Item>
@@ -207,13 +207,12 @@ export default function Header() {
             {session && (
               <div className="space-y-1">
                 {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
-                <Disclosure.Button
-                  as="a"
-                  href={`/profile/${user[0]?.username}`}
+                <Link
+                  to={`/profile/${user[0]?.username}`}
                   className="block border-l-4 border-indigo-500 bg-indigo-50 py-3 pl-3 pr-4 text-base font-medium text-indigo-700"
                 >
                   View Profile
-                </Disclosure.Button>
+                </Link>
               </div>
             )}
 
@@ -281,32 +280,27 @@ export default function Header() {
               <div className={`${session ? "mt-3 pt-4" : ""} space-y-1`}>
                 {!session ? (
                   <>
-                    <Disclosure.Button
-                      as="a"
-                      href="login"
-                      className="block border-t border-gray-600 px-4 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
+                    <Link
+                      to="/login"
+                      className="block border-t border-gray-600 px-4 py-3 text-[0.9rem] font-medium text-gray-200  hover:text-white rounded-md"
                     >
                       <FiLogIn className="inline-block mr-2" /> Login
-                    </Disclosure.Button>
+                    </Link>
                     <Link
-                      as="a"
-                      href="register"
-                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
+                      to="/register"
+                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-gray-200 hover:text-white rounded-md"
                     >
                       <FiUserPlus className="inline-block mr-2" /> Sign Up
                     </Link>
 
-                    {/* Additional unnecessary style buttons */}
                     <Link
-                      as="a"
-                      href="about"
-                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-blue-500 hover:bg-blue-100 hover:text-blue-700 rounded-md"
+                      to="/about"
+                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-blue-500  hover:text-blue-700 rounded-md"
                     >
                       <FiInfo className="inline-block mr-2" /> About Us
                     </Link>
                     <Link
-                      as="a"
-                      href="profile/Ibad Khan"
+                      to="/profile/Ibad Khan"
                       className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-green-500 hover:bg-green-100 hover:text-green-700 rounded-md"
                     >
                       <FiMail className="inline-block mr-2" /> Contact Us
@@ -316,7 +310,7 @@ export default function Header() {
                   <>
                     <Link
                       as="a"
-                      href="/chat"
+                      to="/chat"
                       className="flex items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
                     >
                       <FiMessageCircle className="mr-2" /> Messages
