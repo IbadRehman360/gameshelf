@@ -18,6 +18,7 @@ export default function MessageBox() {
   const [selectedChat, setSelectedChat] = useState(null);
   const { userChats, isLoading, isError } = useGetChats();
   const isInitialRender = useRef(true);
+  const { user } = useGetUser(userData.id);
   useEffect(() => {
     if (!isInitialRender.current || userData) {
       if (params.userId && userData) {
@@ -36,7 +37,6 @@ export default function MessageBox() {
   const goBackToChatList = () => {
     setSelectedChat(null);
   };
-  const { user } = useGetUser(userData.id);
 
   if (isLoading || !userChats || !user) {
     return (
