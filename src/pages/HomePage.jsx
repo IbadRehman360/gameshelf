@@ -57,7 +57,7 @@ export default function HomePage() {
           </Link> */}
         </div>
 
-        <div className="mx-auto mt-16 max-w-[1400px] bg-[#fdfdfd] px-0 xl:px-14">
+        <div className="mx-auto mt-10 sm:mt-14 max-w-[1400px] bg-[#fdfdfd] px-0 xl:px-14">
           <ProductsFilter
             sortCriteria={sortCriteria}
             setSortCriteria={setSortCriteria}
@@ -70,16 +70,16 @@ export default function HomePage() {
           <TrendingVideoGames />
         </div>
         {!session ? (
-          <div className="fixed bottom-0 py-3  bg-white w-full sm:hidden flex ">
+          <div className="fixed bottom-0 py-2  bg-white w-full sm:hidden flex ">
             <Link
               to={"/login"}
-              className="flex-1 text-center  ml-2 mr-2 bg-white border border-gray-400 text-gray-500 px-4 py-1.5 rounded-sm"
+              className="flex-1 text-center  ml-3 mr-2 bg-white border border-gray-400 text-gray-500 px-3 py-1 rounded-sm"
             >
               Login
             </Link>
             <Link
               to={"/register"}
-              className="flex-1 text-center  mr-2 bg-red-500 text-white px-4 py-1.5 rounded-sm"
+              className="flex-1 text-center  mr-3 bg-red-500 text-white px-3 py-1 rounded-sm"
             >
               Sign Up
             </Link>
