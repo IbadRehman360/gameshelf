@@ -4,6 +4,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../context/AuthProvider";
 import useGetUser from "../../../layouts/getUser";
+
 const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
@@ -20,7 +21,7 @@ export default function HeroImages({ index, imageUrl }) {
 
   return (
     <div className="relative">
-      <div className="h-[40vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
+      <div className="h-[30vh] w-full border-b    object-contain border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
         <img
           className="h-full w-full object-cover"
           src={`/HeroImages/${imageUrl}`}
