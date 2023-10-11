@@ -3,6 +3,7 @@ import videoCardData from "../../../assets/giftcardsData/videocardData.json";
 import TrendingVideoGame from "./TrendingVideoGame";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
+
 const TrendingVideoGames = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -95,6 +96,7 @@ const TrendingVideoGames = () => {
           ))}
         </div>
       </div>
+
       <div className="mt-2 flex justify-center text-xs sm:mt-4 md:mt-6">
         <p
           className="text-[0.97rem] sm:text-[1rem] md:hidden"

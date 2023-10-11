@@ -38,12 +38,12 @@ export default function Header() {
       {({ open }) => (
         <>
           <div className="mx-auto border-b-[1px] border-gray-500 bg-[#3b404e] px-2 shadow-sm sm:px-2 lg:px-3 xl:px-5">
-            <div className="mx-4 flex h-16 justify-between sm:mx-6 md:h-[70px] xl:h-[90px]">
+            <div className="mx-2 flex h-16 justify-between sm:mx-6 md:h-[70px] xl:h-[90px]">
               <div className="flex lg:px-0">
                 <div className="flex shrink-0 items-center">
                   <Link to="/">
                     <img
-                      className="mr-3.5 sm:mr-4 mt-1.5 h-8 w-9 rounded-xl bg-gray-100 object-contain lg:h-8"
+                      className="mr-3  sm:mr-4 mt-1.5 h-8 w-9 rounded-xl bg-gray-100 object-contain lg:h-8"
                       src="/logo4.png"
                       alt="Your Company"
                     />
@@ -53,7 +53,7 @@ export default function Header() {
                     to="/"
                     className="mt-1 min-w-fit text-[1.2rem] font-extrabold tracking-[0.35rem] sm:tracking-[0.4rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
                   >
-                    GAMESHELF
+                    GAMERSHELF
                   </Link>
                 </div>
                 <div className="hidden md:ml-14 md:flex md:space-x-12">
