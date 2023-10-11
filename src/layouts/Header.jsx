@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { AiFillMessage } from "react-icons/ai";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
@@ -192,13 +192,13 @@ export default function Header() {
                   >
                     Sell
                   </Link>
-                  <NavLink
+                  <Link
                     className="mt-1 rounded-full bg-rose-500 px-6 py-2.5 text-[0.9rem] font-medium text-gray-50 shadow outline-none transition-all duration-150 ease-linear hover:bg-rose-500 hover:opacity-95 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
                     to={"/login"}
                   >
                     Login / Sign up
-                  </NavLink>
+                  </Link>
                 </div>
               )}
             </div>
@@ -283,14 +283,14 @@ export default function Header() {
                   <>
                     <Disclosure.Button
                       as="a"
-                      href="/login"
+                      href="login"
                       className="block border-t border-gray-600 px-4 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
                     >
                       <FiLogIn className="inline-block mr-2" /> Login
                     </Disclosure.Button>
                     <Disclosure.Button
                       as="a"
-                      href="/register"
+                      href="register"
                       className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
                     >
                       <FiUserPlus className="inline-block mr-2" /> Sign Up
@@ -299,14 +299,14 @@ export default function Header() {
                     {/* Additional unnecessary style buttons */}
                     <Disclosure.Button
                       as="a"
-                      href="/about"
+                      href="about"
                       className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-blue-500 hover:bg-blue-100 hover:text-blue-700 rounded-md"
                     >
                       <FiInfo className="inline-block mr-2" /> About Us
                     </Disclosure.Button>
                     <Disclosure.Button
                       as="a"
-                      href="/profile/Ibad Khan"
+                      href="profile/Ibad Khan"
                       className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-green-500 hover:bg-green-100 hover:text-green-700 rounded-md"
                     >
                       <FiMail className="inline-block mr-2" /> Contact Us
