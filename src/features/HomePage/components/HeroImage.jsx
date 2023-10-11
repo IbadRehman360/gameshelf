@@ -120,12 +120,12 @@ export default function HeroImages({ index, imageUrl }) {
             </p>
           </h3>
           <div className="my-4 mt-6 flex items-center justify-center gap-x-6 place-self-center text-center align-middle sm:my-0 sm:mt-6 lg:mt-8 lg:gap-x-8">
-            <a
-              href={!session ? "/login" : `/sell/${user[0]?.username}`}
+            <Link
+              to={!session ? "login" : `/sell/${user[0]?.username}`}
               className="flex h-8 w-24 items-center justify-center  rounded-md bg-rose-600 text-[0.66rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-9 sm:text-xs md:h-9 md:w-28 lg:h-10 lg:w-32 lg:py-4  2xl:h-14 2xl:text-[1.03rem]"
             >
               Start Selling
-            </a>
+            </Link>
 
             <Link
               to="/dashboard"
