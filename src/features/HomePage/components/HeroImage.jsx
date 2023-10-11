@@ -12,7 +12,7 @@ const navigation = [
   { name: "Company", href: "#" },
 ];
 
-const darkSlides = [0, 1, 2, 3, 8, 6];
+const darkSlides = [0, 1, 2, 3, 4, 5, 8, 7, 6];
 
 export default function HeroImages({ index, imageUrl }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function HeroImages({ index, imageUrl }) {
 
   return (
     <div className="relative">
-      <div className="h-[30vh] w-full border-b    object-contain border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
+      <div className="h-[34vh] w-full border-b    object-contain border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
         <img
           className="h-full w-full object-cover"
           src={`/HeroImages/${imageUrl}`}
