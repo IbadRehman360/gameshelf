@@ -1,22 +1,29 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import BreadCrumbs from "./BreadCrumbs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PurchaseUser from "./PurchaseUser";
 import useEqProduct from "./useSpProduct";
-import { decimalConversion } from "../../utils/helpers";
 import { AiOutlineLoading } from "react-icons/ai";
-import ProductImage from "./ProductImage";
-import PurchaseBuyBtn from "./PurchaseBuyBtn";
+
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
-import { Portal } from "@headlessui/react";
+import ProfileEditDescription from "../Profile/components/ProfileEditDescription";
+import ProductEdit from "./ProductEdit";
+import ProductInfoTitles from "./ProductInfoTitles";
+import ProductInfoCard from "./ProductInfoCard";
 
 export default function ProductPage() {
   const { id } = useParams();
-  const [quantity, setQuantity] = useState(1);
   const { product, loading, productError } = useEqProduct(id);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { session } = useAuth();
+  const [isEditing, setIsEditing] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [description, setDescription] = useState("");
+  useEffect(() => {
+    if (product) {
+      setDescription(product[0]?.description);
+    }
+  }, [product]);
   if (productError) return <h1>ERROR</h1>;
   if (loading || !product) {
     return (
@@ -26,29 +33,19 @@ export default function ProductPage() {
     );
   }
 
-  const onNextClick = () => {
-    setCurrentImageIndex(
-      (prevIndex) => (prevIndex + 1) % product[0]?.images.length
-    );
+  const handleEdit = () => {
+    setIsEditing(true);
   };
 
-  function subQuantity() {
-    if (quantity > 1) setQuantity((prevQuantity) => prevQuantity - 1);
-  }
+  const handleDelete = () => {
+    setIsDeleting(true);
+  };
+  const handleSave = () => {
+    setIsEditing(false);
+  };
 
-  function addQuantity() {
-    if (product[0].stock > quantity) {
-      setQuantity((prevQuantity) => prevQuantity + 1);
-    }
-  }
+  const isSessionAvailable = !!session;
 
-  const productPrice = product[0]?.price;
-  const sellerProductId = product[0].id;
-  const imageUrl =
-    product[0].images === null ? null : product[0]?.images[currentImageIndex];
-  const convertedPrice = decimalConversion(product[0]?.price);
-  const description = product[0]?.description;
-  const productTitle = product[0].game_id.title;
   return (
     <div className="pb-20">
       {session?.user?.id === product[0]?.seller_id?.id && (
@@ -65,102 +62,47 @@ export default function ProductPage() {
             {product[0]?.title}
           </h1>
         </div>
-
         <div className="flex flex-col gap-10 md:flex-row lg:gap-20">
           <div className="flex flex-col gap-6 rounded-lg border-[1px] p-4 sm:p-8 md:w-2/3 md:gap-8 lg:w-3/5">
-            <div className="">
-              <PurchaseUser user={product} />
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-md mb-2 font-semibold sm:text-lg md:text-xl">
-                Product Info
-              </h3>
-              <div className="flex w-fit flex-wrap gap-2 text-[10px] sm:text-xs">
-                <span className="w-fit rounded-lg bg-gray-300 p-2">
-                  Item Type: {product[0]?.category_id?.name}
-                </span>
-                <span className="w-fit rounded-lg bg-gray-300 p-2">
-                  Game: {product[0]?.game_id?.title}
-                </span>
-                {product[0]?.options?.map((option, index) => {
-                  const optionObj = JSON.parse(option);
-                  const key = Object.keys(optionObj)[0];
-                  const value = optionObj[key];
-
-                  return (
-                    <span
-                      className="w-fit rounded-lg bg-gray-300 p-2"
-                      key={index}
-                    >
-                      {key}: {value}
-                    </span>
-                  );
-                })}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <PurchaseUser user={product} />
               </div>
+              <ProductEdit
+                isSessionAvailable={isSessionAvailable}
+                session={session}
+                product={product}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
             </div>
+
+            <ProductInfoTitles product={product} />
             <div className="flex flex-col gap-4">
+              {isEditing && <button onClick={handleSave}>save</button>}
               <h3 className="text-md font-semibold sm:text-lg md:text-xl">
-                Details
+                Description
               </h3>
-              <div
-                className="text-[0.86rem] tracking-wide text-gray-800 pb-4 sm:pb-0 sm:md:text-sm"
-                style={{ whiteSpace: "pre-wrap" }}
-              >
-                <p>{description}</p>
-              </div>
+              {isEditing ? (
+                <div>
+                  <ProfileEditDescription
+                    newDescription={description}
+                    setNewDescription={setDescription}
+                  />
+                </div>
+              ) : (
+                <>
+                  <div
+                    className="text-[0.86rem] tracking-wide text-gray-800"
+                    style={{ whiteSpace: "pre-wrap" }}
+                  >
+                    <p>{description}</p>
+                  </div>
+                </>
+              )}
             </div>
           </div>
-
-          <div className="flex flex-col items-center justify-center gap-6 rounded-lg bg-gray-100 p-6 sm:w-full md:w-1/2 lg:w-2/5">
-            <div className="w-full">
-              <ProductImage
-                imageUrl={imageUrl}
-                currentImageIndex={currentImageIndex}
-                onNextClick={onNextClick}
-              />
-            </div>{" "}
-            <div className="flex flex-col gap-4 text-center">
-              <span className="text-xs tracking-wide">
-                {product[0].stock} in stock
-              </span>
-              <div className="flex items-center gap-2 rounded-full bg-white p-1">
-                <button
-                  className="btn btn-sm rounded-full bg-gray-200"
-                  onClick={() => subQuantity()}
-                >
-                  -
-                </button>
-                <span className="px-4">{quantity}</span>
-                <button
-                  className="btn btn-sm rounded-full bg-navy-blue text-white hover:bg-[#323447]"
-                  onClick={() => addQuantity()}
-                >
-                  +
-                </button>
-              </div>
-              <span className="text-xs tracking-wider">
-                Unit price {convertedPrice} USD
-              </span>
-            </div>
-            <hr className="w-full border-[1px] border-gray-400" />
-            <div className="flex w-full flex-col gap-4">
-              <div className="flex justify-between">
-                <h3 className="text-[1.05rem] font-medium text-gray-600 sm:text-[1.1rem] xl:text-[1.15rem]">
-                  Total
-                </h3>
-                <h3 className="text-[1rem] font-medium tracking-wide text-gray-600 sm:text-[1.1rem] xl:text-[1.15rem]">
-                  ${(convertedPrice * quantity).toFixed(2)}
-                </h3>
-              </div>
-
-              <PurchaseBuyBtn
-                productPrice={productPrice}
-                sellerProductId={sellerProductId}
-                productTitle={productTitle}
-                sellerProductId2={product[0]}
-              />
-            </div>
-          </div>
+          <ProductInfoCard product={product} />
         </div>
       </div>
     </div>
