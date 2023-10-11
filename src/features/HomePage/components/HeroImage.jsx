@@ -20,7 +20,7 @@ export default function HeroImages({ index, imageUrl }) {
 
   return (
     <div className="relative">
-      <div className="h-[50vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
+      <div className="h-[34vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
         <img
           className="h-full w-full object-cover"
           src={`/HeroImages/${imageUrl}`}
@@ -129,7 +129,7 @@ export default function HeroImages({ index, imageUrl }) {
 
             <Link
               to="/dashboard"
-              className="flex h-[34px]   w-28 sm:w-auto items-center justify-center rounded-md border-[1px] bg-gray-800 p-3 text-[0.66rem] font-semibold text-white opacity-80 shadow-sm transition hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-10 sm:text-xs lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
+              className="flex h-[34px]   sm:w-auto items-center justify-center rounded-md border-[1px] bg-gray-800 p-3 text-[0.66rem] font-semibold text-white opacity-80 shadow-sm transition hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-10 sm:text-xs lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
             >
               Find great deals {""} <span aria-hidden="true ">→</span>
             </Link>
