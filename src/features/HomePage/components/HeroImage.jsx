@@ -21,7 +21,7 @@ export default function HeroImages({ index, imageUrl }) {
 
   return (
     <div className="relative">
-      <div className="h-[34vh] w-full border-b    object-contain border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
+      <div className="h-[38vh] w-full border-b    object-contain border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
         <img
           className="h-full w-full object-cover"
           src={`/HeroImages/${imageUrl}`}

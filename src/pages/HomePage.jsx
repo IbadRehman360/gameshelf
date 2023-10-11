@@ -70,7 +70,10 @@ export default function HomePage() {
           <TrendingVideoGames />
         </div>
         {!session ? (
-          <div className="fixed bottom-t py-2  bg-white w-full sm:hidden flex">
+          <div
+            className="fixed bottom-0  py-2 bg-white w-full sm:hidden flex"
+            style={{ boxShadow: "0px -1px 2px rgba(0, 0, 0, 0.2)" }}
+          >
             <Link
               to={"login"}
               className="flex-1 text-center  ml-4 mr-2 bg-white border border-gray-400 text-gray-500 px-3 py-1 rounded-sm"
