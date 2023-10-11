@@ -1,5 +1,5 @@
 import { useState } from "react";
-import videoCardData from "../../../assets/giftCardsData/videocardData.json";
+import videoCardData from "../../../assets/giftcardsData/videocardData.json";
 import TrendingVideoGame from "./TrendingVideoGame";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
