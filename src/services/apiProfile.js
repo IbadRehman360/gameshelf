@@ -35,14 +35,11 @@ export async function updateDescription(id, newDescription) {
     if (error) {
         console.log(error)
     }
-    if (data) {
-        console.log(data)
-    }
+
     return [data, error];
 
 }
 export async function updateLanguage(id, languages) {
-    console.log(languages.second)
     const { data, error } = await supabase
         .from("users")
         .update({

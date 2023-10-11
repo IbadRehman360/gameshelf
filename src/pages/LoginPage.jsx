@@ -2,11 +2,10 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import supabase from "../services/supabase";
 import { Auth } from "@supabase/auth-ui-react";
 import { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 
-//Quick hack to fix later
 async function CheckAuth() {
   const {
     data: { user },
@@ -16,8 +15,8 @@ async function CheckAuth() {
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const [isLogged, setIslogged] = useState(null);
-  
+  const [isLogged, setIsLogged] = useState(null);
+
   const appearance = {
     theme: ThemeSupa,
     variables: {
@@ -33,26 +32,31 @@ export default function LoginPage() {
   useEffect(() => {
     CheckAuth().then((data) => {
       if (data) {
-        setIslogged(true);
+        setIsLogged(true);
       } else {
-        setIslogged(false);
+        setIsLogged(false);
       }
     });
   }, []);
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((event) => {
-      if (event == "SIGNED_IN") 
-      navigate("/")
+      if (event === "SIGNED_IN") navigate("/");
     });
   }, [navigate]);
+  useEffect(() => {
+    const linkElements = document.querySelectorAll(".c-dumjqv");
 
-  if (isLogged === null) return <></>;
-  if (isLogged) return <Navigate to="/" />;
+    if (linkElements.length >= 2) {
+      linkElements[1].remove();
+      linkElements[0].remove();
+    }
+  });
+
   return (
-    <>
+    <div>
       <Header />
-      <div className="mx-auto flex h-[80vh] max-w-xl items-center justify-center p-6">
+      <div className=" sm:mx-auto  flex h-[80vh] max-w-xl items-center justify-center px-4 bg-white sm:p-6">
         <div className="w-full">
           <Auth
             supabaseClient={supabase}
@@ -61,9 +65,20 @@ export default function LoginPage() {
             view="sign_in"
             redirectTo="http://localhost:5173/"
           />
+          <div className="flex justify-center items-start">
+            <Link
+              to="/register"
+              className="text-center ml-2 -mt-3 tracking-wide text-gray-500 text-[0.84rem] underline hover:text-gray-500 w-60 sm:w-80"
+            >
+              Don't have an account? Sign up
+            </Link>
+          </div>
         </div>
       </div>
+
       <Footer />
-    </>
+    </div>
   );
 }
+
+// bg-transparent

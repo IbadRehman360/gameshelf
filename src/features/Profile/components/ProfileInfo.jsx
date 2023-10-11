@@ -10,14 +10,14 @@ export default function ProfileInfo({ profileData }) {
     <div className="md:order-3 lg:text-right">
       <ProfileAvatar user={user} />
       <div className="mt-16 text-center md:mt-0 lg:order-1">
-        <h3 className="text-[1.15rem] font-medium sm:text-[1.2rem] 2xl:text-[1.3rem] 3xl:text-[1.35rem]">
-          {profileData.data.first_name} {profileData.data.last_name}
+        <h3 className="text-[1.15rem] text-gray-700  tracking-wide font-medium sm:text-[1.2rem] 2xl:text-[1.3rem] 3xl:text-[1.35rem]">
+          {profileData.data.username}
         </h3>
         <p className="mt-0.5 text-[0.8rem] uppercase">
           Level {profileData.data.level}
         </p>
       </div>
-      {session?.user?.id || session?.user?.id === profileData?.data?.id ? (
+      {session?.user?.id === profileData?.data?.id ? (
         <div className="bg-gray-100 animate-pulse p-3.5 rounded-lg shadow-lg mt-5 text-center">
           <p className="text-gray-700 text-lg font-semibold mb-2">
             Viewing Your Profile

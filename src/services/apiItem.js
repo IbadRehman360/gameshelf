@@ -1,31 +1,67 @@
 import supabase from "../services/supabase";
 
-export const createItem = async (values, user) => {
-    const { data: updatedData, error } = await supabase.from("items").upsert([
-        {
+
+
+export async function uploadImageToStorage(file) {
+    try {
+        const Paramfile = file.file
+        const userId = file.userId
+        const values = file.values
+        const fileName = file.fileName
+        const uploadfileName = `${fileName}-${Math.random()}`.replaceAll("/", "");
+        const newImage = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/item_images/${uploadfileName}`;
+
+        const { data: uploadData, error: uploadError } = await supabase.storage.from("item_images").upload(uploadfileName, Paramfile);
+
+        if (uploadError) {
+            throw uploadError;
+        }
+
+        await createItem(values, userId, newImage);
+
+        return newImage;
+    } catch (error) {
+        console.error("Error uploading image to storage:", error);
+        throw error;
+    }
+}
+
+export const createItem = async (values, user, newImage) => {
+    try {
+        const itemData = {
             title: values.title,
             price: values.price,
             description: values.description,
             stock: values.stock,
-            images: values.images[0].name,
             options: values.options,
-            seller_id: user.id,
+            seller_id: user,
             category_id: values.serviceId,
             game_id: values.gameId,
-        },
-    ]);
+        };
+        if (newImage) {
+            itemData.images = [newImage];
+        } else if (values.images.length > 0) {
+            itemData.images = [values.images[0].name];
+        }
 
-    if (error) {
-        console.log("error on creating new item: ", error);
-        throw new Error("error creating new item: " + error.message);
+        const { data: updatedData, error } = await supabase.from("items").upsert([itemData]);
+
+        if (error) {
+            console.error("Error creating new item:", error);
+            throw error;
+        }
+
+        if (updatedData) {
+            console.log("New item created:", updatedData);
+        }
+
+        return [updatedData, error];
+    } catch (error) {
+        console.error("Error creating new item:", error);
+        throw error;
     }
-
-    if (updatedData) {
-        console.log(updatedData);
-    }
-
-    return [updatedData, error];
 };
+
 export async function getItem(orderBy, orderDirection) {
     const { data: items, error } = await supabase
         .from("items")
@@ -92,11 +128,12 @@ export async function getUserInfo(userId) {
     }
     return games;
 }
-export async function updateBuyerCoins(buyerID, updatedBuyerCoin) {
+export async function updateBuyerCoins(buyerID, formattedBuyerCoin) {
     try {
+        console.log(formattedBuyerCoin)
         const { data, error } = await supabase
             .from("users")
-            .update({ coin: updatedBuyerCoin })
+            .update({ coin: formattedBuyerCoin })
             .eq("id", buyerID);
 
         if (error) {
@@ -110,7 +147,6 @@ export async function updateBuyerCoins(buyerID, updatedBuyerCoin) {
 }
 
 export async function deletePurchasedProduct(sellerProductId) {
-    console.log(sellerProductId)
     try {
         const { data, error } = await supabase
             .from("items")

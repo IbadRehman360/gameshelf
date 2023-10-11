@@ -1,14 +1,35 @@
-export default function ChatBoxHeader({ name }) {
+import { Link } from "react-router-dom";
+
+export default function ChatBoxHeader({ chat, yourId }) {
+  function renderUsername() {
+    return displayData.username.charAt(0).toUpperCase();
+  }
+  const displayData = chat.author_id === yourId.id ? chat.users : chat.your;
+  const avatarContent = displayData.avatar_image ? (
+    <Link
+      to={`/profile/${displayData.username}`}
+      className="flex h-11 w-11 shrink-0 items-center justify-center"
+    >
+      <img
+        className="rounded-full"
+        src={displayData.avatar_image}
+        alt="User Avatar"
+      />
+    </Link>
+  ) : (
+    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500">
+      {renderUsername()}
+    </div>
+  );
   return (
     <div className="flex flex-row items-center rounded-2xl px-6 py-4 shadow">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pink-500 font-bold text-pink-300">
-        <img
-          src={`/images/avatars/avatar-0.webp`}
-          className="rounded-full"
-        ></img>
-      </div>
+      {avatarContent}
       <div className="ml-3 flex flex-col">
-        <div className="text-sm font-semibold capitalize">{name}</div>
+        <Link to={`/profile/${displayData.username}`}>
+          <div className="text-sm font-semibold capitalize">
+            {displayData.username}
+          </div>
+        </Link>
         <div className="text-xs text-gray-500">Active</div>
       </div>
       <div className="ml-auto">
@@ -16,7 +37,7 @@ export default function ChatBoxHeader({ name }) {
           <li>
             <a
               href="#"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover-bg-gray-200"
             >
               <span>
                 <svg
@@ -34,7 +55,7 @@ export default function ChatBoxHeader({ name }) {
           <li>
             <a
               href="#"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover-bg-gray-200"
             >
               <span>
                 <svg
@@ -52,7 +73,7 @@ export default function ChatBoxHeader({ name }) {
           <li>
             <a
               href="#"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover-bg-gray-200"
             >
               <span>
                 <svg

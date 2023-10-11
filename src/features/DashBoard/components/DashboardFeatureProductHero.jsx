@@ -52,8 +52,8 @@ export default function DashboardFeatureProductHero({
               className="rounded-lg border-2 border-orange-400 shadow-md shadow-orange-300 transition-transform duration-300 hover:scale-105 sm:h-32 md:h-36 lg:h-44 xl:h-48"
             >
               <img
-                src={src}
-                alt={`Image ${index + 1}`}
+                src={`/HeroImages/${src}`}
+                alt={`Image${index + 1}`}
                 className="h-full w-full rounded-lg object-cover"
               />
             </div>

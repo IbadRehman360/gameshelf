@@ -43,7 +43,7 @@ export default function Header() {
                 <div className="flex shrink-0 items-center">
                   <Link to="/">
                     <img
-                      className="mr-4 mt-1.5 h-8 w-9 rounded-xl bg-gray-100 object-contain lg:h-8"
+                      className="mr-3.5 sm:mr-4 mt-1.5 h-8 w-9 rounded-xl bg-gray-100 object-contain lg:h-8"
                       src="/logo4.png"
                       alt="Your Company"
                     />
@@ -51,7 +51,7 @@ export default function Header() {
 
                   <Link
                     to="/"
-                    className="mt-1 min-w-fit text-[1.1rem] font-extrabold tracking-[0.4rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
+                    className="mt-1 min-w-fit text-[1.2rem] font-extrabold tracking-[0.35rem] sm:tracking-[0.4rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
                   >
                     GAMESHELF
                   </Link>
@@ -125,15 +125,21 @@ export default function Header() {
                   </a>
                   <Menu as="div" className="relative shrink-0">
                     <div>
-                      <Menu.Button className="relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      <Menu.Button className="relative flex rounded-full text-sm">
                         <span className="absolute" />
                         <span className="sr-only">Open user menu</span>
                         <div className="mt-0.5 rounded-full">
-                          <img
-                            className="h-[46px] w-[50px] rounded-full border-[1px] border-gray-800 object-cover"
-                            src={user[0]?.avatar_image}
-                            alt=""
-                          />
+                          {user[0]?.avatar_image ? (
+                            <img
+                              className="h-[46px] w-[50px] rounded-full object-cover border-none"
+                              src={user[0]?.avatar_image}
+                              alt=""
+                            />
+                          ) : (
+                            <div className="h-[46px] w-[50px] mb-0.5 rounded-full flex items-center justify-center bg-gray-300 text-white">
+                              {user[0]?.username[0].toUpperCase()}
+                            </div>
+                          )}
                         </div>
                       </Menu.Button>
                     </div>
@@ -178,7 +184,7 @@ export default function Header() {
                   </Menu>
                 </div>
               ) : (
-                <div className="hidden gap-6 lg:ml-4 lg:flex lg:items-center">
+                <div className="hidden gap-6 md:ml-4 md:flex md:items-center">
                   <a
                     className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
@@ -218,16 +224,29 @@ export default function Header() {
             >
               {session && (
                 <div className="mt-2 flex items-center px-4">
-                  <div className="shrink-0 rounded-full border-[2px] border-gray-500">
-                    <img
-                      className="h-11  w-12 rounded-full"
-                      src={user[0]?.avatar_image}
-                      alt=""
-                    />
+                  <div className="shrink-0 rounded-full">
+                    {user[0]?.avatar_image ? (
+                      <img
+                        className="h-11 w-12 rounded-full"
+                        src={user[0].avatar_image}
+                        alt=""
+                      />
+                    ) : (
+                      <div
+                        className="h-10 w-11 rounded-full flex items-center justify-center text-white bg-gray-400"
+                        style={{ fontSize: "16px" }}
+                      >
+                        {user[0]?.username.charAt(0).toUpperCase()}
+                      </div>
+                    )}
                   </div>
-                  <div className="mb-1 ml-2">
-                    <div className="text-[0.9rem] font-medium tracking-wide text-gray-100">
-                      {user[0]?.username}
+
+                  <div className="mb-0.5 ml-2">
+                    <div className="text-[0.82rem] font-medium tracking-wider text-gray-100">
+                      {user[0]?.username
+                        ? user[0].username.charAt(0).toUpperCase() +
+                          user[0].username.slice(1).toLowerCase()
+                        : ""}
                     </div>
                     <div className="text-[0.8rem] font-medium text-gray-300">
                       {session.user.email}
@@ -235,11 +254,11 @@ export default function Header() {
                   </div>
                   <div
                     type="button"
-                    className="relative -left-1 -top-1 ml-auto shrink-0 rounded-full bg-white p-1 text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="relative -left-1  ml-auto shrink-0 rounded-full bg-white p-1 text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
                     <div className="group relative">
                       <img
-                        src="/dollar(1).png"
+                        src="/dollar(2).png"
                         alt="Coin Image"
                         className={`h-8 w-9 transition-transform hover:scale-110 active:scale-95 ${
                           isClicked ? "scale-110" : ""

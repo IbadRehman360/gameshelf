@@ -4,7 +4,6 @@ export default function FeaturedProduct({ featureProduct, profileData }) {
   const date = new Date(featureProduct.created_at);
   const getHour = date.getHours(date);
   const decimalConversion = featureProduct.price.toFixed(2);
-
   return (
     <Link to={`/dashboard/csgo/${featureProduct.id}`}>
       <div className="flex flex-col rounded-2xl border-2 bg-[#fdfdfd] p-3 ">
@@ -27,16 +26,26 @@ export default function FeaturedProduct({ featureProduct, profileData }) {
         </div>
         <div className="border-t"></div>
         <div className="m-1 flex text-[0.4rem] sm:text-[0.7rem]">
-          <img
-            className="mt-1.5 h-8 w-8 rounded-full sm:h-8 sm:w-8 lg:h-9 lg:w-9"
-            src="/userImage/3.jpg"
-          />
+          <div className="mt-1.5 h-8 w-8 rounded-full sm:h-8 sm:w-8 lg:h-9 lg:w-9 ">
+            {profileData.data.avatar_image ? (
+              <img
+                src={profileData.data.avatar_image}
+                alt=""
+                className="h-full w-full rounded-full"
+              />
+            ) : (
+              <div className="h-full w-full flex items-center justify-center rounded-full bg-gray-300 text-white">
+                {profileData.data.username[0]}
+              </div>
+            )}
+          </div>
+
           <div className="ml-2 inline-flex flex-1 items-center justify-between">
             <div className="mt-1 md:mt-2 lg:mt-0.5">
-              <h6 className="inline-flex truncate text-[11px] font-semibold text-gray-600 md:text-[10px] lg:text-[12px]">
+              <h6 className="inline-flex  truncate text-[11px] font-semibold tracking-wide text-gray-700 md:text-[10px] lg:text-[11.8px]">
                 {profileData.data.username}
               </h6>
-              <p className="text-[10px] tracking-wide text-gray-500 md:text-[10px] lg:text-[10px]">
+              <p className="text-[10px]  -m-0.5 ml-[0.5px] tracking-wide text-gray-500 md:text-[10px] lg:text-[10px]">
                 Level {profileData.data.level}
               </p>
             </div>

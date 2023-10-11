@@ -12,7 +12,7 @@ import MessagePage from "../pages/MessagePage";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { AuthProvider } from "../context/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import GameCategoryProductPage from "../pages/GameCategoryProductPage";
 
 export const queryClient = new QueryClient({
@@ -27,7 +27,6 @@ const router = createBrowserRouter([
   {
     element: (
       <QueryClientProvider client={queryClient}>
-        {/* <ReactQueryDevtools initialIsOpen={false} />; */}
         <AuthProvider>
           <AppLayout />
         </AuthProvider>
@@ -62,27 +61,47 @@ const router = createBrowserRouter([
   },
   {
     element: (
-      <AuthProvider>
-        <ProtectedRoute>
-          <AppLayout />
-        </ProtectedRoute>
-      </AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <ProtectedRoute>
+            <AppLayout />
+          </ProtectedRoute>
+        </AuthProvider>
+      </QueryClientProvider>
     ),
     children: [
-      {
-        path: "chat/",
-        element: <MessagePage />,
-      },
-      {
-        path: "/chat/new/:userId",
-        element: <MessagePage />,
-      },
       {
         path: "sell/:user",
         element: <MultiStepFormPage />,
       },
     ],
   },
+  {
+    path: "chat/",
+    element: (
+      <QueryClientProvider client={queryClient}>
+        {/* <ReactQueryDevtools initialIsOpen={false} />; */}
+        <AuthProvider>
+          <ProtectedRoute>
+            <MessagePage />
+          </ProtectedRoute>
+        </AuthProvider>
+      </QueryClientProvider>
+    ),
+  },
+  {
+    path: "/chat/new/:userId",
+    element: (
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <ProtectedRoute>
+            <MessagePage />
+          </ProtectedRoute>
+        </AuthProvider>
+      </QueryClientProvider>
+    ),
+  },
+
   {
     path: "login",
     element: <LoginPage />,
