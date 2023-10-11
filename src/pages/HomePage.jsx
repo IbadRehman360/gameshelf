@@ -97,7 +97,10 @@ export default function HomePage() {
               <FontAwesomeIcon icon={faComments} style={{ color: "gray" }} />
               <span className="text-xs mt-1">Chat</span>
             </Link>
-            <Link to={"/sell"} className="flex flex-col items-center">
+            <Link
+              to={`/sell/${user?.username}`}
+              className="flex flex-col items-center"
+            >
               <FontAwesomeIcon
                 icon={faShoppingCart}
                 style={{ color: "gray" }}

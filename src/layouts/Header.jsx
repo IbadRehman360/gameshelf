@@ -86,7 +86,7 @@ export default function Header() {
               {session ? (
                 <div className="hidden gap-6 md:flex md:items-center lg:ml-4">
                   <Link
-                    className="mt-1 rounded-full bg-gray-50 px-9 py-[6px] text-[1.02rem] font-medium text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
+                    className="mt-1 rounded-full bg-gray-50 px-9 py-[6px] text-[1.02rem] font-medium text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear  hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
                     to={`sell/${user[0]?.username}`}
                   >
@@ -186,7 +186,7 @@ export default function Header() {
               ) : (
                 <div className="hidden gap-6 md:ml-4 md:flex md:items-center">
                   <Link
-                    className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
+                    className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
                     to={!session ? "/login" : `sell/${user[0]?.username}`}
                   >
@@ -311,7 +311,7 @@ export default function Header() {
                     <Link
                       as="a"
                       to="/chat"
-                      className="flex items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                      className="flex items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200  hover:text-white"
                     >
                       <FiMessageCircle className="mr-2" /> Messages
                     </Link>
@@ -319,7 +319,7 @@ export default function Header() {
                     <Link
                       as="a"
                       onClick={() => handleSignOut()}
-                      className="flex  items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                      className="flex  items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200  hover:text-white"
                     >
                       <FiLogOut className="mr-2" /> Logout
                     </Link>
