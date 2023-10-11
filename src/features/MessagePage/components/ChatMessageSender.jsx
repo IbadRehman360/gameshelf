@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
 
-export default function ChatMessageSender({ user, message, yourId, chat }) {
-
-  console.log(message.user_id, yourId.id)
+export default function ChatMessageSender({
+  user,
+  message,
+  yourId,
+  chat,
+  index,
+}) {
   const displayData =
-    yourId.id !== user[0].users.id ? user[0].your : user[0].users
+    yourId.id !== user[0].users.id ? user[0].your : user[0].users;
   function renderUsername() {
-    // return displayData.charAt(0).toUpperCase();
+    return displayData.username.charAt(0).toUpperCase();
   }
-  const avatarContent = displayData ? (
+  const avatarContent = displayData.avatar_image ? (
     <Link
       to={`/profile/${displayData.username}`}
       className="flex h-10 w-10 shrink-0 items-center justify-center "

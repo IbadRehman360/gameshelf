@@ -4,11 +4,25 @@ import ChatBoxHeader from "./ChatBoxHeader";
 import ChatBoxInput from "./ChatBoxInput";
 import { useChatMessages } from "../useChatMessages";
 import { useAuth } from "../../../context/AuthProvider";
+import { useEffect, useRef } from "react";
 
-export default function ChatBox({ chat, user }) {
+export default function ChatBox({ chat, user, userInfo }) {
   const { userData } = useAuth();
   const { chatMessagesData, loadingChatMessages, isChatMessagesError } =
     useChatMessages(chat);
+  const chatContainerRef = useRef(null);
+
+  // Scroll to the bottom of the chat container
+  const scrollToBottom = () => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  };
+  useEffect(() => {
+    // Scroll to the bottom when chatMessagesData changes
+    scrollToBottom();
+  }, [chatMessagesData]);
   if (loadingChatMessages)
     return (
       <div className="flex flex-col items-center justify-center h-full">
@@ -50,16 +64,18 @@ export default function ChatBox({ chat, user }) {
     <div className="flex h-full w-full flex-col bg-white sm:px-4">
       <ChatBoxHeader chat={chat} yourId={userData} />
       <div className="h-full overflow-hidden py-4">
-        <div className="h-full overflow-y-auto">
+        <div className="h-full overflow-y-auto" ref={chatContainerRef}>
           <div className="grid grid-cols-12 gap-y-2">
-            {chatMessagesData.map((message) =>
+            {chatMessagesData.map((message, index) =>
               message.user_id === userData.id ? (
                 <ChatMessageSender
                   key={message.id}
                   message={message}
                   user={user}
+                  userInfo={userInfo}
                   yourId={userData}
                   chat={chat}
+                  index={index}
                 />
               ) : (
                 <ChatMessageRecipient
@@ -68,6 +84,8 @@ export default function ChatBox({ chat, user }) {
                   yourId={userData}
                   user={user}
                   chat={chat}
+                  userInfo={userInfo}
+                  index={index}
                 />
               )
             )}

@@ -20,7 +20,7 @@ export default function MessageBox() {
   const isInitialRender = useRef(true);
   const { user } = useGetUser(userData.id);
   useEffect(() => {
-    if (!isInitialRender.current || userData) {
+    if (!isInitialRender.current) {
       if (params.userId && userData) {
         getCreateChat(userData.id, params.userId);
       }
@@ -68,8 +68,9 @@ export default function MessageBox() {
       <Header />
       <div className="sm:flex h-[91vh] sm:flex-row  text-gray-800 antialiased">
         <div
-          className={`${selectedChat && " hidden"
-            } shrink-0 sm:flex-row sm:border-r-2 bg-white sm:flex sm:w-72 lg:w-80`}
+          className={`${
+            selectedChat && " hidden"
+          } shrink-0 sm:flex-row sm:border-r-2 bg-white sm:flex sm:w-72 lg:w-80`}
         >
           <div className="h-full w-full flex-col sm:flex">
             <div className="flex flex-row items-center px-4 pt-6">
@@ -111,7 +112,7 @@ export default function MessageBox() {
             </div>
 
             <div>
-              <div className="overflow-y-auto mt-6  border-t">
+              <div className="overflow-y-auto mt-6 border-t">
                 {userChats.map((chat, index) => (
                   <button
                     key={index}
@@ -145,7 +146,7 @@ export default function MessageBox() {
                   <span className="flex-grow mr-6">Back to Chat List</span>
                 </div>
               </button>
-              <ChatBox chat={selectedChat} user={userChats} />
+              <ChatBox chat={selectedChat} userInfo={user} user={userChats} />
             </>
           ) : (
             <div className="sm:flex sm:flex-col items-center hidden sm:justify-center sm:h-full">

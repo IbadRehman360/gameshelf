@@ -80,6 +80,7 @@ const router = createBrowserRouter([
     path: "chat/",
     element: (
       <QueryClientProvider client={queryClient}>
+        {/* <ReactQueryDevtools initialIsOpen={false} />; */}
         <AuthProvider>
           <ProtectedRoute>
             <MessagePage />

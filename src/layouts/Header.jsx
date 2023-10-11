@@ -184,7 +184,7 @@ export default function Header() {
                   </Menu>
                 </div>
               ) : (
-                <div className="hidden gap-6 lg:ml-4 lg:flex lg:items-center">
+                <div className="hidden gap-6 md:ml-4 md:flex md:items-center">
                   <a
                     className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
