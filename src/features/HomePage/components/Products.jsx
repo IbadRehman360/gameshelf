@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useProduct from "../useProduct";
 import FeaturedProduct from "../../../components/FeatureProducts";
 import ProfileProductLoading from "../loaders/HomeProductLoader";
+import { Link } from "react-router-dom";
 
 export default function FeaturedProducts({ sortCriteria, setSortCriteria }) {
   const [currentSlide, setCurrentSlide] = useState(0);

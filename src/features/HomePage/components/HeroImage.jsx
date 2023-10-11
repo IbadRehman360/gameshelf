@@ -99,11 +99,20 @@ export default function HeroImages({ index, imageUrl }) {
             <span className="text-orange-600">GameShelf</span>
           </h2>
           <h3 className="mx-4 mt-3 text-[0.6rem] leading-loose tracking-normal text-gray-100 sm:mt-3 sm:text-[0.65rem] md:mt-5 md:text-[0.7rem] lg:mt-4 lg:text-[0.9rem] 2xl:mb-4 2xl:mt-8 2xl:text-[1rem]">
-            <p>
+            <p
+              className=" font-semibold tracking-wider"
+              style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)" }}
+            >
               Elevate your gaming with GameShelf&apos;s exclusive offerings.
             </p>
-            <p className="block sm:hidden">Explore a vast library of games</p>
-            <p className="hidden sm:block">
+            <p
+              className="font-semibold  block sm:hidden tracking-wider"
+              style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)" }}
+            >
+              Explore a vast library of games
+            </p>
+
+            <p className="hidden   sm:block">
               <p>
                 Explore a vast library of games gear up with accessories, Join
                 us for an immersive gaming journey like no other.
@@ -113,16 +122,16 @@ export default function HeroImages({ index, imageUrl }) {
           <div className="my-4 mt-6 flex items-center justify-center gap-x-6 place-self-center text-center align-middle sm:my-0 sm:mt-6 lg:mt-8 lg:gap-x-8">
             <a
               href={!session ? "/login" : `/sell/${user[0]?.username}`}
-              className="flex h-8 w-20 items-center justify-center  rounded-md bg-rose-600 text-[0.59rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-9 sm:text-xs md:h-9 md:w-28 lg:h-10 lg:w-32 lg:py-4  2xl:h-14 2xl:text-[1.03rem]"
+              className="flex h-8 w-24 items-center justify-center  rounded-md bg-rose-600 text-[0.66rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-9 sm:text-xs md:h-9 md:w-28 lg:h-10 lg:w-32 lg:py-4  2xl:h-14 2xl:text-[1.03rem]"
             >
               Start Selling
             </a>
 
             <Link
               to="/dashboard"
-              className="flex h-8 w-fit items-center justify-center rounded-md border-[1px] bg-gray-800 p-3 text-[0.55rem] font-semibold text-white opacity-80 shadow-sm transition hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-10 sm:text-xs lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
+              className="flex h-[34px]   w-28 sm:w-auto items-center justify-center rounded-md border-[1px] bg-gray-800 p-3 text-[0.66rem] font-semibold text-white opacity-80 shadow-sm transition hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-10 sm:text-xs lg:py-4 2xl:h-14 2xl:text-[1.03rem]"
             >
-              Find great deals <span aria-hidden="true">→</span>
+              Find great deals {""} <span aria-hidden="true ">→</span>
             </Link>
           </div>
         </div>
