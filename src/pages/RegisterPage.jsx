@@ -37,11 +37,19 @@ export default function RegisterPage() {
   }, []);
 
   function checkPasswordErrors() {
-    setCheckPassword(true);
-    if (confirmPassword.length < 8) return true;
-    if (username.length < 2) return true;
-    if (password != confirmPassword) return true;
-    setCheckPassword(false);
+    let errorCount = 0;
+
+    if (confirmPassword.length < 8) {
+      errorCount++;
+    }
+    if (username.length < 2) {
+      errorCount++;
+    }
+    if (password !== confirmPassword) {
+      errorCount++;
+    }
+
+    setCheckPassword(errorCount > 0);
   }
 
   useEffect(() => {
@@ -174,6 +182,7 @@ export default function RegisterPage() {
               {checkPassword && (
                 <div className="rounded-md bg-red-50 p-4">
                   <div className="flex">
+                    {checkPassword}
                     <div className="shrink-0">
                       <HiXCircle
                         className="h-5 w-5 text-red-400"

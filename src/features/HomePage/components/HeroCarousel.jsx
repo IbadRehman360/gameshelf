@@ -17,7 +17,7 @@ export default function HeroCarousel() {
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={{ delay: 2000 }}
+        autoplay={{ delay: 4000 }}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
