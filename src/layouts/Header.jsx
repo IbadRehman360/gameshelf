@@ -85,13 +85,13 @@ export default function Header() {
 
               {session ? (
                 <div className="hidden gap-6 md:flex md:items-center lg:ml-4">
-                  <NavLink
+                  <Link
                     className="mt-1 rounded-full bg-gray-50 px-9 py-[6px] text-[1.02rem] font-medium text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
-                    to={`/sell/${user[0]?.username}`}
+                    to={`sell/${user[0]?.username}`}
                   >
                     Sell
-                  </NavLink>
+                  </Link>
                   <div className="group relative inline-block">
                     <img
                       src="/dollar(2).png"
@@ -188,7 +188,7 @@ export default function Header() {
                   <Link
                     className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
-                    to={!session ? "/login" : `/sell/${user[0]?.username}`}
+                    to={!session ? "/login" : `sell/${user[0]?.username}`}
                   >
                     Sell
                   </Link>
