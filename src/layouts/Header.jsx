@@ -288,47 +288,47 @@ export default function Header() {
                     >
                       <FiLogIn className="inline-block mr-2" /> Login
                     </Disclosure.Button>
-                    <Disclosure.Button
+                    <Link
                       as="a"
                       href="register"
                       className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
                     >
                       <FiUserPlus className="inline-block mr-2" /> Sign Up
-                    </Disclosure.Button>
+                    </Link>
 
                     {/* Additional unnecessary style buttons */}
-                    <Disclosure.Button
+                    <Link
                       as="a"
                       href="about"
                       className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-blue-500 hover:bg-blue-100 hover:text-blue-700 rounded-md"
                     >
                       <FiInfo className="inline-block mr-2" /> About Us
-                    </Disclosure.Button>
-                    <Disclosure.Button
+                    </Link>
+                    <Link
                       as="a"
                       href="profile/Ibad Khan"
                       className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-green-500 hover:bg-green-100 hover:text-green-700 rounded-md"
                     >
                       <FiMail className="inline-block mr-2" /> Contact Us
-                    </Disclosure.Button>
+                    </Link>
                   </>
                 ) : (
                   <>
-                    <Disclosure.Button
+                    <Link
                       as="a"
                       href="/chat"
                       className="flex items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
                     >
                       <FiMessageCircle className="mr-2" /> Messages
-                    </Disclosure.Button>
+                    </Link>
 
-                    <Disclosure.Button
+                    <Link
                       as="a"
                       onClick={() => handleSignOut()}
                       className="flex  items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
                     >
                       <FiLogOut className="mr-2" /> Logout
-                    </Disclosure.Button>
+                    </Link>
                   </>
                 )}
               </div>
