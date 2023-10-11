@@ -185,13 +185,13 @@ export default function Header() {
                 </div>
               ) : (
                 <div className="hidden gap-6 md:ml-4 md:flex md:items-center">
-                  <a
+                  <Link
                     className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
-                    href={!session ? "/login" : `/sell/${user[0]?.username}`}
+                    to={!session ? "/login" : `/sell/${user[0]?.username}`}
                   >
                     Sell
-                  </a>
+                  </Link>
                   <NavLink
                     className="mt-1 rounded-full bg-rose-500 px-6 py-2.5 text-[0.9rem] font-medium text-gray-50 shadow outline-none transition-all duration-150 ease-linear hover:bg-rose-500 hover:opacity-95 hover:shadow-md focus:outline-none active:bg-gray-400"
                     type="button"
