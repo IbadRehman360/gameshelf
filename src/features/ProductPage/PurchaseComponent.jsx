@@ -46,14 +46,14 @@ export default function ProductPage() {
               <div className="flex items-center">
                 <PurchaseUser user={product} />
               </div>
-              {/* {session?.user?.id === product[0]?.seller_id?.id && ( */}
-              <div className="mb-10">
-                <ProfileProductDeletion
-                  id={product[0]?.id}
-                  game={product[0]?.game_id.title}
-                />
-              </div>
-              {/* )} */}
+              {session?.user?.id === product[0]?.seller_id?.id && (
+                <div className="mb-10">
+                  <ProfileProductDeletion
+                    id={product[0]?.id}
+                    game={product[0]?.game_id.title}
+                  />
+                </div>
+              )}
             </div>
 
             <ProductInfoTitles product={product} />
