@@ -11,12 +11,19 @@ function ProfileDescription({ profileData }) {
     profileData.data.description
   );
   const { session } = useAuth();
+  const field = "description";
+  const from = "users";
 
   const [isEdit, setIsEdit] = useState(false);
 
   const updateDescriptionMutation = useMutation(
     (newDescription) => {
-      return updateDescription(profileData.data.id, newDescription);
+      return updateDescription(
+        profileData.data.id,
+        newDescription,
+        field,
+        from
+      );
     },
     { ...createMutationConfig(setIsEdit) }
   );
@@ -58,10 +65,9 @@ function ProfileDescription({ profileData }) {
         <div className="flex flex-wrap" style={{ whiteSpace: "pre-line" }}>
           {isEdit ? (
             <ProfileEdit
-              content={profileData.data.description}
-              onSave={handleSaveDescription}
               newDescription={newDescription}
               setNewDescription={setNewDescription}
+              maxCharacters={400}
             />
           ) : (
             <div

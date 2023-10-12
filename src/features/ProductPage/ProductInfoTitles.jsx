@@ -1,7 +1,7 @@
 function ProductInfoTitles({ product }) {
   return (
     <div className="flex flex-col gap-1">
-      <h3 className="text-md mb-2 font-semibold sm:text-lg md:text-xl">
+      <h3 className="text-[1.1rem] mb-1  text-gray-700 font-semibold mr-2 sm:text-lg md:text-xl">
         Product Info
       </h3>
       <div className="flex w-fit flex-wrap gap-2 text-[10px] sm:text-xs">

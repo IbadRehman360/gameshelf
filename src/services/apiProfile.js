@@ -27,10 +27,10 @@ export async function getProfileData(user) {
         error: null,
     };
 }
-export async function updateDescription(id, newDescription) {
+export async function updateDescription(id, newDescription, field, from) {
     const { data, error } = await supabase
-        .from("users")
-        .update({ description: newDescription })
+        .from(from)
+        .update({ [field]: newDescription })
         .eq("id", id);
     if (error) {
         console.log(error)
