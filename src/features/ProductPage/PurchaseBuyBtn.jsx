@@ -28,18 +28,13 @@ export default function PurchaseBuyBtn({ product }) {
     } else {
       try {
         const formattedBuyerCoin = parseInt(buyerCoins - product[0]?.price);
-        navigate(
-          `/dashboard/${product[0]?.game_id.title
-            .toLowerCase()
-            .split(" ")
-            .join("")}`
-        );
+        navigate(`/chat/new/${product[0]?.seller_id.id}`);
         toast.success("You have successfully made your purchase.");
-        const deletedProduct = await mutate({
-          formattedBuyerCoin,
-          buyerID,
-          sellerProductId: product[0]?.id,
-        });
+        // const deletedProduct = await mutate({
+        //   formattedBuyerCoin,
+        //   buyerID,
+        //   sellerProductId: product[0]?.id,
+        // });
       } catch (error) {
         console.error("Error purchasing the product:", error);
       }

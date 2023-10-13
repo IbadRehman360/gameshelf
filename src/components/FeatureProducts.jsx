@@ -29,7 +29,7 @@ export default function FeaturedProduct({
             🕞 {getHour}H
           </div>
 
-          <p className="-mt-0.5 text-[0.8rem] font-medium text-slate-800 sm:hidden sm:text-[0.8rem] md:text-[0.9rem] lg:text-[0.85rem] xl:text-[0.9rem]">
+          <p className="-mt-0.5 text-[0.8rem] font-medium text-slate-600 sm:hidden sm:text-[0.8rem] md:text-[0.9rem] lg:text-[0.85rem] xl:text-[0.9rem]">
             {convertedPrice}
             <span className="ml-[3px] text-[0.6rem] font-normal text-gray-700 sm:text-[0.6rem] md:text-[0.6rem] xl:text-[0.6rem]">
               USD

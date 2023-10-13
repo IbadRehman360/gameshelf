@@ -37,21 +37,21 @@ export default function Header() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto border-b-[1px] border-gray-500 bg-[#3b404e] px-2 shadow-sm sm:px-2 lg:px-3 xl:px-5">
+          <div className="mx-auto border-b-[1px] border-gray-500 bg-[#3b404e] px-2 shadow-sm  xl:px-3 2xl:px-4 3xl:px-5">
             <div className="mx-2 flex h-16 justify-between sm:mx-6 md:h-[70px] xl:h-[90px]">
               <div className="flex lg:px-0">
                 <div className="flex shrink-0 items-center">
-                  <Link to="/">
-                    <img
-                      className="mr-3  sm:mr-4 mt-1.5 h-8 w-9 rounded-xl bg-gray-100 object-contain lg:h-8"
-                      src="/logo4.png"
-                      alt="Your Company"
-                    />
+                  <Link to="/" className="md:flex hidden items-center ">
+                    <div className="mr-3 sm:mr-4 mt-1 h-9 w-10 xl:h-[42px] xl:w-12 rounded-3xl bg-gradient-to-r  px-[18px] py-[2px] sm:px-[19px] sm:py-[12px]  lg:px-[20px] lg:py-[14px]  xl:px-[24px] xl:py-[20px]  bg-slate-100 hover:bg-slate-200  text-black flex items-center justify-center shadow-md hover:shadow-lg ">
+                      <div className="xl:text-[1.9rem] text-[1.55rem]  text-gray-700  font-bold tracking-tight">
+                        GS
+                      </div>
+                    </div>
                   </Link>
 
                   <Link
                     to="/"
-                    className="mt-1 min-w-fit text-[1.2rem] font-extrabold tracking-[0.35rem] sm:tracking-[0.4rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
+                    className="mt-1 min-w-fit text-[1.2rem] font-extrabold tracking-[0.35rem] sm:tracking-[0.45rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
                   >
                     GAMERSHELF
                   </Link>
@@ -87,8 +87,7 @@ export default function Header() {
                 <div className="hidden gap-6 md:flex md:items-center lg:ml-4">
                   <Link
                     className="mt-1 rounded-full bg-gray-50 px-9 py-[6px] text-[1.02rem] font-medium text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear  hover:shadow-md focus:outline-none active:bg-gray-400"
-                    type="button"
-                    to={`sell/${user[0]?.username}`}
+                    to={`/sell/${user[0]?.username}`}
                   >
                     Sell
                   </Link>
@@ -113,7 +112,6 @@ export default function Header() {
                   </div>
                   <Link
                     to="/chat"
-                    type="button"
                     className="relative shrink-0 rounded-full text-gray-600 hover:text-slate-500"
                   >
                     <span className="absolute" />
@@ -187,14 +185,12 @@ export default function Header() {
                 <div className="hidden gap-6 md:ml-4 md:flex md:items-center">
                   <Link
                     className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-gray-400"
-                    type="button"
-                    to={!session ? "/login" : `sell/${user[0]?.username}`}
+                    to={!session ? "/login" : `/sell/${user[0]?.username}`}
                   >
                     Sell
                   </Link>
                   <Link
                     className="mt-1 rounded-full bg-rose-500 px-6 py-2.5 text-[0.9rem] font-medium text-gray-50 shadow outline-none transition-all duration-150 ease-linear hover:bg-rose-500 hover:opacity-95 hover:shadow-md focus:outline-none active:bg-gray-400"
-                    type="button"
                     to={"/login"}
                   >
                     Login / Sign up

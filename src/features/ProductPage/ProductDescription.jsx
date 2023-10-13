@@ -78,7 +78,7 @@ function ProductDescriptio({ session, product }) {
         </div>
       ) : (
         <div
-          className="text-[0.86rem] tracking-wide text-gray-800"
+          className="text-[0.83rem] sm:pb-0 pb-4 sm:text-[0.86rem] tracking-wide text-gray-800"
           style={{ whiteSpace: "pre-wrap" }}
         >
           <p>{product[0].description}</p>
