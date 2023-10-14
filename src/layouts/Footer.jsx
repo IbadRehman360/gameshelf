@@ -10,18 +10,18 @@ export default function Footer() {
         <div>
           <span className="footer-title">Services</span>
           <div className="grid gap-2 text-xs">
-            <Link className="link-hover link">Branding</a>
-            <Link className="link-hover link">Design</a>
-            <Link className="link-hover link">Marketing</a>
-            <Link className="link-hover link">Advertisement</a>
+            <Link className="link-hover link">Branding</Link>
+            <Link className="link-hover link">Design</Link>
+            <Link className="link-hover link">Marketing</Link>
+            <Link className="link-hover link">Advertisement</Link>
           </div>
         </div>
         <div className="hidden md:flex md:flex-col lg:flex">
           <div className="grid gap-2 text-xs lg:text-sm">
             <span className="footer-title">Legal</span>
-            <Link className="link-hover link">Terms of use</a>
-            <Link className="link-hover link">Privacy policy</a>
-            <Link className="link-hover link">Cookie policy</a>
+            <Link className="link-hover link">Terms of use</Link>
+            <Link className="link-hover link">Privacy policy</Link>
+            <Link className="link-hover link">Cookie policy</Link>
           </div>
         </div>
         <div className="flex-col sm:flex">
@@ -29,10 +29,10 @@ export default function Footer() {
           <div className="grid gap-2 text-xs lg:text-sm">
             <Link className="link-hover link" to="/about">
               About us
-            </a>
-            <Link className="link-hover link">Contact</a>
-            <Link className="link-hover link">Jobs</a>
-            <Link className="link-hover link">Press kit</a>
+            </Link>
+            <Link className="link-hover link">Contact</Link>
+            <Link className="link-hover link">Jobs</Link>
+            <Link className="link-hover link">Press kit</Link>
           </div>
         </div>
         <div className="col-span-2 mt-4 w-full sm:mt-0 md:flex md:flex-col lg:flex">
