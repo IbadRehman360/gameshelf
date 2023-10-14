@@ -71,7 +71,7 @@ export default function HomePage() {
         </div>
         {!session ? (
           <div
-            className="fixed bottom-0  py-2 bg-white w-full sm:hidden flex"
+            className="fixed bottom-0 py-2 bg-white w-full sm:hidden flex z-10"
             style={{ boxShadow: "0px -1px 0px rgba(0, 0, 0, 0.1)" }}
           >
             <Link
@@ -89,7 +89,7 @@ export default function HomePage() {
           </div>
         ) : (
           <div
-            className="fixed bottom-0 text-md py-2 pt-3 bg-white w-full md:hidden flex justify-around"
+            className="fixed bottom-0 text-md py-2 pt-3 bg-white w-full md:hidden flex justify-around z-10"
             style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
           >
             <Link to={"/"} className="flex flex-col items-center">
