@@ -14,8 +14,17 @@ const TrendingVideoGames = () => {
   };
 
   const handleNextPage = () => {
-    if (currentSlide < 2) setCurrentSlide(currentSlide + 1);
+    if (currentSlide < 1) {
+      setCurrentSlide(currentSlide + 1);
+    } else {
+      setCurrentSlide(0);
+    }
   };
+
+  const visibleData = videoCardData.slice(
+    currentSlide * 4,
+    (currentSlide + 1) * 4
+  );
 
   return (
     <div className="mb-8 sm:mb-12 mt-8 bg-[#fdfdfd]">
@@ -64,7 +73,7 @@ const TrendingVideoGames = () => {
           id="trendingVideoGamesSlide1"
           className="carousel-item w-full gap-2 xl:gap-4"
         >
-          {videoCardData.slice(0, 4).map((game) => (
+          {visibleData.map((game) => (
             <TrendingVideoGame key={game.id} game={game} />
           ))}
         </div>
@@ -72,7 +81,7 @@ const TrendingVideoGames = () => {
           id="trendingVideoGamesSlide2"
           className="carousel-item w-full gap-4 sm:gap-5 lg:gap-8"
         >
-          {videoCardData.slice(0, 4).map((game) => (
+          {visibleData.map((game) => (
             <TrendingVideoGame key={game.id} game={game} />
           ))}
         </div>
@@ -81,7 +90,7 @@ const TrendingVideoGames = () => {
       <div className="carousel relative w-full gap-x-4 rounded-lg sm:hidden">
         <div
           id="mbTrendingVideoGamesSlide1"
-          className="carousel-item w-full gap-2 sm:gap-5 md:gap-10"
+          className="carousel-item w-full gap-1  sm:gap-5 md:gap-10"
         >
           {videoCardData.slice(0, 2).map((game) => (
             <TrendingVideoGame key={game.id} game={game} />
@@ -89,7 +98,7 @@ const TrendingVideoGames = () => {
         </div>
         <div
           id="mbTrendingVideoGamesSlide2"
-          className="carousel-item w-full gap-4 sm:gap-5 md:gap-10"
+          className="carousel-item w-full gap-1  sm:gap-5 md:gap-10"
         >
           {videoCardData.slice(2, 4).map((game) => (
             <TrendingVideoGame key={game.id} game={game} />

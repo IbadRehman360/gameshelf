@@ -15,12 +15,12 @@ function PurchaseUser({ user }) {
   return (
     <>
       <div className=""></div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-3 sm:space-x-4">
         <span className="relative inline-block border-2 rounded-full border-gray-600 ">
           <Link to={`/profile/${user[0]?.seller_id?.username}`}>
             {user[0]?.seller_id?.avatar_image ? (
               <img
-                className="h-20 w-20 rounded-full"
+                className="h-[65px] w-[67px] sm:h-20 sm:w-20 rounded-full"
                 src={user[0]?.seller_id?.avatar_image}
                 alt=""
               />

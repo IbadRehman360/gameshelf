@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { AiFillMessage } from "react-icons/ai";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
@@ -37,21 +37,21 @@ export default function Header() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto border-b-[1px] border-gray-500 bg-[#3b404e] px-2 shadow-sm sm:px-2 lg:px-3 xl:px-5">
+          <div className="mx-auto border-b-[1px] border-gray-500 bg-[#3b404e] px-2 shadow-sm  xl:px-3 2xl:px-4 3xl:px-5">
             <div className="mx-2 flex h-16 justify-between sm:mx-6 md:h-[70px] xl:h-[90px]">
               <div className="flex lg:px-0">
                 <div className="flex shrink-0 items-center">
-                  <Link to="/">
-                    <img
-                      className="mr-3  sm:mr-4 mt-1.5 h-8 w-9 rounded-xl bg-gray-100 object-contain lg:h-8"
-                      src="/logo4.png"
-                      alt="Your Company"
-                    />
+                  <Link to="/" className="md:flex hidden items-center ">
+                    <div className="mr-3 sm:mr-4 mt-1 h-9 w-10 xl:h-[42px] xl:w-12 rounded-3xl bg-gradient-to-r  px-[18px] py-[2px] sm:px-[19px] sm:py-[12px]  lg:px-[20px] lg:py-[14px]  xl:px-[24px] xl:py-[20px]  bg-slate-100 hover:bg-slate-200  text-black flex items-center justify-center shadow-md hover:shadow-lg ">
+                      <div className="xl:text-[1.9rem] text-[1.55rem]  text-gray-700  font-bold tracking-tight">
+                        GS
+                      </div>
+                    </div>
                   </Link>
 
                   <Link
                     to="/"
-                    className="mt-1 min-w-fit text-[1.2rem] font-extrabold tracking-[0.35rem] sm:tracking-[0.4rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
+                    className="mt-1 min-w-fit text-[1.2rem] font-extrabold tracking-[0.35rem] sm:tracking-[0.45rem] text-gray-100 sm:text-[1.4rem] lg:ml-1 xl:text-[1.7rem]"
                   >
                     GAMERSHELF
                   </Link>
@@ -85,13 +85,12 @@ export default function Header() {
 
               {session ? (
                 <div className="hidden gap-6 md:flex md:items-center lg:ml-4">
-                  <NavLink
-                    className="mt-1 rounded-full bg-gray-50 px-9 py-[6px] text-[1.02rem] font-medium text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
-                    type="button"
+                  <Link
+                    className="mt-1 rounded-full bg-gray-50 px-9 py-[6px] text-[1.02rem] font-medium text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear  hover:shadow-md focus:outline-none active:bg-gray-400"
                     to={`/sell/${user[0]?.username}`}
                   >
                     Sell
-                  </NavLink>
+                  </Link>
                   <div className="group relative inline-block">
                     <img
                       src="/dollar(2).png"
@@ -111,9 +110,8 @@ export default function Header() {
                       </p>
                     </div>
                   </div>
-                  <a
-                    href="/chat"
-                    type="button"
+                  <Link
+                    to="/chat"
                     className="relative shrink-0 rounded-full text-gray-600 hover:text-slate-500"
                   >
                     <span className="absolute" />
@@ -122,7 +120,7 @@ export default function Header() {
                       className="m-1 h-[36px] w-10 text-gray-100 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       aria-hidden="true"
                     />
-                  </a>
+                  </Link>
                   <Menu as="div" className="relative shrink-0">
                     <div>
                       <Menu.Button className="relative flex rounded-full text-sm">
@@ -155,15 +153,15 @@ export default function Header() {
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href={`/profile/${user[0]?.username}`}
+                            <Link
+                              to={`/profile/${user[0]?.username}`}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm border-b text-gray-700 flex items-center"
                               )}
                             >
                               <FiUser className="mr-2" /> Your Profile
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                         <Menu.Item>
@@ -185,20 +183,18 @@ export default function Header() {
                 </div>
               ) : (
                 <div className="hidden gap-6 md:ml-4 md:flex md:items-center">
-                  <a
-                    className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:bg-gray-100 hover:shadow-md focus:outline-none active:bg-gray-400"
-                    type="button"
-                    href={!session ? "/login" : `/sell/${user[0]?.username}`}
+                  <Link
+                    className="mt-1 rounded-full  bg-gray-50 px-10 py-[7px] font-medium text-[1.rem] text-black opacity-95 shadow outline-none transition-all duration-150 ease-linear hover:shadow-md focus:outline-none active:bg-gray-400"
+                    to={!session ? "/login" : `/sell/${user[0]?.username}`}
                   >
                     Sell
-                  </a>
-                  <NavLink
+                  </Link>
+                  <Link
                     className="mt-1 rounded-full bg-rose-500 px-6 py-2.5 text-[0.9rem] font-medium text-gray-50 shadow outline-none transition-all duration-150 ease-linear hover:bg-rose-500 hover:opacity-95 hover:shadow-md focus:outline-none active:bg-gray-400"
-                    type="button"
                     to={"/login"}
                   >
                     Login / Sign up
-                  </NavLink>
+                  </Link>
                 </div>
               )}
             </div>
@@ -207,13 +203,12 @@ export default function Header() {
             {session && (
               <div className="space-y-1">
                 {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
-                <Disclosure.Button
-                  as="a"
-                  href={`/profile/${user[0]?.username}`}
+                <Link
+                  to={`/profile/${user[0]?.username}`}
                   className="block border-l-4 border-indigo-500 bg-indigo-50 py-3 pl-3 pr-4 text-base font-medium text-indigo-700"
                 >
                   View Profile
-                </Disclosure.Button>
+                </Link>
               </div>
             )}
 
@@ -281,54 +276,49 @@ export default function Header() {
               <div className={`${session ? "mt-3 pt-4" : ""} space-y-1`}>
                 {!session ? (
                   <>
-                    <Disclosure.Button
-                      as="a"
-                      href="/login"
-                      className="block border-t border-gray-600 px-4 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
+                    <Link
+                      to="/login"
+                      className="block border-t border-gray-600 px-4 py-3 text-[0.9rem] font-medium text-gray-200  hover:text-white rounded-md"
                     >
                       <FiLogIn className="inline-block mr-2" /> Login
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                      as="a"
-                      href="/register"
-                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white rounded-md"
+                    </Link>
+                    <Link
+                      to="/register"
+                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-gray-200 hover:text-white rounded-md"
                     >
                       <FiUserPlus className="inline-block mr-2" /> Sign Up
-                    </Disclosure.Button>
+                    </Link>
 
-                    {/* Additional unnecessary style buttons */}
-                    <Disclosure.Button
-                      as="a"
-                      href="/about"
-                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-blue-500 hover:bg-blue-100 hover:text-blue-700 rounded-md"
+                    <Link
+                      to="/about"
+                      className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-blue-500  hover:text-blue-700 rounded-md"
                     >
                       <FiInfo className="inline-block mr-2" /> About Us
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                      as="a"
-                      href="/profile/Ibad Khan"
+                    </Link>
+                    <Link
+                      to="/profile/Ibad Khan"
                       className="block px-4 border-t border-gray-600 py-3 text-[0.9rem] font-medium text-green-500 hover:bg-green-100 hover:text-green-700 rounded-md"
                     >
                       <FiMail className="inline-block mr-2" /> Contact Us
-                    </Disclosure.Button>
+                    </Link>
                   </>
                 ) : (
                   <>
-                    <Disclosure.Button
+                    <Link
                       as="a"
-                      href="/chat"
-                      className="flex items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                      to="/chat"
+                      className="flex items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200  hover:text-white"
                     >
                       <FiMessageCircle className="mr-2" /> Messages
-                    </Disclosure.Button>
+                    </Link>
 
-                    <Disclosure.Button
+                    <Link
                       as="a"
                       onClick={() => handleSignOut()}
-                      className="flex  items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200 hover:bg-gray-100 hover:text-white"
+                      className="flex  items-center border-t tracking-wide border-gray-600 px-2 py-3 pl-3 text-[0.9rem] font-medium text-gray-200  hover:text-white"
                     >
                       <FiLogOut className="mr-2" /> Logout
-                    </Disclosure.Button>
+                    </Link>
                   </>
                 )}
               </div>

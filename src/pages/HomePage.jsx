@@ -70,23 +70,26 @@ export default function HomePage() {
           <TrendingVideoGames />
         </div>
         {!session ? (
-          <div className="fixed bottom-0 py-2  bg-white w-full sm:hidden flex ">
+          <div
+            className="fixed bottom-0 py-2 bg-white w-full sm:hidden flex z-10"
+            style={{ boxShadow: "0px -1px 0px rgba(0, 0, 0, 0.1)" }}
+          >
             <Link
-              to={"/login"}
-              className="flex-1 text-center  ml-3 mr-2 bg-white border border-gray-400 text-gray-500 px-3 py-1 rounded-sm"
+              to={"login"}
+              className="flex-1 text-center  ml-4 mr-2 bg-white border border-gray-400 text-gray-500 px-3 py-1 rounded-sm"
             >
               Login
             </Link>
             <Link
-              to={"/register"}
-              className="flex-1 text-center  mr-3 bg-red-500 text-white px-3 py-1 rounded-sm"
+              to={"register"}
+              className="flex-1 text-center  mr-4 bg-red-500 text-white px-3 py-1 rounded-sm"
             >
               Sign Up
             </Link>
           </div>
         ) : (
           <div
-            className="fixed bottom-0 text-md py-2 pt-3 bg-white w-full md:hidden flex justify-around"
+            className="fixed bottom-0 text-md py-2 pt-3 bg-white w-full md:hidden flex justify-around z-10"
             style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
           >
             <Link to={"/"} className="flex flex-col items-center">
@@ -97,7 +100,10 @@ export default function HomePage() {
               <FontAwesomeIcon icon={faComments} style={{ color: "gray" }} />
               <span className="text-xs mt-1">Chat</span>
             </Link>
-            <Link to={"/sell"} className="flex flex-col items-center">
+            <Link
+              to={`/sell/${user?.username}`}
+              className="flex flex-col items-center"
+            >
               <FontAwesomeIcon
                 icon={faShoppingCart}
                 style={{ color: "gray" }}

@@ -21,27 +21,23 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [checkPassword, setCheckPassword] = useState(false);
+  const [errorCount, setErrorCount] = useState(0); // Track the error count
+
   const navigate = useNavigate();
 
   const { handleSubmit } = useForm();
 
-  useEffect(() => {
-    CheckAuth().then((data) => {
-      if (data) {
-        setIslogged(true);
-      } else {
-        setIslogged(false);
-      }
-    });
-  }, []);
-
   function checkPasswordErrors() {
-    setCheckPassword(true);
-    if (confirmPassword.length < 8) return true;
-    if (username.length < 2) return true;
-    if (password != confirmPassword) return true;
-    setCheckPassword(false);
+    let newErrorCount = 0;
+
+    if (confirmPassword.length < 8) {
+      newErrorCount++;
+    }
+    if (password !== confirmPassword) {
+      newErrorCount++;
+    }
+
+    setErrorCount(newErrorCount);
   }
 
   useEffect(() => {
@@ -171,39 +167,44 @@ export default function RegisterPage() {
                   />
                 </div>
               </div>
-              {checkPassword && (
-                <div className="rounded-md bg-red-50 p-4">
-                  <div className="flex">
-                    <div className="shrink-0">
-                      <HiXCircle
-                        className="h-5 w-5 text-red-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <h3 className="text-sm font-medium text-red-800">
-                        There were 2 errors
-                      </h3>
+              {errorCount > 0 &&
+                (confirmPassword.length < 8 ||
+                  confirmPassword !== password) && (
+                  <div className="rounded-md bg-red-50 p-4">
+                    <div className="flex">
+                      <div className="shrink-0">
+                        <HiXCircle
+                          className="h-5 w-5 text-red-400"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-red-800">
+                          There are {errorCount} errors
+                        </h3>
 
-                      <div className="mt-2 text-sm text-red-700">
-                        <ul role="list" className="list-disc space-y-1 pl-5">
-                          {confirmPassword.length < 8 && (
-                            <li>Your password must be at least 8 characters</li>
-                          )}
-                          {confirmPassword != password && (
-                            <li>Your password does not match</li>
-                          )}
-                        </ul>
+                        <div className="mt-2 text-sm text-red-700">
+                          <ul role="list" className="list-disc space-y-1 pl-5">
+                            {confirmPassword.length < 8 && (
+                              <li>
+                                Your password must be at least 8 characters
+                              </li>
+                            )}
+                            {confirmPassword !== password && (
+                              <li>Your password does not match</li>
+                            )}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
+                )}
 
               <div>
                 <button
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-navy-blue px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#323447] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  disabled={errorCount > 0} // Disable the button if there are errors
                 >
                   Register
                 </button>

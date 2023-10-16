@@ -53,9 +53,9 @@ export default function DashboardSearchBar(games) {
           className="relative w-16 border-l-[1px] p-2 text-left sm:inline-block sm:w-fit sm:border-0 sm:py-0"
         >
           <div>
-            <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-lg rounded-l-none px-3 py-[0.44rem] text-sm font-semibold text-gray-900 sm:hidden sm:justify-center sm:rounded-md sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50 md:py-2">
+            <button className="inline-flex w-full justify-center gap-x-1.5 rounded-lg rounded-l-none px-3 py-[0.44rem] text-sm font-semibold text-gray-900 sm:hidden sm:justify-center sm:rounded-md sm:shadow-sm sm:ring-1 sm:ring-inset sm:ring-gray-300 sm:hover:bg-gray-50 md:py-2">
               <RiFilter3Line className="inline-block h-5 w-5" />
-            </Menu.Button>
+            </button>
           </div>
 
           <Transition

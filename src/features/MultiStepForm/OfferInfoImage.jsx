@@ -21,7 +21,7 @@ function OfferInfoComponent({ register, validationErrors }) {
         ></textarea>
       </div>
       {validationErrors.description && (
-        <div className=" mb-5 mt-2  w-2/4 rounded-md border  border-red-500 px-5 py-1.5 text-sm tracking-wide text-red-700">
+        <div className=" text-sm border w-full  sm:w-80 mt-3 border-red-500  tracking-wide text-red-700 px-5 py-1.5 rounded-md ">
           <div className="flex items-center">
             <FaExclamationCircle className="mr-2.5 mt-0.5" />
             {validationErrors.description}

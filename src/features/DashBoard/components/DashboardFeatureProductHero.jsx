@@ -20,7 +20,7 @@ export default function DashboardFeatureProductHero({
           <h2 className="text-2xl font-bold tracking-tight text-gray-700 sm:text-3xl lg:text-4xl">
             Welcome to the Game Store
           </h2>
-          <p className="mt-4 text-[0.9rem] leading-6 text-gray-500 sm:text-sm">
+          <p className="mt-4 text-[0.85rem] leading-6 text-gray-500 sm:text-sm">
             Your Ultimate Destination for In-Game Purchases, Enhancements, and
             Personalization Stay connected with the latest trends and special
             offers. Follow us on social media for updates{" "}

@@ -83,7 +83,6 @@ export default function MessageBox() {
                         className="mb-1   text-gray-600"
                         size={24}
                       />{" "}
-                      {/* Add the message icon here */}
                     </span>
                   </div>
                 </a>

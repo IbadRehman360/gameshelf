@@ -1,7 +1,16 @@
+import { useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-const ProductImage = ({ imageUrl, currentImageIndex, onNextClick }) => {
+const ProductImage = ({ product }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const imageUrl =
+    product[0].images === null ? null : product[0]?.images[currentImageIndex];
+  const onNextClick = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex + 1) % product[0]?.images.length
+    );
+  };
   if (imageUrl) {
     return (
       <div className="relative">
@@ -36,7 +45,6 @@ const ProductImage = ({ imageUrl, currentImageIndex, onNextClick }) => {
       </div>
     );
   } else {
-    // Render a fallback image or your second thing here
     return (
       <div className="flex justify-center">
         <img className="w-36" src="/NOIMAGE2.webp" alt="No Image" />

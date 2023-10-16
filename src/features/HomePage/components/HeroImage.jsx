@@ -4,6 +4,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../context/AuthProvider";
 import useGetUser from "../../../layouts/getUser";
+
 const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
@@ -11,7 +12,7 @@ const navigation = [
   { name: "Company", href: "#" },
 ];
 
-const darkSlides = [0, 1, 2, 3, 8, 6];
+const darkSlides = [0, 1, 2, 3, 4, 5, 8, 7, 6];
 
 export default function HeroImages({ index, imageUrl }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function HeroImages({ index, imageUrl }) {
 
   return (
     <div className="relative">
-      <div className="h-[34vh] w-full border-b-4 border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
+      <div className="h-[32vh] w-full border-b    object-contain border-gray-400 sm:h-[52vh] md:h-[55vh] lg:h-[55vh] xl:h-[44vh]">
         <img
           className="h-full w-full object-cover"
           src={`/HeroImages/${imageUrl}`}
@@ -33,16 +34,14 @@ export default function HeroImages({ index, imageUrl }) {
         aria-label="Global"
       >
         <div className="flex flex-1 justify-end">
-          {!session && (
-            <NavLink
-              to="/about"
-              className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-50 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${
-                darkSlides.includes(index) ? "text-white " : "text-gray-900"
-              }`}
-            >
-              About Us <span aria-hidden="true">&rarr;</span>
-            </NavLink>
-          )}
+          <NavLink
+            to="/about"
+            className={`mr-2 mt-4  text-[0.8rem] font-semibold  leading-6  hover:text-stone-50 sm:mr-4 sm:text-sm md:mt-0 md:text-[1rem] lg:text-[1rem] ${
+              darkSlides.includes(index) ? "text-white " : "text-gray-900"
+            }`}
+          >
+            About Us <span aria-hidden="true">&rarr;</span>
+          </NavLink>
         </div>
       </nav>
       <header className="absolute left-1/2 top-1/2 z-50 mt-4 w-full -translate-x-1/2 -translate-y-1/2">
@@ -120,12 +119,12 @@ export default function HeroImages({ index, imageUrl }) {
             </p>
           </h3>
           <div className="my-4 mt-6 flex items-center justify-center gap-x-6 place-self-center text-center align-middle sm:my-0 sm:mt-6 lg:mt-8 lg:gap-x-8">
-            <a
-              href={!session ? "/login" : `/sell/${user[0]?.username}`}
+            <Link
+              to={!session ? "login" : `/sell/${user[0]?.username}`}
               className="flex h-8 w-24 items-center justify-center  rounded-md bg-rose-600 text-[0.66rem] font-semibold text-gray-200 shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:h-9 sm:text-xs md:h-9 md:w-28 lg:h-10 lg:w-32 lg:py-4  2xl:h-14 2xl:text-[1.03rem]"
             >
               Start Selling
-            </a>
+            </Link>
 
             <Link
               to="/dashboard"
