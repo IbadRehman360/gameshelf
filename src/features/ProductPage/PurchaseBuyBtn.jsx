@@ -26,18 +26,18 @@ export default function PurchaseBuyBtn({ product }) {
     } else if (product[0]?.price > buyerCoins) {
       toast.error("You don't have enough coins to purchase");
     } else {
-      try {
-        const formattedBuyerCoin = parseInt(buyerCoins - product[0]?.price);
-        navigate(`/chat/new/${product[0]?.seller_id.id}`);
-        toast.success("You have successfully made your purchase.");
-        const deletedProduct = await mutate({
-          formattedBuyerCoin,
-          buyerID,
-          sellerProductId: product[0]?.id,
-        });
-      } catch (error) {
-        console.error("Error purchasing the product:", error);
-      }
+      // try {
+      //   const formattedBuyerCoin = parseInt(buyerCoins - product[0]?.price);
+      navigate(`/chat/new/${product[0]?.seller_id.id}`);
+      //   toast.success("You have successfully made your purchase.");
+      //   const deletedProduct = await mutate({
+      //     formattedBuyerCoin,
+      //     buyerID,
+      //     sellerProductId: product[0]?.id,
+      //   });
+      // } catch (error) {
+      //   console.error("Error purchasing the product:", error);
+      // }
     }
   };
 
