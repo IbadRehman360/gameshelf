@@ -124,7 +124,7 @@ function MultiStepForm({ user }) {
       <div className="border border-gray-300">
         <Step />{" "}
         <form>
-          <FakeCall />
+          {/* <FakeCall /> */}
           <div className="grid gap-4 px-5 py-10 sm:px-8">
             {stepComponents[step]}
             <div className="mt-2 flex justify-between">
